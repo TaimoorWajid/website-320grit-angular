@@ -13,6 +13,15 @@ import { SmoothScrollService } from '../../../../core/services/smooth-scroll.ser
 import { MarketIconComponent } from '../../../markets/shared/market-icon/market-icon.component';
 import { MARKET_IMG } from '../../../markets/shared/market-assets';
 
+interface MarketChip {
+  /** MARKET_ICONS registry key for the circular chip icon. */
+  icon: string;
+  /** Small gray uppercase line. */
+  line1: string;
+  /** White bold uppercase line. */
+  line2: string;
+}
+
 interface MarketCard {
   /** Verbatim tab label from staging (note: last five are uppercase). */
   label: string;
@@ -23,7 +32,7 @@ interface MarketCard {
   title: string;
   bullets: string[];
   paragraph: string;
-  tags: string[];
+  chips: MarketChip[];
   href: string;
   /** Full-bleed card background photo. */
   bg: string;
@@ -37,7 +46,12 @@ interface MarketCard {
  */
 const PLACEHOLDER_BULLETS = ['Treatment Centers', 'Behavioral Clinics', 'Recovery Facilities', 'Patient Housing'];
 const PLACEHOLDER_PARAGRAPH = 'Spaces thoughtfully designed to promote comfort, dignity, and healing.';
-const PLACEHOLDER_TAGS = ['DESIGN BUILD', 'CONSTRUCTION INSIGHT', 'DISCRETION', 'WELLNESS FOCUSED'];
+const PLACEHOLDER_CHIPS: MarketChip[] = [
+  { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
+  { icon: 'building', line1: 'CONSTRUCTION', line2: 'INSIGHT' },
+  { icon: 'shield', line1: '', line2: 'DISCRETION' },
+  { icon: 'shield-check', line1: 'WELLNESS', line2: 'FOCUSED' },
+];
 
 /**
  * Section — "Markets we served" sticky scroll-spy.
@@ -64,7 +78,12 @@ export class HomeMarketsComponent {
       title: 'Rail Infrastructure',
       bullets: ['Track Systems', 'Operations Facilities', 'Signal Buildings', 'Maintenance Yards'],
       paragraph: 'A luxury hillside residence designed for comfort, privacy, and timeless living.',
-      tags: ['DESIGN BUILD', 'RAIL INFRASTRUCTURE', 'MISSION CRITICAL', 'SAFETY FIRST'],
+      chips: [
+        { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
+        { icon: 'train', line1: 'RAIL', line2: 'INFRASTRUCTURE' },
+        { icon: 'shield', line1: 'MISSION', line2: 'CRITICAL' },
+        { icon: 'shield-check', line1: 'SAFETY', line2: 'FIRST' },
+      ],
       href: '/industries/railroads',
       bg: MARKET_IMG.labour,
     },
@@ -76,7 +95,12 @@ export class HomeMarketsComponent {
       title: 'Hospital / MOB / Imaging',
       bullets: ['Hospitals', 'Medical Office Buildings', 'Imaging Centers', 'Outpatient Facilities'],
       paragraph: 'Precision-built healthcare environments designed around patient care.',
-      tags: ['DESIGN BUILD', 'MISSION CRITICAL', 'CODE COMPLIANCE', 'PATIENT FOCUSED'],
+      chips: [
+        { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
+        { icon: 'shield', line1: 'MISSION', line2: 'CRITICAL' },
+        { icon: 'building-medical', line1: 'CODE', line2: 'COMPLIANCE' },
+        { icon: 'shield-check', line1: 'PATIENT', line2: 'FOCUSED' },
+      ],
       href: '/industries/healthcare',
       bg: MARKET_IMG.lab,
     },
@@ -88,7 +112,7 @@ export class HomeMarketsComponent {
       title: 'Healing Environments',
       bullets: [...PLACEHOLDER_BULLETS],
       paragraph: PLACEHOLDER_PARAGRAPH,
-      tags: [...PLACEHOLDER_TAGS],
+      chips: [...PLACEHOLDER_CHIPS],
       href: '/industries/behavioral-health',
       bg: MARKET_IMG.residence,
     },
@@ -100,7 +124,7 @@ export class HomeMarketsComponent {
       title: 'Research & Laboratory',
       bullets: [...PLACEHOLDER_BULLETS],
       paragraph: PLACEHOLDER_PARAGRAPH,
-      tags: [...PLACEHOLDER_TAGS],
+      chips: [...PLACEHOLDER_CHIPS],
       href: '/industries/advanced-technology',
       bg: MARKET_IMG.lab,
     },
@@ -112,7 +136,7 @@ export class HomeMarketsComponent {
       title: 'Corporate & Office',
       bullets: [...PLACEHOLDER_BULLETS],
       paragraph: PLACEHOLDER_PARAGRAPH,
-      tags: [...PLACEHOLDER_TAGS],
+      chips: [...PLACEHOLDER_CHIPS],
       href: '/commercial-construction',
       bg: '',
       bgFallback: true,
@@ -125,7 +149,7 @@ export class HomeMarketsComponent {
       title: 'Modern Interior Transformations',
       bullets: [...PLACEHOLDER_BULLETS],
       paragraph: PLACEHOLDER_PARAGRAPH,
-      tags: [...PLACEHOLDER_TAGS],
+      chips: [...PLACEHOLDER_CHIPS],
       href: '/industries/tenant-improvement',
       bg: MARKET_IMG.planning,
     },
@@ -137,7 +161,7 @@ export class HomeMarketsComponent {
       title: 'Learning Environments',
       bullets: [...PLACEHOLDER_BULLETS],
       paragraph: PLACEHOLDER_PARAGRAPH,
-      tags: [...PLACEHOLDER_TAGS],
+      chips: [...PLACEHOLDER_CHIPS],
       href: '/industries/education',
       bg: MARKET_IMG.industries,
     },
@@ -149,7 +173,7 @@ export class HomeMarketsComponent {
       title: 'Hotels & Guest Experiences',
       bullets: [...PLACEHOLDER_BULLETS],
       paragraph: PLACEHOLDER_PARAGRAPH,
-      tags: [...PLACEHOLDER_TAGS],
+      chips: [...PLACEHOLDER_CHIPS],
       href: '/industries/hospitality',
       bg: MARKET_IMG.lobby,
     },

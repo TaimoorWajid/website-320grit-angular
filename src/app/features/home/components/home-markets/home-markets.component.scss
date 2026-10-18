@@ -246,18 +246,34 @@
   width: 26px;
   height: 26px;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1.5px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
+  color: #fff;
 }
 
 .markets__chip-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.markets__chip-line1 {
+  color: #a1a1aa;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.markets__chip-line2 {
   color: #fff;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  white-space: nowrap;
 }
 
 /* Explore More: transparent, thin purple outline, white text + dash. */

@@ -49,10 +49,17 @@
                 </ul>
                 <p class="markets__text">{{ card.paragraph }}</p>
                 <ul class="markets__chips">
-                  @for (tag of card.tags; track tag) {
+                  @for (chip of card.chips; track chip.line2) {
                     <li class="markets__chip">
-                      <span class="markets__chip-icon" aria-hidden="true"></span>
-                      <span class="markets__chip-text">{{ tag }}</span>
+                      <span class="markets__chip-icon" aria-hidden="true">
+                        <app-market-icon [name]="chip.icon" [size]="14" stroke="1.75" />
+                      </span>
+                      <span class="markets__chip-text">
+                        @if (chip.line1) {
+                          <span class="markets__chip-line1">{{ chip.line1 }}</span>
+                        }
+                        <span class="markets__chip-line2">{{ chip.line2 }}</span>
+                      </span>
                     </li>
                   }
                 </ul>
