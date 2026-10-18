@@ -100,7 +100,7 @@
 .markets__cards {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(4rem, 8vw, 8rem);
   padding-bottom: 2rem;
 }
 
@@ -136,7 +136,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: clamp(2rem, 4vw, 4rem);
+  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem) clamp(3rem, 6vw, 6rem);
 }
 
 /* Giant outlined/ghost number. */
@@ -213,7 +213,7 @@
 
 .markets__text {
   margin: 0 0 2rem;
-  max-width: 60ch;
+  max-width: 30rem;
   color: #e8e8e8;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -234,12 +234,25 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex: 1 1 0;
+  min-width: 0;
   padding: 0.7rem 1.1rem;
   background: rgba(10, 10, 10, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  transition:
+    background var(--grit-duration-fast) var(--grit-ease-smooth),
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth),
+    transform var(--grit-duration-fast) var(--grit-ease-smooth);
+  cursor: default;
+}
+
+.markets__chip:hover {
+  background: rgba(121, 44, 213, 0.25);
+  border-color: var(--grit-accent-violet);
+  transform: translateY(-2px);
 }
 
 .markets__chip-icon {
@@ -281,25 +294,28 @@
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
+  min-width: 200px;
   padding: 0.85rem 1.75rem;
   border: 1.5px solid var(--grit-accent-violet);
   border-radius: 10px;
   background: transparent;
   color: #fff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition:
     background var(--grit-duration-fast) var(--grit-ease-smooth),
-    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth),
+    transform var(--grit-duration-fast) var(--grit-ease-smooth);
 }
 
 .markets__explore:hover {
   background: var(--grit-accent-violet);
   border-color: var(--grit-accent-violet);
+  transform: translateY(-2px);
 }
 
 .markets__explore-dash {
@@ -343,6 +359,10 @@
 
   .markets__card {
     min-height: 560px;
+  }
+
+  .markets__card-inner {
+    padding: clamp(1.5rem, 5vw, 2.5rem);
   }
 
   .markets__number {
