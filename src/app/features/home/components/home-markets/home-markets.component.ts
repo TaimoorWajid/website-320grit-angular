@@ -96,25 +96,38 @@ export class HomeMarketsComponent {
       bullets: ['Hospitals', 'Medical Office Buildings', 'Imaging Centers', 'Outpatient Facilities'],
       paragraph: 'Precision-built healthcare environments designed around patient care.',
       chips: [
-        { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
-        { icon: 'shield', line1: 'MISSION', line2: 'CRITICAL' },
-        { icon: 'building-medical', line1: 'CODE', line2: 'COMPLIANCE' },
-        { icon: 'shield-check', line1: 'PATIENT', line2: 'FOCUSED' },
+        { icon: 'shield-check', line1: 'DESIGN', line2: 'BUILD' },
+        { icon: 'shield-plus', line1: 'MISSION', line2: 'CRITICAL' },
+        { icon: 'shield', line1: 'CODE', line2: 'COMPLIANCE' },
+        { icon: 'heart', line1: 'PATIENT', line2: 'FOCUSED' },
       ],
       href: '/industries/healthcare',
-      bg: MARKET_IMG.lab,
+      bg: MARKET_IMG.healthcare,
     },
     {
       label: 'Behavioral Health',
       number: '03',
-      icon: 'home-door',
+      icon: 'plus-circle',
       eyebrow: 'BEHAVIORAL HEALTH',
       title: 'Healing Environments',
-      bullets: [...PLACEHOLDER_BULLETS],
-      paragraph: PLACEHOLDER_PARAGRAPH,
-      chips: [...PLACEHOLDER_CHIPS],
+      bullets: [
+        'Inpatient Psychiatric Units',
+        'Residential Treatment Centers',
+        'Outpatient Behavioral Clinics',
+        'Crisis Stabilization Units',
+      ],
+      paragraph:
+        '320 Grit designs and builds behavioral health facilities where safety and dignity come first. ' +
+        'From ligature-resistant inpatient units to warm residential treatment centers, we deliver ' +
+        'therapeutic environments across California that meet OSHPD and licensing standards — on time and on budget.',
+      chips: [
+        { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
+        { icon: 'shield-check', line1: 'LIGATURE', line2: 'RESISTANT' },
+        { icon: 'bed', line1: 'INPATIENT', line2: 'CARE' },
+        { icon: 'users', line1: 'TRAUMA', line2: 'INFORMED' },
+      ],
       href: '/industries/behavioral-health',
-      bg: MARKET_IMG.residence,
+      bg: MARKET_IMG.behavioralHealth,
     },
     {
       label: 'ADVANCED TECHNOLOGY',
@@ -122,9 +135,22 @@ export class HomeMarketsComponent {
       icon: 'cpu',
       eyebrow: 'ADVANCED TECHNOLOGY',
       title: 'Research & Laboratory',
-      bullets: [...PLACEHOLDER_BULLETS],
-      paragraph: PLACEHOLDER_PARAGRAPH,
-      chips: [...PLACEHOLDER_CHIPS],
+      bullets: [
+        'Data Centers & Mission-Critical Facilities',
+        'Life Sciences & Research Laboratories',
+        'Cleanrooms & Controlled Environments',
+        'Advanced Manufacturing Plants',
+      ],
+      paragraph:
+        'Technology facilities leave no room for error — and neither do we. 320 Grit builds data centers, ' +
+        'laboratories, and cleanrooms with the power redundancy, precision environmental controls, and security ' +
+        'that mission-critical operations demand, delivering zero-downtime construction across California.',
+      chips: [
+        { icon: 'server', line1: 'DATA', line2: 'CENTERS' },
+        { icon: 'cpu', line1: 'MISSION', line2: 'CRITICAL' },
+        { icon: 'flask-simple', line1: 'CLEANROOM', line2: 'CERTIFIED' },
+        { icon: 'zap', line1: 'ZERO', line2: 'DOWNTIME' },
+      ],
       href: '/industries/advanced-technology',
       bg: MARKET_IMG.lab,
     },
@@ -134,46 +160,97 @@ export class HomeMarketsComponent {
       icon: 'building',
       eyebrow: 'COMMERCIAL',
       title: 'Corporate & Office',
-      bullets: [...PLACEHOLDER_BULLETS],
-      paragraph: PLACEHOLDER_PARAGRAPH,
-      chips: [...PLACEHOLDER_CHIPS],
+      bullets: [
+        'Corporate Offices & Headquarters',
+        'Retail Centers & Mixed-Use',
+        'Ground-Up Commercial Buildings',
+        'Commercial Renovations & Expansions',
+      ],
+      paragraph:
+        'Great commercial spaces drive business results. 320 Grit delivers Class A offices, retail centers, and ' +
+        'mixed-use developments across California with design-build efficiency, transparent costs, and schedules ' +
+        'that get tenants in faster — maximizing long-term value for owners and developers.',
+      chips: [
+        { icon: 'building', line1: 'GROUND', line2: 'UP' },
+        { icon: 'building-windows', line1: 'CLASS A', line2: 'OFFICE' },
+        { icon: 'dollar', line1: 'VALUE', line2: 'ENGINEERING' },
+        { icon: 'users', line1: 'TENANT', line2: 'FOCUSED' },
+      ],
       href: '/commercial-construction',
-      bg: '',
-      bgFallback: true,
+      bg: MARKET_IMG.commercial,
     },
     {
       label: 'TENANT IMPROVEMENT',
       number: '06',
-      icon: 'wrench',
+      icon: 'pencil',
       eyebrow: 'TENANT IMPROVEMENT',
       title: 'Modern Interior Transformations',
-      bullets: [...PLACEHOLDER_BULLETS],
-      paragraph: PLACEHOLDER_PARAGRAPH,
-      chips: [...PLACEHOLDER_CHIPS],
+      bullets: [
+        'Office Build-Outs & Reconfigurations',
+        'Corporate Headquarters Renovations',
+        'Retail & Restaurant Tenant Improvements',
+        'Medical & Lab Interior Fit-Outs',
+      ],
+      paragraph:
+        'From concept to keys, 320 Grit delivers tenant improvements that turn empty shells into high-performing workplaces. ' +
+        'Our California TI teams specialize in fast-track office build-outs, corporate renovations, and occupied-space ' +
+        'construction — minimizing downtime while maximizing the return on your space.',
+      chips: [
+        { icon: 'building', line1: 'OFFICE', line2: 'BUILD-OUTS' },
+        { icon: 'shield', line1: 'MINIMAL', line2: 'DOWNTIME' },
+        { icon: 'shield-dot', line1: 'OCCUPIED', line2: 'SPACE EXPERTS' },
+        { icon: 'heart', line1: 'TENANT', line2: 'FOCUSED' },
+      ],
       href: '/industries/tenant-improvement',
       bg: MARKET_IMG.planning,
     },
     {
       label: 'EDUCATION',
       number: '07',
-      icon: 'school',
+      icon: 'graduation-cap',
       eyebrow: 'EDUCATION',
       title: 'Learning Environments',
-      bullets: [...PLACEHOLDER_BULLETS],
-      paragraph: PLACEHOLDER_PARAGRAPH,
-      chips: [...PLACEHOLDER_CHIPS],
+      bullets: [
+        'K-12 Schools & Campuses',
+        'Higher Education Facilities',
+        'Classroom Modernizations',
+        'Gyms, Labs & Libraries',
+      ],
+      paragraph:
+        '320 Grit builds learning environments engineered for the next generation. From K-12 campuses to university ' +
+        'facilities across California, we deliver classrooms, laboratories, and athletic spaces on tight academic ' +
+        'calendars — with student safety, durability, and the learning experience at the center of every build.',
+      chips: [
+        { icon: 'building', line1: 'K-12', line2: 'CAMPUSES' },
+        { icon: 'graduation-cap', line1: 'HIGHER', line2: 'EDUCATION' },
+        { icon: 'shield', line1: 'STUDENT', line2: 'SAFETY FIRST' },
+        { icon: 'heart', line1: 'COMMUNITY', line2: 'FOCUSED' },
+      ],
       href: '/industries/education',
       bg: MARKET_IMG.industries,
     },
     {
       label: 'HOSPITALITY',
       number: '08',
-      icon: 'utensils',
+      icon: 'bell',
       eyebrow: 'HOSPITALITY',
       title: 'Hotels & Guest Experiences',
-      bullets: [...PLACEHOLDER_BULLETS],
-      paragraph: PLACEHOLDER_PARAGRAPH,
-      chips: [...PLACEHOLDER_CHIPS],
+      bullets: [
+        'Hotels & Resorts',
+        'Restaurants & Bars',
+        'Lobbies & Common Areas',
+        'Guest Room Renovations',
+      ],
+      paragraph:
+        'Great hospitality is built on unforgettable guest experiences — and so is 320 Grit. We deliver hotel ' +
+        'construction, restaurant build-outs, and resort renovations across California, crafting lobbies, guest rooms, ' +
+        'and dining spaces that keep guests coming back.',
+      chips: [
+        { icon: 'building', line1: 'HOTELS', line2: '& RESORTS' },
+        { icon: 'utensils', line1: 'RESTAURANT', line2: 'BUILD-OUTS' },
+        { icon: 'shield', line1: 'BRAND', line2: 'STANDARDS' },
+        { icon: 'heart', line1: 'GUEST', line2: 'EXPERIENCE' },
+      ],
       href: '/industries/hospitality',
       bg: MARKET_IMG.lobby,
     },

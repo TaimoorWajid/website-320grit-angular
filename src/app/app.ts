@@ -31,45 +31,7 @@ export class App {
       this.animations.setup();
       // Lenis smooth scroll (skipped on server + reduced motion).
       this.smoothScroll.initialize();
-      // Custom scrollbar: visible while scrolling, fades after 1s idle
-      // (ports salient-child/assets/js/header.js).
-      this.initScrollbarVisibility();
       this.destroyRef.onDestroy(() => this.smoothScroll.destroy());
-    });
-  }
-
-  private initScrollbarVisibility(): void {
-    const htmlEl = document.documentElement;
-    let scrollTimeout: ReturnType<typeof setTimeout>;
-    const HOVER_ZONE_PX = 16;
-
-    const show = () => htmlEl.classList.add('sb-visible');
-    const hideIfIdle = () => {
-      if (!htmlEl.classList.contains('sb-hovering')) htmlEl.classList.remove('sb-visible');
-    };
-
-    const onScroll = () => {
-      show();
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(hideIfIdle, 1000);
-    };
-    const onMouseMove = (e: MouseEvent) => {
-      if (e.clientX >= window.innerWidth - HOVER_ZONE_PX) {
-        htmlEl.classList.add('sb-hovering');
-        show();
-      } else {
-        htmlEl.classList.remove('sb-hovering');
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(hideIfIdle, 1000);
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    this.destroyRef.onDestroy(() => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('mousemove', onMouseMove);
-      clearTimeout(scrollTimeout);
     });
   }
 }

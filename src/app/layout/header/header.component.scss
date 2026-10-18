@@ -28,7 +28,7 @@
   height: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 30px;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,19 +102,34 @@
   background: var(--grit-accent-violet);
   border: 1px solid var(--grit-accent-violet);
   border-radius: 10px;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   white-space: nowrap;
+}
+
+.grit-nav__cta > span {
+  display: inline-block;
+  transition: transform 0.4s var(--grit-ease-smooth);
 }
 
 .grit-nav__cta svg {
   width: 16px;
   height: 16px;
+  transition: transform 0.4s var(--grit-ease-smooth);
 }
 
+/* Site-wide hover pattern: text shifts slightly left, arrow slides right. */
 .grit-nav__cta:hover {
   background: var(--grit-accent-violet-light);
   transform: translateY(-2px);
   box-shadow: 0 10px 26px rgba(121, 44, 213, 0.35);
+}
+
+.grit-nav__cta:hover > span {
+  transform: translateX(-4px);
+}
+
+.grit-nav__cta:hover svg {
+  transform: translateX(4px);
 }
 
 /* ---- Mega menu panel ---- */

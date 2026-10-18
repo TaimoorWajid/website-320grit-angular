@@ -49,6 +49,8 @@ export const MARKET_ICONS: Record<string, string> = {
   plus: '<path d="M12 2v20M2 12h20"/>',
   'plus-circle': '<circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/>',
   'building-medical': '<path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/>',
+  heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  'shield-plus': '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v6M9 11h6"/>',
   bed: '<path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/>',
   'info-circle': '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
   'sun-alt': '<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>',
@@ -63,7 +65,10 @@ export const MARKET_ICONS: Record<string, string> = {
   search: '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>',
   'check-square': '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>',
   partition: '<path d="M3 3h18v18H3zM3 9h18M9 3v18"/>',
-  dollar: '<path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>',
+  // Icons for markets cards 03-08 (staging + SEO content)
+  pencil: '<path d="M15 4l5 5"/><path d="M13 6l5 5"/><path d="M4 20l7-7"/><path d="M8 4l4 4"/><path d="M6 2L2 6l4 4"/>',
+  'shield-dot': '<path d="M12 2L5 5v6c0 5 3.5 8.5 7 10 3.5-1.5 7-5 7-10V5z"/><circle cx="12" cy="11" r="2"/>',
+  bell: '<path d="M4 17h16"/><path d="M6 17a6 6 0 0112 0"/><path d="M12 5v1"/><circle cx="12" cy="4" r="1"/>',
 };
 
 /** The 16×16 arrow used inside primary/ghost buttons (verbatim from templates). */
