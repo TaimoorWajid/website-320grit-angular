@@ -57,6 +57,11 @@
   padding: 2rem 0;
 }
 
+/* Staging: .content-spacing-45vh .nectar-sticky-media-section__content-section:not(:last-child){margin-bottom:45vh;} */
+.what-we-do__card:not(:last-child) {
+  margin-bottom: 45vh;
+}
+
 .what-we-do__eyebrow {
   margin: 0 0 1rem;
   color: var(--grit-accent-violet);
