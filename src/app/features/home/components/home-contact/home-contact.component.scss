@@ -1,8 +1,17 @@
-/* Project inquiry form — ported from project-inquiry-form.css. */
+/* Project inquiry form — ported from project-inquiry-form.css.
+   Staging behavior (Salient nectar-color-change-bg): the section starts with
+   a black background; when the form is ~40% visible on scroll, the background
+   transitions to orange (#FF5D0E) over 0.8s. Implemented via a
+   `contact-orange` class on <body>, toggled by IntersectionObserver. */
 
 .home-contact {
-  background: var(--grit-accent-orange);
+  background: #000000;
+  transition: background-color 0.8s ease;
   padding: 5rem 0;
+}
+
+:host-context(body.contact-orange) .home-contact {
+  background: var(--grit-accent-orange);
 }
 
 .inquiry-form {

@@ -11,7 +11,14 @@
   outline: none;
 }
 
-/* On staging the footer lives inside the orange contact section. */
+/* On staging the footer lives inside the orange contact section, and the
+   orange background is scroll-triggered (black until the form is ~40%
+   visible). The `contact-orange` body class drives both transitions. */
 .footer-band--home {
+  background: #000000;
+  transition: background-color 0.8s ease;
+}
+
+body.contact-orange .footer-band--home {
   background: var(--grit-accent-orange);
 }

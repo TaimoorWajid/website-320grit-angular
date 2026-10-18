@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { APP_CONFIG } from '../../../../core/config/app-config';
@@ -33,6 +33,34 @@ const US_STATES = [
 export class HomeContactComponent {
   private readonly fb = inject(FormBuilder);
   private readonly http = inject(HttpClient);
+  private readonly el = inject(ElementRef<HTMLElement>);
+  private readonly destroyRef = inject(DestroyRef);
+
+  /**
+   * Staging behavior (Salient nectar-color-change-bg.js): the contact section
+   * background starts black and transitions to orange (#FF5D0E) when the
+   * section is >= 40% visible in the viewport, reverting on scroll-up.
+   * Implemented with IntersectionObserver toggling a body class.
+   */
+  constructor() {
+    afterNextRender(() => {
+      const section = this.el.nativeElement.querySelector('.home-contact');
+      if (!section || typeof IntersectionObserver === 'undefined') return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            document.body.classList.toggle('contact-orange', entry.intersectionRatio >= 0.4);
+          }
+        },
+        { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] },
+      );
+      observer.observe(section);
+      this.destroyRef.onDestroy(() => {
+        observer.disconnect();
+        document.body.classList.remove('contact-orange');
+      });
+    });
+  }
 
   protected readonly step = signal(1);
   protected readonly submitting = signal(false);
