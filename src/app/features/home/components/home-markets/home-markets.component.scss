@@ -1,50 +1,29 @@
-/* Section 5 — Markets we served (scrolling tabs).
-   Ports Salient's nectar-scrolling-tabs: solid #000000 row background,
-   tab nav + one content pane per tab, pure-CSS crossfade on switch. */
+/* Section — Markets we served (sticky scroll-spy).
+   Ports Salient's nectar-scrolling-tabs as staging renders it: sticky left
+   tab list (~15-20%) beside a right column of 8 tall stacked cards with
+   full-bleed background photos. Pure black section background. */
 :host {
   display: block;
 }
 
 .markets {
   background: #000000;
-  padding: clamp(4rem, 5vw, 5rem) 2%;
+  padding: clamp(4rem, 5vw, 5rem) 0;
 }
 
 .markets__inner {
-  max-width: none;
-  margin: 0;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.markets__kicker {
-  margin: 0 0 0.75rem;
-  color: var(--grit-text-secondary);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
-
-.markets__heading {
-  margin: 0;
-  color: var(--grit-text-primary);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-/* Salient nectar-scrolling-tabs layout: vertical tab nav left, pane right.
-   The nav is sticky (staging uses theiaStickySidebar): it stays fixed below
-   the header while the pane content moves on scroll. */
 .markets__body {
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 18% 1fr;
   gap: 0;
-  margin-top: 2.5rem;
   align-items: start;
 }
 
+/* ---- Sticky tab nav (left) ---- */
 .markets__nav {
   position: sticky;
   top: calc(var(--grit-nav-height) + 24px);
@@ -52,16 +31,14 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  min-width: 225px;
-  border-left: 1px solid var(--grit-border-subtle);
+  min-width: 200px;
   z-index: 2;
 }
 
 .markets__tab {
+  position: relative;
   padding: 0 1.5rem 35px 50px;
   border: none;
-  border-left: 2px solid transparent;
-  margin-left: -1px;
   background: none;
   color: var(--grit-text-secondary);
   font-size: 0.95rem;
@@ -69,166 +46,290 @@
   letter-spacing: 0.04em;
   line-height: 1.3;
   text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 6px;
   cursor: pointer;
-  opacity: 0.75;
-  transition:
-    color var(--grit-duration-fast) var(--grit-ease-smooth),
-    border-color var(--grit-duration-fast) var(--grit-ease-smooth),
-    opacity 0.25s ease;
+  transition: color var(--grit-duration-fast) var(--grit-ease-smooth);
 }
 
 .markets__tab:hover {
   color: var(--grit-text-primary);
-  opacity: 1;
 }
 
+/* Active tab: bright orange text + short vertical orange tick at the left edge. */
 .markets__tab.is-active {
   color: var(--grit-accent-orange);
-  border-left-color: var(--grit-accent-orange);
-  opacity: 1;
+  text-decoration: none;
 }
 
-/* Grid-stacked panes: only the active pane is visible; the switch
-   crossfades via opacity/transform transition (no JS timers). */
-.markets__panes {
-  display: grid;
+.markets__tab.is-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 4px;
+  height: 28px;
+  border-radius: 2px;
+  background: var(--grit-accent-orange);
+}
+
+/* ---- Right content column ---- */
+.markets__content {
   min-width: 0;
-  padding-left: 7%;
+  padding-left: 4%;
 }
 
-.markets__pane {
-  grid-area: 1 / 1;
-  padding: clamp(1.5rem, 3vw, 3rem);
-  border-radius: 12px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition:
-    opacity 0.5s var(--grit-ease-smooth),
-    transform 0.5s var(--grit-ease-smooth),
-    visibility 0.5s;
-}
-
-.markets__pane.is-active {
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-}
-
-/* Staging anomaly: this pane's card bg 404s and has no image in source —
-   dark gradient fallback, no invented imagery. */
-.markets__pane.has-fallback-bg {
-  background: linear-gradient(135deg, #141414 0%, #0a0a0a 55%, #1c1030 100%);
-  border: 1px solid var(--grit-border-subtle);
-}
-
-.markets__number {
-  display: block;
-  color: rgba(255, 255, 255, 0.14);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  line-height: 1;
-}
-
-.markets__eyebrow {
-  margin: 1rem 0 0.5rem;
+.markets__kicker {
+  margin: 0 0 0.75rem;
   color: var(--grit-accent-violet);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-.markets__title {
-  margin: 0 0 1.5rem;
+.markets__heading {
+  margin: 0 0 3rem;
   color: var(--grit-text-primary);
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: clamp(2.5rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
 }
 
-.markets__chips {
+/* ---- Stacked cards ---- */
+.markets__cards {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 0 0 1.5rem;
-  padding: 0;
-  list-style: none;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-bottom: 2rem;
 }
 
-.markets__chip {
-  padding: 0.5rem 1rem;
+.markets__card {
+  position: relative;
+  min-height: 640px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+}
+
+.markets__card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Staging anomaly: this card's bg 404s and has no image in source —
+   dark gradient fallback, no invented imagery. */
+.markets__card.has-fallback-bg {
+  background: linear-gradient(135deg, #141414 0%, #0a0a0a 55%, #1c1030 100%);
   border: 1px solid var(--grit-border-subtle);
-  border-radius: 999px;
-  color: var(--grit-text-secondary);
-  font-size: 0.85rem;
-  font-weight: 500;
-  white-space: nowrap;
 }
 
-.markets__text {
-  margin: 0 0 1.5rem;
-  max-width: 60ch;
-  color: var(--grit-text-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
+.markets__card.has-fallback-bg .markets__card-bg {
+  background: linear-gradient(100deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 100%);
 }
 
-.markets__tags {
+.markets__card-inner {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-  margin: 0 0 2rem;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: clamp(2rem, 4vw, 4rem);
 }
 
-.markets__tag {
-  color: var(--grit-text-muted);
-  font-size: 0.75rem;
+/* Giant outlined/ghost number. */
+.markets__number {
+  display: block;
+  font-size: clamp(9rem, 14vw, 12.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+/* Eyebrow row: purple icon + purple uppercase label. */
+.markets__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  color: var(--grit-accent-violet);
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
+.markets__title {
+  margin: 0 0 1.75rem;
+  color: var(--grit-text-primary);
+  font-size: clamp(2.25rem, 3vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* Bullets with purple chevron (›) markers — same treatment as what-we-do. */
+.markets__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.markets__bullet {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.markets__bullet-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.markets__bullet-icon::before {
+  content: '\203A';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  transform: translateY(-50%);
+  color: #792cd5;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1px;
+}
+
+.markets__text {
+  margin: 0 0 2rem;
+  max-width: 60ch;
+  color: #e8e8e8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Chips: dark translucent rounded rectangles with circular outline icon
+   and uppercase text. */
+.markets__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 2.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.markets__chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.1rem;
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.markets__chip-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+.markets__chip-text {
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Explore More: transparent, thin purple outline, white text + dash. */
 .markets__explore {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  color: var(--grit-text-primary);
-  font-size: 0.9rem;
+  gap: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  border: 1.5px solid var(--grit-accent-violet);
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 2px solid var(--grit-accent-violet);
-  padding-bottom: 0.35rem;
   transition:
-    color var(--grit-duration-fast) var(--grit-ease-smooth),
+    background var(--grit-duration-fast) var(--grit-ease-smooth),
     border-color var(--grit-duration-fast) var(--grit-ease-smooth);
 }
 
 .markets__explore:hover {
-  color: var(--grit-accent-violet);
+  background: var(--grit-accent-violet);
   border-color: var(--grit-accent-violet);
 }
 
+.markets__explore-dash {
+  font-weight: 400;
+}
+
+/* ---- Mobile: horizontal tab row, stacked cards ---- */
 @media (max-width: 900px) {
   .markets__body {
     grid-template-columns: 1fr;
   }
+
   .markets__nav {
+    position: static;
     flex-direction: row;
     overflow-x: auto;
-    border-left: none;
+    min-width: 0;
     border-bottom: 1px solid var(--grit-border-subtle);
+    margin-bottom: 2rem;
   }
+
   .markets__tab {
     flex: 0 0 auto;
-    border-left: none;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
     border-bottom: 2px solid transparent;
-    margin-left: 0;
-    margin-bottom: -1px;
     white-space: nowrap;
   }
+
   .markets__tab.is-active {
     border-bottom-color: var(--grit-accent-orange);
+  }
+
+  .markets__tab.is-active::before {
+    display: none;
+  }
+
+  .markets__content {
+    padding-left: 0;
+  }
+
+  .markets__card {
+    min-height: 560px;
+  }
+
+  .markets__number {
+    font-size: clamp(6rem, 22vw, 9rem);
   }
 }

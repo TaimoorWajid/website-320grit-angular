@@ -17,9 +17,11 @@ interface PhaseCard {
   title: string;
   paragraph: string;
   cta: string;
-  /** Colored media panel treatment, verbatim from source. */
+  /** Card background color, verbatim from source. */
   mediaColor: string;
-  /** Phase 4 ships a dark CTA variant (border_color_000000) in source. */
+  /** Right-side photo panel (~35-40% of the card), per staging. */
+  photo: string;
+  /** Phase 4 is the white card: black text + black CTA outline. */
   light?: boolean;
 }
 
@@ -49,6 +51,7 @@ export class HomeProcessComponent {
         'Every project starts with listening. We take time to understand your goals, priorities, budget, schedule, and long-term vision before any decisions are made.',
       cta: 'Explore More',
       mediaColor: '#792CD5',
+      photo: '/assets/images/ChatGPT-Image-Jul-30-2026-08_30_56-AM.webp',
     },
     {
       eyebrow: 'Phase',
@@ -57,8 +60,9 @@ export class HomeProcessComponent {
       paragraph:
         'We transform vision into a clear execution strategy through budgeting, procurement planning, scheduling, and risk analysis that protects your investment.',
       cta: 'Explore More',
-      // Source: background:var(--nectar-extra-color-1) — ported to the violet token.
-      mediaColor: 'var(--grit-accent-violet-light)',
+      // Staging card 02 is bright orange.
+      mediaColor: '#FF5D0E',
+      photo: '/assets/images/ChatGPT-Image-Aug-3-2026-04_54_56-PM.webp',
     },
     {
       eyebrow: 'Phase',
@@ -68,6 +72,7 @@ export class HomeProcessComponent {
         'We coordinate teams, consultants, contractors, budgets, schedules, and project risks while representing the owner’s best interests throughout the entire project lifecycle.',
       cta: 'Explore More',
       mediaColor: '#000000',
+      photo: '/assets/images/labour-320-grit.webp',
     },
     {
       eyebrow: 'Phase',
@@ -77,6 +82,7 @@ export class HomeProcessComponent {
         'From quality assurance to project closeout, we ensure every milestone is achieved and every expectation is exceeded, delivering confidence not just completed projects.',
       cta: 'Explore More',
       mediaColor: '#FFFFFF',
+      photo: '/assets/images/commercial-construction.webp',
       light: true,
     },
   ];
@@ -87,7 +93,8 @@ export class HomeProcessComponent {
 
   private readonly pinWrap =
     viewChild<ElementRef<HTMLElement>>('pinWrap');
-  private readonly pin = viewChild<ElementRef<HTMLElement>>('pin');
+  private readonly trackViewport =
+    viewChild<ElementRef<HTMLElement>>('trackViewport');
   private readonly track = viewChild<ElementRef<HTMLElement>>('track');
 
   constructor() {
@@ -97,18 +104,18 @@ export class HomeProcessComponent {
   private initHorizontalScroll(): void {
     const hostEl = this.host.nativeElement;
     const wrap = this.pinWrap()?.nativeElement;
-    const pin = this.pin()?.nativeElement;
+    const viewport = this.trackViewport()?.nativeElement;
     const track = this.track()?.nativeElement;
 
     // SSR / reduced-motion: static scroll-snap strip, no pinning.
-    if (!this.animations.browser || prefersReducedMotion() || !wrap || !pin || !track) {
+    if (!this.animations.browser || prefersReducedMotion() || !wrap || !viewport || !track) {
       hostEl.classList.add('process--static');
       return;
     }
 
     const ctx = this.animations.createContext(() => {
       const maxX = (): number =>
-        Math.max(0, track.scrollWidth - pin.clientWidth);
+        Math.max(0, track.scrollWidth - viewport.clientWidth);
 
       gsap.to(track, {
         x: () => -maxX(),

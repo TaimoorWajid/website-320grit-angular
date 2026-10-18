@@ -3,38 +3,22 @@
    horizontal-section-width-85, section-height-100vh, section-gap-desktop-5px,
    media-border-radius-15px): the section pins to the viewport via
    position: sticky while GSAP translates the card track horizontally
-   with vertical scroll progress. Card width is a CSS variable so the
-   exact staging width can be tuned without touching the layout. */
+   with vertical scroll progress. The heading sits inside the pin (outside
+   the track) so it stays fixed while the cards slide. */
 :host {
   display: block;
-  /* Staging: horizontal-section-width-85 — each card is 85% of viewport. */
-  --phase-card-width: 85vw;
+  /* Staging: each card is ~80% of viewport. */
+  --phase-card-width: 80vw;
   --phase-card-gap: 5px;
 }
 
 .process {
-  background: var(--grit-bg-primary);
+  background: #000000;
 }
 
-/* Section 6 — header band. Staging: padding-top calc(100vw * 0.10),
-   padding-bottom 5px, full-width-content with 5px side padding. */
-.process__band {
-  text-align: center;
-  padding: calc(100vw * 0.1) 5px 5px;
-}
-
-.process__band-title {
-  margin: 0;
-  color: var(--grit-text-primary);
-  font-size: clamp(2rem, 4.5vw, 3.75rem);
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-/* Section 7 — sticky horizontal scroll.
-   .process__pin-wrap is the tall scroll driver (one viewport per card
-   of horizontal travel, roughly). .process__pin sticks for 100vh while
-   the track translates horizontally. */
+/* Sticky horizontal scroll.
+   .process__pin-wrap is the tall scroll driver. .process__pin sticks for
+   100vh while the track translates horizontally. */
 .process__pin-wrap {
   position: relative;
   height: 400vh;
@@ -46,7 +30,30 @@
   height: 100vh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+}
+
+/* Fixed heading: top-left of the pinned viewport, stays put while cards slide. */
+.process__pin-head {
+  flex: 0 0 auto;
+  padding: clamp(5.5rem, 12vh, 8rem) 28px 0;
+}
+
+.process__pin-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.process__track-viewport {
+  flex: 1 1 auto;
+  display: flex;
   align-items: center;
+  overflow: hidden;
+  min-height: 0;
 }
 
 .process__track {
@@ -61,112 +68,120 @@
 .phase-card {
   flex: 0 0 var(--phase-card-width);
   width: var(--phase-card-width);
-  max-height: 92vh;
+  height: 82vh;
+  max-height: 860px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
-  border: 1px solid var(--grit-border-subtle);
   border-radius: 15px;
-  background: var(--grit-bg-tertiary);
-}
-
-.phase-card__media {
-  min-height: 220px;
-  flex: 0 0 auto;
 }
 
 .phase-card__body {
+  flex: 1 1 60%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  padding: 2rem;
+  padding: clamp(1.75rem, 3vw, 3rem);
   overflow: hidden;
 }
 
+/* "Phase" label + short horizontal line, top-left. */
 .phase-card__eyebrow {
-  margin: 0 0 0.75rem;
-  color: var(--grit-text-secondary);
-  font-size: 0.8rem;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
+.phase-card__eyebrow::after {
+  content: '';
+  width: 48px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.85;
+}
+
 .phase-card__number {
-  margin: 0 0 0.75rem;
-  color: var(--grit-text-primary);
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+  font-size: clamp(7rem, 13vw, 12rem);
   font-weight: 800;
-  line-height: 1;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
 }
 
 .phase-card__title {
   margin: 0;
-  color: var(--grit-text-primary);
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  color: #ffffff;
+  font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.15;
 }
 
 .phase-card__divider {
   margin: 1.5rem 0;
   border: none;
-  border-top: 1px solid var(--grit-border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  width: 100%;
 }
 
 .phase-card__text {
-  margin: 0 0 1.5rem;
-  color: var(--grit-text-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
+  margin: 0 0 1.75rem;
+  color: #ffffff;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  max-width: 34rem;
 }
 
-/* nectar-cta port: bordered pill, violet hover. */
+/* Photo panel: right ~35-40% of the card, rounded corners. */
+.phase-card__photo {
+  flex: 0 0 38%;
+  margin: 12px 12px 12px 0;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 0;
+}
+
+/* nectar-cta port: pill button, white outline on dark cards. */
 .nectar-cta {
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
   margin-top: auto;
-  padding: 0.9rem 1.75rem;
-  border: 2px solid var(--grit-accent-violet);
-  border-radius: 10px;
-  color: var(--grit-text-primary);
+  padding: 0.85rem 1.9rem;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  color: #ffffff;
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
   transition:
     color var(--grit-duration-fast) var(--grit-ease-smooth),
-    background-color var(--grit-duration-fast) var(--grit-ease-smooth),
-    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+    background-color var(--grit-duration-fast) var(--grit-ease-smooth);
 }
 
 .nectar-cta:hover {
-  color: var(--grit-accent-violet);
-  background: rgba(121, 44, 213, 0.08);
+  background: rgba(255, 255, 255, 0.14);
 }
 
-/* Phase 4: source ships a dark CTA variant (border_color_000000), which is
-   only legible on a light surface — the card body follows the white media. */
-.phase-card--light {
-  background: #ffffff;
-  border-color: #e5e5e5;
-}
-
-.phase-card--light .phase-card__eyebrow {
-  color: #6b6b6b;
-}
-
+/* Phase 4 — white card: black text, black CTA outline. */
+.phase-card--light .phase-card__eyebrow,
 .phase-card--light .phase-card__number,
-.phase-card--light .phase-card__title {
+.phase-card--light .phase-card__title,
+.phase-card--light .phase-card__text {
   color: #111111;
 }
 
 .phase-card--light .phase-card__divider {
-  border-top-color: #e0e0e0;
-}
-
-.phase-card--light .phase-card__text {
-  color: #3a3a3a;
+  border-top-color: rgba(0, 0, 0, 0.25);
 }
 
 .phase-card--light .nectar-cta {
@@ -175,8 +190,7 @@
 }
 
 .phase-card--light .nectar-cta:hover {
-  color: #000000;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.07);
 }
 
 /* Reduced-motion / no-JS fallback: static horizontal scroll-snap strip
@@ -189,34 +203,63 @@
 :host(.process--static) .process__pin {
   position: static;
   height: auto;
+  display: block;
+}
+
+:host(.process--static) .process__pin-head {
+  padding: 4rem 6% 0;
+}
+
+:host(.process--static) .process__track-viewport {
+  display: block;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  align-items: stretch;
   scrollbar-width: thin;
 }
 
 :host(.process--static) .process__track {
-  padding: 3rem 6% 5rem;
+  padding: 2.5rem 6% 4rem;
   will-change: auto;
+  align-items: stretch;
 }
 
 :host(.process--static) .phase-card {
-  flex-basis: 40%;
+  flex-basis: 80%;
   width: auto;
-  max-height: none;
+  height: auto;
+  min-height: 420px;
   scroll-snap-align: start;
 }
 
 @media (max-width: 767px) {
   :host {
-    --phase-card-width: 85vw;
+    --phase-card-width: 86vw;
   }
 
-  .phase-card__media {
-    min-height: 160px;
+  .process__pin-head {
+    padding: 5rem 20px 0;
+  }
+
+  .phase-card {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+  }
+
+  .phase-card__body {
+    flex: 1 1 auto;
+  }
+
+  .phase-card__photo {
+    flex: 0 0 220px;
+    margin: 0 12px 12px;
+  }
+
+  .phase-card__number {
+    font-size: clamp(5rem, 22vw, 7rem);
   }
 
   :host(.process--static) .phase-card {
-    flex-basis: 85%;
+    flex-basis: 86%;
   }
 }

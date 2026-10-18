@@ -1,50 +1,69 @@
 <section class="markets" aria-label="Markets we served">
   <div class="markets__inner">
-    <p class="markets__kicker" appReveal>MARKETS WE SERVED</p>
-    <h2 class="markets__heading" appReveal>Building What Matters</h2>
-
-    <div class="markets__body" appReveal>
+    <div class="markets__body">
       <div class="markets__nav" role="tablist" aria-label="Market sectors" aria-orientation="vertical">
-        @for (tab of tabs; track tab.label; let i = $index) {
+        @for (card of cards; track card.label; let i = $index) {
           <button
             type="button"
             role="tab"
             class="markets__tab"
-            [class.is-active]="activeTab() === i"
-            [attr.aria-selected]="activeTab() === i"
-            (click)="selectTab(i)"
+            [class.is-active]="activeCard() === i"
+            [attr.aria-selected]="activeCard() === i"
+            (click)="selectCard(i)"
           >
-            {{ tab.label }}
+            {{ card.label }}
           </button>
         }
       </div>
 
-      <div class="markets__panes">
-        @for (tab of tabs; track tab.label; let i = $index) {
-          <article
-            class="markets__pane"
-            [class.is-active]="activeTab() === i"
-            [class.has-fallback-bg]="tab.bgFallback"
-            role="tabpanel"
-            [attr.aria-hidden]="activeTab() !== i"
-          >
-            <span class="markets__number" aria-hidden="true">{{ tab.number }}</span>
-            <p class="markets__eyebrow">{{ tab.eyebrow }}</p>
-            <h3 class="markets__title">{{ tab.title }}</h3>
-            <ul class="markets__chips">
-              @for (chip of tab.chips; track chip) {
-                <li class="markets__chip">{{ chip }}</li>
-              }
-            </ul>
-            <p class="markets__text">{{ tab.paragraph }}</p>
-            <p class="markets__tags">
-              @for (tag of tab.tags; track tag) {
-                <span class="markets__tag">{{ tag }}</span>
-              }
-            </p>
-            <a class="markets__explore" [routerLink]="tab.href">Explore More</a>
-          </article>
-        }
+      <div class="markets__content">
+        <p class="markets__kicker" appReveal>MARKETS WE SERVED</p>
+        <h2 class="markets__heading" appReveal>Building What Matters</h2>
+
+        <div class="markets__cards">
+          @for (card of cards; track card.label; let i = $index) {
+            <article #marketCard class="markets__card" [class.has-fallback-bg]="card.bgFallback">
+              <div
+                class="markets__card-bg"
+                aria-hidden="true"
+                [style.background-image]="
+                  card.bgFallback
+                    ? null
+                    : 'linear-gradient(100deg, rgba(0,0,0,0.88) 20%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.35) 100%), url(' + card.bg + ')'
+                "
+              ></div>
+              <div class="markets__card-inner">
+                <span class="markets__number" aria-hidden="true">{{ card.number }}</span>
+                <p class="markets__eyebrow">
+                  <app-market-icon [name]="card.icon" [size]="22" stroke="1.75" />
+                  <span>{{ card.eyebrow }}</span>
+                </p>
+                <h3 class="markets__title">{{ card.title }}</h3>
+                <ul class="markets__bullets">
+                  @for (bullet of card.bullets; track bullet) {
+                    <li class="markets__bullet">
+                      <span class="markets__bullet-icon" aria-hidden="true"></span>
+                      <span>{{ bullet }}</span>
+                    </li>
+                  }
+                </ul>
+                <p class="markets__text">{{ card.paragraph }}</p>
+                <ul class="markets__chips">
+                  @for (tag of card.tags; track tag) {
+                    <li class="markets__chip">
+                      <span class="markets__chip-icon" aria-hidden="true"></span>
+                      <span class="markets__chip-text">{{ tag }}</span>
+                    </li>
+                  }
+                </ul>
+                <a class="markets__explore" [routerLink]="card.href">
+                  <span>Explore More</span>
+                  <span class="markets__explore-dash" aria-hidden="true">—</span>
+                </a>
+              </div>
+            </article>
+          }
+        </div>
       </div>
     </div>
   </div>
