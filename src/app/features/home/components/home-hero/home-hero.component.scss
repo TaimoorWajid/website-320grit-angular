@@ -40,8 +40,8 @@
   margin: 0;
   padding-top: clamp(7rem, 14vh, 10rem);
   padding-bottom: 2rem;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .home-hero__kicker {
@@ -88,7 +88,6 @@
 .home-hero__badge {
   align-self: end;
   justify-self: end;
-  margin-bottom: 2rem;
 }
 
 .hero-exp-card {
@@ -98,7 +97,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: transparent;
+  background: rgba(10, 10, 10, .85);
   border: 2px solid var(--grit-accent-orange);
   text-align: center;
 }
