@@ -1,0 +1,29 @@
+<section class="hc-hero rr-hero" [id]="hero().id">
+  <div class="hc-hero-bg" aria-hidden="true">
+    <img
+      [src]="hero().image.src"
+      [alt]="hero().image.alt"
+      width="1920"
+      height="1080"
+      [attr.fetchpriority]="hero().image.fetchPriority ?? 'high'"
+    />
+  </div>
+  <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
+  <div class="hc-container">
+    <div class="hc-hero-content" hcReveal>
+      <p class="hc-hero-label">
+        <span class="hc-line" aria-hidden="true"></span>
+        <span class="hc-label">{{ hero().label }}</span>
+      </p>
+      <h1 class="hc-display-xl" [innerHTML]="hero().title"></h1>
+      <p class="rr-hero-desc" [style.max-width]="hero().descriptionWidth ?? '520px'">{{ hero().description }}</p>
+      @if (hero().ctas?.length) {
+        <div class="hc-hero-actions">
+          @for (cta of hero().ctas; track cta.label) {
+            <app-hc-button [link]="cta" />
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

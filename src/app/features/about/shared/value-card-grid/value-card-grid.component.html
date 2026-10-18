@@ -1,0 +1,51 @@
+<section class="hc-section" [id]="sectionId()" [style.background]="background() ?? null">
+  <div class="hc-container">
+    @if (header(); as h) {
+      <div
+        class="hc-section-header"
+        [class.hc-center]="h.centered ?? true"
+        [style.max-width]="h.maxWidth ?? null"
+        hcReveal
+      >
+        @if (h.label) {
+          <span class="hc-label">{{ h.label }}</span>
+        }
+        @if (h.title) {
+          <h2 class="hc-display-md" [innerHTML]="h.title"></h2>
+        }
+        @if (h.text) {
+          <p class="hc-body-lg" [style.margin-top]="h.title ? '1rem' : null">{{ h.text }}</p>
+        }
+      </div>
+    }
+    <div
+      class="ab-value-grid"
+      [style.grid-template-columns]="columns()"
+      [style.max-width]="gridMaxWidth() ?? null"
+      [style.margin]="gridMargin() ?? null"
+    >
+      @for (card of cards(); track card.title; let i = $index) {
+        <div
+          class="ab-value-card"
+          [class.ab-value-card--award]="!!card.eyebrow"
+          [ngClass]="delayClasses(i)"
+          hcReveal
+        >
+          @if (card.eyebrow) {
+            <p class="ab-award-eyebrow">{{ card.eyebrow }}</p>
+            <h3>{{ card.title }}</h3>
+            @if (card.text) {
+              <p>{{ card.text }}</p>
+            }
+          } @else {
+            <div class="ab-value-icon" [innerHTML]="icon(card.icon ?? '')" aria-hidden="true"></div>
+            <h3>{{ card.title }}</h3>
+            @if (card.text) {
+              <p>{{ card.text }}</p>
+            }
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

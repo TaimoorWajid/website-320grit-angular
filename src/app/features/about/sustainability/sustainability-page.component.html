@@ -1,0 +1,32 @@
+<div class="about-page">
+  <app-about-hero [hero]="HERO" />
+  <app-value-grid
+    sectionId="sus-commit"
+    background="#0A0A0A"
+    [header]="{
+      label: 'Our Commitment',
+      title: 'Building Responsibly.<br>For Today and Tomorrow.',
+      text: 'We integrate sustainable thinking into every phase of a project—from planning and design to construction and operations. Our approach reduces environmental impact, enhances efficiency, and delivers long-term value.',
+      centered: false,
+      maxWidth: '560px',
+    }"
+    [cards]="COMMITMENT"
+    columns="repeat(4, 1fr)"
+  />
+  <app-impact-numbers
+    sectionId="sus-impact"
+    background="#050505"
+    label="Our Impact"
+    title="By the Numbers"
+    [items]="IMPACT"
+  />
+  <app-split-section [split]="HOW" />
+  <app-project-grid
+    sectionId="sus-projects"
+    background="#050505"
+    [header]="{ label: 'Sustainable in Action', title: 'Projects That Make a Difference', centered: false }"
+    [cards]="PROJECTS"
+    columns="repeat(3, 1fr)"
+  />
+  <app-final-cta sectionId="sus-cta" [title]="CTA.title" [text]="CTA.text" [cta]="CTA.cta" />
+</div>

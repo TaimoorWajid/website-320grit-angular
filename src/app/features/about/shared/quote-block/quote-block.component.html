@@ -1,0 +1,19 @@
+<section class="hc-section" [id]="sectionId()" [style.background]="background() ?? null">
+  <div class="hc-container" [style.text-align]="variant() === 'centered' ? 'center' : null">
+    @if (variant() === 'centered') {
+      <div hcReveal [style.max-width]="'640px'" [style.margin-inline]="'auto'">
+        <p [style.font-size]="'1.35rem'" [style.font-style]="'italic'" [style.color]="'#bbbbbb'" [style.line-height]="'1.6'">
+          {{ quote() }}
+        </p>
+        <cite [style.display]="'block'" [style.margin-top]="'1rem'" [style.font-size]="'0.9rem'" [style.color]="'#7a7a7a'" [style.font-style]="'normal'">
+          {{ cite() }}
+        </cite>
+      </div>
+    } @else {
+      <blockquote class="ab-quote" hcReveal>
+        <p>{{ quote() }}</p>
+        <cite>{{ cite() }}</cite>
+      </blockquote>
+    }
+  </div>
+</section>

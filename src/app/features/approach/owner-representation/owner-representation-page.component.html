@@ -1,0 +1,36 @@
+<div class="oc-page">
+  <section class="oc-hero" id="oc-hero" ocParallax>
+    <div class="oc-hero-bg" data-speed="0.35" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=85"
+        alt=""
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="oc-hero-overlay" aria-hidden="true"></div>
+    <div class="oc-hero-glow" aria-hidden="true"></div>
+    <div class="oc-container oc-hero-inner">
+      <div class="oc-hero-content" ocReveal="up">
+        <span class="oc-eyebrow">What We Do</span>
+        <h1 class="oc-display">
+          <span class="oc-line">Owner</span>
+          <span class="oc-line oc-accent">Representation.</span>
+        </h1>
+        <p class="oc-lead">Independent representation focused on the owner’s objectives.</p>
+        <div class="oc-hero-cta">
+          <app-oc-button [link]="primaryCta" />
+          <app-oc-button [link]="ghostCta" />
+        </div>
+      </div>
+    </div>
+    <div class="oc-scroll-hint" ocReveal="fade" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="oc-scroll-line"></span>
+    </div>
+  </section>
+
+  <app-oc-pillar-grid [pillars]="PILLARS" />
+  <app-oc-final-cta />
+</div>

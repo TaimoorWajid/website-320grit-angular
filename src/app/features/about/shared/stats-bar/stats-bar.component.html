@@ -1,0 +1,21 @@
+<section
+  class="hc-section"
+  [id]="sectionId()"
+  [style.background]="background() ?? null"
+  [style.padding-top]="overlap() ? '0' : null"
+  [style.margin-top]="overlap() ? '-60px' : null"
+  [style.position]="overlap() ? 'relative' : null"
+  [style.z-index]="overlap() ? '2' : null"
+>
+  <div class="hc-container">
+    <div class="ab-stats" hcReveal>
+      @for (stat of items(); track stat.num) {
+        <div class="ab-stat">
+          <div class="ab-stat-icon" [innerHTML]="icon(stat.icon)" aria-hidden="true"></div>
+          <div class="ab-stat-num">{{ stat.num }}</div>
+          <div class="ab-stat-label">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

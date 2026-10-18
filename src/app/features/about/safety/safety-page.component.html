@@ -1,0 +1,32 @@
+<div class="about-page">
+  <app-about-hero [hero]="HERO" />
+  <app-value-grid
+    sectionId="safe-approach"
+    background="#0A0A0A"
+    [header]="{
+      label: 'Our Safety Approach',
+      title: 'Safety by Design.<br>Built into Everything We Do.',
+      text: 'We integrate safety into our culture, our planning, and our operations. From preconstruction to project closeout, we empower every team member to lead with safety and look out for one another.',
+      centered: false,
+      maxWidth: '560px',
+    }"
+    [cards]="APPROACH"
+    columns="repeat(4, 1fr)"
+  />
+  <app-impact-numbers
+    sectionId="safe-stats"
+    background="#050505"
+    label="Safety in Action"
+    title="Results That Reflect Our Commitment"
+    [items]="STATS"
+  />
+  <app-split-section [split]="CULTURE" />
+  <app-value-grid
+    sectionId="safe-focus"
+    background="#050505"
+    [header]="{ label: 'Our Focus Areas', title: 'Focused on What Matters Most', centered: true }"
+    [cards]="FOCUS"
+    columns="repeat(6, 1fr)"
+  />
+  <app-final-cta sectionId="safe-cta" [title]="CTA.title" [text]="CTA.text" [cta]="CTA.cta" />
+</div>

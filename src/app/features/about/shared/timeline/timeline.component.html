@@ -1,0 +1,28 @@
+<section class="hc-section" [id]="sectionId()" [style.background]="background() ?? null">
+  <div class="hc-container">
+    <div hcReveal [style.max-width]="'480px'" [style.margin-bottom]="'1rem'">
+      @if (label()) {
+        <span class="hc-label">{{ label() }}</span>
+      }
+      <h2 class="hc-display-md" [style.margin-top]="'0.75rem'">{{ title() }}</h2>
+      @if (text()) {
+        <p class="hc-body-md" [style.margin-top]="'1rem'">{{ text() }}</p>
+      }
+      @if (cta()) {
+        <div [style.margin-top]="'1.5rem'">
+          <app-hc-button [link]="cta()!" />
+        </div>
+      }
+    </div>
+    <div class="ab-timeline hc-delay-2" hcReveal>
+      @for (item of items(); track item.year) {
+        <div class="ab-timeline-item">
+          <div class="ab-timeline-dot" aria-hidden="true"></div>
+          <div class="ab-timeline-year">{{ item.year }}</div>
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

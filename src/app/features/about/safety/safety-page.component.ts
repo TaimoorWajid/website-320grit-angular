@@ -1,0 +1,34 @@
+import { Component, inject } from '@angular/core';
+import { SeoService } from '../../../core/services/seo.service';
+import { PageHeroComponent } from '../shared/page-hero/page-hero.component';
+import { ValueCardGridComponent } from '../shared/value-card-grid/value-card-grid.component';
+import { ImpactNumbersComponent } from '../shared/impact-numbers/impact-numbers.component';
+import { SplitSectionComponent } from '../shared/split-section/split-section.component';
+import { FinalCtaComponent } from '../shared/final-cta/final-cta.component';
+import { APPROACH, CTA, CULTURE, FOCUS, HERO, STATS } from './safety.data';
+
+/** Safety page — composition of shared hc- sections. */
+@Component({
+  selector: 'app-safety-page',
+  imports: [
+    PageHeroComponent,
+    ValueCardGridComponent,
+    ImpactNumbersComponent,
+    SplitSectionComponent,
+    FinalCtaComponent,
+  ],
+  templateUrl: './safety-page.component.html',
+  styleUrl: './safety-page.component.scss',
+})
+export class SafetyPageComponent {
+  protected readonly HERO = HERO;
+  protected readonly APPROACH = APPROACH;
+  protected readonly STATS = STATS;
+  protected readonly CULTURE = CULTURE;
+  protected readonly FOCUS = FOCUS;
+  protected readonly CTA = CTA;
+
+  constructor() {
+    inject(SeoService).update({ title: 'Safety', canonicalPath: '/safety' });
+  }
+}

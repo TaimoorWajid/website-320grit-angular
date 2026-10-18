@@ -1,0 +1,24 @@
+<section class="hc-section" [id]="sectionId()" [style.background]="background() ?? null">
+  <div class="hc-container">
+    <div class="hc-section-header hc-center" hcReveal>
+      @if (label()) {
+        <span class="hc-label">{{ label() }}</span>
+      }
+      <h2 class="hc-display-md">{{ title() }}</h2>
+    </div>
+    <div class="ab-team-grid" hcReveal>
+      @for (m of members(); track m.name) {
+        <article class="ab-team-card">
+          <div class="ab-team-photo">
+            <img [src]="m.img" [alt]="m.name" width="300" height="300" loading="lazy" />
+          </div>
+          <div class="ab-team-info">
+            <h3>{{ m.name }}</h3>
+            <p class="ab-role">{{ m.role }}</p>
+            <p>{{ m.bio }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

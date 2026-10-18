@@ -1,0 +1,18 @@
+<section class="hc-section" [id]="sectionId()" [style.background]="background() ?? null">
+  <div class="hc-container">
+    <div hcReveal [style.margin-bottom]="'1.5rem'">
+      @if (label()) {
+        <span class="hc-label">{{ label() }}</span>
+      }
+      <h2 class="hc-display-md" [style.margin-top]="'0.5rem'" [innerHTML]="title()"></h2>
+    </div>
+    <div class="ab-impact hc-delay-2" hcReveal>
+      @for (item of items(); track item.num + item.label) {
+        <div class="ab-impact-item">
+          <div class="ab-impact-num">{{ item.num }}</div>
+          <div class="ab-impact-label">{{ item.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

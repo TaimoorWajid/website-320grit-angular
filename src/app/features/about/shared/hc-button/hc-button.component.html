@@ -1,0 +1,13 @@
+@if (link().href === '#contact') {
+  <a routerLink="/contact-us" [class]="'hc-btn hc-btn-' + (link().variant ?? 'primary')">
+    <span>{{ link().label }}</span><span class="hc-arrow" [innerHTML]="arrow"></span>
+  </a>
+} @else if (link().href.startsWith('#')) {
+  <a [href]="link().href" [class]="'hc-btn hc-btn-' + (link().variant ?? 'primary')">
+    <span>{{ link().label }}</span><span class="hc-arrow" [innerHTML]="arrow"></span>
+  </a>
+} @else {
+  <a [routerLink]="link().href" [class]="'hc-btn hc-btn-' + (link().variant ?? 'primary')">
+    <span>{{ link().label }}</span><span class="hc-arrow" [innerHTML]="arrow"></span>
+  </a>
+}

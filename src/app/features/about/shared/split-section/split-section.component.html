@@ -1,0 +1,56 @@
+<section class="hc-section" [id]="split().id" [style.background]="split().background ?? null">
+  <div class="hc-container">
+    <div class="ab-split">
+      @if (split().imagePosition === 'left') {
+        <div class="ab-split-img" hcReveal>
+          <img [src]="split().image.src" [alt]="split().image.alt" width="700" height="480" loading="lazy" />
+        </div>
+      }
+      <div hcReveal class="hc-delay-2">
+        @if (split().label) {
+          <span class="hc-label">{{ split().label }}</span>
+        }
+        <h2 class="hc-display-md" [style.margin-top]="split().label ? '0.75rem' : null" [innerHTML]="split().title"></h2>
+        @for (p of split().paragraphs ?? []; track p; let i = $index) {
+          <p [class]="i === 0 ? 'hc-body-lg' : 'hc-body-md'" [style.margin-top]="i === 0 ? '1.25rem' : '1rem'">{{ p }}</p>
+        }
+        @if (split().quote; as q) {
+          <blockquote class="ab-quote">
+            <p>{{ q.text }}</p>
+            <cite>{{ q.cite }}</cite>
+          </blockquote>
+        }
+        @if (split().checklist?.length) {
+          <ul class="ab-check-list">
+            @for (item of split().checklist; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+        @if (split().iconRows?.length) {
+          <div class="ab-icon-rows">
+            @for (row of split().iconRows; track row.title) {
+              <div class="ab-icon-row">
+                <div class="ab-value-icon" [innerHTML]="icon(row.icon)" aria-hidden="true"></div>
+                <div>
+                  <h3>{{ row.title }}</h3>
+                  <p>{{ row.text }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        }
+        @if (split().cta) {
+          <div [style.margin-top]="'1.75rem'">
+            <app-hc-button [link]="split().cta!" />
+          </div>
+        }
+      </div>
+      @if (split().imagePosition === 'right') {
+        <div class="ab-split-img hc-delay-2" hcReveal>
+          <img [src]="split().image.src" [alt]="split().image.alt" width="700" height="480" loading="lazy" />
+        </div>
+      }
+    </div>
+  </div>
+</section>
