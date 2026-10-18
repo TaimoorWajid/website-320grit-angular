@@ -290,7 +290,9 @@
   letter-spacing: 0.08em;
 }
 
-/* Explore More: transparent, thin purple outline, white text + dash. */
+/* Explore More: transparent, thin purple outline, white text + dash.
+   Hover: text shifts slightly left, dash becomes an arrow.
+   This is the site-wide button pattern — keep in sync across all pages. */
 .markets__explore {
   align-self: flex-start;
   display: inline-flex;
@@ -309,18 +311,39 @@
   text-decoration: none;
   transition:
     background var(--grit-duration-fast) var(--grit-ease-smooth),
-    border-color var(--grit-duration-fast) var(--grit-ease-smooth),
-    transform var(--grit-duration-fast) var(--grit-ease-smooth);
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+}
+
+.markets__explore > span:first-child {
+  display: inline-block;
+  transition: transform var(--grit-duration-fast) var(--grit-ease-smooth);
+}
+
+.markets__explore-dash {
+  font-weight: 400;
+  display: inline-block;
+  width: 1.2em;
+  text-align: center;
+  transition: transform var(--grit-duration-fast) var(--grit-ease-smooth);
 }
 
 .markets__explore:hover {
   background: var(--grit-accent-violet);
   border-color: var(--grit-accent-violet);
-  transform: translateY(-2px);
 }
 
-.markets__explore-dash {
-  font-weight: 400;
+.markets__explore:hover > span:first-child {
+  transform: translateX(-4px);
+}
+
+.markets__explore:hover .markets__explore-dash {
+  transform: translateX(2px);
+  font-size: 0;
+}
+
+.markets__explore:hover .markets__explore-dash::after {
+  content: '\2192';
+  font-size: 1rem;
 }
 
 /* ---- Mobile: horizontal tab row, stacked cards ---- */
