@@ -96,13 +96,13 @@ export class HomeMarketsComponent {
       bullets: ['Hospitals', 'Medical Office Buildings', 'Imaging Centers', 'Outpatient Facilities'],
       paragraph: 'Precision-built healthcare environments designed around patient care.',
       chips: [
-        { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
-        { icon: 'shield', line1: 'MISSION', line2: 'CRITICAL' },
-        { icon: 'building-medical', line1: 'CODE', line2: 'COMPLIANCE' },
-        { icon: 'shield-check', line1: 'PATIENT', line2: 'FOCUSED' },
+        { icon: 'shield-check', line1: 'DESIGN', line2: 'BUILD' },
+        { icon: 'shield-plus', line1: 'MISSION', line2: 'CRITICAL' },
+        { icon: 'shield', line1: 'CODE', line2: 'COMPLIANCE' },
+        { icon: 'heart', line1: 'PATIENT', line2: 'FOCUSED' },
       ],
       href: '/industries/healthcare',
-      bg: MARKET_IMG.lab,
+      bg: MARKET_IMG.healthcare,
     },
     {
       label: 'Behavioral Health',

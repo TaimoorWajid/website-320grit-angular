@@ -22,6 +22,8 @@ export const MARKET_IMG = {
   labour: '/assets/images/labour-320-grit.webp',
   /** Railway track at dusk — Rail Roads market card bg (staging). */
   railroad: '/assets/images/railroad-infrastructure-bg.webp',
+  /** Hospital main entrance at dusk — Healthcare market card bg (staging). */
+  healthcare: '/assets/images/healthcare-bg.webp',
   /** Industrial feature image — education contexts. */
   industries: '/assets/images/Industries-we-serve-feature-image.webp',
 } as const;
