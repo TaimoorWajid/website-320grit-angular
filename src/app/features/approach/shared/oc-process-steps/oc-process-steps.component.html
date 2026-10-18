@@ -1,0 +1,25 @@
+<section class="oc-section oc-process" id="oc-process">
+  <div class="oc-container">
+    <div class="oc-section-head" ocReveal="up">
+      <h2 class="oc-h2">How We Work with <span class="oc-accent">Owners</span></h2>
+    </div>
+    <div class="oc-process-track">
+      @for (s of steps(); track s.num; let i = $index; let last = $last) {
+        <div class="oc-process-step" ocReveal="up" [ocDelay]="i * 90">
+          <div class="oc-step-num">{{ s.num }}</div>
+          <div class="oc-step-icon" [innerHTML]="icon(s.icon)" aria-hidden="true"></div>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+          <ul class="oc-step-list">
+            @for (pt of s.points; track pt) {
+              <li>{{ pt }}</li>
+            }
+          </ul>
+          @if (!last) {
+            <span class="oc-step-connector" aria-hidden="true"></span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

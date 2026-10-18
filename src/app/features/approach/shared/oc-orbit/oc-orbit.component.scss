@@ -1,0 +1,6 @@
+@use '../oc-base' as *;
+
+/* Node hover depth (mirrors the JS mouseenter/leave z-index swap). */
+.oc-orbit-node:hover {
+  z-index: 10;
+}

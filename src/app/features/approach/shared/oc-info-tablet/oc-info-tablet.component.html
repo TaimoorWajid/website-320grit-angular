@@ -1,0 +1,35 @@
+<section class="oc-section oc-info" id="oc-info">
+  <div class="oc-container oc-info-layout">
+    <div class="oc-info-copy" ocReveal="left">
+      <h2 class="oc-h2">Good Decisions Need<br /><span class="oc-accent">Good Information.</span></h2>
+      <p class="oc-body">
+        We strive to give owners the information they need to make decisions with confidence—before small issues
+        become large ones.
+      </p>
+    </div>
+    <div class="oc-info-visual" #visual ocReveal="scale">
+      <div class="oc-tablet" #tablet>
+        <div class="oc-tablet-screen">
+          <img
+            src="https://staging.320grit.com/wp-content/uploads/2026/08/tablet-cc.jpg"
+            alt="Project dashboard"
+            width="640"
+            height="400"
+            loading="lazy"
+          />
+        </div>
+        <div class="oc-tablet-bezel" aria-hidden="true"></div>
+      </div>
+      @for (chip of chips(); track chip.label) {
+        <span
+          class="oc-dim-chip"
+          [style.top]="chip.top ?? null"
+          [style.bottom]="chip.bottom ?? null"
+          [style.left]="chip.left ?? null"
+          [style.right]="chip.right ?? null"
+          >{{ chip.label }}</span
+        >
+      }
+    </div>
+  </div>
+</section>

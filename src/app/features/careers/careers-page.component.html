@@ -1,0 +1,235 @@
+@use './shared/careers';
+
+<div class="grit-careers-page">
+  <!-- S01 Hero -->
+  <section class="grit-cl-hero" aria-labelledby="grit-careers-hero-heading">
+    <div class="grit-cl-hero__bg" aria-hidden="true">
+      <img
+        src="/assets/images/labour-320-grit.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="grit-cl-hero__content" appReveal>
+      <h1 class="grit-cl-hero__title" id="grit-careers-hero-heading">
+        <span class="grit-cl-hero__title-line">Build What&rsquo;s</span>
+        <span class="grit-cl-hero__title-accent">Next With Us</span>
+      </h1>
+      <p class="grit-cl-hero__sub">
+        At 320 Grit, we build more than projects &mdash; we build people, partnerships, and a better future.
+      </p>
+      <div class="grit-cl-hero__actions">
+        <a class="grit-btn grit-btn--primary grit-btn--lg" routerLink="/open-positions">
+          View Open Positions
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+        <a class="grit-btn grit-btn--outline-light grit-btn--lg" href="#our-culture" (click)="scrollToCulture($event)">
+          Our Culture
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S02 Why Join 320 Grit -->
+  <section class="grit-cl-values" aria-labelledby="grit-values-heading">
+    <div class="grit-cl-values__inner">
+      <span class="grit-eyebrow" appReveal>Why Join 320 Grit</span>
+      <h2 class="grit-cl-values__title" id="grit-values-heading" appReveal>Strong Values. Stronger Together.</h2>
+      <p class="grit-cl-values__subtitle" appReveal>
+        Our people are the foundation of our success. We invest in our team and empower them to build
+        extraordinary things.
+      </p>
+      <div class="grit-cl-values__grid">
+        @for (value of values; track value.title) {
+          <article class="grit-cl-value-card" appReveal>
+            <div class="grit-cl-value-card__icon" aria-hidden="true" [innerHTML]="value.icon"></div>
+            <h3 class="grit-cl-value-card__title">{{ value.title }}</h3>
+            <p class="grit-cl-value-card__text">{{ value.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S03 Our Culture -->
+  <section class="grit-cl-culture" id="our-culture" aria-labelledby="grit-culture-heading">
+    <div class="grit-cl-culture__inner">
+      <div class="grit-cl-culture__content" appReveal>
+        <span class="grit-eyebrow grit-eyebrow--light">Our Culture</span>
+        <h2 class="grit-cl-culture__title" id="grit-culture-heading">
+          Built on People.<br /><span>Driven by Excellence.</span>
+        </h2>
+        <p class="grit-cl-culture__text">
+          We are builders, problem solvers, and innovators. We value ownership, initiative, and a commitment
+          to raising the standard&mdash;together.
+        </p>
+        <a class="grit-btn grit-btn--outline-light" routerLink="/our-story">
+          Learn More About Us
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+      </div>
+      <div class="grit-cl-culture__gallery" appReveal>
+        <img
+          class="grit-cl-culture__img"
+          src="/assets/images/ChatGPT-Image-Aug-4-2026-01_52_54-AM-1.webp"
+          alt="320 Grit team in a strategy meeting"
+          loading="lazy"
+          width="480"
+          height="280"
+        />
+        <img
+          class="grit-cl-culture__img"
+          src="/assets/images/ChatGPT-Image-Aug-3-2026-05_11_51-PM.webp"
+          alt="320 Grit team group photo on site"
+          loading="lazy"
+          width="480"
+          height="280"
+        />
+        <img
+          class="grit-cl-culture__img grit-cl-culture__img--wide"
+          src="/assets/images/career-feature-image.webp"
+          alt="Construction crane at sunset on a 320 Grit project"
+          loading="lazy"
+          width="480"
+          height="580"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- S04 Open Positions preview -->
+  <section class="grit-cl-positions" aria-labelledby="grit-positions-heading">
+    <div class="grit-cl-positions__inner">
+      <span class="grit-eyebrow" appReveal>Open Positions</span>
+      <h2 class="grit-cl-positions__title" id="grit-positions-heading" appReveal>
+        Find Your Next <span>Opportunity</span>
+      </h2>
+      <div class="grit-cl-pills" role="tablist" aria-label="Filter by department" appReveal>
+        @for (pill of pills; track pill) {
+          <button
+            type="button"
+            role="tab"
+            class="grit-cl-filter-pill"
+            [class.is-active]="activeDept() === pill"
+            [attr.aria-selected]="activeDept() === pill"
+            (click)="selectDept(pill)"
+          >
+            {{ pill }}
+          </button>
+        }
+      </div>
+      <div class="grit-cl-positions__grid">
+        @for (job of previewJobs(); track job.id) {
+          <app-job-card variant="preview" [job]="job" />
+        }
+      </div>
+      <div class="grit-cl-positions__cta" appReveal>
+        <a class="grit-btn grit-btn--primary grit-btn--lg" routerLink="/open-positions">
+          View All Positions
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S05 Featured Position -->
+  @if (featured) {
+    <section class="grit-cl-featured" aria-labelledby="grit-featured-heading">
+      <div class="grit-cl-featured__inner" appReveal>
+        <span class="grit-cl-featured__badge">Featured Position</span>
+        <h2 class="grit-cl-featured__title" id="grit-featured-heading">{{ featured.title }}</h2>
+        <div class="grit-cl-featured__meta">
+          <span class="grit-cl-featured__meta-item">
+            <span aria-hidden="true" [innerHTML]="icons.pin()"></span>{{ featured.location }}
+          </span>
+          <span class="grit-cl-featured__meta-item">
+            <span aria-hidden="true" [innerHTML]="icons.briefcase()"></span>{{ featured.employment_type }}
+          </span>
+        </div>
+        <p class="grit-cl-featured__excerpt">{{ featured.excerpt }}</p>
+        <a
+          class="grit-btn grit-btn--primary"
+          [routerLink]="['/careers/apply']"
+          [queryParams]="{ job: featured.slug }"
+        >
+          Apply Now
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+        <div class="grit-cl-featured__columns">
+          <div class="grit-cl-featured__column">
+            <h3>Key Responsibilities</h3>
+            <ul class="grit-check-list">
+              @for (item of featured.responsibilities.slice(0, 5); track item) {
+                <li>
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm()"></span>{{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+          <div class="grit-cl-featured__column">
+            <h3>Qualifications</h3>
+            <ul class="grit-check-list">
+              @for (item of featured.qualifications.slice(0, 4); track item) {
+                <li>
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm()"></span>{{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+          <div class="grit-cl-featured__column">
+            <h3>What We Offer</h3>
+            <ul class="grit-check-list">
+              @for (item of featured.benefits.slice(0, 5); track item) {
+                <li>
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm()"></span>{{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- S06 Don't See Your Role -->
+  <section class="grit-cl-introduce" aria-labelledby="grit-introduce-heading">
+    <div class="grit-cl-introduce__inner">
+      <div appReveal>
+        <span class="grit-eyebrow">Don&rsquo;t See Your Role?</span>
+        <h2 class="grit-cl-introduce__title" id="grit-introduce-heading">
+          We&rsquo;re Always Looking for <span>Great People.</span>
+        </h2>
+        <p class="grit-cl-introduce__text">
+          If you don&rsquo;t see a current opening that fits, we&rsquo;d still love to hear from you.
+        </p>
+        <a class="grit-btn grit-btn--outline" routerLink="/careers/introduce-yourself">
+          Introduce Yourself
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+      </div>
+      <div class="grit-cl-introduce__visual" appReveal>
+        <img
+          src="/assets/images/ChatGPT-Image-Aug-3-2026-04_54_56-PM.webp"
+          alt="320 Grit hard hat on a rooftop overlooking the city"
+          loading="lazy"
+          width="520"
+          height="360"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- S07 Final CTA -->
+  <section class="grit-cl-final" aria-labelledby="grit-final-heading">
+    <div class="grit-cl-final__inner" appReveal>
+      <h2 class="grit-cl-final__title" id="grit-final-heading">
+        Great projects start with <span>great people.</span>
+      </h2>
+      <a class="grit-btn grit-btn--primary grit-btn--lg" routerLink="/open-positions">
+        Join 320 Grit
+        <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+      </a>
+    </div>
+  </section>
+</div>
