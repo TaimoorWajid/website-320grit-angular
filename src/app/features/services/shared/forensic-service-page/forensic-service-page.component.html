@@ -1,0 +1,268 @@
+@let d = data();
+
+<div class="service-page">
+  <!-- 01 — Hero -->
+  <section class="ew-hero" [id]="d.hero.id" data-section="hero" [class.is-loaded]="heroLoaded()">
+    <div class="ew-hero__bg">
+      @if (d.hero.image) {
+        <img [src]="d.hero.image" [alt]="d.hero.imageAlt" class="ew-hero__bg-img" />
+      } @else {
+        <div class="ew-hero__bg-fallback" aria-hidden="true"></div>
+      }
+      <div class="ew-hero__overlay"></div>
+      <div class="ew-hero__grid"></div>
+    </div>
+    @if (d.hero.useHcContainer) {
+      <div class="hc-container">
+        <div class="ew-hero__eyebrow">{{ d.hero.eyebrow }}</div>
+        <h1 class="ew-hero__title" [innerHTML]="d.hero.titleHtml"></h1>
+        <p class="ew-hero__subtitle" [innerHTML]="d.hero.subtitleHtml"></p>
+        <p class="ew-hero__desc" [innerHTML]="d.hero.descHtml"></p>
+        <a [href]="d.hero.buttonHref" class="ew-hero__btn">{{ d.hero.buttonText }}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    } @else {
+      <div class="ew-hero__content">
+        <div class="ew-hero__eyebrow">{{ d.hero.eyebrow }}</div>
+        <h1 class="ew-hero__title" [innerHTML]="d.hero.titleHtml"></h1>
+        <p class="ew-hero__subtitle" [innerHTML]="d.hero.subtitleHtml"></p>
+        <p class="ew-hero__desc" [innerHTML]="d.hero.descHtml"></p>
+        <a [href]="d.hero.buttonHref" class="ew-hero__btn">{{ d.hero.buttonText }}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    }
+    <div class="ew-hero__scroll"><span>SCROLL</span><div class="ew-hero__scroll-line"></div></div>
+  </section>
+
+  <!-- 02 — Why -->
+  <section class="service-why" id="service-why" data-section="service-why">
+    <div class="service-why__container">
+      <div class="service-why__right__cards">
+        @for (card of d.why.cards; track card.title; let i = $index) {
+          <article class="service-why__card tilt-card" [appReveal]="{ y: 80, duration: 1, delay: i * 0.12, start: 'top 78%' }">
+            <div class="service-why__card__icon" [innerHTML]="card.iconSvg"></div>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.text }}</p>
+          </article>
+        }
+      </div>
+      <div class="service-why__content">
+        <div class="service-why__eyebrow">{{ d.why.eyebrow }}</div>
+        <h2 class="service-why__title" [innerHTML]="d.why.titleHtml"></h2>
+        <p class="service-why__desc">{{ d.why.desc }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — What is -->
+  <section class="service-what-is" id="service-what-is" data-section="service-what-is">
+    <div class="service-what-is__container">
+      <div class="service-what-is__content">
+        <div class="service-what-is__eyebrow">{{ d.whatIs.eyebrow }}</div>
+        <h2 class="service-what-is__title" [innerHTML]="d.whatIs.titleHtml"></h2>
+        <div class="service-what-is__text">
+          @for (p of d.whatIs.paragraphs; track p) {
+            <p>{{ p }}</p>
+          }
+        </div>
+      </div>
+      <div class="service-what-is__visual">
+        <div class="service-what-is__building-wrapper">
+          <div class="service-what-is__building" data-rotate>
+            @if (d.whatIs.image) {
+              <img [src]="d.whatIs.image" [alt]="d.whatIs.imageAlt" class="service-what-is__building-img" />
+            } @else {
+              <div class="service-what-is__building-fallback" aria-hidden="true"></div>
+            }
+          </div>
+          <div class="service-what-is__labels">
+            @for (label of d.whatIs.labels; track label.title; let i = $index) {
+              <div class="service-what-is__label" [attr.style]="'--label-index: ' + i">
+                <span class="service-what-is__label-dot" aria-hidden="true"></span>
+                <div class="service-what-is__label-content">
+                  <strong>{{ label.title }}</strong>
+                  <span>{{ label.text }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04a — Services grid (forensic / design-build / commercial) -->
+  @if (d.servicesGrid) {
+    <section class="fa-services" id="services" data-section="services">
+      <div class="fa-services__header" [appReveal]="{ y: 40 }">
+        <p class="section-eyebrow">{{ d.servicesGrid.eyebrow }}</p>
+        <h2 class="section-headline" [innerHTML]="d.servicesGrid.titleHtml"></h2>
+      </div>
+      <div class="fa-services__grid">
+        @for (card of d.servicesGrid.cards; track card.title; let i = $index) {
+          <article class="fa-services__card" [appReveal]="{ y: 60, duration: 1, delay: i * 0.1 }">
+            <div class="fa-services__card-img">
+              @if (card.image) {
+                <img [src]="card.image" [alt]="card.imageAlt" loading="lazy" />
+              } @else {
+                <div class="fa-services__card-img-fallback" aria-hidden="true"></div>
+              }
+            </div>
+            <div class="fa-services__card-content">
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.text }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  }
+
+  <!-- 04b — Expertise grid (expert-witness) -->
+  @if (d.expertiseGrid) {
+    <section class="ew-services" id="ew-services">
+      <div class="ew-services__container">
+        <div class="ew-services__header" [appReveal]="{ y: 40 }">
+          <div class="ew-services__eyebrow">{{ d.expertiseGrid.eyebrow }}</div>
+          <h2 class="ew-services__title" [innerHTML]="d.expertiseGrid.titleHtml"></h2>
+        </div>
+        <div class="ew-services__grid">
+          @for (card of d.expertiseGrid.cards; track card.num; let i = $index) {
+            <div class="ew-services__card" data-card [appReveal]="{ y: 30, duration: 0.9, delay: 0.05 + i * 0.05, start: 'top 85%' }">
+              <div class="ew-services__card-icon">{{ card.num }}</div>
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.text }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- 05 — Process -->
+  <section class="fa-process" id="process" data-section="process">
+    <div class="fa-process__header" [appReveal]="{ y: 40 }">
+      <p class="section-eyebrow">{{ d.process.eyebrow }}</p>
+      <h2 class="section-headline">{{ d.process.titleHtml }}</h2>
+    </div>
+    <div class="fa-process__timeline">
+      <div class="timeline-line"><div class="timeline-progress"></div></div>
+      <div class="fa-process__steps">
+        @for (step of d.process.steps; track step.num; let i = $index) {
+          <article class="fa-process__step" [class.active]="activeStep() === i" [appReveal]="{ y: 40 }">
+            <span class="step-number">{{ step.num }}</span>
+            <div class="step-content">
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.text }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — Industries -->
+  <section class="fa-industries" id="industries" data-section="industries">
+    <div class="fa-industries__bg">
+      @if (d.industries.bgImage) {
+        <img [src]="d.industries.bgImage" alt="City skyline" loading="lazy" />
+      } @else {
+        <div class="fa-industries__bg-fallback" aria-hidden="true"></div>
+      }
+      <div class="fa-industries__overlay"></div>
+    </div>
+    <div class="fa-industries__content">
+      <h2 class="section-headline" [appReveal]="{ y: 40 }">{{ d.industries.title }}</h2>
+      <div class="fa-industries__grid">
+        @for (item of d.industries.items; track item.label; let i = $index) {
+          <div class="fa-industries__item" [appReveal]="{ y: 30, duration: 0.9, delay: i * 0.06 }">
+            <span [innerHTML]="item.iconSvg"></span>
+            <span>{{ item.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 — Why choose -->
+  <section class="fa-choose" [id]="d.whyChoose.sectionId" [attr.data-section]="d.whyChoose.dataSection">
+    <div class="fa-choose__inner">
+      <div class="fa-choose__left" [appReveal]="{ y: 40 }">
+        <p class="section-eyebrow">{{ d.whyChoose.eyebrow }}</p>
+        <h2 class="section-headline" [innerHTML]="d.whyChoose.titleHtml"></h2>
+        <p class="section-body">{{ d.whyChoose.body }}</p>
+      </div>
+      <div class="fa-choose__right">
+        @for (card of d.whyChoose.cards; track card.num; let i = $index) {
+          <article class="fa-choose__card tilt-card" [appReveal]="{ y: 80, duration: 1, delay: i * 0.12 }">
+            <svg class="card-number-svg" viewBox="0 0 120 80" aria-hidden="true"><text x="0" y="65" class="card-number-text">{{ card.num }}</text></svg>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 — CTA -->
+  <section class="cta-section" [id]="d.cta.sectionId" data-section="get-started">
+    <div class="cta-bg" aria-hidden="true">
+      <div class="gradient-mesh"></div>
+      <div class="particles">
+        @for (p of particles(); track $index) {
+          <span class="particle" [style.left.%]="p.left" [style.width.px]="p.size" [style.height.px]="p.size"
+                [style.animation-duration.s]="p.duration" [style.animation-delay.s]="p.delay"></span>
+        }
+      </div>
+    </div>
+    <div class="cta-content">
+      <h2 class="cta-headline" [innerHTML]="d.cta.titleHtml" [appReveal]="{ y: 50 }"></h2>
+      <p class="cta-subheadline" [appReveal]="{ y: 30 }">{{ d.cta.sub }}</p>
+      <a [href]="d.cta.buttonHref" class="btn-cta magnetic" [appReveal]="{ y: 30 }">{{ d.cta.buttonText }}</a>
+    </div>
+  </section>
+
+  <!-- 09 — FAQ -->
+  <section class="faq-section" id="faq" data-section="faq" aria-label="Frequently asked questions">
+    <div class="faq-layout">
+      <div class="faq-header" [appReveal]="{ y: 40 }">
+        <p class="section-eyebrow">{{ d.faq.eyebrow }}</p>
+        <h2 class="section-headline">{{ d.faq.titleHtml }}</h2>
+        <p class="section-body">{{ d.faq.body }}</p>
+        <a [href]="d.faq.linkHref" class="btn-secondary">{{ d.faq.linkText }}</a>
+      </div>
+      <div class="faq-accordion">
+        @for (faq of d.faq.items; track faq.q; let i = $index) {
+          <div class="faq-item" [class.active]="openFaq() === i" [appReveal]="{ y: 30, duration: 0.8, delay: i * 0.05 }">
+            <button class="faq-question" type="button" [attr.aria-expanded]="openFaq() === i" (click)="toggleFaq(i)">
+              {{ faq.q }}
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>{{ faq.a }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Sidenav (bid-build only) -->
+  @if (d.sidenav) {
+    <nav class="grit-sidenav" aria-label="Page sections">
+      <div class="grit-sidenav__line"></div>
+      <ul class="grit-sidenav__list">
+        @for (item of d.sidenav; track item.section) {
+          <li class="grit-sidenav__item" [class.active]="activeSection() === item.section" [attr.data-section]="item.section">
+            <a href="#{{ item.section }}" (click)="scrollToSection(item.section, $event)">
+              <span class="grit-sidenav__num">{{ item.num }}</span>
+              <span class="grit-sidenav__label">{{ item.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  }
+</div>
