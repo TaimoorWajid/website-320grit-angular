@@ -2,7 +2,7 @@
   <ul class="trust-bar__row">
     @for (item of items; track item.title) {
       <li class="trust-item" [appReveal]="{ y: 30, duration: 0.8 }">
-        <span class="trust-item__icon" aria-hidden="true" [innerHTML]="item.icon"></span>
+        <span class="trust-item__icon" aria-hidden="true" [innerHTML]="item.icon | safeHtml"></span>
         <span class="trust-item__text">
           <span class="trust-item__title">{{ item.title }}</span>
           <span class="trust-item__sub">{{ item.sub }}</span>

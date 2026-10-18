@@ -7,6 +7,7 @@ import { JobsService } from '../shared/jobs.service';
 import type { Job } from '../shared/jobs.data';
 import { CAREERS_ICONS } from '../shared/careers-icons';
 import { JobCardComponent } from '../shared/job-card/job-card.component';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 interface Filters {
   query: string;
@@ -25,7 +26,7 @@ const EMPTY_FILTERS: Filters = { query: '', dept: '', location: '', type: '' };
  */
 @Component({
   selector: 'app-open-positions-page',
-  imports: [RouterLink, FormsModule, RevealDirective, JobCardComponent],
+  imports: [RouterLink, FormsModule, RevealDirective, JobCardComponent, SafeHtmlPipe],
   templateUrl: './open-positions-page.component.html',
   styleUrl: './open-positions-page.component.scss',
 })

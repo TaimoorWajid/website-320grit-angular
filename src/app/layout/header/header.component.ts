@@ -2,6 +2,7 @@ import { Component, DestroyRef, afterNextRender, inject, signal } from '@angular
 import { RouterLink } from '@angular/router';
 import { MEGA_MENUS, MegaMenu } from '../../core/data/mega-menu.data';
 import { SmoothScrollService } from '../../core/services/smooth-scroll.service';
+import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 
 interface MobileItem {
   label: string;
@@ -18,7 +19,7 @@ interface MobileItem {
  */
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, SafeHtmlPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

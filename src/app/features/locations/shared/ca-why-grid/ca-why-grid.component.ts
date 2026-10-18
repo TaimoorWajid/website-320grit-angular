@@ -1,11 +1,12 @@
 import { Component, input } from '@angular/core';
 import { CaIconCard, caIcon } from '../ca.types';
 import { CaRevealDirective } from '../ca-reveal.directive';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 /** "Why 320 Grit in California?" — 5 purple-icon cards. */
 @Component({
   selector: 'app-ca-why-grid',
-  imports: [CaRevealDirective],
+  imports: [CaRevealDirective, SafeHtmlPipe],
   templateUrl: './ca-why-grid.component.html',
   styleUrl: './ca-why-grid.component.scss',
 })

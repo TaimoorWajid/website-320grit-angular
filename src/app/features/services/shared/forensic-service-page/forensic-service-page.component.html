@@ -42,7 +42,7 @@
       <div class="service-why__right__cards">
         @for (card of d.why.cards; track card.title; let i = $index) {
           <article class="service-why__card tilt-card" [appReveal]="{ y: 80, duration: 1, delay: i * 0.12, start: 'top 78%' }">
-            <div class="service-why__card__icon" [innerHTML]="card.iconSvg"></div>
+            <div class="service-why__card__icon" [innerHTML]="card.iconSvg | safeHtml"></div>
             <h3>{{ card.title }}</h3>
             <p>{{ card.text }}</p>
           </article>
@@ -178,7 +178,7 @@
       <div class="fa-industries__grid">
         @for (item of d.industries.items; track item.label; let i = $index) {
           <div class="fa-industries__item" [appReveal]="{ y: 30, duration: 0.9, delay: i * 0.06 }">
-            <span [innerHTML]="item.iconSvg"></span>
+            <span [innerHTML]="item.iconSvg | safeHtml"></span>
             <span>{{ item.label }}</span>
           </div>
         }

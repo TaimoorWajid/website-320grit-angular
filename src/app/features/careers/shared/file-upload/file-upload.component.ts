@@ -1,5 +1,6 @@
 import { Component, ElementRef, input, model, signal, viewChild } from '@angular/core';
 import { CAREERS_ICONS } from '../careers-icons';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 const MAX_BYTES = 5 * 1024 * 1024;
 const ACCEPT = '.pdf,.doc,.docx';
@@ -15,6 +16,7 @@ const ACCEPT = '.pdf,.doc,.docx';
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrl: './file-upload.component.scss',
+  imports: [SafeHtmlPipe],
 })
 export class FileUploadComponent {
   readonly label = input.required<string>();

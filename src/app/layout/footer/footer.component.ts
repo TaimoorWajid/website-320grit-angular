@@ -7,12 +7,14 @@ import {
   FOOTER_SERVICES,
   FOOTER_SOCIALS,
 } from '../../core/data/footer.data';
+import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 
 /** Site footer — custom .grit-footer (the Salient #footer-outer is empty). */
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
+  imports: [SafeHtmlPipe],
 })
 export class FooterComponent {
   protected readonly socials = FOOTER_SOCIALS;

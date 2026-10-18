@@ -19,7 +19,7 @@
     <div class="grit-op-filters__inner">
       <div class="grit-op-filters__search">
         <label class="grit-sr-only" for="grit-job-search">Search by job title or keyword</label>
-        <span aria-hidden="true" [innerHTML]="icons.search()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.search() | safeHtml"></span>
         <input
           type="search"
           id="grit-job-search"
@@ -83,7 +83,7 @@
         aria-controls="grit-mobile-filters"
         (click)="openDrawer()"
       >
-        <span aria-hidden="true" [innerHTML]="icons.filters()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.filters() | safeHtml"></span>
         Filters
       </button>
     </div>
@@ -105,7 +105,7 @@
         </div>
       } @else {
         <div class="grit-op-empty" id="grit-no-results">
-          <span class="grit-op-empty__icon" aria-hidden="true" [innerHTML]="icons.searchEmpty()"></span>
+          <span class="grit-op-empty__icon" aria-hidden="true" [innerHTML]="icons.searchEmpty() | safeHtml"></span>
           <h3 class="grit-op-empty__title">No positions match your filters</h3>
           <p class="grit-op-empty__text">
             Try adjusting your search or clearing filters to see more opportunities.
@@ -134,7 +134,7 @@
       </p>
       <a class="grit-btn grit-btn--orange grit-btn--lg" routerLink="/careers/introduce-yourself">
         Introduce Yourself
-        <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
       </a>
     </div>
   </section>
@@ -154,7 +154,7 @@
         <div class="grit-op-filters__drawer-header">
           <h3>Filters</h3>
           <button type="button" class="grit-op-filters__drawer-close" aria-label="Close filters" (click)="closeDrawer()">
-            <span aria-hidden="true" [innerHTML]="icons.close()"></span>
+            <span aria-hidden="true" [innerHTML]="icons.close() | safeHtml"></span>
           </button>
         </div>
         <div class="grit-op-filters__drawer-body">

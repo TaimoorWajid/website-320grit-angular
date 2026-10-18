@@ -14,7 +14,7 @@
   <div class="contact-info__inner">
     @for (item of items; track item.label) {
       <a class="contact-info__card" [href]="item.href" appReveal>
-        <span class="contact-info__icon" aria-hidden="true" [innerHTML]="item.icon"></span>
+        <span class="contact-info__icon" aria-hidden="true" [innerHTML]="item.icon | safeHtml"></span>
         <span class="contact-info__label">{{ item.label }}</span>
         <span class="contact-info__value">{{ item.value }}</span>
       </a>

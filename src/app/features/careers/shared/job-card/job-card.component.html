@@ -6,21 +6,21 @@
     [attr.data-department]="job().department"
     [attr.data-job-id]="job().id"
   >
-    <div class="grit-job-card__icon" aria-hidden="true" [innerHTML]="icons.doc()"></div>
+    <div class="grit-job-card__icon" aria-hidden="true" [innerHTML]="icons.doc() | safeHtml"></div>
     <h3 class="grit-job-card__title">
       <a [routerLink]="jobUrl()">{{ job().title }}</a>
     </h3>
     <div class="grit-job-card__meta">
       <span class="grit-job-card__meta-item">
-        <span aria-hidden="true" [innerHTML]="icons.pin()"></span>{{ job().location }}
+        <span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ job().location }}
       </span>
       <span class="grit-job-card__meta-item">
-        <span aria-hidden="true" [innerHTML]="icons.briefcase()"></span>{{ job().employment_type }}
+        <span aria-hidden="true" [innerHTML]="icons.briefcase() | safeHtml"></span>{{ job().employment_type }}
       </span>
     </div>
     <p class="grit-job-card__desc">{{ job().short_desc }}</p>
     <a class="grit-link-arrow" [routerLink]="jobUrl()">
-      View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+      View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
     </a>
   </article>
 }
@@ -48,7 +48,7 @@
     <div class="grit-job-card__footer">
       <span class="grit-job-card__posted">{{ postedLabel() }}</span>
       <a class="grit-link-arrow" [routerLink]="jobUrl()">
-        View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+        View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
       </a>
     </div>
   </article>
@@ -67,7 +67,7 @@
     </div>
     <p class="grit-job-card__desc">{{ job().short_desc }}</p>
     <a class="grit-link-arrow" [routerLink]="jobUrl()">
-      View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+      View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
     </a>
   </article>
 }

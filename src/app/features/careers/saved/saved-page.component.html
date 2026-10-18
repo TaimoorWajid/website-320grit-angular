@@ -32,7 +32,7 @@
               </div>
               <div class="grit-saved-item__actions">
                 <a class="grit-link-arrow" [routerLink]="['/careers', job.slug]">
-                  View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+                  View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
                 </a>
                 <button
                   type="button"
@@ -40,7 +40,7 @@
                   [attr.aria-label]="'Remove ' + job.title + ' from saved'"
                   (click)="remove(job.id)"
                 >
-                  <span aria-hidden="true" [innerHTML]="icons.trash()"></span>
+                  <span aria-hidden="true" [innerHTML]="icons.trash() | safeHtml"></span>
                 </button>
               </div>
             </article>
@@ -54,7 +54,7 @@
         </div>
       } @else {
         <div class="grit-saved-empty" id="grit-saved-empty">
-          <span class="grit-saved-empty__icon" aria-hidden="true" [innerHTML]="icons.bookmark()"></span>
+          <span class="grit-saved-empty__icon" aria-hidden="true" [innerHTML]="icons.bookmark() | safeHtml"></span>
           <h2 class="grit-saved-empty__title">No Saved Positions Yet</h2>
           <p class="grit-saved-empty__text">
             Save positions you&rsquo;re interested in and come back when you&rsquo;re ready.

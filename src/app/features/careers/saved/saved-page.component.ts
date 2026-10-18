@@ -6,6 +6,7 @@ import { JobsService } from '../shared/jobs.service';
 import { SavedJobsService } from '../shared/saved-jobs.service';
 import type { Job } from '../shared/jobs.data';
 import { CAREERS_ICONS } from '../shared/careers-icons';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 /**
  * Saved positions (/careers/saved) — ported from saved-positions.php.
@@ -15,7 +16,7 @@ import { CAREERS_ICONS } from '../shared/careers-icons';
  */
 @Component({
   selector: 'app-saved-page',
-  imports: [RouterLink, RevealDirective],
+  imports: [RouterLink, RevealDirective, SafeHtmlPipe],
   templateUrl: './saved-page.component.html',
   styleUrl: './saved-page.component.scss',
 })

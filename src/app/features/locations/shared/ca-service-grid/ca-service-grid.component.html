@@ -6,7 +6,7 @@
     <div class="ca-svc-grid">
       @for (s of services(); track s.title; let i = $index) {
         <div class="ca-svc-card" caReveal="up" [caDelay]="i * 70">
-          <div class="ca-svc-icon" [innerHTML]="icon(s.icon)" aria-hidden="true"></div>
+          <div class="ca-svc-icon" [innerHTML]="icon(s.icon) | safeHtml" aria-hidden="true"></div>
           <h3>{{ s.title }}</h3>
           <p>{{ s.text }}</p>
         </div>

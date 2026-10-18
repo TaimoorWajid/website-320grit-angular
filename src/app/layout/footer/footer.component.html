@@ -8,7 +8,7 @@
       <p class="grit-footer__tagline">Building with precision.<br />Delivering with grit.</p>
       <div class="grit-footer__socials">
         @for (s of socials; track s.label) {
-          <a [href]="s.href" [attr.aria-label]="s.label" [innerHTML]="s.svg"></a>
+          <a [href]="s.href" [attr.aria-label]="s.label" [innerHTML]="s.svg | safeHtml"></a>
         }
       </div>
     </div>
@@ -44,15 +44,15 @@
       <h4 class="grit-footer__title">Contact Us</h4>
       <ul class="grit-footer__contact-list">
         <li>
-          <span [innerHTML]="contactIcons[0]" aria-hidden="true"></span>
+          <span [innerHTML]="contactIcons[0] | safeHtml" aria-hidden="true"></span>
           <a href="tel:+13235550199">(323) 555-0199</a>
         </li>
         <li>
-          <span [innerHTML]="contactIcons[1]" aria-hidden="true"></span>
+          <span [innerHTML]="contactIcons[1] | safeHtml" aria-hidden="true"></span>
           <a href="mailto:info@320grit.com">info@320grit.com</a>
         </li>
         <li>
-          <span [innerHTML]="contactIcons[2]" aria-hidden="true"></span>
+          <span [innerHTML]="contactIcons[2] | safeHtml" aria-hidden="true"></span>
           <span>100 Spectrum Center Drive<br />Suite 900<br />Irvine, CA 92618</span>
         </li>
       </ul>

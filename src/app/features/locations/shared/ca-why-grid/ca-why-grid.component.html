@@ -7,7 +7,7 @@
     <div class="ca-why-grid">
       @for (w of items(); track w.title; let i = $index) {
         <div class="ca-why-card" caReveal="up" [caDelay]="i * 70">
-          <div class="ca-why-icon" [innerHTML]="icon(w.icon)" aria-hidden="true"></div>
+          <div class="ca-why-icon" [innerHTML]="icon(w.icon) | safeHtml" aria-hidden="true"></div>
           <h3>{{ w.title }}</h3>
           <p>{{ w.text }}</p>
         </div>

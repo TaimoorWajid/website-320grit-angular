@@ -14,6 +14,7 @@ import { RevealDirective } from '../../../../shared/directives/reveal.directive'
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { ForensicServicePageData } from './forensic-service-page.data';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 interface Particle {
   left: number;
@@ -38,7 +39,7 @@ interface Particle {
   selector: 'app-forensic-service-page',
   templateUrl: './forensic-service-page.component.html',
   styleUrl: './forensic-service-page.component.scss',
-  imports: [RevealDirective],
+  imports: [RevealDirective, SafeHtmlPipe],
 })
 export class ForensicServicePageComponent {
   private readonly animations = inject(AnimationManagerService);

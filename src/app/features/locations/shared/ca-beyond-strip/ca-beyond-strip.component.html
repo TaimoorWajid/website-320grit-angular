@@ -18,7 +18,7 @@
     <div class="ca-beyond-row">
       @for (b of items(); track b.title) {
         <div class="ca-beyond-item">
-          <span class="ca-beyond-icon" [innerHTML]="icon(b.icon)" aria-hidden="true"></span>
+          <span class="ca-beyond-icon" [innerHTML]="icon(b.icon) | safeHtml" aria-hidden="true"></span>
           <span>{{ b.title }}</span>
         </div>
       }

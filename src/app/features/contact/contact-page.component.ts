@@ -3,6 +3,7 @@ import { SeoService } from '../../core/services/seo.service';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { FOOTER_CONTACT_ICONS } from '../../core/data/footer.data';
 import { HomeContactComponent } from '../home/components/home-contact/home-contact.component';
+import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 
 interface ContactItem {
   label: string;
@@ -18,7 +19,7 @@ interface ContactItem {
  */
 @Component({
   selector: 'app-contact-page',
-  imports: [RevealDirective, HomeContactComponent],
+  imports: [RevealDirective, HomeContactComponent, SafeHtmlPipe],
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.scss',
 })

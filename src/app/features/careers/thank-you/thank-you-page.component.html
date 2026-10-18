@@ -4,7 +4,7 @@
   <!-- S01 Hero (text-only; the template's BG block is commented out) -->
   <section class="grit-thanks-hero" aria-labelledby="grit-thanks-hero-heading">
     <div class="grit-thanks-hero__content" appReveal>
-      <span class="grit-thanks-hero__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg()"></span>
+      <span class="grit-thanks-hero__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg() | safeHtml"></span>
       <h1 class="grit-thanks-hero__title" id="grit-thanks-hero-heading">Thank You</h1>
       @if (type() === 'interest') {
         <p class="grit-thanks-hero__sub">
@@ -55,7 +55,7 @@
               (click)="goToCulture($event)"
             >
               {{ action.cta }}
-              <span aria-hidden="true" [innerHTML]="action.icon"></span>
+              <span aria-hidden="true" [innerHTML]="action.icon | safeHtml"></span>
             </a>
           } @else {
             <a
@@ -63,7 +63,7 @@
               class="grit-btn {{ action.variant === 'primary' ? 'grit-btn--primary' : 'grit-btn--outline' }}"
             >
               {{ action.cta }}
-              <span aria-hidden="true" [innerHTML]="action.icon"></span>
+              <span aria-hidden="true" [innerHTML]="action.icon | safeHtml"></span>
             </a>
           }
         </div>

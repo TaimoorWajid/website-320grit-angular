@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import type { Job } from '../jobs.data';
 import { CAREERS_ICONS } from '../careers-icons';
 import { SaveJobButtonComponent } from '../save-job-button/save-job-button.component';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 export type JobCardVariant = 'preview' | 'directory' | 'related';
 
@@ -13,7 +14,7 @@ export type JobCardVariant = 'preview' | 'directory' | 'related';
  */
 @Component({
   selector: 'app-job-card',
-  imports: [RouterLink, SaveJobButtonComponent],
+  imports: [RouterLink, SaveJobButtonComponent, SafeHtmlPipe],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.scss',
 })

@@ -17,7 +17,7 @@
       (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave()"
     >
-      <span class="grit-upload__icon" aria-hidden="true" [innerHTML]="icons.upload(32)"></span>
+      <span class="grit-upload__icon" aria-hidden="true" [innerHTML]="icons.upload(32) | safeHtml"></span>
       <p class="grit-upload__text">
         <strong>{{ dropLead() }}</strong> or <span class="grit-upload__browse">{{ dropBrowse() }}</span>
       </p>

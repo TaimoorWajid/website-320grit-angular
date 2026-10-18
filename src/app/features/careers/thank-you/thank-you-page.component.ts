@@ -7,6 +7,7 @@ import { SmoothScrollService } from '../../../core/services/smooth-scroll.servic
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
 import { JobsService } from '../shared/jobs.service';
 import { CAREERS_ICONS } from '../shared/careers-icons';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 interface NextStep {
   num: string;
@@ -31,7 +32,7 @@ interface ActionCard {
  */
 @Component({
   selector: 'app-thank-you-page',
-  imports: [RouterLink, RevealDirective],
+  imports: [RouterLink, RevealDirective, SafeHtmlPipe],
   templateUrl: './thank-you-page.component.html',
   styleUrl: './thank-you-page.component.scss',
 })

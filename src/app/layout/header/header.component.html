@@ -21,7 +21,7 @@
                   @if (col.header) { <div class="grit-mega-col-header">{{ col.header }}</div> }
                   @for (item of col.items; track item.href + item.title) {
                     <a [href]="item.href" class="grit-mega-item" (click)="goToAnchor(item.href, $event)">
-                      <span class="grit-mega-item__icon" [innerHTML]="item.icon" aria-hidden="true"></span>
+                      <span class="grit-mega-item__icon" [innerHTML]="item.icon | safeHtml" aria-hidden="true"></span>
                       <span class="grit-mega-item__text">
                         <span class="grit-mega-item__title">{{ item.title }}</span>
                         <span class="grit-mega-item__desc">{{ item.desc }}</span>
