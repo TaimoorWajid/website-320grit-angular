@@ -1,0 +1,103 @@
+/* ======================================================
+   SECTION 9: Locations / nationwide
+   Solid #060606 row with 3% viewport padding (faithful to the
+   source row: padding-top/bottom calc(100vw * 0.03),
+   left/right 3%). Two columns, stacked on mobile.
+   ====================================================== */
+
+.locations-section {
+  background: #060606;
+  padding: calc(100vw * 0.03);
+}
+
+.locations-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--grit-container-max);
+  margin: 0 auto;
+}
+
+.locations-text {
+  padding: 3%;
+}
+
+.locations-headline {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--grit-text-primary);
+  margin: 0 0 8px;
+}
+
+.locations-headline:last-of-type {
+  margin-bottom: 24px;
+}
+
+.locations-body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grit-text-secondary);
+  max-width: 520px;
+  margin: 0 0 32px;
+}
+
+/* Salient .nectar-cta equivalent: white 2px border, 10px radius */
+.locations-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: var(--grit-text-primary);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+
+  &:hover {
+    background: var(--grit-accent-violet);
+    border-color: var(--grit-accent-violet);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.locations-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 768px) {
+  .locations-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .locations-text {
+    padding: 0;
+  }
+
+  .locations-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

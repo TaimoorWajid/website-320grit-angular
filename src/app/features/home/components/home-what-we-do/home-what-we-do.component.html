@@ -1,0 +1,34 @@
+<section class="what-we-do" id="features" aria-label="What we do">
+  <div class="what-we-do__layout">
+    <div class="what-we-do__media" aria-hidden="true">
+      @for (card of cards; track card.image; let i = $index) {
+        <div
+          class="what-we-do__media-item"
+          [class.is-active]="activeMedia() === i"
+          [style.background-image]="'url(' + card.image + ')'"
+        ></div>
+      }
+    </div>
+
+    <div class="what-we-do__cards">
+      @for (card of cards; track card.eyebrow) {
+        <article #cardRef class="what-we-do__card" appReveal>
+          <h2 class="what-we-do__eyebrow">{{ card.eyebrow }}</h2>
+          <h3 class="what-we-do__title">{{ card.title }}</h3>
+          <p class="what-we-do__text">{{ card.paragraphs[0] }}</p>
+          <p class="what-we-do__text">{{ card.paragraphs[1] }}</p>
+          @if (card.href) {
+            <a class="nectar-cta" [routerLink]="card.href"
+              ><span class="link_text">{{ card.cta }}</span></a
+            >
+          } @else {
+            <!-- Source CTA carries an empty href: keep the anchor, suppress navigation. -->
+            <a class="nectar-cta" href="" (click)="$event.preventDefault()"
+              ><span class="link_text">{{ card.cta }}</span></a
+            >
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>

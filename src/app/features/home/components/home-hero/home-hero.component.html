@@ -1,0 +1,31 @@
+<section class="home-hero" aria-label="320 Grit introduction">
+  <div class="home-hero__bg" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 690px)" srcset="/assets/images/320-Grit-Banner-Image-1024x546.webp" />
+      <source media="(min-width: 1001px)" srcset="/assets/images/320-Grit-Banner-Image.webp" />
+      <img class="home-hero__bg-img" src="/assets/images/320-Grit-Banner-Image.webp" alt="320-Grit-Banner-Image" fetchpriority="high" />
+    </picture>
+    <div class="home-hero__overlay"></div>
+  </div>
+
+  <div class="home-hero__inner grit-container">
+    <div class="home-hero__content">
+      <h5 class="home-hero__kicker"><strong>RESIDENTIAL &amp; COMMERCIAL CONSTRUCTION ACROSS CALIFORNIA.</strong></h5>
+      <h1 class="home-hero__title">BUILT WITH PRECISION.<br />DELIVERED WITH 320 <span>GRIT.</span></h1>
+      <p class="home-hero__sub">We build more than structures. We build trust, partnerships and lasting value.</p>
+      <div class="btn-group-320">
+        <a class="btn-320 btn-primary grit-magnetic" href="#contact-form" (click)="goTo('#contact-form', $event)">
+          <span>START YOUR PROJECT</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5L15 12L8 19" /></svg>
+        </a>
+        <a class="btn-320 btn-outline grit-magnetic" href="#features" (click)="goTo('#features', $event)">
+          <span>VIEW OUR SERVICES</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5L15 12L8 19" /></svg>
+        </a>
+      </div>
+    </div>
+    <div class="home-hero__badge">
+      <div class="hero-exp-card"><span class="number">25+</span><span class="text">YEARS OF<br />EXPERIENCE</span></div>
+    </div>
+  </div>
+</section>

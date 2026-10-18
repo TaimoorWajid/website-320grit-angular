@@ -1,0 +1,125 @@
+/* Section 4 — What we do (sticky-media feature cards).
+   Ports Salient's nectar-sticky-media-sections:
+   media-width-60pct, media-height-75vh, media-border-radius-15px,
+   content-position-right, mobile-aspect-ratio-4-3. */
+:host {
+  display: block;
+}
+
+.what-we-do {
+  background: var(--grit-bg-primary);
+  padding: clamp(4rem, 7vw, 7rem) 6% clamp(5rem, 10vw, 10rem);
+}
+
+.what-we-do__layout {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: var(--grit-container-max);
+  margin: 0 auto;
+}
+
+/* Sticky media panel (decorative: source images are CSS backgrounds, no alt text). */
+.what-we-do__media {
+  position: sticky;
+  top: calc(var(--grit-nav-height) + 24px);
+  flex: 0 0 60%;
+  width: 60%;
+  height: 75vh;
+}
+
+.what-we-do__media-item {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.6s var(--grit-ease-smooth);
+}
+
+.what-we-do__media-item.is-active {
+  opacity: 1;
+}
+
+.what-we-do__cards {
+  flex: 1 1 40%;
+  min-width: 0;
+}
+
+.what-we-do__card {
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.what-we-do__eyebrow {
+  margin: 0 0 1rem;
+  color: var(--grit-accent-violet);
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.what-we-do__title {
+  margin: 0 0 1.5rem;
+  color: var(--grit-text-primary);
+  font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.what-we-do__text {
+  margin: 0 0 1rem;
+  color: var(--grit-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* nectar-cta port: bordered pill, violet hover (hover_color_792CD5). */
+.nectar-cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding: 0.9rem 1.75rem;
+  border: 2px solid var(--grit-accent-violet);
+  border-radius: 10px;
+  color: var(--grit-text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color var(--grit-duration-fast) var(--grit-ease-smooth),
+    background-color var(--grit-duration-fast) var(--grit-ease-smooth),
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+}
+
+.nectar-cta:hover {
+  color: var(--grit-accent-violet);
+  background: rgba(121, 44, 213, 0.08);
+}
+
+@media (max-width: 767px) {
+  .what-we-do__layout {
+    flex-direction: column;
+  }
+
+  .what-we-do__media {
+    position: relative;
+    top: auto;
+    flex: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .what-we-do__card {
+    min-height: 0;
+    padding: 2.5rem 0;
+  }
+}

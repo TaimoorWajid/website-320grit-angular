@@ -1,0 +1,122 @@
+/* Homepage hero. */
+
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #000;
+}
+
+.home-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.home-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at left, rgba(0, 0, 0, 0.953) 30%, rgba(0, 0, 0, 0.419) 66%);
+}
+
+.home-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 3rem;
+  width: 100%;
+  padding-bottom: clamp(4rem, 10vh, 7rem);
+}
+
+.home-hero__kicker {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.4rem;
+}
+
+.home-hero__kicker strong {
+  color: #792cd5;
+}
+
+.home-hero__title {
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin-bottom: 1.4rem;
+}
+
+.home-hero__title span {
+  color: #792cd5;
+}
+
+.home-hero__sub {
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--grit-text-secondary);
+  max-width: 34rem;
+  margin-bottom: 2.4rem;
+}
+
+/* 25+ years badge card (hero-section.css, desktop only) */
+.hero-exp-card {
+  width: 170px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.85);
+  border: 2px solid var(--grit-accent-orange);
+  text-align: center;
+}
+
+.hero-exp-card .number {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+}
+
+.hero-exp-card .text {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1025px) {
+  .home-hero__badge {
+    display: none;
+  }
+  .home-hero__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 690px) {
+  .home-hero {
+    align-items: center;
+  }
+  .home-hero__inner {
+    padding-bottom: 0;
+  }
+  .home-hero__kicker {
+    font-size: 13px;
+  }
+}

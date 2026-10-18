@@ -1,0 +1,27 @@
+<section class="ca-beyond" id="ca-beyond">
+  <div class="ca-beyond-bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+      alt=""
+      width="1920"
+      height="700"
+      loading="lazy"
+    />
+  </div>
+  <div class="ca-beyond-overlay" aria-hidden="true"></div>
+  <div class="ca-container ca-beyond-inner" caReveal="up">
+    <h2 class="ca-h2">Building Beyond<br /><span class="ca-accent">the Project.</span></h2>
+    <p class="ca-lead">
+      Our responsibility doesn’t end at the property line. As 320 Grit grows in California, we aim to build
+      meaningful relationships with the communities, organizations and people connected to the places where we work.
+    </p>
+    <div class="ca-beyond-row">
+      @for (b of items(); track b.title) {
+        <div class="ca-beyond-item">
+          <span class="ca-beyond-icon" [innerHTML]="icon(b.icon)" aria-hidden="true"></span>
+          <span>{{ b.title }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

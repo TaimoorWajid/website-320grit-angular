@@ -1,0 +1,51 @@
+<section class="markets" aria-label="Markets we served">
+  <div class="markets__inner">
+    <p class="markets__kicker" appReveal>MARKETS WE SERVED</p>
+    <h2 class="markets__heading" appReveal>Building What Matters</h2>
+
+    <div class="markets__body" appReveal>
+      <div class="markets__nav" role="tablist" aria-label="Market sectors" aria-orientation="vertical">
+        @for (tab of tabs; track tab.label; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            class="markets__tab"
+            [class.is-active]="activeTab() === i"
+            [attr.aria-selected]="activeTab() === i"
+            (click)="selectTab(i)"
+          >
+            {{ tab.label }}
+          </button>
+        }
+      </div>
+
+      <div class="markets__panes">
+        @for (tab of tabs; track tab.label; let i = $index) {
+          <article
+            class="markets__pane"
+            [class.is-active]="activeTab() === i"
+            [class.has-fallback-bg]="tab.bgFallback"
+            role="tabpanel"
+            [attr.aria-hidden]="activeTab() !== i"
+          >
+            <span class="markets__number" aria-hidden="true">{{ tab.number }}</span>
+            <p class="markets__eyebrow">{{ tab.eyebrow }}</p>
+            <h3 class="markets__title">{{ tab.title }}</h3>
+            <ul class="markets__chips">
+              @for (chip of tab.chips; track chip) {
+                <li class="markets__chip">{{ chip }}</li>
+              }
+            </ul>
+            <p class="markets__text">{{ tab.paragraph }}</p>
+            <p class="markets__tags">
+              @for (tag of tab.tags; track tag) {
+                <span class="markets__tag">{{ tag }}</span>
+              }
+            </p>
+            <a class="markets__explore" [routerLink]="tab.href">Explore More</a>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

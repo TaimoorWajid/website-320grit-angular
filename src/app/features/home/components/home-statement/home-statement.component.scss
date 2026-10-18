@@ -1,0 +1,37 @@
+/* Statement band: giant type, line-mask reveal. */
+
+.home-statement {
+  padding-top: calc(100vw * 0.1);
+  padding-bottom: calc(100vw * 0.07);
+  background: var(--grit-bg-primary);
+}
+
+.home-statement__inner {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.home-statement__line {
+  overflow: hidden;
+  font-size: 7vw;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+}
+
+.home-statement__line-inner {
+  display: block;
+  will-change: transform;
+}
+
+@media (max-width: 690px) {
+  .home-statement__inner {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .home-statement__line {
+    font-size: 11vw;
+  }
+}

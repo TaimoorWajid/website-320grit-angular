@@ -1,0 +1,219 @@
+/* Section 5 — Markets we served (scrolling tabs).
+   Ports Salient's nectar-scrolling-tabs: solid #000000 row background,
+   tab nav + one content pane per tab, pure-CSS crossfade on switch. */
+:host {
+  display: block;
+}
+
+.markets {
+  background: #000000;
+  padding: clamp(4rem, 5vw, 5rem) 2%;
+}
+
+.markets__inner {
+  max-width: var(--grit-container-max);
+  margin: 0 auto;
+}
+
+.markets__kicker {
+  margin: 0 0 0.75rem;
+  color: var(--grit-text-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.markets__heading {
+  margin: 0;
+  color: var(--grit-text-primary);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Salient nectar-scrolling-tabs layout: vertical tab nav left, pane right. */
+.markets__body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  margin-top: 2.5rem;
+  align-items: start;
+}
+
+.markets__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid var(--grit-border-subtle);
+}
+
+.markets__tab {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  background: none;
+  color: var(--grit-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color var(--grit-duration-fast) var(--grit-ease-smooth),
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+}
+
+.markets__tab:hover {
+  color: var(--grit-text-primary);
+}
+
+.markets__tab.is-active {
+  color: var(--grit-accent-orange);
+  border-left-color: var(--grit-accent-orange);
+}
+
+/* Grid-stacked panes: only the active pane is visible; the switch
+   crossfades via opacity/transform transition (no JS timers). */
+.markets__panes {
+  display: grid;
+  min-width: 0;
+}
+
+.markets__pane {
+  grid-area: 1 / 1;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s var(--grit-ease-smooth),
+    transform 0.5s var(--grit-ease-smooth),
+    visibility 0.5s;
+}
+
+.markets__pane.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* Staging anomaly: this pane's card bg 404s and has no image in source —
+   dark gradient fallback, no invented imagery. */
+.markets__pane.has-fallback-bg {
+  background: linear-gradient(135deg, #141414 0%, #0a0a0a 55%, #1c1030 100%);
+  border: 1px solid var(--grit-border-subtle);
+}
+
+.markets__number {
+  display: block;
+  color: rgba(255, 255, 255, 0.14);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.markets__eyebrow {
+  margin: 1rem 0 0.5rem;
+  color: var(--grit-accent-violet);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.markets__title {
+  margin: 0 0 1.5rem;
+  color: var(--grit-text-primary);
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.markets__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.markets__chip {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--grit-border-subtle);
+  border-radius: 999px;
+  color: var(--grit-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.markets__text {
+  margin: 0 0 1.5rem;
+  max-width: 60ch;
+  color: var(--grit-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.markets__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 2rem;
+}
+
+.markets__tag {
+  color: var(--grit-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.markets__explore {
+  display: inline-flex;
+  align-items: center;
+  color: var(--grit-text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid var(--grit-accent-violet);
+  padding-bottom: 0.35rem;
+  transition:
+    color var(--grit-duration-fast) var(--grit-ease-smooth),
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+}
+
+.markets__explore:hover {
+  color: var(--grit-accent-violet);
+  border-color: var(--grit-accent-violet);
+}
+
+@media (max-width: 900px) {
+  .markets__body {
+    grid-template-columns: 1fr;
+  }
+  .markets__nav {
+    flex-direction: row;
+    overflow-x: auto;
+    border-left: none;
+    border-bottom: 1px solid var(--grit-border-subtle);
+  }
+  .markets__tab {
+    flex: 0 0 auto;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    margin-left: 0;
+    margin-bottom: -1px;
+    white-space: nowrap;
+  }
+  .markets__tab.is-active {
+    border-bottom-color: var(--grit-accent-orange);
+  }
+}

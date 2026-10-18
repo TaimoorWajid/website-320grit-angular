@@ -1,0 +1,24 @@
+<section class="process" aria-label="Our process">
+  <div class="process__band">
+    <h2 class="process__band-title" appReveal>How we can help you</h2>
+  </div>
+
+  <div class="process__strip" id="services" appReveal>
+    @for (phase of phases; track phase.number) {
+      <article class="phase-card" [class.phase-card--light]="phase.light">
+        <div class="phase-card__media" [style.background]="phase.mediaColor" aria-hidden="true"></div>
+        <div class="phase-card__body">
+          <p class="phase-card__eyebrow">{{ phase.eyebrow }}</p>
+          <p class="phase-card__number">{{ phase.number }}</p>
+          <h3 class="phase-card__title">{{ phase.title }}</h3>
+          <hr class="phase-card__divider" />
+          <p class="phase-card__text">{{ phase.paragraph }}</p>
+          <!-- Source CTA has an empty href: keep the anchor, suppress navigation. -->
+          <a class="nectar-cta phase-card__cta" href="" (click)="$event.preventDefault()"
+            ><span class="link_text">{{ phase.cta }}</span></a
+          >
+        </div>
+      </article>
+    }
+  </div>
+</section>

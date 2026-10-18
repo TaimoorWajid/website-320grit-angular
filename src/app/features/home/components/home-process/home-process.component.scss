@@ -1,0 +1,164 @@
+/* Sections 6 + 7 — "How we can help you" band + process phase cards.
+   Ports Salient's horizontal-scrolling sticky-media sections
+   (media-border-radius-15px, horizontal-section-width-85) as a native
+   overflow-x scroll-snap strip: no JS, SSR-safe, ~2.5 cards peeking. */
+:host {
+  display: block;
+}
+
+.process {
+  background: var(--grit-bg-primary);
+}
+
+/* Section 6 — centered header band with generous top padding. */
+.process__band {
+  text-align: center;
+  padding: clamp(5rem, 10vw, 9rem) 1rem 0.25rem;
+}
+
+.process__band-title {
+  margin: 0;
+  color: var(--grit-text-primary);
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Section 7 — horizontal scroll-snap strip. */
+.process__strip {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 3rem 6% 5rem;
+  scrollbar-width: thin;
+}
+
+.phase-card {
+  flex: 0 0 40%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--grit-border-subtle);
+  border-radius: 15px;
+  background: var(--grit-bg-tertiary);
+}
+
+.phase-card__media {
+  min-height: 220px;
+  flex: 0 0 auto;
+}
+
+.phase-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 2rem;
+}
+
+.phase-card__eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--grit-text-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.phase-card__number {
+  margin: 0 0 0.75rem;
+  color: var(--grit-text-primary);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.phase-card__title {
+  margin: 0;
+  color: var(--grit-text-primary);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.phase-card__divider {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid var(--grit-border-subtle);
+}
+
+.phase-card__text {
+  margin: 0 0 1.5rem;
+  color: var(--grit-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* nectar-cta port: bordered pill, violet hover. */
+.nectar-cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto;
+  padding: 0.9rem 1.75rem;
+  border: 2px solid var(--grit-accent-violet);
+  border-radius: 10px;
+  color: var(--grit-text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color var(--grit-duration-fast) var(--grit-ease-smooth),
+    background-color var(--grit-duration-fast) var(--grit-ease-smooth),
+    border-color var(--grit-duration-fast) var(--grit-ease-smooth);
+}
+
+.nectar-cta:hover {
+  color: var(--grit-accent-violet);
+  background: rgba(121, 44, 213, 0.08);
+}
+
+/* Phase 4: source ships a dark CTA variant (border_color_000000), which is
+   only legible on a light surface — the card body follows the white media. */
+.phase-card--light {
+  background: #ffffff;
+  border-color: #e5e5e5;
+}
+
+.phase-card--light .phase-card__eyebrow {
+  color: #6b6b6b;
+}
+
+.phase-card--light .phase-card__number,
+.phase-card--light .phase-card__title {
+  color: #111111;
+}
+
+.phase-card--light .phase-card__divider {
+  border-top-color: #e0e0e0;
+}
+
+.phase-card--light .phase-card__text {
+  color: #3a3a3a;
+}
+
+.phase-card--light .nectar-cta {
+  border-color: #000000;
+  color: #000000;
+}
+
+.phase-card--light .nectar-cta:hover {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 767px) {
+  .phase-card {
+    flex-basis: 85%;
+  }
+
+  .phase-card__media {
+    min-height: 160px;
+  }
+}
