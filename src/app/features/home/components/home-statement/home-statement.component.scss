@@ -13,7 +13,7 @@
 
 .home-statement__line {
   overflow: hidden;
-  font-size: 7vw;
+  font-size: 8vw;
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -30,8 +30,8 @@
    line 1 left + bird accent, line 2 right, line 3 centered. */
 .home-statement__line--left .home-statement__line-inner {
   display: flex;
-  align-items: center;
-  gap: 0.45em;
+  align-items: flex-start;
+  gap: 0.35em;
 }
 
 .home-statement__line--right .home-statement__line-inner {
@@ -43,9 +43,10 @@
 }
 
 .home-statement__bird {
-  height: 0.55em;
+  height: 0.85em;
   width: auto;
   flex-shrink: 0;
+  margin-top: 0.05em;
 }
 
 @media (max-width: 690px) {
