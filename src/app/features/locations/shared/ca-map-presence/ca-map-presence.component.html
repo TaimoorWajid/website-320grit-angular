@@ -1,0 +1,48 @@
+<section class="ca-section ca-presence" id="ca-presence">
+  <div class="ca-container ca-presence-grid">
+    <div class="ca-presence-map" caReveal="left">
+      <div class="ca-radar">
+        <span class="ca-radar-ring r1" aria-hidden="true"></span>
+        <span class="ca-radar-ring r2" aria-hidden="true"></span>
+        <span class="ca-radar-ring r3" aria-hidden="true"></span>
+        <svg class="ca-state-full" viewBox="0 0 280 340" role="img" aria-label="California map">
+          <path
+            d="M55 30 L130 12 L210 40 L225 100 L210 170 L195 240 L160 300 L100 320 L55 280 L35 200 L25 120 Z"
+            fill="rgba(255,92,0,0.06)"
+            stroke="rgba(255,92,0,0.45)"
+            stroke-width="1.5"
+          />
+          <path
+            d="M130 55 L85 100 L105 125 L140 230 L155 290"
+            fill="none"
+            stroke="rgba(255,92,0,0.35)"
+            stroke-width="1.5"
+            stroke-dasharray="4 4"
+          />
+          @for (c of cities; track c[0]) {
+            <g>
+              <circle [attr.cx]="c[1]" [attr.cy]="c[2]" [attr.r]="c[3]" fill="#FF5C00" />
+              <text
+                [attr.x]="c[1]" [attr.y]="c[2] - c[3] - 6"
+                text-anchor="middle" fill="#fff"
+                font-size="9" font-weight="600" letter-spacing="0.08em"
+              >{{ c[0] }}</text>
+            </g>
+          }
+        </svg>
+      </div>
+    </div>
+    <div class="ca-presence-copy" caReveal="right">
+      <h2 class="ca-h2">From Northern California<br />to <span class="ca-accent">Southern California.</span></h2>
+      <p class="ca-body">
+        Our California presence is built around a simple idea: bring the right expertise to the right project,
+        wherever the work takes us.
+      </p>
+      <div class="ca-hq-badge">
+        <strong>320 GRIT</strong>
+        <span>California Headquarters</span>
+        <span class="ca-hq-loc">Irvine, California</span>
+      </div>
+    </div>
+  </div>
+</section>

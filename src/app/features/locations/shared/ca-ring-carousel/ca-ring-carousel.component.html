@@ -1,0 +1,56 @@
+<section class="ca-section ca-ring-sec" id="ca-markets">
+  <div class="ca-container">
+    <div class="ca-section-head" caReveal="up">
+      <h2 class="ca-h2">Our California <span [style.color]="'#792CD5'">Markets</span></h2>
+    </div>
+    <div
+      #viewport
+      class="ca-ring-viewport"
+      [class.ca-ring-static]="staticLayout()"
+      id="ca-ring"
+      caReveal="fade"
+    >
+      <div class="ca-ring-stage" id="ca-ring-stage">
+        @for (m of markets(); track m.title; let i = $index) {
+          <article
+            class="ca-ring-card"
+            [class.is-front]="!staticLayout() && isFront(i)"
+            [style.transform]="staticLayout() ? null : cardTransform(i)"
+            [style.opacity]="staticLayout() ? null : cardOpacity(i)"
+            [style.z-index]="staticLayout() ? null : cardZ(i)"
+          >
+            <div class="ca-ring-card-inner">
+              <div class="ca-ring-img">
+                <img [src]="m.img" [alt]="m.title" width="400" height="260" loading="lazy" />
+              </div>
+              <div class="ca-ring-body">
+                <h3>{{ m.title }}</h3>
+                <p>{{ m.text }}</p>
+                <a href="#" class="ca-link" (click)="noop($event)">
+                  <span>Explore Market</span>
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+    <div class="ca-ring-hint" caReveal="fade">
+      <span>Scroll to rotate</span>
+      <div class="ca-ring-dots" id="ca-ring-dots">
+        @for (m of markets(); track m.title; let i = $index) {
+          <button
+            type="button"
+            class="ca-dot"
+            [class.is-active]="activeIndex() === i"
+            [attr.aria-label]="m.title"
+            (click)="goToIndex(i, true)"
+          ></button>
+        }
+      </div>
+    </div>
+  </div>
+</section>

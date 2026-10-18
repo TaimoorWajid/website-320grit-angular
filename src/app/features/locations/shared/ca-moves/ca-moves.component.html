@@ -1,0 +1,36 @@
+<section class="ca-section ca-moves" id="ca-moves">
+  <div class="ca-container ca-moves-grid">
+    <div class="ca-moves-right" caReveal="right">
+      <span class="ca-eyebrow">Our California Approach</span>
+      <div class="ca-approach-row">
+        @for (s of steps(); track s.title; let i = $index) {
+          <div class="ca-approach-step" caReveal="up" [caDelay]="i * 90">
+            <div class="ca-step-num">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</div>
+            <div class="ca-step-icon" [innerHTML]="icon(s.icon)" aria-hidden="true"></div>
+            <h3>{{ s.title }}</h3>
+            <p>{{ s.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="ca-moves-left" caReveal="left">
+      <div
+        class="ca-map-bg"
+        aria-hidden="true"
+        [style.background-image]="'url(https://staging.320grit.com/wp-content/uploads/2026/08/california-background-map.webp)'"
+      ></div>
+      <div class="ca-moves-content">
+        <h2 class="ca-h2">California Moves Fast.<br /><span class="ca-accent">Your Project Has to Move Smarter.</span></h2>
+        <p class="ca-body">
+          California’s construction environment demands more than simply getting a building built. Projects must
+          navigate complex requirements, evolving markets, demanding schedules, specialized systems and a wide range
+          of stakeholders.
+        </p>
+        <p class="ca-body">
+          320 Grit brings an owner-focused approach to that complexity—helping teams make informed decisions, manage
+          risk and keep the project moving toward its intended outcome.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

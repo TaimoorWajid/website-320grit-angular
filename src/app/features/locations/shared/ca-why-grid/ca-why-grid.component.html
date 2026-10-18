@@ -1,0 +1,17 @@
+<section class="ca-section ca-why" id="ca-why">
+  <div class="ca-container">
+    <div class="ca-section-head" caReveal="up">
+      <h2 class="ca-h2">Why 320 Grit<br /><span [style.color]="'#792CD5'">in California?</span></h2>
+      <p class="ca-lead" [style.margin-inline]="'auto'">We bring the focus, expertise and accountability needed to help your project succeed.</p>
+    </div>
+    <div class="ca-why-grid">
+      @for (w of items(); track w.title; let i = $index) {
+        <div class="ca-why-card" caReveal="up" [caDelay]="i * 70">
+          <div class="ca-why-icon" [innerHTML]="icon(w.icon)" aria-hidden="true"></div>
+          <h3>{{ w.title }}</h3>
+          <p>{{ w.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

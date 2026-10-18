@@ -1,0 +1,29 @@
+<section class="hc-hero rr-hero" id="at-hero" #hero>
+  <div class="hc-hero-bg" #heroBg aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=85"
+      alt=""
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
+  <div class="hc-container">
+    <div class="hc-hero-inner" caReveal="up">
+      <p class="hc-hero-label">
+        <span class="hc-line" aria-hidden="true"></span>
+        <span class="hc-label">Where We Work</span>
+      </p>
+      <h1>California<br /><span class="hc-purple">Built with Purpose.</span></h1>
+      <p class="hc-hero-sub">
+        From complex commercial environments to specialized facilities, 320 Grit brings construction management,
+        owner representation and development expertise to projects across California.
+      </p>
+      <div class="hc-hero-cta">
+        <app-ca-button [link]="talkCta" />
+        <app-ca-button [link]="servicesCta" />
+      </div>
+    </div>
+  </div>
+</section>

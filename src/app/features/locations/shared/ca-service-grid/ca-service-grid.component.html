@@ -1,0 +1,19 @@
+<section class="ca-section ca-services" id="ca-services">
+  <div class="ca-container">
+    <div class="ca-section-head" caReveal="up">
+      <h2 class="ca-h2">Our <span [style.color]="'#792CD5'">Services</span></h2>
+    </div>
+    <div class="ca-svc-grid">
+      @for (s of services(); track s.title; let i = $index) {
+        <div class="ca-svc-card" caReveal="up" [caDelay]="i * 70">
+          <div class="ca-svc-icon" [innerHTML]="icon(s.icon)" aria-hidden="true"></div>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+        </div>
+      }
+    </div>
+    <div class="ca-center" caReveal="up" [style.margin-top]="'2.5rem'">
+      <app-ca-button [link]="viewAll" />
+    </div>
+  </div>
+</section>

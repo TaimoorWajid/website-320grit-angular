@@ -1,0 +1,30 @@
+<section class="ca-section ca-home" id="ca-home">
+  <div class="ca-container ca-home-grid">
+    <div class="ca-home-left" caReveal="left">
+      <span class="ca-eyebrow">Our California Home</span>
+      <p class="ca-body">Based in California, 320 Grit is positioned to support owners and project teams throughout the state.</p>
+      <div [style.margin-top]="'1.25rem'">
+        <app-ca-button [link]="directions" />
+      </div>
+      <div class="ca-hq-card">
+        <span class="ca-hq-pin" aria-hidden="true">📍</span>
+        <div>
+          <strong>320 GRIT Headquarters</strong>
+          <span>Irvine, California</span>
+        </div>
+      </div>
+    </div>
+    <div class="ca-home-right" caReveal="right">
+      <h2 class="ca-h2">Built Around the Way<br /><span class="ca-accent">California Works</span></h2>
+      <div class="ca-works-grid">
+        @for (w of items(); track w.num; let i = $index) {
+          <div class="ca-works-item" caReveal="up" [caDelay]="i * 80">
+            <div class="ca-works-num">{{ w.num }}</div>
+            <h3>{{ w.title }}</h3>
+            <p>{{ w.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
