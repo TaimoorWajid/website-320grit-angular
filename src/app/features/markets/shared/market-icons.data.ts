@@ -65,7 +65,10 @@ export const MARKET_ICONS: Record<string, string> = {
   search: '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>',
   'check-square': '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>',
   partition: '<path d="M3 3h18v18H3zM3 9h18M9 3v18"/>',
-  dollar: '<path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>',
+  // Icons for markets cards 03-08 (staging + SEO content)
+  pencil: '<path d="M15 4l5 5"/><path d="M13 6l5 5"/><path d="M4 20l7-7"/><path d="M8 4l4 4"/><path d="M6 2L2 6l4 4"/>',
+  'shield-dot': '<path d="M12 2L5 5v6c0 5 3.5 8.5 7 10 3.5-1.5 7-5 7-10V5z"/><circle cx="12" cy="11" r="2"/>',
+  bell: '<path d="M4 17h16"/><path d="M6 17a6 6 0 0112 0"/><path d="M12 5v1"/><circle cx="12" cy="4" r="1"/>',
 };
 
 /** The 16×16 arrow used inside primary/ghost buttons (verbatim from templates). */

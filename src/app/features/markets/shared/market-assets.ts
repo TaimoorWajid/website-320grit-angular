@@ -24,6 +24,10 @@ export const MARKET_IMG = {
   railroad: '/assets/images/railroad-infrastructure-bg.webp',
   /** Hospital main entrance at dusk — Healthcare market card bg (staging). */
   healthcare: '/assets/images/healthcare-bg.webp',
+  /** Behavioral health facility — Behavioral Health market card bg (staging). */
+  behavioralHealth: '/assets/images/ChatGPT-Image-Jul-30-2026-07_53_38-AM.webp',
+  /** Commercial building — Commercial market card bg (staging). */
+  commercial: '/assets/images/commercial-construction.webp',
   /** Industrial feature image — education contexts. */
   industries: '/assets/images/Industries-we-serve-feature-image.webp',
 } as const;
