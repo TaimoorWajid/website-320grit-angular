@@ -1,0 +1,108 @@
+<header id="top" class="grit-nav" role="banner" aria-label="Main Menu"
+  [class.grit-nav--scrolled]="scrolled()" [class.grit-nav--hidden]="hidden()">
+  <div class="grit-nav__inner">
+    <a class="grit-nav__logo" routerLink="/" aria-label="320 Grit — home">
+      <img src="/assets/images/320-grit-new-logo.png" alt="320 Grit" width="521" height="312" fetchpriority="high" />
+    </a>
+
+    <nav class="grit-nav__desktop" aria-label="Primary">
+      <ul>
+        @for (menu of megaMenus; track menu.label) {
+          <li class="grit-nav__item" [class.is-open]="openMega() === menu.label"
+              (mouseenter)="openMega.set(menu.label)" (mouseleave)="closeMega()">
+            <button type="button" class="grit-nav__link" (click)="toggleMega(menu.label)"
+                    [attr.aria-expanded]="openMega() === menu.label" aria-haspopup="true">
+              {{ menu.label }}
+              <svg class="grit-nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="grit-mega-menu" role="menu">
+              @for (col of menu.columns; track col.header + $index) {
+                <div class="grit-mega-menu__col">
+                  @if (col.header) { <div class="grit-mega-col-header">{{ col.header }}</div> }
+                  @for (item of col.items; track item.href + item.title) {
+                    <a [href]="item.href" class="grit-mega-item" (click)="goToAnchor(item.href, $event)">
+                      <span class="grit-mega-item__icon" [innerHTML]="item.icon" aria-hidden="true"></span>
+                      <span class="grit-mega-item__text">
+                        <span class="grit-mega-item__title">{{ item.title }}</span>
+                        <span class="grit-mega-item__desc">{{ item.desc }}</span>
+                      </span>
+                    </a>
+                  }
+                </div>
+              }
+              @if (menu.mapImage) {
+                <div class="grit-mega-menu__map">
+                  <img [src]="menu.mapImage" alt="320 Grit construction project" loading="lazy" />
+                </div>
+              }
+              <div class="grit-mega-menu__feature" [style.background-image]="'url(' + menu.featureImage + ')'">
+                <div class="grit-mega-menu__feature-overlay">
+                  <p class="grit-mega-menu__feature-title" [innerHTML]="menu.featureTitle"></p>
+                  <a [href]="menu.featureLinkHref" class="grit-mega-menu__feature-link" (click)="goToAnchor(menu.featureLinkHref, $event)">
+                    {{ menu.featureLinkText }}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+      <a href="#contact-form" class="grit-nav__cta" (click)="goToAnchor('#contact-form', $event)">
+        <span>REQUEST A CONSULTATION</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+    </nav>
+
+    <button type="button" class="grit-nav__burger" (click)="toggleMobile()"
+            [attr.aria-expanded]="mobileOpen()" aria-controls="grit-mobile-menu" aria-label="Menu">
+      <span class="grit-nav__burger-lines" aria-hidden="true"><span></span></span>
+    </button>
+  </div>
+</header>
+
+<div class="grit-mobile" id="grit-mobile-menu" role="dialog" aria-modal="true" aria-label="Menu"
+     [class.is-open]="mobileOpen()" [attr.aria-hidden]="!mobileOpen()">
+  <button type="button" class="grit-mobile__close" (click)="closeMobile()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <nav aria-label="Mobile">
+    <ul class="grit-mobile__list">
+      @for (item of mobileMenu; track item.label) {
+        <li>
+          @if (item.children) {
+            <button type="button" class="grit-mobile__link" (click)="toggleMobileSection(item.label)"
+                    [attr.aria-expanded]="openMobileSection() === item.label">
+              {{ item.label }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            @if (openMobileSection() === item.label) {
+              <ul class="grit-mobile__sub">
+                @for (child of item.children; track child.label) {
+                  <li>
+                    @if (child.children) {
+                      <span class="grit-mobile__subhead">{{ child.label }}</span>
+                      <ul class="grit-mobile__sub2">
+                        @for (leaf of child.children; track leaf.label) {
+                          <li><a [routerLink]="leaf.href" (click)="closeMobile()">{{ leaf.label }}</a></li>
+                        }
+                      </ul>
+                    } @else {
+                      <a [routerLink]="child.href" (click)="closeMobile()">{{ child.label }}</a>
+                    }
+                  </li>
+                }
+              </ul>
+            }
+          } @else {
+            <a class="grit-mobile__link" [routerLink]="item.href" (click)="closeMobile()">{{ item.label }}</a>
+          }
+        </li>
+      }
+    </ul>
+    <a href="#contact-form" class="btn-320 btn-primary grit-mobile__cta" (click)="goToAnchor('#contact-form', $event)">
+      <span>REQUEST A CONSULTATION</span>
+    </a>
+  </nav>
+</div>
+<div class="grit-mobile__backdrop" [class.is-open]="mobileOpen()" (click)="closeMobile()" aria-hidden="true"></div>
