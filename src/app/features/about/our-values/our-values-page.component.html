@@ -1,0 +1,25 @@
+<div class="about-page">
+  <app-about-hero [hero]="HERO" />
+  <app-value-grid
+    sectionId="val-core"
+    background="#0A0A0A"
+    [header]="{ label: 'Our Core Values', title: 'What We Stand For.', centered: true }"
+    [cards]="CORE_VALUES"
+    columns="repeat(6, 1fr)"
+  />
+  <app-split-section [split]="DRIVE" />
+  <app-project-grid
+    sectionId="val-action"
+    [light]="true"
+    [header]="{
+      label: 'Our Commitment',
+      title: 'Values in Action.<br><span class=\'hc-orange\'>Every Day.</span>',
+      text: 'Our values are more than words on a wall. They show up in the way we lead, the way we build, and the way we care. That’s the 320 Grit difference.',
+      centered: false,
+      maxWidth: '480px',
+    }"
+    [introCta]="{ label: 'Start a Project', href: '#contact', variant: 'primary' }"
+    [cards]="IN_ACTION"
+    columns="repeat(4, 1fr)"
+  />
+</div>

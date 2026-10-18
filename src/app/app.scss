@@ -1,0 +1,17 @@
+/* App shell: fixed header overlays content; pages handle their own top spacing. */
+:host {
+  display: block;
+  min-height: 100dvh;
+  background: var(--grit-bg-primary);
+  color: var(--grit-text-primary);
+}
+
+#main-content {
+  display: block;
+  outline: none;
+}
+
+/* On staging the footer lives inside the orange contact section. */
+.footer-band--home {
+  background: var(--grit-accent-orange);
+}

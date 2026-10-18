@@ -1,0 +1,46 @@
+<div class="about-page">
+  <app-about-hero [hero]="HERO" />
+  <app-stats-bar sectionId="lead-stats" background="#0A0A0A" [overlap]="true" [items]="STATS" />
+  <app-value-grid
+    sectionId="lead-approach"
+    background="#050505"
+    [header]="{
+      label: 'Our Approach to Leadership',
+      title: 'Experience. Integrity. Impact.',
+      text: 'Our leaders set the standard for how we work, collaborate, and deliver value. They empower our teams, build lasting relationships, and ensure every project reflects the 320 Grit promise of precision, integrity, and care.',
+      centered: true,
+    }"
+    [cards]="APPROACH"
+    columns="repeat(3, 1fr)"
+    gridMaxWidth="900px"
+    gridMargin="0 auto"
+  />
+  <app-team-grid sectionId="lead-team" background="#0A0A0A" label="Meet Our Team" title="Our Leadership Team" [members]="TEAM" />
+  <!-- Values split: custom nested 2-col plain list per source -->
+  <section class="hc-section" id="lead-values" [style.background]="'#050505'">
+    <div class="hc-container">
+      <div class="ab-split">
+        <div class="ab-split-img" hcReveal>
+          <img [src]="VALUES_SPLIT.image.src" [alt]="VALUES_SPLIT.image.alt" width="700" height="480" loading="lazy" />
+        </div>
+        <div hcReveal class="hc-delay-2">
+          <span class="hc-label">{{ VALUES_SPLIT.label }}</span>
+          <h2 class="hc-display-md" [style.margin-top]="'0.75rem'">{{ VALUES_SPLIT.title }}</h2>
+          <div
+            class="ab-value-grid lead-values-list"
+            [style.grid-template-columns]="'1fr 1fr'"
+            [style.margin-top]="'2rem'"
+            [style.gap]="'1.5rem'"
+          >
+            @for (v of VALUES_LIST; track v.title) {
+              <div>
+                <h3>{{ v.title }}</h3>
+                <p>{{ v.text }}</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
