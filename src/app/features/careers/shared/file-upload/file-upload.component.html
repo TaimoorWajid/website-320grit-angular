@@ -1,0 +1,58 @@
+@use '../careers';
+
+<div class="grit-upload">
+  <span class="grit-upload__label">{{ label() }}</span>
+
+  @if (files().length === 0) {
+    <div
+      class="grit-upload__zone"
+      [class.is-dragging]="dragging()"
+      (click)="openPicker()"
+      (keydown.enter)="openPicker()"
+      (keydown.space)="openPicker()"
+      tabindex="0"
+      role="button"
+      [attr.aria-label]="label() + ' — activate to browse files'"
+      (drop)="onDrop($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave()"
+    >
+      <span class="grit-upload__icon" aria-hidden="true" [innerHTML]="icons.upload(32)"></span>
+      <p class="grit-upload__text">
+        <strong>{{ dropLead() }}</strong> or <span class="grit-upload__browse">{{ dropBrowse() }}</span>
+      </p>
+      <p class="grit-upload__hint">{{ hint() }}</p>
+    </div>
+  } @else {
+    <ul class="grit-upload__preview-list">
+      @for (f of files(); track f.name; let i = $index) {
+        <li class="grit-upload__preview">
+          <span class="grit-upload__filename">{{ f.name }}</span>
+          <button
+            type="button"
+            class="grit-upload__remove"
+            [attr.aria-label]="'Remove file ' + f.name"
+            (click)="remove(i)"
+          >
+            ×
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <input
+    #fileInput
+    type="file"
+    class="grit-sr-only"
+    [id]="inputId()"
+    [name]="inputName()"
+    [accept]="accept"
+    [multiple]="multiple()"
+    (change)="onInputChange($event)"
+  />
+
+  @if (error()) {
+    <span class="grit-field-error" role="alert">{{ error() }}</span>
+  }
+</div>

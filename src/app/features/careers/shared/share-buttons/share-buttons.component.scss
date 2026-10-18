@@ -1,0 +1,40 @@
+@use '../careers';
+
+.grit-share {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+
+  &__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--grit-gray-500);
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--grit-gray-200);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--grit-gray-600);
+    cursor: pointer;
+    transition:
+      color var(--grit-transition),
+      border-color var(--grit-transition);
+
+    &:hover {
+      color: var(--grit-purple);
+      border-color: var(--grit-purple);
+    }
+
+    &.is-copied {
+      color: var(--grit-purple);
+      border-color: var(--grit-purple);
+    }
+  }
+}

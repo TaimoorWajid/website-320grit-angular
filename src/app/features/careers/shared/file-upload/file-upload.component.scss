@@ -1,0 +1,106 @@
+@use '../careers';
+
+.grit-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--grit-dark);
+  }
+
+  &__zone {
+    border: 2px dashed var(--grit-gray-300);
+    border-radius: var(--grit-radius);
+    background: var(--grit-gray-50);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition:
+      border-color var(--grit-transition),
+      background var(--grit-transition);
+
+    &:hover,
+    &.is-dragging {
+      border-color: var(--grit-purple);
+      background: var(--grit-white);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--grit-purple);
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: var(--grit-gray-400);
+    margin-bottom: 0.5rem;
+  }
+
+  &__text {
+    font-size: 0.9375rem;
+    color: var(--grit-gray-600);
+    margin: 0 0 0.25rem;
+
+    strong {
+      color: var(--grit-dark);
+    }
+  }
+
+  &__browse {
+    color: var(--grit-purple);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  &__hint {
+    font-size: 0.8125rem;
+    color: var(--grit-gray-400);
+    margin: 0;
+  }
+
+  &__preview-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 1px solid var(--grit-gray-200);
+    border-radius: var(--grit-radius);
+    padding: 0.75rem 1rem;
+    background: var(--grit-white);
+  }
+
+  &__filename {
+    font-size: 0.875rem;
+    color: var(--grit-dark);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__remove {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--grit-gray-400);
+    cursor: pointer;
+    padding: 0.25rem;
+
+    &:hover {
+      color: #dc2626;
+    }
+  }
+}

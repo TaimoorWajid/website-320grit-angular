@@ -1,0 +1,166 @@
+<section class="home-contact" id="contact-form" aria-label="Start your project">
+  <div class="grit-container">
+    <div class="inquiry-form" appReveal>
+      @if (!submitted()) {
+        <p class="inquiry-form__required-note"><span aria-hidden="true">"</span> * <span>"</span> indicates required fields</p>
+
+        <ol class="inquiry-form__steps" aria-label="Form progress">
+          @for (s of [1, 2, 3]; track s) {
+            <li class="inquiry-form__step" [class.is-active]="step() === s" [class.is-done]="step() > s">
+              <button type="button" (click)="goToStep(s)" [disabled]="s >= step()" [attr.aria-current]="step() === s ? 'step' : null">
+                <span class="inquiry-form__step-num">{{ s < 10 ? '0' + s : s }}</span>
+                <span class="inquiry-form__step-label">{{ s === 1 ? 'Personal Information' : s === 2 ? 'Project Information' : "Let's Talk" }}</span>
+              </button>
+            </li>
+          }
+        </ol>
+
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          @if (step() === 1) {
+            <div class="inquiry-form__page">
+              <div class="inquiry-form__field inquiry-form__field--full">
+                <span class="inquiry-form__label" id="name-label">Name *</span>
+                <div class="inquiry-form__name-row" role="group" aria-labelledby="name-label">
+                  <div>
+                    <input type="text" formControlName="firstName" placeholder="Enter First Name" aria-label="First Name"
+                           [class.is-invalid]="fieldInvalid('firstName')" />
+                    <label class="inquiry-form__sublabel">First Name</label>
+                  </div>
+                  <div>
+                    <input type="text" formControlName="lastName" placeholder="Enter Last Name" aria-label="Last Name"
+                           [class.is-invalid]="fieldInvalid('lastName')" />
+                    <label class="inquiry-form__sublabel">Last Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inquiry-form__field">
+                <span class="inquiry-form__label" id="role-label">I am a... *</span>
+                <div class="inquiry-form__radios" role="radiogroup" aria-labelledby="role-label">
+                  @for (r of roles; track r) {
+                    <label class="inquiry-form__radio">
+                      <input type="radio" formControlName="role" [value]="r" />
+                      <span>{{ r }}</span>
+                    </label>
+                  }
+                </div>
+                @if (form.get('role')?.value === 'Other') {
+                  <input type="text" formControlName="roleOther" placeholder="Please specify" aria-label="Other role" class="inquiry-form__other" />
+                }
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-phone">Phone *</label>
+                <input type="tel" id="cf-phone" formControlName="phone" placeholder="Enter Phone Number"
+                       [class.is-invalid]="fieldInvalid('phone')" />
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-company">Company *</label>
+                <input type="text" id="cf-company" formControlName="company" placeholder="Enter Company Name"
+                       [class.is-invalid]="fieldInvalid('company')" />
+              </div>
+
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-email">Email *</label>
+                <input type="email" id="cf-email" formControlName="email" placeholder="Enter Email"
+                       [class.is-invalid]="fieldInvalid('email')" />
+              </div>
+            </div>
+          }
+
+          @if (step() === 2) {
+            <div class="inquiry-form__page">
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-ptype">Project Type *</label>
+                <select id="cf-ptype" formControlName="projectType" [class.is-invalid]="fieldInvalid('projectType')">
+                  <option value="" disabled>Select Project Type</option>
+                  @for (t of projectTypes; track t) { <option [value]="t">{{ t }}</option> }
+                </select>
+              </div>
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-pvalue">Project Estimated Value *</label>
+                <select id="cf-pvalue" formControlName="projectValue" [class.is-invalid]="fieldInvalid('projectValue')">
+                  <option value="" disabled>Select Project Estimated Value</option>
+                  @for (v of values; track v) { <option [value]="v">{{ v }}</option> }
+                </select>
+              </div>
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-pstage">Project Stage *</label>
+                <select id="cf-pstage" formControlName="projectStage" [class.is-invalid]="fieldInvalid('projectStage')">
+                  <option value="" disabled>Select Project Stage</option>
+                  @for (s of stages; track s) { <option [value]="s">{{ s }}</option> }
+                </select>
+              </div>
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-tstart">Target Start *</label>
+                <select id="cf-tstart" formControlName="targetStart" [class.is-invalid]="fieldInvalid('targetStart')">
+                  <option value="" disabled>Select Target Start</option>
+                  @for (s of starts; track s) { <option [value]="s">{{ s }}</option> }
+                </select>
+              </div>
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-state">State *</label>
+                <select id="cf-state" formControlName="state" [class.is-invalid]="fieldInvalid('state')">
+                  <option value="" disabled>Select Project State</option>
+                  @for (st of states; track st) { <option [value]="st">{{ st }}</option> }
+                </select>
+              </div>
+              <div class="inquiry-form__field">
+                <label class="inquiry-form__label" for="cf-city">City *</label>
+                <input type="text" id="cf-city" formControlName="city" placeholder="Enter Project City"
+                       [class.is-invalid]="fieldInvalid('city')" />
+              </div>
+            </div>
+          }
+
+          @if (step() === 3) {
+            <div class="inquiry-form__page">
+              <div class="inquiry-form__field inquiry-form__field--full">
+                <label class="inquiry-form__label" for="cf-details">Project Details</label>
+                <textarea id="cf-details" formControlName="projectDetails" rows="5"
+                          placeholder="What can our team help you with?"></textarea>
+              </div>
+              <div class="inquiry-form__field inquiry-form__field--full">
+                <label class="inquiry-form__label" for="cf-additional">Additional Information</label>
+                <textarea id="cf-additional" formControlName="additionalInfo" rows="5"
+                          placeholder="Anything else we should know?"></textarea>
+              </div>
+            </div>
+          }
+
+          @if (backendMissing()) {
+            <p class="inquiry-form__notice" role="alert">
+              Thanks — your details are ready, but the form backend isn't connected yet. Please email us directly at
+              <a href="mailto:info@320grit.com">info@320grit.com</a>.
+            </p>
+          }
+          @if (submitError()) {
+            <p class="inquiry-form__notice inquiry-form__notice--error" role="alert">
+              Something went wrong sending your inquiry. Please try again or email
+              <a href="mailto:info@320grit.com">info@320grit.com</a>.
+            </p>
+          }
+
+          <div class="inquiry-form__footer">
+            @if (step() > 1) {
+              <button type="button" class="inquiry-form__btn inquiry-form__btn--back" (click)="prev()">Back</button>
+            }
+            @if (step() < 3) {
+              <button type="button" class="inquiry-form__btn inquiry-form__btn--next" (click)="next()">Continue</button>
+            } @else {
+              <button type="submit" class="inquiry-form__btn inquiry-form__btn--submit" [disabled]="submitting()">
+                {{ submitting() ? 'Sending…' : 'Start the Conversation' }}
+              </button>
+            }
+          </div>
+        </form>
+      } @else {
+        <div class="inquiry-form__confirmation" role="status">
+          <h2>Thank you for reaching out.</h2>
+          <p>Your project inquiry has been received. A member of our team will be in touch shortly.</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

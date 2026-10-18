@@ -1,0 +1,73 @@
+@use '../../shared/careers';
+
+@if (variant() === 'preview') {
+  <article
+    class="grit-job-card grit-job-card--preview"
+    [attr.data-department]="job().department"
+    [attr.data-job-id]="job().id"
+  >
+    <div class="grit-job-card__icon" aria-hidden="true" [innerHTML]="icons.doc()"></div>
+    <h3 class="grit-job-card__title">
+      <a [routerLink]="jobUrl()">{{ job().title }}</a>
+    </h3>
+    <div class="grit-job-card__meta">
+      <span class="grit-job-card__meta-item">
+        <span aria-hidden="true" [innerHTML]="icons.pin()"></span>{{ job().location }}
+      </span>
+      <span class="grit-job-card__meta-item">
+        <span aria-hidden="true" [innerHTML]="icons.briefcase()"></span>{{ job().employment_type }}
+      </span>
+    </div>
+    <p class="grit-job-card__desc">{{ job().short_desc }}</p>
+    <a class="grit-link-arrow" [routerLink]="jobUrl()">
+      View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+    </a>
+  </article>
+}
+
+@if (variant() === 'directory') {
+  <article
+    class="grit-job-card grit-job-card--directory"
+    [attr.data-job-id]="job().id"
+    [attr.data-title]="job().title.toLowerCase()"
+    [attr.data-department]="job().department"
+    [attr.data-location]="job().location"
+    [attr.data-type]="job().employment_type"
+    [attr.data-desc]="job().short_desc.toLowerCase()"
+  >
+    <div class="grit-job-card__header">
+      <h2 class="grit-job-card__title">
+        <a [routerLink]="jobUrl()">{{ job().title }}</a>
+      </h2>
+      <app-save-job-button [job]="job()" />
+    </div>
+    <div class="grit-job-card__meta grit-job-card__meta--inline">
+      {{ job().department }} · {{ job().location }} · {{ job().employment_type }}
+    </div>
+    <p class="grit-job-card__desc">{{ job().short_desc }}</p>
+    <div class="grit-job-card__footer">
+      <span class="grit-job-card__posted">{{ postedLabel() }}</span>
+      <a class="grit-link-arrow" [routerLink]="jobUrl()">
+        View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+      </a>
+    </div>
+  </article>
+}
+
+@if (variant() === 'related') {
+  <article class="grit-job-card grit-job-card--related" [attr.data-job-id]="job().id">
+    <div class="grit-job-card__header">
+      <h3 class="grit-job-card__title">
+        <a [routerLink]="jobUrl()">{{ job().title }}</a>
+      </h3>
+      <app-save-job-button [job]="job()" />
+    </div>
+    <div class="grit-job-card__meta grit-job-card__meta--inline">
+      {{ job().location }} · {{ job().employment_type }}
+    </div>
+    <p class="grit-job-card__desc">{{ job().short_desc }}</p>
+    <a class="grit-link-arrow" [routerLink]="jobUrl()">
+      View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+    </a>
+  </article>
+}

@@ -1,0 +1,86 @@
+/* Job cards — ported from careers.css / open-positions.css / job-detail.css. */
+
+.grit-job-card {
+  background: var(--grit-white);
+  border: 1px solid var(--grit-gray-200);
+  border-radius: var(--grit-radius-lg);
+  padding: 1.5rem 1.75rem;
+  transition:
+    border-color var(--grit-transition),
+    box-shadow var(--grit-transition);
+
+  &:hover {
+    border-color: var(--grit-gray-300);
+    box-shadow: var(--grit-shadow);
+  }
+}
+
+.grit-job-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.grit-job-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+
+  a {
+    color: var(--grit-dark);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--grit-purple);
+    }
+  }
+}
+
+.grit-job-card--directory .grit-job-card__title {
+  font-size: 1.375rem;
+}
+
+.grit-job-card__icon {
+  color: var(--grit-purple);
+  margin-bottom: 0.75rem;
+}
+
+.grit-job-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.75rem 0;
+  font-size: 0.875rem;
+  color: var(--grit-gray-600);
+
+  &--inline {
+    gap: 0;
+  }
+}
+
+.grit-job-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.grit-job-card__desc {
+  font-size: 0.9375rem;
+  color: var(--grit-gray-600);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.grit-job-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.grit-job-card__posted {
+  font-size: 0.8125rem;
+  color: var(--grit-gray-400);
+}

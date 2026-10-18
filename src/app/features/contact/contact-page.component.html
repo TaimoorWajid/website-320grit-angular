@@ -1,0 +1,23 @@
+<section class="contact-hero" aria-labelledby="contact-hero-heading">
+  <div class="contact-hero__inner" appReveal>
+    <p class="grit-eyebrow">Contact Us</p>
+    <h1 id="contact-hero-heading">Let&rsquo;s Start the Conversation</h1>
+    <p class="contact-hero__sub">
+      Tell us about your project and a member of our team will be in touch shortly.
+    </p>
+  </div>
+</section>
+
+<app-home-contact />
+
+<section class="contact-info" aria-label="Contact information">
+  <div class="contact-info__inner">
+    @for (item of items; track item.label) {
+      <a class="contact-info__card" [href]="item.href" appReveal>
+        <span class="contact-info__icon" aria-hidden="true" [innerHTML]="item.icon"></span>
+        <span class="contact-info__label">{{ item.label }}</span>
+        <span class="contact-info__value">{{ item.value }}</span>
+      </a>
+    }
+  </div>
+</section>
