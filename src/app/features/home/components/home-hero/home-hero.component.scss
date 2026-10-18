@@ -25,7 +25,7 @@
 .home-hero__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at left, rgba(0, 0, 0, 0.953) 30%, rgba(0, 0, 0, 0.419) 66%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.85) 35%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.15) 80%, transparent 100%);
 }
 
 .home-hero__inner {
@@ -33,13 +33,15 @@
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: start;
+  align-items: stretch;
   gap: 3rem;
   width: 100%;
+  max-width: none;
+  margin: 0;
   padding-top: clamp(7rem, 14vh, 10rem);
   padding-bottom: 2rem;
-  padding-left: clamp(2rem, 6vw, 6rem);
-  padding-right: clamp(2rem, 4vw, 4rem);
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .home-hero__kicker {
@@ -47,7 +49,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   margin-bottom: 1.4rem;
-  max-width: 27rem;
+  max-width: 36rem;
 }
 
 .home-hero__kicker strong {
@@ -55,7 +57,7 @@
 }
 
 .home-hero__title {
-  font-size: clamp(3.2rem, 7.5vw, 7rem);
+  font-size: clamp(2.6rem, 5.8vw, 5.25rem);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.015em;
@@ -84,8 +86,9 @@
 
 /* 25+ years badge card (hero-section.css, desktop only) */
 .home-hero__badge {
-  align-self: start;
-  margin-top: clamp(8rem, 18vw, 16rem);
+  align-self: end;
+  justify-self: end;
+  margin-bottom: 2rem;
 }
 
 .hero-exp-card {
