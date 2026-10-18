@@ -26,6 +26,28 @@
   will-change: transform;
 }
 
+/* Staggered alignments per the staging reference:
+   line 1 left + bird accent, line 2 right, line 3 centered. */
+.home-statement__line--left .home-statement__line-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.home-statement__line--right .home-statement__line-inner {
+  text-align: right;
+}
+
+.home-statement__line--center .home-statement__line-inner {
+  text-align: center;
+}
+
+.home-statement__bird {
+  height: 0.55em;
+  width: auto;
+  flex-shrink: 0;
+}
+
 @media (max-width: 690px) {
   .home-statement__inner {
     padding-left: 10%;

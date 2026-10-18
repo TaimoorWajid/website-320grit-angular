@@ -1,5 +1,15 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  afterNextRender,
+  inject,
+  viewChild,
+} from '@angular/core';
+import { AnimationManagerService } from '../../../../core/animations/animation-manager.service';
+import { prefersReducedMotion } from '../../../../core/animations/animation.util';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
+import { gsap } from 'gsap';
 
 interface PhaseCard {
   eyebrow: string;
@@ -15,10 +25,12 @@ interface PhaseCard {
 
 /**
  * Sections 6 + 7 — "How we can help you" band and the process-phase cards.
- * Ports Salient's horizontal-scrolling sticky-media sections as a native
- * overflow-x scroll-snap strip (no JS, SSR-safe). Desktop shows ~2.5 cards
- * peeking. All "Explore More" CTAs carry an empty href in source: the
- * anchors are kept and navigation is suppressed.
+ * Ports Salient's .nectar-sticky-media-sections (type--horizontal-scrolling):
+ * the section pins to the viewport (position: sticky, 100vh) inside a tall
+ * scroll container while GSAP ScrollTrigger translates the card track
+ * horizontally with vertical scroll progress (scrubbed 1:1).
+ * Under prefers-reduced-motion (or SSR) the host gets .process--static and
+ * the cards render as a plain horizontal scroll-snap strip instead.
  * Copy is verbatim from refs/grit-staging/sections.md §6–§7.
  */
 @Component({
@@ -68,4 +80,50 @@ export class HomeProcessComponent {
       light: true,
     },
   ];
+
+  private readonly animations = inject(AnimationManagerService);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly host = inject(ElementRef<HTMLElement>);
+
+  private readonly pinWrap =
+    viewChild<ElementRef<HTMLElement>>('pinWrap');
+  private readonly pin = viewChild<ElementRef<HTMLElement>>('pin');
+  private readonly track = viewChild<ElementRef<HTMLElement>>('track');
+
+  constructor() {
+    afterNextRender(() => this.initHorizontalScroll());
+  }
+
+  private initHorizontalScroll(): void {
+    const hostEl = this.host.nativeElement;
+    const wrap = this.pinWrap()?.nativeElement;
+    const pin = this.pin()?.nativeElement;
+    const track = this.track()?.nativeElement;
+
+    // SSR / reduced-motion: static scroll-snap strip, no pinning.
+    if (!this.animations.browser || prefersReducedMotion() || !wrap || !pin || !track) {
+      hostEl.classList.add('process--static');
+      return;
+    }
+
+    const ctx = this.animations.createContext(() => {
+      const maxX = (): number =>
+        Math.max(0, track.scrollWidth - pin.clientWidth);
+
+      gsap.to(track, {
+        x: () => -maxX(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrap,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    }, hostEl);
+
+    if (ctx) this.destroyRef.onDestroy(() => ctx.revert());
+    else hostEl.classList.add('process--static');
+  }
 }

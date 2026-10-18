@@ -1,19 +1,26 @@
 /* Sections 6 + 7 — "How we can help you" band + process phase cards.
-   Ports Salient's horizontal-scrolling sticky-media sections
-   (media-border-radius-15px, horizontal-section-width-85) as a native
-   overflow-x scroll-snap strip: no JS, SSR-safe, ~2.5 cards peeking. */
+   Ports Salient's .nectar-sticky-media-sections (type--horizontal-scrolling,
+   horizontal-section-width-85, section-height-100vh, section-gap-desktop-5px,
+   media-border-radius-15px): the section pins to the viewport via
+   position: sticky while GSAP translates the card track horizontally
+   with vertical scroll progress. Card width is a CSS variable so the
+   exact staging width can be tuned without touching the layout. */
 :host {
   display: block;
+  /* Staging: horizontal-section-width-85 — each card is 85% of viewport. */
+  --phase-card-width: 85vw;
+  --phase-card-gap: 5px;
 }
 
 .process {
   background: var(--grit-bg-primary);
 }
 
-/* Section 6 — centered header band with generous top padding. */
+/* Section 6 — header band. Staging: padding-top calc(100vw * 0.10),
+   padding-bottom 5px, full-width-content with 5px side padding. */
 .process__band {
   text-align: center;
-  padding: clamp(5rem, 10vw, 9rem) 1rem 0.25rem;
+  padding: calc(100vw * 0.1) 5px 5px;
 }
 
 .process__band-title {
@@ -24,19 +31,37 @@
   line-height: 1.1;
 }
 
-/* Section 7 — horizontal scroll-snap strip. */
-.process__strip {
+/* Section 7 — sticky horizontal scroll.
+   .process__pin-wrap is the tall scroll driver (one viewport per card
+   of horizontal travel, roughly). .process__pin sticks for 100vh while
+   the track translates horizontally. */
+.process__pin-wrap {
+  position: relative;
+  height: 400vh;
+}
+
+.process__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 3rem 6% 5rem;
-  scrollbar-width: thin;
+  align-items: center;
+}
+
+.process__track {
+  display: flex;
+  gap: var(--phase-card-gap);
+  padding: 0 5px;
+  will-change: transform;
+  /* Prevent the track from shrinking; GSAP sets translateX. */
+  flex: 0 0 auto;
 }
 
 .phase-card {
-  flex: 0 0 40%;
-  scroll-snap-align: start;
+  flex: 0 0 var(--phase-card-width);
+  width: var(--phase-card-width);
+  max-height: 92vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -55,6 +80,7 @@
   flex-direction: column;
   flex: 1 1 auto;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .phase-card__eyebrow {
@@ -153,12 +179,44 @@
   background: rgba(0, 0, 0, 0.06);
 }
 
+/* Reduced-motion / no-JS fallback: static horizontal scroll-snap strip
+   instead of the pinned scroll-driven translation. The host gets
+   .process--static when GSAP is skipped. */
+:host(.process--static) .process__pin-wrap {
+  height: auto;
+}
+
+:host(.process--static) .process__pin {
+  position: static;
+  height: auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  align-items: stretch;
+  scrollbar-width: thin;
+}
+
+:host(.process--static) .process__track {
+  padding: 3rem 6% 5rem;
+  will-change: auto;
+}
+
+:host(.process--static) .phase-card {
+  flex-basis: 40%;
+  width: auto;
+  max-height: none;
+  scroll-snap-align: start;
+}
+
 @media (max-width: 767px) {
-  .phase-card {
-    flex-basis: 85%;
+  :host {
+    --phase-card-width: 85vw;
   }
 
   .phase-card__media {
     min-height: 160px;
+  }
+
+  :host(.process--static) .phase-card {
+    flex-basis: 85%;
   }
 }

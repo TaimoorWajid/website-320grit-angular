@@ -3,22 +3,30 @@
     <h2 class="process__band-title" appReveal>How we can help you</h2>
   </div>
 
-  <div class="process__strip" id="services" appReveal>
-    @for (phase of phases; track phase.number) {
-      <article class="phase-card" [class.phase-card--light]="phase.light">
-        <div class="phase-card__media" [style.background]="phase.mediaColor" aria-hidden="true"></div>
-        <div class="phase-card__body">
-          <p class="phase-card__eyebrow">{{ phase.eyebrow }}</p>
-          <p class="phase-card__number">{{ phase.number }}</p>
-          <h3 class="phase-card__title">{{ phase.title }}</h3>
-          <hr class="phase-card__divider" />
-          <p class="phase-card__text">{{ phase.paragraph }}</p>
-          <!-- Source CTA has an empty href: keep the anchor, suppress navigation. -->
-          <a class="nectar-cta phase-card__cta" href="" (click)="$event.preventDefault()"
-            ><span class="link_text">{{ phase.cta }}</span></a
-          >
-        </div>
-      </article>
-    }
+  <!-- Sticky-pinned horizontal scroll (Salient nectar-sticky-media-sections,
+       type--horizontal-scrolling). .process__pin-wrap is the tall scroll
+       container; .process__pin sticks to the viewport; GSAP translates
+       .process__track horizontally with vertical scroll progress. -->
+  <div class="process__pin-wrap" #pinWrap>
+    <div class="process__pin" #pin>
+      <div class="process__track" #track>
+        @for (phase of phases; track phase.number) {
+          <article class="phase-card" [class.phase-card--light]="phase.light">
+            <div class="phase-card__media" [style.background]="phase.mediaColor" aria-hidden="true"></div>
+            <div class="phase-card__body">
+              <p class="phase-card__eyebrow">{{ phase.eyebrow }}</p>
+              <p class="phase-card__number">{{ phase.number }}</p>
+              <h3 class="phase-card__title">{{ phase.title }}</h3>
+              <hr class="phase-card__divider" />
+              <p class="phase-card__text">{{ phase.paragraph }}</p>
+              <!-- Source CTA has an empty href: keep the anchor, suppress navigation. -->
+              <a class="nectar-cta phase-card__cta" href="" (click)="$event.preventDefault()"
+                ><span class="link_text">{{ phase.cta }}</span></a
+              >
+            </div>
+          </article>
+        }
+      </div>
+    </div>
   </div>
 </section>

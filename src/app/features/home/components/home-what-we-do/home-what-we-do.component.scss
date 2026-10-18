@@ -82,6 +82,47 @@
   line-height: 1.7;
 }
 
+/* Feature checklist — ported verbatim from
+   salient-child/assets/css/feature-list-icon.css (.grit-feature-list). */
+.grit-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 1rem;
+}
+
+.grit-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.grit-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.grit-icon::before {
+  content: '\203A';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  transform: translateY(-50%);
+  color: #792cd5;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1px;
+}
+
+.grit-text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 /* nectar-cta port: bordered pill, violet hover (hover_color_792CD5). */
 .nectar-cta {
   align-self: flex-start;

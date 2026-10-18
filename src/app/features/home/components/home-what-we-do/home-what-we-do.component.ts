@@ -6,6 +6,8 @@ interface FeatureCard {
   eyebrow: string;
   title: string;
   paragraphs: [string, string];
+  /** Verbatim checklist items from staging (.grit-feature-list). */
+  checklist: [string, string, string, string, string];
   cta: string;
   /** Site-relative route, or '' when the source CTA has an empty href. */
   href: string;
@@ -38,6 +40,13 @@ export class HomeWhatWeDoComponent {
       cta: 'Explore Commercial Projects',
       href: '/commercial-construction',
       image: 'assets/images/What-we-do-faeture-image.webp',
+      checklist: [
+        '25+ Years of Combined Experience',
+        'Skilled Craftsmen & In-House Team',
+        'Safety Focused, Quality Driven',
+        'Transparent Communication',
+        'Built on Integrity. Delivered with Grit.',
+      ],
     },
     {
       eyebrow: 'RESIDENTIAL CONSTRUCTION',
@@ -49,6 +58,13 @@ export class HomeWhatWeDoComponent {
       cta: 'Explore Residential Projects',
       href: '',
       image: 'assets/images/ChatGPT-Image-Jul-27-2026-08_14_05-PM.webp',
+      checklist: [
+        'Modern & Contemporary Designs',
+        'High-End Interior Finishes',
+        'Energy-Efficient Construction',
+        'Transparent Budget & Timeline',
+        'Dedicated Project Management',
+      ],
     },
     {
       eyebrow: 'PROJECT MANAGEMENT',
@@ -60,6 +76,13 @@ export class HomeWhatWeDoComponent {
       cta: 'Explore Projects Managed By Us',
       href: '',
       image: 'assets/images/ChatGPT-Image-Jul-28-2026-07_22_35-AM.webp',
+      checklist: [
+        'Strategic Planning & Execution',
+        'Schedule & Budget Optimization',
+        'Vendor & Subcontractor Management',
+        'Quality & Safety Oversight',
+        'Seamless Client Communication',
+      ],
     },
   ];
 

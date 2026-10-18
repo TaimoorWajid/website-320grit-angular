@@ -17,6 +17,14 @@
           <h3 class="what-we-do__title">{{ card.title }}</h3>
           <p class="what-we-do__text">{{ card.paragraphs[0] }}</p>
           <p class="what-we-do__text">{{ card.paragraphs[1] }}</p>
+          <div class="grit-feature-list">
+            @for (item of card.checklist; track item) {
+              <div class="grit-feature-item">
+                <span class="grit-icon" aria-hidden="true"></span>
+                <span class="grit-text">{{ item }}</span>
+              </div>
+            }
+          </div>
           @if (card.href) {
             <a class="nectar-cta" [routerLink]="card.href"
               ><span class="link_text">{{ card.cta }}</span></a
