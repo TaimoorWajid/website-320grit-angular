@@ -20,6 +20,8 @@ export const MARKET_IMG = {
   planning: '/assets/images/ChatGPT-Image-Aug-3-2026-04_54_56-PM.webp',
   /** Construction crew on site — railroads, approach imagery. */
   labour: '/assets/images/labour-320-grit.webp',
+  /** Railway track at dusk — Rail Roads market card bg (staging). */
+  railroad: '/assets/images/railroad-infrastructure-bg.webp',
   /** Industrial feature image — education contexts. */
   industries: '/assets/images/Industries-we-serve-feature-image.webp',
 } as const;

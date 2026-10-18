@@ -85,7 +85,7 @@ export class HomeMarketsComponent {
         { icon: 'shield-check', line1: 'SAFETY', line2: 'FIRST' },
       ],
       href: '/industries/railroads',
-      bg: MARKET_IMG.labour,
+      bg: MARKET_IMG.railroad,
     },
     {
       label: 'Healthcare',
