@@ -1,0 +1,159 @@
+/* ============================================
+   320 GRIT — Shared Utilities
+   Ported from salient-child/assets/css/utilities.css
+   ============================================ */
+
+/* ---- Container ---- */
+.grit-container {
+  width: 100%;
+  max-width: var(--grit-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grit-space-xl);
+  padding-right: var(--grit-space-xl);
+}
+
+@media (max-width: 1024px) {
+  .grit-container {
+    padding-left: var(--grit-space-md);
+    padding-right: var(--grit-space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .grit-container {
+    padding-left: var(--grit-space-sm);
+    padding-right: var(--grit-space-sm);
+  }
+}
+
+/* ---- Text Utilities ---- */
+.grit-text-orange {
+  color: var(--grit-accent-orange);
+}
+
+.grit-text-secondary {
+  color: var(--grit-text-secondary);
+}
+
+.grit-text-muted {
+  color: var(--grit-text-muted);
+}
+
+/* ---- Screen Reader ---- */
+.grit-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Magnetic Button Base ---- */
+.grit-magnetic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform 0.3s var(--grit-ease-expo-out);
+}
+
+/* ---- Custom Cursor hidden on touch ---- */
+@media (pointer: coarse) {
+  .grit-cursor {
+    display: none !important;
+  }
+}
+
+/* ---- Buttons (ported from buttons.css) ---- */
+.btn-group-320 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-320 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 272px;
+  height: 60px;
+  padding: 0 28px;
+  font-family: var(--grit-font-button);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-320.btn-primary {
+  background: var(--grit-accent-violet);
+  color: #fff;
+  border-color: var(--grit-accent-violet);
+}
+
+.btn-320.btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-320 .btn-arrow {
+  width: 18px;
+  height: 18px;
+  stroke: currentcolor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+
+.btn-320:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(121, 44, 213, 0.3);
+}
+
+.btn-320:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.btn-320.btn-primary:hover {
+  background: var(--grit-accent-violet-light);
+  border-color: var(--grit-accent-violet-light);
+}
+
+.btn-320.btn-outline:hover {
+  background: var(--grit-accent-violet);
+  border-color: var(--grit-accent-violet);
+  color: #fff;
+}
+
+.btn-320:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .btn-group-320 {
+    flex-direction: column;
+  }
+
+  .btn-320 {
+    width: 100%;
+    min-width: 100%;
+  }
+}

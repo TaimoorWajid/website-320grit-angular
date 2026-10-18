@@ -1,0 +1,50 @@
+/* ============================================
+   320 GRIT — Typography
+   Rendered-page fonts (verified from staging):
+   - Instrument Sans 400/700: primary display + body
+   - Instrument Serif 400: serif accents
+   - Barlow 600/700: buttons (.btn-320)
+   - Poppins 500/700: trust badges bar
+   - Open Sans: Salient fallback stack
+   - Bahnschrift: self-hosted display alt (wp-content/uploads/fonts)
+   - Inter 400/500/600/700: about-us / our-approach / our-locations
+     pages (hc-/oc-/ca- design systems declare no font-family and
+     inherit Inter from the Salient theme body)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Barlow:wght@600;700&family=Poppins:wght@500;600;700&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: var(--grit-font-base);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--grit-text-primary);
+  background: var(--grit-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--grit-font-display);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--grit-text-primary);
+}
+
+p {
+  margin: 0;
+}
+
+/* Eyebrow label used across sections */
+.grit-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--grit-accent-orange);
+}

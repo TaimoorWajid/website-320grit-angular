@@ -1,0 +1,80 @@
+/* ============================================
+   320 GRIT — Design Tokens
+   Ported from salient-child/assets/css/token.css
+   + project-inquiry-form.css variables.
+   Token NAMES kept verbatim so ported component
+   CSS referencing var(--grit-*) works unchanged.
+   ============================================ */
+
+:root {
+  /* ---- Brand Colors ---- */
+  --grit-bg-primary: #070707;
+  --grit-bg-secondary: #0a0a0a;
+  --grit-bg-tertiary: #111111;
+  --grit-accent-orange: #ff5d0e;
+  --grit-accent-orange-deep: #e5500c;
+  --grit-accent-orange-glow: rgba(255, 93, 14, 0.35);
+
+  --grit-text-primary: #ffffff;
+  --grit-text-secondary: #a1a1aa;
+  --grit-text-muted: #52525b;
+  --grit-border-subtle: #27272a;
+  --grit-border-hover: rgba(255, 93, 14, 0.25);
+
+  /* ---- Secondary accent (mega menu, trust bar, buttons) ---- */
+  --grit-accent-violet: #792cd5;
+  --grit-accent-violet-light: #8a42f0;
+
+  /* ---- Typography ---- */
+  --grit-font-base: 'Instrument Sans', 'Open Sans', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+  --grit-font-display: 'Instrument Sans', 'Open Sans', system-ui, sans-serif;
+  --grit-font-serif: 'Instrument Serif', 'Source Serif Pro', georgia, serif;
+  --grit-font-button: 'Barlow', sans-serif;
+  --grit-font-trust: 'Poppins', -apple-system, blinkmacsystemfont, 'Segoe UI', arial, sans-serif;
+  --grit-font-display-alt: 'Bahnschrift', 'Instrument Sans', sans-serif;
+
+  /* ---- Easings ---- */
+  --grit-ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --grit-ease-expo-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+  --grit-ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --grit-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Durations ---- */
+  --grit-duration-fast: 200ms;
+  --grit-duration-normal: 600ms;
+  --grit-duration-slow: 1200ms;
+
+  /* ---- Spacing Scale ---- */
+  --grit-space-xs: 8px;
+  --grit-space-sm: 16px;
+  --grit-space-md: 24px;
+  --grit-space-lg: 40px;
+  --grit-space-xl: 64px;
+  --grit-space-2xl: 100px;
+  --grit-space-3xl: 160px;
+
+  /* ---- Layout ---- */
+  --grit-container-max: 1400px;
+  --grit-nav-height: 80px;
+
+  /* ---- Radii / shadows (form system) ---- */
+  --grit-radius-sm: 4px;
+  --grit-radius-md: 8px;
+  --grit-radius-lg: 12px;
+  --grit-shadow-glow: 0 0 20px rgba(255, 93, 14, 0.15);
+
+  /* ---- Breakpoints (formalized; theme used ad-hoc queries) ---- */
+  --grit-bp-sm: 560px;
+  --grit-bp-md: 768px;
+  --grit-bp-lg: 1024px;
+  --grit-bp-xl: 1200px;
+}
+
+/* ---- Reduced Motion: collapse durations (mirrors token.css) ---- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --grit-duration-fast: 0.01ms;
+    --grit-duration-normal: 0.01ms;
+    --grit-duration-slow: 0.01ms;
+  }
+}
