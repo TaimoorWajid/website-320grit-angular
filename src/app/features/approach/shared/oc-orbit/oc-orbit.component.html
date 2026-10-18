@@ -31,7 +31,7 @@
           [style.left]="nodePos(i)[1] + '%'"
           [title]="n.name + ' — ' + n.role"
         >
-          <span class="oc-node-circle" [innerHTML]="icon(n.icon)"></span>
+          <span class="oc-node-circle" [innerHTML]="icon(n.icon) | safeHtml"></span>
           <span class="oc-node-label">{{ n.label }}</span>
         </div>
       }

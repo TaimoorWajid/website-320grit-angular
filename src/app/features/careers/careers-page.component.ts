@@ -7,6 +7,7 @@ import { JobsService } from './shared/jobs.service';
 import { DEPARTMENTS, type Job } from './shared/jobs.data';
 import { CAREERS_ICONS } from './shared/careers-icons';
 import { JobCardComponent } from './shared/job-card/job-card.component';
+import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 
 interface ValueCard {
   title: string;
@@ -25,7 +26,7 @@ interface ValueCard {
  */
 @Component({
   selector: 'app-careers-page',
-  imports: [RouterLink, RevealDirective, JobCardComponent],
+  imports: [RouterLink, RevealDirective, JobCardComponent, SafeHtmlPipe],
   templateUrl: './careers-page.component.html',
   styleUrl: './careers-page.component.scss',
 })

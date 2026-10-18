@@ -18,17 +18,17 @@
       <div class="grit-job-hero__content" appReveal>
         <div class="grit-job-hero__meta">
           <span class="grit-job-hero__meta-item">
-            <span aria-hidden="true" [innerHTML]="icons.pin()"></span>{{ j.location }}
+            <span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ j.location }}
           </span>
           <span class="grit-job-hero__meta-item">
-            <span aria-hidden="true" [innerHTML]="icons.briefcase()"></span>{{ j.employment_type }}
+            <span aria-hidden="true" [innerHTML]="icons.briefcase() | safeHtml"></span>{{ j.employment_type }}
           </span>
         </div>
         <h1 class="grit-job-hero__title" id="grit-job-title">{{ j.title }}</h1>
         <p class="grit-job-hero__excerpt">{{ j.excerpt }}</p>
         <a class="grit-btn grit-btn--primary grit-btn--lg" [routerLink]="['/careers/apply']" [queryParams]="{ job: j.slug }">
           Apply Now
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
         <app-share-buttons [job]="j" />
       </div>
@@ -78,7 +78,7 @@
             <ul class="grit-check-list">
               @for (item of j.responsibilities; track item) {
                 <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircle()"></span>{{ item }}
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircle() | safeHtml"></span>{{ item }}
                 </li>
               }
             </ul>
@@ -90,7 +90,7 @@
             <ul class="grit-check-list">
               @for (item of j.qualifications; track item) {
                 <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircle()"></span>{{ item }}
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircle() | safeHtml"></span>{{ item }}
                 </li>
               }
             </ul>
@@ -102,7 +102,7 @@
             <ul class="grit-check-list">
               @for (item of j.benefits; track item) {
                 <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircle()"></span>{{ item }}
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircle() | safeHtml"></span>{{ item }}
                 </li>
               }
             </ul>
@@ -124,7 +124,7 @@
         <ul class="grit-job-details-card__why">
           @for (item of j.why_grit; track item) {
             <li>
-              <span aria-hidden="true" [innerHTML]="icons.check()"></span>{{ item }}
+              <span aria-hidden="true" [innerHTML]="icons.check() | safeHtml"></span>{{ item }}
             </li>
           }
         </ul>
@@ -144,7 +144,7 @@
       <div class="grit-related-positions__header">
         <h2 id="grit-related-positions-heading">Similar Positions</h2>
         <a class="grit-link-arrow" routerLink="/open-positions">
-          View All Positions <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+          View All Positions <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
         </a>
       </div>
       <div class="grit-related-positions__grid">
@@ -164,7 +164,7 @@
         </p>
         <a class="grit-btn grit-btn--primary grit-btn--lg" [routerLink]="['/careers/apply']" [queryParams]="{ job: j.slug }">
           Apply Now
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
       </div>
     </section>

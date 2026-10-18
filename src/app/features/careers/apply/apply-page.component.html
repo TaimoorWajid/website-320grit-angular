@@ -20,7 +20,7 @@
         <h2 class="grit-apply-sidebar__title">{{ job().title }}</h2>
         <p class="grit-apply-sidebar__meta">{{ job().location }} &middot; {{ job().employment_type }}</p>
         <a class="grit-link-arrow" [routerLink]="['/careers', job().slug]">
-          Change Position <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+          Change Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
         </a>
       </aside>
 
@@ -237,7 +237,7 @@
         } @else {
           <!-- S09 Success state -->
           <div class="grit-apply-success" id="grit-apply-success" role="status">
-            <span class="grit-apply-success__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg()"></span>
+            <span class="grit-apply-success__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg() | safeHtml"></span>
             <h2>Application Submitted</h2>
             <p>
               Thank you for applying to the <strong>{{ job().title }}</strong> position. Our team will review

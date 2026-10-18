@@ -22,7 +22,7 @@
       <div class="grit-cl-hero__actions">
         <a class="grit-btn grit-btn--primary grit-btn--lg" routerLink="/open-positions">
           View Open Positions
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
         <a class="grit-btn grit-btn--outline-light grit-btn--lg" href="#our-culture" (click)="scrollToCulture($event)">
           Our Culture
@@ -43,7 +43,7 @@
       <div class="grit-cl-values__grid">
         @for (value of values; track value.title) {
           <article class="grit-cl-value-card" appReveal>
-            <div class="grit-cl-value-card__icon" aria-hidden="true" [innerHTML]="value.icon"></div>
+            <div class="grit-cl-value-card__icon" aria-hidden="true" [innerHTML]="value.icon | safeHtml"></div>
             <h3 class="grit-cl-value-card__title">{{ value.title }}</h3>
             <p class="grit-cl-value-card__text">{{ value.text }}</p>
           </article>
@@ -66,7 +66,7 @@
         </p>
         <a class="grit-btn grit-btn--outline-light" routerLink="/our-story">
           Learn More About Us
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
       </div>
       <div class="grit-cl-culture__gallery" appReveal>
@@ -127,7 +127,7 @@
       <div class="grit-cl-positions__cta" appReveal>
         <a class="grit-btn grit-btn--primary grit-btn--lg" routerLink="/open-positions">
           View All Positions
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
       </div>
     </div>
@@ -141,10 +141,10 @@
         <h2 class="grit-cl-featured__title" id="grit-featured-heading">{{ featured.title }}</h2>
         <div class="grit-cl-featured__meta">
           <span class="grit-cl-featured__meta-item">
-            <span aria-hidden="true" [innerHTML]="icons.pin()"></span>{{ featured.location }}
+            <span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ featured.location }}
           </span>
           <span class="grit-cl-featured__meta-item">
-            <span aria-hidden="true" [innerHTML]="icons.briefcase()"></span>{{ featured.employment_type }}
+            <span aria-hidden="true" [innerHTML]="icons.briefcase() | safeHtml"></span>{{ featured.employment_type }}
           </span>
         </div>
         <p class="grit-cl-featured__excerpt">{{ featured.excerpt }}</p>
@@ -154,7 +154,7 @@
           [queryParams]="{ job: featured.slug }"
         >
           Apply Now
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
         <div class="grit-cl-featured__columns">
           <div class="grit-cl-featured__column">
@@ -162,7 +162,7 @@
             <ul class="grit-check-list">
               @for (item of featured.responsibilities.slice(0, 5); track item) {
                 <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm()"></span>{{ item }}
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>{{ item }}
                 </li>
               }
             </ul>
@@ -172,7 +172,7 @@
             <ul class="grit-check-list">
               @for (item of featured.qualifications.slice(0, 4); track item) {
                 <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm()"></span>{{ item }}
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>{{ item }}
                 </li>
               }
             </ul>
@@ -182,7 +182,7 @@
             <ul class="grit-check-list">
               @for (item of featured.benefits.slice(0, 5); track item) {
                 <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm()"></span>{{ item }}
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>{{ item }}
                 </li>
               }
             </ul>
@@ -205,7 +205,7 @@
         </p>
         <a class="grit-btn grit-btn--outline" routerLink="/careers/introduce-yourself">
           Introduce Yourself
-          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
       </div>
       <div class="grit-cl-introduce__visual" appReveal>
@@ -228,7 +228,7 @@
       </h2>
       <a class="grit-btn grit-btn--primary grit-btn--lg" routerLink="/open-positions">
         Join 320 Grit
-        <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
       </a>
     </div>
   </section>

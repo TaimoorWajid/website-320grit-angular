@@ -11,7 +11,7 @@
     <div class="ab-stats" hcReveal>
       @for (stat of items(); track stat.num) {
         <div class="ab-stat">
-          <div class="ab-stat-icon" [innerHTML]="icon(stat.icon)" aria-hidden="true"></div>
+          <div class="ab-stat-icon" [innerHTML]="icon(stat.icon) | safeHtml" aria-hidden="true"></div>
           <div class="ab-stat-num">{{ stat.num }}</div>
           <div class="ab-stat-label">{{ stat.label }}</div>
         </div>

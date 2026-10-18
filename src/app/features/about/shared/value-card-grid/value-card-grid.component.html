@@ -38,7 +38,7 @@
               <p>{{ card.text }}</p>
             }
           } @else {
-            <div class="ab-value-icon" [innerHTML]="icon(card.icon ?? '')" aria-hidden="true"></div>
+            <div class="ab-value-icon" [innerHTML]="icon(card.icon ?? '') | safeHtml" aria-hidden="true"></div>
             <h3>{{ card.title }}</h3>
             @if (card.text) {
               <p>{{ card.text }}</p>

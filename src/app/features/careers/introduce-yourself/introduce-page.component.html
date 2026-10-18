@@ -22,7 +22,7 @@
         <ul class="grit-intro-reasons__list">
           @for (reason of reasons; track reason.title) {
             <li class="grit-intro-reasons__item">
-              <div class="grit-intro-reasons__icon" aria-hidden="true" [innerHTML]="reason.icon"></div>
+              <div class="grit-intro-reasons__icon" aria-hidden="true" [innerHTML]="reason.icon | safeHtml"></div>
               <div class="grit-intro-reasons__text">
                 <h3>{{ reason.title }}</h3>
                 <p>{{ reason.text }}</p>
@@ -131,13 +131,13 @@
             <div class="grit-intro-form__actions">
               <button type="submit" class="grit-btn grit-btn--primary grit-btn--lg" [disabled]="submitting()">
                 {{ submitting() ? 'Submitting…' : 'Submit Application' }}
-                <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+                <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
               </button>
             </div>
           </form>
         } @else {
           <div class="grit-intro-success" role="status">
-            <span class="grit-intro-success__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg()"></span>
+            <span class="grit-intro-success__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg() | safeHtml"></span>
             <h2>Thank You</h2>
             <p>
               We&rsquo;ve received your information and will keep you in mind for future opportunities that

@@ -31,7 +31,7 @@
           <div class="ab-icon-rows">
             @for (row of split().iconRows; track row.title) {
               <div class="ab-icon-row">
-                <div class="ab-value-icon" [innerHTML]="icon(row.icon)" aria-hidden="true"></div>
+                <div class="ab-value-icon" [innerHTML]="icon(row.icon) | safeHtml" aria-hidden="true"></div>
                 <div>
                   <h3>{{ row.title }}</h3>
                   <p>{{ row.text }}</p>

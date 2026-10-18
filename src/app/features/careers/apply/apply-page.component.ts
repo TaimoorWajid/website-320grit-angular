@@ -10,6 +10,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
 import { JobsService } from '../shared/jobs.service';
 import { CAREERS_ICONS } from '../shared/careers-icons';
 import { FileUploadComponent } from '../shared/file-upload/file-upload.component';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -39,7 +40,7 @@ const FIELD_LABELS: Record<string, string> = {
  */
 @Component({
   selector: 'app-apply-page',
-  imports: [RouterLink, ReactiveFormsModule, RevealDirective, FileUploadComponent],
+  imports: [RouterLink, ReactiveFormsModule, RevealDirective, FileUploadComponent, SafeHtmlPipe],
   templateUrl: './apply-page.component.html',
   styleUrl: './apply-page.component.scss',
 })

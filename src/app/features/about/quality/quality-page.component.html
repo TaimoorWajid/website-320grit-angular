@@ -38,7 +38,7 @@
       >
         @for (f of FOUNDATIONS; track f.title) {
           <div class="ab-value-card">
-            <div class="ab-value-icon" [innerHTML]="foundationIcon(f.icon)" aria-hidden="true"></div>
+            <div class="ab-value-icon" [innerHTML]="foundationIcon(f.icon) | safeHtml" aria-hidden="true"></div>
             <h3>{{ f.title }}</h3>
           </div>
         }

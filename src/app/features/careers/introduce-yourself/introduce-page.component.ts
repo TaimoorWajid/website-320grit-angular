@@ -7,6 +7,7 @@ import { APP_CONFIG } from '../../../core/config/app-config';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
 import { CAREERS_ICONS } from '../shared/careers-icons';
 import { FileUploadComponent } from '../shared/file-upload/file-upload.component';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -34,7 +35,7 @@ interface Reason {
  */
 @Component({
   selector: 'app-introduce-page',
-  imports: [RouterLink, ReactiveFormsModule, RevealDirective, FileUploadComponent],
+  imports: [RouterLink, ReactiveFormsModule, RevealDirective, FileUploadComponent, SafeHtmlPipe],
   templateUrl: './introduce-page.component.html',
   styleUrl: './introduce-page.component.scss',
 })

@@ -6,11 +6,12 @@ import { ProjectCardGridComponent } from '../shared/project-card-grid/project-ca
 import { HcRevealDirective } from '../shared/hc-reveal.directive';
 import { iconSvg } from '../shared/about.types';
 import { COMMITMENT, DETAILS, FOUNDATIONS, HERO } from './quality.data';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 /** Quality page — composition of shared hc- sections. */
 @Component({
   selector: 'app-quality-page',
-  imports: [PageHeroComponent, ValueCardGridComponent, ProjectCardGridComponent, HcRevealDirective],
+  imports: [PageHeroComponent, ValueCardGridComponent, ProjectCardGridComponent, HcRevealDirective, SafeHtmlPipe],
   templateUrl: './quality-page.component.html',
   styleUrl: './quality-page.component.scss',
 })

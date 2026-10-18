@@ -1,11 +1,12 @@
 import { Component, input } from '@angular/core';
 import { StatItem, iconSvg } from '../about.types';
 import { HcRevealDirective } from '../hc-reveal.directive';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 /** Shared .ab-stats bar; `overlap` pulls it over the hero bottom edge (leadership). */
 @Component({
   selector: 'app-stats-bar',
-  imports: [HcRevealDirective],
+  imports: [HcRevealDirective, SafeHtmlPipe],
   templateUrl: './stats-bar.component.html',
   styleUrl: './stats-bar.component.scss',
 })

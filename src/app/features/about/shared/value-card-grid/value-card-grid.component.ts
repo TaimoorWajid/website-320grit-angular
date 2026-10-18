@@ -2,11 +2,12 @@ import { Component, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { SectionHeader, ValueCard, iconSvg } from '../about.types';
 import { HcRevealDirective } from '../hc-reveal.directive';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 /** Shared .ab-value-grid: icon/eyebrow cards. Delay = min(i+1, 4) per source. */
 @Component({
   selector: 'app-value-grid',
-  imports: [NgClass, HcRevealDirective],
+  imports: [NgClass, HcRevealDirective, SafeHtmlPipe],
   templateUrl: './value-card-grid.component.html',
   styleUrl: './value-card-grid.component.scss',
 })

@@ -1,11 +1,12 @@
 import { Component, input } from '@angular/core';
 import { OcProcessStep, ocIcon } from '../oc.types';
 import { OcRevealDirective } from '../oc-reveal.directive';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 /** "How We Work with Owners": 5 process steps with connectors (i*90ms stagger). */
 @Component({
   selector: 'app-oc-process-steps',
-  imports: [OcRevealDirective],
+  imports: [OcRevealDirective, SafeHtmlPipe],
   templateUrl: './oc-process-steps.component.html',
   styleUrl: './oc-process-steps.component.scss',
 })

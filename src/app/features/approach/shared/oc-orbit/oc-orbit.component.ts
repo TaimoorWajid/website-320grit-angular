@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { OcOrbitNode, ocIcon } from '../oc.types';
 import { OcRevealDirective } from '../oc-reveal.directive';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 
 /**
  * "One Team. One Direction." — trig-positioned orbit hub.
@@ -10,7 +11,7 @@ import { OcRevealDirective } from '../oc-reveal.directive';
  */
 @Component({
   selector: 'app-oc-orbit',
-  imports: [OcRevealDirective],
+  imports: [OcRevealDirective, SafeHtmlPipe],
   templateUrl: './oc-orbit.component.html',
   styleUrl: './oc-orbit.component.scss',
 })

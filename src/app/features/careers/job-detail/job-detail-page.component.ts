@@ -10,6 +10,7 @@ import { CAREERS_ICONS } from '../shared/careers-icons';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 import { ShareButtonsComponent } from '../shared/share-buttons/share-buttons.component';
 import { JobCardComponent } from '../shared/job-card/job-card.component';
+import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
 interface JobTab {
   id: string;
@@ -24,7 +25,7 @@ interface JobTab {
  */
 @Component({
   selector: 'app-job-detail-page',
-  imports: [RouterLink, RevealDirective, NotFoundComponent, BreadcrumbComponent, ShareButtonsComponent, JobCardComponent],
+  imports: [RouterLink, RevealDirective, NotFoundComponent, BreadcrumbComponent, ShareButtonsComponent, JobCardComponent, SafeHtmlPipe],
   templateUrl: './job-detail-page.component.html',
   styleUrl: './job-detail-page.component.scss',
 })
