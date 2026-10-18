@@ -3,8 +3,14 @@
     <div class="locations-text" [appReveal]="{ y: 40 }">
       <h2 class="locations-headline">NATIONWIDE PERSPECTIVE.</h2>
       <h2 class="locations-headline">CALIFORNIA ROOTS.</h2>
+      <div class="locations-divider" aria-hidden="true"></div>
       <p class="locations-body">We coordinate teams, consultants, contractors, budgets, schedules, and project risks while representing the owner’s best interests throughout the entire project lifecycle.</p>
-      <a href="" class="locations-cta" (click)="exploreMore($event)"><span class="link_text">Explore More</span></a>
+      <a href="" class="locations-cta" (click)="exploreMore($event)">
+        <span class="locations-cta__text">Explore More</span>
+        <svg class="locations-cta__arrow" aria-hidden="true" width="20" height="25" viewBox="0 0 50 80">
+          <polyline points="0, 0 45, 40 0, 80" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
     </div>
     <div class="locations-media" [appReveal]="{ y: 40, delay: 0.1 }">
       <img src="/assets/images/Nationwide-Map.webp" alt="" loading="lazy" decoding="async" />

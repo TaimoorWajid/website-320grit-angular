@@ -53,8 +53,8 @@ export class HomeFaqComponent {
     },
   ];
 
-  /** Single-open accordion; first item open by default. -1 = all closed. */
-  readonly openIndex = signal(0);
+  /** Single-open accordion; all closed by default (matches staging). -1 = all closed. */
+  readonly openIndex = signal(-1);
 
   toggle(index: number): void {
     this.openIndex.set(this.openIndex() === index ? -1 : index);

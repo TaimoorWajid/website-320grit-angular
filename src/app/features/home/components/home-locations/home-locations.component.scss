@@ -36,25 +36,36 @@
 }
 
 .locations-headline:last-of-type {
-  margin-bottom: 24px;
+  margin-bottom: 0;
+}
+
+/* Staging divider: 40px × 1px white line between headings and paragraph. */
+.locations-divider {
+  width: 40px;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #ffffff;
 }
 
 .locations-body {
   font-size: 17px;
   line-height: 1.7;
   color: var(--grit-text-secondary);
-  max-width: 520px;
-  margin: 0 0 32px;
+  max-width: 75%;
+  margin: 0 0 0;
 }
 
-/* Salient .nectar-cta equivalent: white 2px border, 10px radius */
+/* Salient .nectar-cta port: white 2px border, 10px radius, arrow-animation. */
 .locations-cta {
   display: inline-flex;
   align-items: center;
-  padding: 14px 32px;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 30px;
   border: 2px solid #ffffff;
   border-radius: 10px;
-  color: var(--grit-text-primary);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -76,6 +87,17 @@
   &:active {
     transform: translateY(0);
   }
+}
+
+.locations-cta__arrow {
+  width: 14px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.locations-cta:hover .locations-cta__arrow {
+  transform: translateX(4px);
 }
 
 .locations-media img {
