@@ -1,0 +1,285 @@
+@use '../shared/careers';
+
+/* Job detail — ported from job-detail.css. */
+
+.grit-job-detail__breadcrumb {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+}
+
+/* ---- S02 Hero ---- */
+.grit-job-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  align-items: center;
+}
+
+.grit-job-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--grit-gray-600);
+}
+
+.grit-job-hero__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.grit-job-hero__title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  color: var(--grit-dark);
+}
+
+.grit-job-hero__excerpt {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--grit-gray-600);
+  margin: 0 0 1.75rem;
+}
+
+.grit-job-hero__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--grit-radius-lg);
+}
+
+/* ---- S03 Overview + details ---- */
+.grit-role-overview {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+  align-items: start;
+}
+
+.grit-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--grit-gray-200);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.grit-tabs__btn {
+  padding: 0.875rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--grit-gray-500);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--grit-transition),
+    border-color var(--grit-transition);
+
+  &:hover {
+    color: var(--grit-dark);
+  }
+
+  &.is-active {
+    color: var(--grit-purple);
+    border-bottom-color: var(--grit-purple);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--grit-purple);
+    outline-offset: -2px;
+  }
+}
+
+.grit-tabs__panel {
+  animation: grit-careers-fade-in 0.25s ease;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.25rem;
+    color: var(--grit-dark);
+  }
+
+  p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--grit-gray-600);
+    margin: 0;
+  }
+}
+
+@keyframes grit-careers-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grit-job-details-card {
+  background: var(--grit-gray-50);
+  border: 1px solid var(--grit-gray-200);
+  border-radius: var(--grit-radius-lg);
+  padding: 1.75rem;
+  position: sticky;
+  top: 2rem;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+  }
+
+  h4 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.75rem;
+  }
+}
+
+.grit-job-details-card__list {
+  margin: 0;
+}
+
+.grit-job-details-card__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--grit-gray-200);
+  font-size: 0.875rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  dt {
+    color: var(--grit-gray-500);
+    font-weight: 500;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+  }
+}
+
+.grit-job-details-card__why {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--grit-gray-600);
+
+    svg {
+      color: var(--grit-purple);
+      flex-shrink: 0;
+    }
+  }
+}
+
+.grit-job-details-card__img {
+  width: 100%;
+  border-radius: var(--grit-radius);
+  margin-top: 1.5rem;
+  object-fit: cover;
+}
+
+/* ---- S04 Related ---- */
+.grit-related-positions {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+.grit-related-positions__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+
+.grit-related-positions__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ---- S05 Final CTA ---- */
+.grit-final-cta {
+  background: var(--grit-dark);
+  color: var(--grit-white);
+  padding: 4.5rem 1.5rem;
+}
+
+.grit-final-cta__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--grit-white);
+    margin: 0.75rem 0 1rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 2rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .grit-job-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grit-role-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .grit-job-details-card {
+    position: static;
+  }
+
+  .grit-related-positions__grid {
+    grid-template-columns: 1fr;
+  }
+}

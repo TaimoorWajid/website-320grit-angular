@@ -1,0 +1,26 @@
+@use '../careers';
+
+.grit-breadcrumb {
+  font-size: 0.8125rem;
+  color: var(--grit-gray-500);
+  margin-bottom: 1.5rem;
+
+  a {
+    color: var(--grit-gray-500);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--grit-purple);
+    }
+  }
+
+  &__sep {
+    margin: 0 0.5rem;
+    color: var(--grit-gray-300);
+  }
+
+  [aria-current='page'] {
+    color: var(--grit-dark);
+    font-weight: 600;
+  }
+}

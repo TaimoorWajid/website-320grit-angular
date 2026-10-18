@@ -1,0 +1,174 @@
+@use '../shared/careers';
+
+<div class="grit-careers-page">
+  @if (job(); as j) {
+    <!-- S01 Breadcrumb -->
+    <div class="grit-job-detail__breadcrumb">
+      <app-breadcrumb
+        [crumbs]="[
+          { label: 'Careers', url: '/careers' },
+          { label: 'Open Positions', url: '/open-positions' },
+          { label: j.title },
+        ]"
+      />
+    </div>
+
+    <!-- S02 Job hero -->
+    <section class="grit-job-hero" aria-labelledby="grit-job-title">
+      <div class="grit-job-hero__content" appReveal>
+        <div class="grit-job-hero__meta">
+          <span class="grit-job-hero__meta-item">
+            <span aria-hidden="true" [innerHTML]="icons.pin()"></span>{{ j.location }}
+          </span>
+          <span class="grit-job-hero__meta-item">
+            <span aria-hidden="true" [innerHTML]="icons.briefcase()"></span>{{ j.employment_type }}
+          </span>
+        </div>
+        <h1 class="grit-job-hero__title" id="grit-job-title">{{ j.title }}</h1>
+        <p class="grit-job-hero__excerpt">{{ j.excerpt }}</p>
+        <a class="grit-btn grit-btn--primary grit-btn--lg" [routerLink]="['/careers/apply']" [queryParams]="{ job: j.slug }">
+          Apply Now
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+        <app-share-buttons [job]="j" />
+      </div>
+      <div class="grit-job-hero__visual" appReveal>
+        <img
+          src="/assets/images/labour-320-grit.webp"
+          alt="320 Grit construction professionals on site at sunset"
+          loading="eager"
+          width="600"
+          height="700"
+        />
+      </div>
+    </section>
+
+    <!-- S03 Role overview + details -->
+    <section class="grit-role-overview" aria-label="Job information">
+      <div class="grit-role-overview__main" appReveal>
+        <div class="grit-tabs" role="tablist" aria-label="Job information">
+          @for (tab of tabs; track tab.id; let i = $index) {
+            <button
+              #tabButton
+              type="button"
+              role="tab"
+              [id]="'tab-' + tab.id"
+              [attr.aria-selected]="activeTab() === tab.id"
+              [attr.aria-controls]="tab.panelId"
+              [attr.tabindex]="activeTab() === tab.id ? 0 : -1"
+              class="grit-tabs__btn"
+              [class.is-active]="activeTab() === tab.id"
+              (click)="selectTab(tab.id)"
+              (keydown)="onTabKeydown($event, i)"
+            >
+              {{ tab.label }}
+            </button>
+          }
+        </div>
+
+        @if (activeTab() === 'overview') {
+          <div class="grit-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+            <h2>About The Role</h2>
+            <p>{{ j.overview }}</p>
+          </div>
+        }
+        @if (activeTab() === 'responsibilities') {
+          <div class="grit-tabs__panel" id="panel-responsibilities" role="tabpanel" aria-labelledby="tab-responsibilities" tabindex="0">
+            <h2>Key Responsibilities</h2>
+            <ul class="grit-check-list">
+              @for (item of j.responsibilities; track item) {
+                <li>
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircle()"></span>{{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+        @if (activeTab() === 'qualifications') {
+          <div class="grit-tabs__panel" id="panel-qualifications" role="tabpanel" aria-labelledby="tab-qualifications" tabindex="0">
+            <h2>Qualifications</h2>
+            <ul class="grit-check-list">
+              @for (item of j.qualifications; track item) {
+                <li>
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircle()"></span>{{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+        @if (activeTab() === 'benefits') {
+          <div class="grit-tabs__panel" id="panel-benefits" role="tabpanel" aria-labelledby="tab-benefits" tabindex="0">
+            <h2>What We Offer</h2>
+            <ul class="grit-check-list">
+              @for (item of j.benefits; track item) {
+                <li>
+                  <span aria-hidden="true" [innerHTML]="icons.checkCircle()"></span>{{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+
+      <aside class="grit-job-details-card" appReveal aria-label="Job details">
+        <h3>Job Details</h3>
+        <dl class="grit-job-details-card__list">
+          @for (row of detailRows(); track row.label) {
+            <div class="grit-job-details-card__row">
+              <dt>{{ row.label }}</dt>
+              <dd>{{ row.value }}</dd>
+            </div>
+          }
+        </dl>
+        <h4>Why 320 Grit?</h4>
+        <ul class="grit-job-details-card__why">
+          @for (item of j.why_grit; track item) {
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.check()"></span>{{ item }}
+            </li>
+          }
+        </ul>
+        <img
+          class="grit-job-details-card__img"
+          src="/assets/images/career-feature-image.webp"
+          alt="320 Grit construction site with crane at sunset"
+          loading="lazy"
+          width="360"
+          height="220"
+        />
+      </aside>
+    </section>
+
+    <!-- S04 Related positions -->
+    <section class="grit-related-positions" aria-labelledby="grit-related-positions-heading">
+      <div class="grit-related-positions__header">
+        <h2 id="grit-related-positions-heading">Similar Positions</h2>
+        <a class="grit-link-arrow" routerLink="/open-positions">
+          View All Positions <span aria-hidden="true" [innerHTML]="icons.linkArrow()"></span>
+        </a>
+      </div>
+      <div class="grit-related-positions__grid">
+        @for (rel of related(); track rel.id) {
+          <app-job-card variant="related" [job]="rel" />
+        }
+      </div>
+    </section>
+
+    <!-- S05 Final CTA -->
+    <section class="grit-final-cta" aria-labelledby="grit-final-cta-heading">
+      <div class="grit-final-cta__inner" appReveal>
+        <span class="grit-eyebrow grit-eyebrow--light">Ready to join the team?</span>
+        <h2 id="grit-final-cta-heading">Apply for {{ j.title }}</h2>
+        <p>
+          Take the next step in your career with 320 Grit. We&rsquo;re looking for people who build with purpose.
+        </p>
+        <a class="grit-btn grit-btn--primary grit-btn--lg" [routerLink]="['/careers/apply']" [queryParams]="{ job: j.slug }">
+          Apply Now
+          <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+        </a>
+      </div>
+    </section>
+  } @else {
+    <app-not-found />
+  }
+</div>

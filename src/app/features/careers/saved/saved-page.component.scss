@@ -1,0 +1,192 @@
+@use '../shared/careers';
+
+/* Saved positions — ported from saved-positions.css. */
+
+.grit-saved-hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--grit-white);
+}
+
+.grit-saved-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.55), rgba(13, 13, 13, 0.75));
+  }
+}
+
+.grit-saved-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.grit-saved-hero__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--grit-white);
+  margin: 0 0 0.75rem;
+}
+
+.grit-saved-hero__sub {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.grit-saved-list {
+  padding: 3rem 0 5rem;
+}
+
+.grit-saved-list__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grit-saved-list__count {
+  font-size: 0.9375rem;
+  color: var(--grit-gray-600);
+  margin: 0 0 1.5rem;
+
+  strong {
+    color: var(--grit-dark);
+  }
+}
+
+.grit-saved-list__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.grit-saved-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--grit-white);
+  border: 1px solid var(--grit-gray-200);
+  border-radius: var(--grit-radius-lg);
+  padding: 1.25rem 1.5rem;
+}
+
+.grit-saved-item__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+
+  a {
+    color: var(--grit-dark);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--grit-purple);
+    }
+  }
+}
+
+.grit-saved-item__meta {
+  font-size: 0.875rem;
+  color: var(--grit-gray-600);
+}
+
+.grit-saved-item__date {
+  font-size: 0.8125rem;
+  color: var(--grit-gray-400);
+  margin-top: 0.25rem;
+}
+
+.grit-saved-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.grit-saved-item__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 1px solid var(--grit-gray-200);
+  border-radius: 50%;
+  color: var(--grit-gray-500);
+  cursor: pointer;
+  transition:
+    color var(--grit-transition),
+    border-color var(--grit-transition);
+
+  &:hover {
+    color: #dc2626;
+    border-color: #dc2626;
+  }
+}
+
+.grit-saved-empty {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.grit-saved-empty__icon {
+  display: inline-flex;
+  color: var(--grit-gray-300);
+  margin-bottom: 1rem;
+
+  svg {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.grit-saved-empty__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.grit-saved-empty__text {
+  color: var(--grit-gray-600);
+  margin: 0 0 1.75rem;
+}
+
+.grit-saved-footer {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--grit-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.grit-saved-footer__note {
+  font-size: 0.875rem;
+  color: var(--grit-gray-500);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .grit-saved-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

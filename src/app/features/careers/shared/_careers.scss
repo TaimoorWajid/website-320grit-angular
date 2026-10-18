@@ -1,0 +1,356 @@
+/* ======================================================
+   320 Grit — Careers design system (shared partial)
+   Consolidated from careers.css / open-positions.css /
+   job-detail.css / apply-position.css / saved-positions.css /
+   introduce-yourself.css / thank-you.css.
+   NOTE: the careers section uses its own palette — the orange
+   here (#FF5C00) intentionally differs from the site token
+   (#FF5D0E); flagged for design review, kept verbatim for fidelity.
+
+   Usage: every careers component (page or shared) does
+   `@use '<relative-path>/careers';` in its own SCSS.
+   Design tokens live on `.grit-careers-page` (the wrapper every
+   careers page template renders) and INHERIT down through the
+   DOM into child components; the classes below are intentionally
+   unscoped so each component's own template elements match
+   under Angular's emulated encapsulation.
+   ====================================================== */
+
+.grit-careers-page {
+  /* ---- Careers palette (scoped; does not leak to the site) ---- */
+  --grit-purple: #792cd5;
+  --grit-purple-hover: #8f5cff;
+  --grit-orange: #ff5c00;
+  --grit-orange-hover: #e54f00;
+  --grit-dark: #0d0d0d;
+  --grit-white: #ffffff;
+  --grit-gray-50: #fafafa;
+  --grit-gray-100: #f5f5f5;
+  --grit-gray-200: #e5e5e5;
+  --grit-gray-300: #d4d4d4;
+  --grit-gray-400: #a3a3a3;
+  --grit-gray-500: #737373;
+  --grit-gray-600: #525252;
+  --grit-gray-700: #404040;
+  --grit-gray-800: #262626;
+  --grit-font-sans: 'Inter', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, sans-serif;
+  --grit-radius-sm: 4px;
+  --grit-radius: 8px;
+  --grit-radius-lg: 12px;
+  --grit-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --grit-transition: 0.2s ease;
+
+  font-family: var(--grit-font-sans);
+  color: var(--grit-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background: var(--grit-white);
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+/* ---- Shared buttons (single definition; was copy-pasted 3x) ---- */
+.grit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background var(--grit-transition),
+    border-color var(--grit-transition),
+    color var(--grit-transition);
+  font-family: inherit;
+
+  &:focus-visible {
+    outline: 2px solid var(--grit-purple);
+    outline-offset: 2px;
+  }
+}
+
+.grit-btn--lg {
+  padding: 1rem 1.75rem;
+  font-size: 0.9375rem;
+}
+
+.grit-btn--primary {
+  background: var(--grit-purple);
+  color: var(--grit-white);
+  border-color: var(--grit-purple);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--grit-purple-hover);
+    border-color: var(--grit-purple-hover);
+  }
+}
+
+.grit-btn--secondary {
+  background: transparent;
+  color: var(--grit-dark);
+  border-color: var(--grit-gray-300);
+
+  &:hover {
+    border-color: var(--grit-dark);
+    background: var(--grit-gray-50);
+  }
+}
+
+.grit-btn--outline {
+  background: var(--grit-gray-50);
+  color: var(--grit-dark);
+  border-color: var(--grit-dark);
+}
+
+.grit-btn--outline-light {
+  background: transparent;
+  color: var(--grit-white);
+  border-color: rgba(255, 255, 255, 0.45);
+
+  &:hover {
+    border-color: var(--grit-white);
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.grit-btn--ghost {
+  background: transparent;
+  color: var(--grit-white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.grit-btn--orange {
+  background: var(--grit-orange);
+  border-color: var(--grit-orange);
+  color: var(--grit-white);
+
+  &:hover {
+    background: var(--grit-orange-hover);
+    border-color: var(--grit-orange-hover);
+  }
+}
+
+/* ---- Shared link + eyebrow ---- */
+.grit-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--grit-purple);
+
+  &:hover {
+    color: var(--grit-purple-hover);
+    gap: 0.5rem;
+  }
+}
+
+.grit-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grit-purple);
+  margin-bottom: 0.75rem;
+}
+
+.grit-eyebrow--light {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.grit-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Shared form fields ---- */
+.grit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.grit-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--grit-dark);
+  }
+
+  .grit-required {
+    color: var(--grit-purple);
+  }
+
+  .grit-optional {
+    color: var(--grit-gray-400);
+    font-weight: 400;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='url'],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: var(--grit-dark);
+    background: var(--grit-white);
+    border: 1px solid var(--grit-gray-200);
+    border-radius: var(--grit-radius);
+    outline: none;
+    transition: border-color var(--grit-transition);
+
+    &::placeholder {
+      color: var(--grit-gray-400);
+    }
+
+    &:focus {
+      border-color: var(--grit-purple);
+    }
+
+    &.is-invalid {
+      border-color: #dc2626;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.grit-field-error {
+  font-size: 0.8125rem;
+  color: #dc2626;
+  min-height: 0;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.grit-checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--grit-gray-600);
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: 0.125rem;
+    accent-color: var(--grit-purple);
+    flex-shrink: 0;
+  }
+}
+
+/* ---- Save (bookmark) button ---- */
+.grit-save-job {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--grit-gray-200);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: var(--grit-gray-500);
+  cursor: pointer;
+  transition:
+    color var(--grit-transition),
+    border-color var(--grit-transition);
+
+  &:hover {
+    color: var(--grit-purple);
+    border-color: var(--grit-purple);
+  }
+
+  .grit-save-filled {
+    display: none;
+  }
+
+  &.is-saved {
+    color: var(--grit-purple);
+    border-color: var(--grit-purple);
+
+    .grit-save-outline {
+      display: none;
+    }
+
+    .grit-save-filled {
+      display: block !important;
+    }
+  }
+}
+
+/* ---- Check list ---- */
+.grit-check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--grit-gray-600);
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+      color: var(--grit-purple);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .grit-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,152 @@
+@use '../shared/careers';
+
+<div class="grit-careers-page">
+  <!-- S01 Hero (text-only; the template's BG block is commented out) -->
+  <section class="grit-intro-hero" aria-labelledby="grit-intro-hero-heading">
+    <div class="grit-intro-hero__content" appReveal>
+      <h1 class="grit-intro-hero__title" id="grit-intro-hero-heading">
+        Don&rsquo;t See The Right Role?<br />
+        <span>We&rsquo;d Still Love To Hear From You.</span>
+      </h1>
+      <p class="grit-intro-hero__sub">
+        Great people make great projects. Introduce yourself and let&rsquo;s start a conversation.
+      </p>
+    </div>
+  </section>
+
+  <!-- S02 Layout -->
+  <div class="grit-intro-layout">
+    <div class="grit-intro-layout__inner">
+      <div class="grit-intro-reasons" appReveal>
+        <h2 class="grit-intro-reasons__title">Why Introduce Yourself?</h2>
+        <ul class="grit-intro-reasons__list">
+          @for (reason of reasons; track reason.title) {
+            <li class="grit-intro-reasons__item">
+              <div class="grit-intro-reasons__icon" aria-hidden="true" [innerHTML]="reason.icon"></div>
+              <div class="grit-intro-reasons__text">
+                <h3>{{ reason.title }}</h3>
+                <p>{{ reason.text }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="grit-intro-form-wrap" appReveal>
+        @if (!submitted()) {
+          <form class="grit-intro-form" id="grit-intro-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <h2 class="grit-intro-form__title">Introduce Yourself</h2>
+            <div class="grit-form-grid">
+              <div class="grit-form-field">
+                <label for="grit-intro-first">First Name <span class="grit-required">*</span></label>
+                <input type="text" id="grit-intro-first" formControlName="firstName" autocomplete="given-name" [class.is-invalid]="fieldInvalid('firstName')" />
+                @if (fieldError('firstName')) { <span class="grit-field-error" role="alert">{{ fieldError('firstName') }}</span> }
+              </div>
+              <div class="grit-form-field">
+                <label for="grit-intro-last">Last Name <span class="grit-required">*</span></label>
+                <input type="text" id="grit-intro-last" formControlName="lastName" autocomplete="family-name" [class.is-invalid]="fieldInvalid('lastName')" />
+                @if (fieldError('lastName')) { <span class="grit-field-error" role="alert">{{ fieldError('lastName') }}</span> }
+              </div>
+              <div class="grit-form-field">
+                <label for="grit-intro-email">Email Address <span class="grit-required">*</span></label>
+                <input type="email" id="grit-intro-email" formControlName="email" autocomplete="email" [class.is-invalid]="fieldInvalid('email')" />
+                @if (fieldError('email')) { <span class="grit-field-error" role="alert">{{ fieldError('email') }}</span> }
+              </div>
+              <div class="grit-form-field">
+                <label for="grit-intro-phone">Phone Number <span class="grit-optional">(Optional)</span></label>
+                <input type="tel" id="grit-intro-phone" formControlName="phone" autocomplete="tel" />
+              </div>
+              <div class="grit-form-field grit-form-field--full">
+                <label for="grit-intro-location">Current Location (City, State) <span class="grit-required">*</span></label>
+                <input type="text" id="grit-intro-location" formControlName="location" [class.is-invalid]="fieldInvalid('location')" />
+                @if (fieldError('location')) { <span class="grit-field-error" role="alert">{{ fieldError('location') }}</span> }
+              </div>
+              <div class="grit-form-field">
+                <label for="grit-intro-position">Current Position <span class="grit-optional">(Optional)</span></label>
+                <input type="text" id="grit-intro-position" formControlName="position" />
+              </div>
+              <div class="grit-form-field">
+                <label for="grit-intro-interest">Area of Interest <span class="grit-required">*</span></label>
+                <select id="grit-intro-interest" formControlName="interest" [class.is-invalid]="fieldInvalid('interest')">
+                  <option value="">Select an area</option>
+                  @for (opt of interestOptions; track opt) {
+                    <option [value]="opt">{{ opt }}</option>
+                  }
+                </select>
+                @if (fieldError('interest')) { <span class="grit-field-error" role="alert">{{ fieldError('interest') }}</span> }
+              </div>
+              <div class="grit-form-field">
+                <label for="grit-intro-years">Years of Experience</label>
+                <select id="grit-intro-years" formControlName="years">
+                  <option value="">Select</option>
+                  @for (opt of yearsOptions; track opt) {
+                    <option [value]="opt">{{ opt }}</option>
+                  }
+                </select>
+              </div>
+              <div class="grit-form-field grit-form-field--full">
+                <label for="grit-intro-about">Tell Us About Yourself <span class="grit-required">*</span></label>
+                <textarea id="grit-intro-about" formControlName="about" rows="5" placeholder="Your background, skills, and what you're passionate about..." [class.is-invalid]="fieldInvalid('about')"></textarea>
+                @if (fieldError('about')) { <span class="grit-field-error" role="alert">{{ fieldError('about') }}</span> }
+              </div>
+              <div class="grit-form-field grit-form-field--full">
+                <app-file-upload
+                  inputId="grit-intro-resume"
+                  inputName="resume"
+                  label="Resume / CV"
+                  dropLead="Drag & drop"
+                  dropBrowse="Browse"
+                  [(file)]="resumeFile"
+                />
+              </div>
+              <div class="grit-form-field grit-form-field--full">
+                <label for="grit-intro-linkedin">LinkedIn Profile <span class="grit-optional">(Optional)</span></label>
+                <input type="url" id="grit-intro-linkedin" formControlName="linkedin" placeholder="https://linkedin.com/in/yourprofile" />
+              </div>
+              <div class="grit-form-field grit-form-field--full">
+                <label class="grit-checkbox-field">
+                  <input type="checkbox" formControlName="consent" />
+                  <span>
+                    I agree to the processing of my personal data for recruitment purposes.
+                    <span class="grit-required">*</span>
+                  </span>
+                </label>
+                @if (fieldError('consent')) { <span class="grit-field-error" role="alert">{{ fieldError('consent') }}</span> }
+              </div>
+            </div>
+
+            @if (backendMissing()) {
+              <p class="grit-intro-notice" role="alert">
+                Thanks — your introduction is ready, but the backend isn&rsquo;t connected yet. Please email
+                us directly at <a href="mailto:info@320grit.com">info@320grit.com</a>.
+              </p>
+            }
+            @if (submitError()) {
+              <p class="grit-intro-notice grit-intro-notice--error" role="alert">
+                Something went wrong sending your introduction. Please try again or email
+                <a href="mailto:info@320grit.com">info@320grit.com</a>.
+              </p>
+            }
+
+            <div class="grit-intro-form__actions">
+              <button type="submit" class="grit-btn grit-btn--primary grit-btn--lg" [disabled]="submitting()">
+                {{ submitting() ? 'Submitting…' : 'Submit Application' }}
+                <span aria-hidden="true" [innerHTML]="icons.arrow()"></span>
+              </button>
+            </div>
+          </form>
+        } @else {
+          <div class="grit-intro-success" role="status">
+            <span class="grit-intro-success__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg()"></span>
+            <h2>Thank You</h2>
+            <p>
+              We&rsquo;ve received your information and will keep you in mind for future opportunities that
+              match your background.
+            </p>
+            <a class="grit-btn grit-btn--primary" routerLink="/open-positions">View Open Positions</a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
