@@ -1,0 +1,305 @@
+<!-- S1 — HERO -->
+<section class="hc-hero rr-hero" [id]="data().hero.id">
+  <div class="hc-hero-bg" aria-hidden="true">
+    <img [src]="data().hero.image" alt="" width="1920" height="1080" fetchpriority="high" />
+  </div>
+  <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
+  <div class="hc-container">
+    <div class="hc-hero-content" appReveal>
+      <div class="hc-hero-label">
+        <span class="hc-line"></span><span class="hc-label">{{ data().hero.label }}</span>
+      </div>
+      <h1 class="hc-display-xl">
+        @for (line of data().hero.title; track line.text; let last = $last) {
+          @if (line.accent) {
+            <span class="hc-orange">{{ line.text }}</span>
+          } @else {
+            {{ line.text }}
+          }
+          @if (!last && !line.inline) {
+            <br />
+          }
+        }
+      </h1>
+      <p class="hc-hero-sub" [style.max-width]="data().hero.subMaxWidth ?? null">
+        @for (line of data().hero.sub; track line.text; let last = $last) {
+          @if (line.accent) {
+            <span class="hc-orange">{{ line.text }}</span>
+          } @else {
+            {{ line.text }}
+          }
+          @if (!last && !line.inline) {
+            <br />
+          }
+        }
+      </p>
+      <p class="rr-hero-desc">{{ data().hero.desc }}</p>
+      <div class="hc-hero-actions">
+        @for (btn of data().hero.buttons; track btn.label) {
+          @if (btn.route) {
+            <a [routerLink]="btn.route" class="hc-btn hc-btn-{{ btn.variant }}">
+              {{ btn.label }}
+              @if (hasArrow(btn)) {
+                <span [innerHTML]="arrowSvg(btn)"></span>
+              }
+            </a>
+          } @else {
+            <a [href]="btn.anchor" (click)="onAnchor($event, btn.anchor)" class="hc-btn hc-btn-{{ btn.variant }}">
+              {{ btn.label }}
+              @if (hasArrow(btn)) {
+                <span [innerHTML]="arrowSvg(btn)"></span>
+              }
+            </a>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S2 — OVERVIEW -->
+<section class="hc-section rr-overview" [id]="data().overview.id">
+  <div class="hc-container">
+    <div class="rr-overview-grid">
+      <div class="rr-overview-text" appReveal>
+        <span class="hc-label" [class.hc-label--orange]="data().overview.labelAccent">
+          {{ data().overview.label }}
+        </span>
+        <h2 class="hc-display-md rr-overview-title">
+          @for (line of data().overview.title; track line.text; let last = $last) {
+            @if (line.accent) {
+              <span class="hc-orange">{{ line.text }}</span>
+            } @else {
+              {{ line.text }}
+            }
+            @if (!last && !line.inline) {
+              <br />
+            }
+          }
+        </h2>
+        @for (p of data().overview.paragraphs; track p) {
+          <p class="rr-overview-body">{{ p }}</p>
+        }
+      </div>
+      <div class="rr-overview-visual" appReveal [appReveal]="{ delay: 0.2 }">
+        <div class="rr-overview-img">
+          <img [src]="data().overview.image" [alt]="data().overview.imageAlt" width="700" height="480" loading="lazy" />
+        </div>
+        <div class="rr-overview-points">
+          @for (point of data().overview.points; track point.title) {
+            <div class="rr-point">
+              <div class="rr-point-icon"><app-market-icon [name]="point.icon" [size]="22" stroke="1.75" /></div>
+              <div>
+                <h4>{{ point.title }}</h4>
+                <p>{{ point.text }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3 — CAPABILITIES -->
+<section class="hc-section rr-capabilities" [id]="data().capabilities.id">
+  <div class="hc-container">
+    <div class="hc-section-header hc-center" appReveal>
+      <h2 class="hc-display-md">{{ data().capabilities.heading }}</h2>
+    </div>
+    <div class="rr-cap-grid">
+      @for (card of data().capabilities.cards; track card.title; let i = $index) {
+        <div class="rr-cap-card" appReveal [appReveal]="{ delay: capDelay(i) }">
+          <div class="rr-cap-icon"><app-market-icon [name]="card.icon" [size]="32" stroke="1.5" /></div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- S4 — PROJECT TYPES -->
+<section class="hc-section rr-projects" [id]="data().projects.id">
+  <div class="hc-container">
+    <div class="rr-projects-grid">
+      @if (data().projects.imageFirst) {
+        <div class="rr-projects-img" appReveal [appReveal]="{ delay: 0.2 }">
+          <img [src]="data().projects.image" [alt]="data().projects.imageAlt" width="700" height="520" loading="lazy" />
+        </div>
+      }
+      <div class="rr-projects-list" appReveal>
+        <h2 class="hc-display-md" style="margin-bottom: 1.5rem">{{ data().projects.heading }}</h2>
+        @for (item of data().projects.items; track item.title) {
+          <div class="rr-project-item">
+            <div class="rr-project-icon"><app-market-icon [name]="item.icon" [size]="24" stroke="1.75" /></div>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+            </div>
+          </div>
+        }
+      </div>
+      @if (!data().projects.imageFirst) {
+        <div class="rr-projects-img" appReveal [appReveal]="{ delay: 0.2 }">
+          <img [src]="data().projects.image" [alt]="data().projects.imageAlt" width="700" height="520" loading="lazy" />
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- S5 — APPROACH -->
+<section class="hc-section rr-approach" [id]="data().approach.id">
+  <div class="hc-container">
+    <div class="hc-section-header hc-center" appReveal>
+      <span class="hc-label">{{ data().approach.label }}</span>
+      @if (data().approach.heading) {
+        <h2 class="hc-display-md">{{ data().approach.heading }}</h2>
+      }
+    </div>
+    <div
+      class="rr-approach-steps"
+      appReveal
+      [style.grid-template-columns]="data().approach.columns === 4 ? 'repeat(4,1fr)' : null"
+    >
+      @for (step of data().approach.steps; track step.title; let last = $last) {
+        <div class="rr-step">
+          @if (data().approach.showIcons) {
+            <div class="rr-step-icon"><app-market-icon [name]="step.icon!" [size]="24" stroke="1.75" /></div>
+          }
+          @if (data().approach.splitNumTitle) {
+            <div class="rr-step-num rr-step-num--big">{{ step.num }}</div>
+            <div class="rr-step-num">{{ step.title }}</div>
+          } @else {
+            <div class="rr-step-num">{{ step.num }}. {{ step.title }}</div>
+          }
+          <p>{{ step.text }}</p>
+          @if (data().approach.showArrows && !last) {
+            <div class="rr-step-arrow" aria-hidden="true">→</div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- S6 — PARTNER -->
+<section class="hc-section rr-partner" [id]="data().partner.id">
+  <div class="hc-container">
+    <div class="rr-partner-grid">
+      <div class="rr-partner-text" appReveal>
+        <span class="hc-label">{{ data().partner.label }}</span>
+        @if (data().partner.heading) {
+          <h2 class="hc-display-md" style="margin-top: 0.75rem; color: #111">
+            @for (line of data().partner.heading; track line.text; let last = $last) {
+              @if (line.accent) {
+                <span class="hc-orange">{{ line.text }}</span>
+              } @else {
+                {{ line.text }}
+              }
+              @if (!last && !line.inline) {
+                <br />
+              }
+            }
+          </h2>
+        }
+        <p class="rr-partner-body">{{ data().partner.body }}</p>
+        @if (data().partner.checks) {
+          <ul class="rr-check-list">
+            @for (check of data().partner.checks; track check) {
+              <li>{{ check }}</li>
+            }
+          </ul>
+        }
+        @if (data().partner.ctaButton; as cta) {
+          <a
+            [href]="cta.anchor"
+            (click)="onAnchor($event, cta.anchor)"
+            class="hc-btn hc-btn-{{ cta.variant }}"
+            style="margin-top: 1.5rem"
+          >
+            {{ cta.label }}
+            @if (hasArrow(cta)) {
+              <span [innerHTML]="arrowSvg(cta)"></span>
+            }
+          </a>
+        }
+      </div>
+      @switch (data().partner.variant) {
+        @case ('text-image') {
+          <div class="rr-partner-img" appReveal [appReveal]="{ delay: 0.2 }">
+            <img [src]="data().partner.image" [alt]="data().partner.imageAlt" width="700" height="480" loading="lazy" />
+          </div>
+        }
+        @case ('checklist') {
+          <div class="rr-partner-img" appReveal [appReveal]="{ delay: 0.2 }">
+            <img [src]="data().partner.image" [alt]="data().partner.imageAlt" width="700" height="480" loading="lazy" />
+          </div>
+        }
+        @case ('commitment') {
+          <div class="rr-diff-grid" style="grid-template-columns: 1fr" appReveal [appReveal]="{ delay: 0.2 }">
+            @for (card of data().partner.diffCards; track card.title) {
+              <div class="rr-diff-card rr-diff-card--left">
+                <div class="rr-point-icon"><app-market-icon [name]="card.icon" [size]="20" stroke="1.75" /></div>
+                <div>
+                  <h4>{{ card.title }}</h4>
+                  <p>{{ card.text }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        }
+        @case ('result') {
+          <div class="rr-diff-grid" style="grid-template-columns: 1fr 1fr" appReveal [appReveal]="{ delay: 0.2 }">
+            @for (card of data().partner.diffCards; track card.title) {
+              <div class="rr-diff-card">
+                <h4>{{ card.title }}</h4>
+                <p>{{ card.text }}</p>
+              </div>
+            }
+          </div>
+        }
+      }
+    </div>
+    @if (data().partner.variant === 'checklist-difference') {
+      <div class="rr-diff-grid" style="margin-top: 3.5rem" appReveal>
+        <h3 class="hc-heading-lg rr-diff-heading">{{ data().partner.diffHeading }}</h3>
+        @for (card of data().partner.diffCards; track card.title) {
+          <div class="rr-diff-card">
+            <div class="rr-point-icon"><app-market-icon [name]="card.icon" [size]="22" stroke="1.75" /></div>
+            <h4>{{ card.title }}</h4>
+            <p>{{ card.text }}</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- S7 — FINAL CTA -->
+<section class="rr-final-cta" [id]="data().cta.id" [attr.style]="'--cta-bg: url(' + data().cta.bgImage + ')'">
+  <div class="hc-container">
+    <div class="rr-cta-inner" appReveal>
+      <h2 class="hc-display-lg">
+        @for (line of data().cta.heading; track line.text; let last = $last) {
+          @if (line.accent) {
+            <span class="hc-orange">{{ line.text }}</span>
+          } @else {
+            {{ line.text }}
+          }
+          @if (!last && !line.inline) {
+            <br />
+          }
+        }
+      </h2>
+      <p>{{ data().cta.body }}</p>
+      <a [routerLink]="data().cta.button.route" class="hc-btn hc-btn-{{ data().cta.button.variant }}">
+        {{ data().cta.button.label }}
+        @if (hasArrow(data().cta.button)) {
+          <span [innerHTML]="arrowSvg(data().cta.button)"></span>
+        }
+      </a>
+    </div>
+  </div>
+</section>

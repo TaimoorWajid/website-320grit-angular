@@ -1,0 +1,6 @@
+@use '../markets-base' as mk;
+
+@include mk.markets-base;
+
+/* Page-specific tweaks live in the per-page data (all structural
+   styles come from the markets-base mixin). */
