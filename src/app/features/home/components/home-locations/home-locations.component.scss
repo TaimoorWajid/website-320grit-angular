@@ -15,8 +15,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  max-width: var(--grit-container-max);
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .locations-text {

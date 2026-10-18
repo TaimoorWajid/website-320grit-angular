@@ -26,9 +26,9 @@
 
 .grit-nav__inner {
   height: 100%;
-  max-width: var(--grit-container-max);
-  margin: 0 auto;
-  padding: 0 var(--grit-space-xl);
+  max-width: none;
+  margin: 0;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,7 +72,11 @@
 
 .grit-nav__link:hover,
 .grit-nav__item.is-open .grit-nav__link {
-  color: var(--grit-accent-orange);
+  color: var(--grit-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--grit-accent-violet);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
 }
 
 .grit-nav__caret {
@@ -114,18 +118,40 @@
 }
 
 /* ---- Mega menu panel ---- */
+.grit-nav__item {
+  position: static;
+}
+
+/* Invisible hover bridge: keeps the mega menu open while the cursor
+   travels from the nav link down into the panel (no gap). */
+.grit-nav__item::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 24px;
+  display: none;
+}
+
+.grit-nav__item.is-open::after {
+  display: block;
+}
+
 .grit-mega-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translate(-50%, 12px);
-  width: min(1060px, calc(100vw - 3rem));
+  left: 0;
+  right: 0;
+  width: 100vw;
+  transform: translateY(12px);
   display: grid;
-  grid-template-columns: 37.5% 37.5% 25%;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   gap: 0;
   background: #0d0d0d;
   border: 1px solid var(--grit-border-subtle);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   min-height: 300px;
   opacity: 0;
@@ -133,6 +159,8 @@
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  margin: 0 28px;
+  width: calc(100vw - 56px);
 }
 
 .grit-nav__item.is-open .grit-mega-menu,
@@ -141,7 +169,28 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
+}
+
+/* Blurred backdrop behind the open mega menu. */
+.grit-mega-backdrop {
+  position: fixed;
+  top: var(--grit-nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.grit-mega-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
 }
 
 .grit-mega-menu__col {

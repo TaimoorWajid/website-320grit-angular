@@ -107,6 +107,28 @@ export class HeaderComponent {
 
   closeMega(): void {
     this.openMega.set(null);
+    this.clearMegaTimer();
+  }
+
+  /** Hover opens immediately; leaving starts a short delay so the cursor
+      can travel from the nav link into the panel without it closing. */
+  onMegaEnter(label: string): void {
+    this.clearMegaTimer();
+    this.openMega.set(label);
+  }
+
+  onMegaLeave(): void {
+    this.clearMegaTimer();
+    this.megaTimer = window.setTimeout(() => this.openMega.set(null), 180);
+  }
+
+  private megaTimer: number | null = null;
+
+  private clearMegaTimer(): void {
+    if (this.megaTimer !== null) {
+      clearTimeout(this.megaTimer);
+      this.megaTimer = null;
+    }
   }
 
   toggleMobile(): void {

@@ -9,7 +9,7 @@
       <ul>
         @for (menu of megaMenus; track menu.label) {
           <li class="grit-nav__item" [class.is-open]="openMega() === menu.label"
-              (mouseenter)="openMega.set(menu.label)" (mouseleave)="closeMega()">
+              (mouseenter)="onMegaEnter(menu.label)" (mouseleave)="onMegaLeave()">
             <button type="button" class="grit-nav__link" (click)="toggleMega(menu.label)"
                     [attr.aria-expanded]="openMega() === menu.label" aria-haspopup="true">
               {{ menu.label }}
@@ -60,6 +60,10 @@
     </button>
   </div>
 </header>
+
+<!-- Blurred backdrop shown while a mega menu is open (desktop). -->
+<div class="grit-mega-backdrop" [class.is-open]="openMega() !== null"
+     (mouseenter)="onMegaLeave()" aria-hidden="true"></div>
 
 <div class="grit-mobile" id="grit-mobile-menu" role="dialog" aria-modal="true" aria-label="Menu"
      [class.is-open]="mobileOpen()" [attr.aria-hidden]="!mobileOpen()">
