@@ -20,15 +20,17 @@ export class SmoothScrollService {
     if (!isPlatformBrowser(this.platformId)) return;
     if (this.lenis || prefersReducedMotion()) return;
 
-    this.lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    this.lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => this.lenis?.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
+    // TEMPORARILY DISABLED: Lenis was breaking scroll-spy and ScrollTrigger.
+    // Using native scrolling until the integration is fixed.
+    // this.lenis = new Lenis({
+    //   duration: 1.2,
+    //   easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    //   smoothWheel: true,
+    // });
+    //
+    // this.lenis.on('scroll', ScrollTrigger.update);
+    // gsap.ticker.add((time) => this.lenis?.raf(time * 1000));
+    // gsap.ticker.lagSmoothing(0);
   }
 
   scrollTo(target: string | number | HTMLElement, options?: { offset?: number }): void {
