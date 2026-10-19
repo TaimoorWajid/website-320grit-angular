@@ -1,0 +1,53 @@
+<section class="cm-hero" id="cm-hero" data-section="hero" aria-label="Construction management overview">
+  <!-- Animated gradient mesh -->
+  <div class="cm-hero__mesh" aria-hidden="true">
+    <span class="cm-hero__blob cm-hero__blob--a"></span>
+    <span class="cm-hero__blob cm-hero__blob--b"></span>
+    <span class="cm-hero__blob cm-hero__blob--c"></span>
+  </div>
+  <!-- Particle field -->
+  <canvas class="cm-hero__particles" #particles aria-hidden="true"></canvas>
+  <!-- Faint construction photo, deep in the stack -->
+  <div class="cm-hero__photo" aria-hidden="true"></div>
+  <div class="cm-hero__veil" aria-hidden="true"></div>
+
+  <div class="cm-hero__inner">
+    <div class="cm-hero__copy">
+      <span class="grit-eyebrow" appReveal>{{ HERO.eyebrow }}</span>
+      <h1 class="cm-hero__title" appReveal>
+        <span class="cm-hero__line">{{ HERO.titleTop }}</span>
+        <span class="cm-hero__line cm-hero__line--accent">{{ HERO.titleBottom }}</span>
+      </h1>
+      <p class="cm-hero__lead" appReveal>{{ HERO.lead }}</p>
+      <div class="cm-hero__ctas" appReveal>
+        <a href="#cm-services" class="btn-explore" (click)="scrollToServices($event)">
+          <span>{{ HERO.ctaPrimary }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+        <a routerLink="/contact-us" class="btn-explore">
+          <span>{{ HERO.ctaSecondary }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating 3D glass card -->
+    <div class="cm-hero__card-stage" aria-hidden="true">
+      <div class="cm-hero__card" #floatCard appReveal>
+        <div class="cm-hero__card-glow"></div>
+        <p class="cm-hero__card-kicker">Live oversight</p>
+        <p class="cm-hero__card-value">$212M</p>
+        <p class="cm-hero__card-label">construction value under management</p>
+        <div class="cm-hero__card-bars">
+          <span style="--w: 92%"></span>
+          <span style="--w: 78%"></span>
+          <span style="--w: 64%"></span>
+        </div>
+        <p class="cm-hero__card-foot">14 active projects · 0 budget surprises</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cm-hero__scroll" aria-hidden="true">
+    <span>SCROLL</span>
+    <span class="cm-hero__scroll-line"></span>
+  </div>
+</section>

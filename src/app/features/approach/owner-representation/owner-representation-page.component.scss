@@ -1,4 +1,10 @@
-@use '../shared/oc-base' as *;
+/* Owner-representation page shell. Components are fully self-contained;
+   this file only carries the sticky section nav (services-pages pattern). */
+
+.cm-page {
+  background: #060606;
+  color: #fff;
+}
 
 /* Sticky section nav — same pattern as the services pages. */
 .grit-sidenav {

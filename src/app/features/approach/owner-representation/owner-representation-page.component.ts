@@ -1,41 +1,29 @@
 import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
 import { SeoService } from '../../../core/services/seo.service';
 import { SmoothScrollService } from '../../../core/services/smooth-scroll.service';
-import { OrPillarGridComponent } from './components/or-pillar-grid/or-pillar-grid.component';
-import { OrProcessStepsComponent } from './components/or-process-steps/or-process-steps.component';
-import { OrHeroComponent } from './components/or-hero/or-hero.component';
-import { OrOrbitComponent } from './components/or-orbit/or-orbit.component';
-import { OrCompareComponent } from './components/or-compare/or-compare.component';
-import { OrInfoTabletComponent } from './components/or-info-tablet/or-info-tablet.component';
-import { OrFinalCtaComponent } from './components/or-final-cta/or-final-cta.component';
-import {
-  OR_CHIPS,
-  OR_ORBIT_NODES,
-  OR_PILLARS,
-  OR_PROCESS_STEPS,
-  OR_SIDENAV,
-} from './owner-representation.data';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
+import { CmHeroComponent } from './components/cm-hero/cm-hero.component';
+import { CmStatsComponent } from './components/cm-stats/cm-stats.component';
+import { CmServicesComponent } from './components/cm-services/cm-services.component';
+import { CmProcessComponent } from './components/cm-process/cm-process.component';
+import { CmAdvocateComponent } from './components/cm-advocate/cm-advocate.component';
+import { OR_SIDENAV } from './owner-representation.data';
 
-/** Construction Management / Owner Representation — composition of or- sections in template order. */
+/** Construction Management / Owner Representation — unique premium page composition. */
 @Component({
   selector: 'app-owner-representation-page',
   imports: [
-    OrHeroComponent,
-    OrPillarGridComponent,
-    OrOrbitComponent,
-    OrProcessStepsComponent,
-    OrCompareComponent,
-    OrInfoTabletComponent,
-    OrFinalCtaComponent,
+    CmHeroComponent,
+    CmStatsComponent,
+    CmServicesComponent,
+    CmProcessComponent,
+    CmAdvocateComponent,
+    CtaBandComponent,
   ],
   templateUrl: './owner-representation-page.component.html',
   styleUrl: './owner-representation-page.component.scss',
 })
 export class OwnerRepresentationPageComponent {
-  protected readonly PILLARS = OR_PILLARS;
-  protected readonly ORBIT_NODES = OR_ORBIT_NODES;
-  protected readonly PROCESS_STEPS = OR_PROCESS_STEPS;
-  protected readonly CHIPS = OR_CHIPS;
   protected readonly SIDENAV = OR_SIDENAV;
 
   /** Sidenav scroll-spy highlight (mirrors the services pages). */
@@ -49,7 +37,7 @@ export class OwnerRepresentationPageComponent {
     inject(SeoService).update({
       title: 'Construction Management & Owner Representation Services',
       description:
-        '320 Grit provides owner’s representation and construction management services — independent advocacy protecting your budget, schedule, and quality from planning through closeout.',
+        '320 Grit provides owner\u2019s representation and construction management services — independent advocacy protecting your budget, schedule, and quality from planning through closeout.',
       canonicalPath: '/approach/owner-representation',
     });
 

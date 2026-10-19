@@ -1,0 +1,38 @@
+<section class="cm-proc" id="cm-process" data-section="process" aria-label="Owner representation process">
+  <div class="cm-proc__head">
+    <span class="grit-eyebrow" appReveal>03 — How We Protect You</span>
+    <h2 class="cm-proc__title" appReveal>From First Sketch<br />to Final Key.</h2>
+    <p class="cm-proc__sub" appReveal>
+      A disciplined five-phase method that keeps your project under control
+      long before problems get expensive.
+    </p>
+  </div>
+
+  <div class="cm-proc__track" #track>
+    <span class="cm-proc__rail" aria-hidden="true"></span>
+    <span class="cm-proc__fill" #fill aria-hidden="true"></span>
+
+    @for (s of steps; track s.num; let i = $index) {
+      <div class="cm-proc__row" [class.cm-proc__row--flip]="i % 2 === 1">
+        <div class="cm-proc__node" aria-hidden="true">
+          <span class="cm-proc__dot"></span>
+        </div>
+        <article class="cm-proc__card" [appReveal]="{ y: 60 }">
+          <span class="cm-proc__phase">Phase {{ s.num }}</span>
+          <div class="cm-proc__top">
+            <span class="cm-proc__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" [innerHTML]="s.icon | safeHtml"></svg>
+            </span>
+            <h3 class="cm-proc__name">{{ s.title }}</h3>
+          </div>
+          <p class="cm-proc__text">{{ s.text }}</p>
+          <ul class="cm-proc__points">
+            @for (pt of s.points; track pt) {
+              <li>{{ pt }}</li>
+            }
+          </ul>
+        </article>
+      </div>
+    }
+  </div>
+</section>

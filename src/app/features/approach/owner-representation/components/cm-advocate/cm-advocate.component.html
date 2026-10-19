@@ -1,0 +1,68 @@
+<section class="cm-adv" id="cm-advocate" data-section="advocate" aria-label="Why you need an advocate">
+  <div class="cm-adv__grid">
+    <!-- Sticky visual -->
+    <div class="cm-adv__media" appReveal>
+      <div class="cm-adv__frame">
+        <img
+          src="/assets/images/labour-320-grit.webp"
+          alt="320 Grit field leadership overseeing an active construction site"
+          width="1200"
+          height="1400"
+          loading="lazy"
+        />
+        <div class="cm-adv__frame-veil" aria-hidden="true"></div>
+        <div class="cm-adv__badge" aria-hidden="true">
+          <span class="cm-adv__badge-num">01</span>
+          <span class="cm-adv__badge-text">advocate on your side of the table</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrolling content -->
+    <div class="cm-adv__content">
+      <span class="grit-eyebrow" appReveal>04 — The Difference</span>
+      <h2 class="cm-adv__title" appReveal>Going It Alone<br />vs. Having 320&nbsp;Grit.</h2>
+      <p class="cm-adv__lead" appReveal>
+        Contractors, architects, and engineers all answer to someone — make sure
+        someone answers to <em>you</em>. An owner&rsquo;s representative is the one
+        seat at the table with no competing interest.
+      </p>
+
+      <div class="cm-adv__panels">
+        <div class="cm-adv__panel cm-adv__panel--alone" appReveal>
+          <p class="cm-adv__panel-kicker">Without an advocate</p>
+          <ul class="cm-adv__list">
+            @for (item of shouldnt; track item) {
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="cm-adv__panel cm-adv__panel--grit" appReveal>
+          <p class="cm-adv__panel-kicker">With 320 Grit</p>
+          <ul class="cm-adv__list">
+            @for (item of should; track item) {
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <p class="cm-adv__note" appReveal>
+        The cost of representation is a fraction of a single unmanaged change order.
+        The value is a project that finishes the way it was promised.
+      </p>
+      <div class="cm-adv__cta" appReveal>
+        <a routerLink="/contact-us" class="btn-explore">
+          <span>Talk to an Advocate</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

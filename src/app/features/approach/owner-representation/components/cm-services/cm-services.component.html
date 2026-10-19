@@ -1,0 +1,25 @@
+<section class="cm-svc" id="cm-services" data-section="services" aria-label="Owner representation services">
+  <div class="cm-svc__head">
+    <span class="grit-eyebrow" appReveal>02 — What We Manage</span>
+    <h2 class="cm-svc__title" appReveal>Five Disciplines.<br />One Fiduciary.</h2>
+    <p class="cm-svc__sub" appReveal>
+      Construction management is not paperwork — it is leverage. These are the five
+      disciplines we run on your behalf, from the first budget sketch to final acceptance.
+    </p>
+  </div>
+
+  <div class="cm-svc__grid">
+    @for (p of pillars; track p.num; let i = $index) {
+      <article class="cm-svc__card" [appReveal]="{ delay: (i % 3) * 0.12 }">
+        <div class="cm-svc__glare" aria-hidden="true"></div>
+        <span class="cm-svc__num" aria-hidden="true">{{ p.num }}</span>
+        <span class="cm-svc__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" [innerHTML]="p.icon | safeHtml"></svg>
+        </span>
+        <h3 class="cm-svc__name">{{ p.title }}</h3>
+        <p class="cm-svc__text">{{ p.text }}</p>
+        <span class="cm-svc__edge" aria-hidden="true"></span>
+      </article>
+    }
+  </div>
+</section>

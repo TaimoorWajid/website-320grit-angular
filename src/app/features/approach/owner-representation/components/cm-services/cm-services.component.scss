@@ -1,0 +1,159 @@
+/* cm-svc — 3D tilt cards. */
+
+.cm-svc {
+  position: relative;
+  background: #070707;
+  padding: 8rem 0;
+  overflow: hidden;
+}
+.cm-svc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 40% at 85% 10%, rgba(121, 44, 213, 0.1), transparent 70%);
+  pointer-events: none;
+}
+.cm-svc__head {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10%;
+}
+.cm-svc__title {
+  margin: 1.4rem 0 0;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #fff;
+}
+.cm-svc__sub {
+  margin: 1.4rem 0 0;
+  max-width: 44rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.cm-svc__grid {
+  max-width: 1400px;
+  margin: 3.5rem auto 0;
+  padding: 0 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  perspective: 1400px;
+}
+.cm-svc__card {
+  --glare-x: 50%;
+  --glare-y: 50%;
+  position: relative;
+  padding: 2.4rem 2rem 2.2rem;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #101010, #0a0a0a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+.cm-svc__card:hover {
+  border-color: rgba(121, 44, 213, 0.55);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 44px rgba(121, 44, 213, 0.22);
+}
+.cm-svc__card:nth-child(2):hover {
+  border-color: rgba(255, 93, 14, 0.5);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 44px rgba(255, 93, 14, 0.2);
+}
+/* specular glare following the cursor */
+.cm-svc__glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--glare-x) var(--glare-y),
+    rgba(255, 255, 255, 0.1),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.cm-svc__card:hover .cm-svc__glare { opacity: 1; }
+.cm-svc__num {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+  transform: translateZ(24px);
+}
+.cm-svc__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: rgba(121, 44, 213, 0.14);
+  border: 1px solid rgba(121, 44, 213, 0.4);
+  color: #a468ff;
+  transform: translateZ(34px);
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.cm-svc__icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cm-svc__card:hover .cm-svc__icon {
+  background: #792cd5;
+  color: #fff;
+}
+.cm-svc__card:nth-child(2) .cm-svc__icon {
+  background: rgba(255, 93, 14, 0.12);
+  border-color: rgba(255, 93, 14, 0.4);
+  color: #ff5d0e;
+}
+.cm-svc__card:nth-child(2):hover .cm-svc__icon {
+  background: #ff5d0e;
+  color: #fff;
+}
+.cm-svc__name {
+  margin: 1.4rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  transform: translateZ(28px);
+}
+.cm-svc__text {
+  margin: 0.8rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.62);
+  transform: translateZ(18px);
+}
+/* bottom accent edge */
+.cm-svc__edge {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #792cd5, #a468ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cm-svc__card:nth-child(2) .cm-svc__edge {
+  background: linear-gradient(90deg, #ff5d0e, #ff8a3d);
+}
+.cm-svc__card:hover .cm-svc__edge { transform: scaleX(1); }
+
+@media (max-width: 1026px) {
+  .cm-svc__grid { grid-template-columns: repeat(2, 1fr); padding: 0 6%; }
+  .cm-svc__head { padding: 0 6%; }
+}
+@media (max-width: 640px) {
+  .cm-svc__grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-svc__card { transform: none !important; }
+}

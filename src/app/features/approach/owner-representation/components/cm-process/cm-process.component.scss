@@ -1,0 +1,178 @@
+/* cm-proc — scroll-driven vertical timeline. */
+
+.cm-proc {
+  position: relative;
+  background: #060606;
+  padding: 8rem 0 9rem;
+  overflow: hidden;
+}
+.cm-proc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(45% 35% at 50% 45%, rgba(121, 44, 213, 0.08), transparent 70%);
+  pointer-events: none;
+}
+.cm-proc__head {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10%;
+  text-align: center;
+}
+.cm-proc__title {
+  margin: 1.4rem 0 0;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #fff;
+}
+.cm-proc__sub {
+  margin: 1.4rem auto 0;
+  max-width: 40rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.cm-proc__track {
+  position: relative;
+  max-width: 1100px;
+  margin: 5rem auto 0;
+  padding: 0 6% 2rem;
+}
+.cm-proc__rail,
+.cm-proc__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+}
+.cm-proc__rail { background: rgba(255, 255, 255, 0.09); }
+.cm-proc__fill {
+  background: linear-gradient(to bottom, #792cd5, #a468ff 55%, #ff5d0e);
+  box-shadow: 0 0 18px rgba(121, 44, 213, 0.6);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+}
+
+.cm-proc__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+  align-items: start;
+  padding: 2.2rem 0;
+}
+.cm-proc__node {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  padding-top: 2.6rem;
+}
+.cm-proc__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 3px solid #792cd5;
+  box-shadow: 0 0 0 6px rgba(121, 44, 213, 0.12), 0 0 22px rgba(121, 44, 213, 0.5);
+}
+.cm-proc__row:nth-child(even of .cm-proc__row) .cm-proc__dot {
+  border-color: #ff5d0e;
+  box-shadow: 0 0 0 6px rgba(255, 93, 14, 0.12), 0 0 22px rgba(255, 93, 14, 0.5);
+}
+.cm-proc__card {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  width: min(420px, 100%);
+  padding: 2rem 1.9rem;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #111111, #0a0a0a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.cm-proc__card:hover {
+  border-color: rgba(121, 44, 213, 0.5);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), 0 0 36px rgba(121, 44, 213, 0.18);
+  transform: translateY(-4px);
+}
+.cm-proc__row--flip .cm-proc__card {
+  grid-column: 3;
+  justify-self: start;
+}
+.cm-proc__phase {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #a468ff;
+}
+.cm-proc__row:nth-child(even of .cm-proc__row) .cm-proc__phase { color: #ff5d0e; }
+.cm-proc__top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+.cm-proc__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: rgba(121, 44, 213, 0.14);
+  border: 1px solid rgba(121, 44, 213, 0.4);
+  color: #a468ff;
+}
+.cm-proc__icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cm-proc__row:nth-child(even of .cm-proc__row) .cm-proc__icon {
+  background: rgba(255, 93, 14, 0.12);
+  border-color: rgba(255, 93, 14, 0.4);
+  color: #ff5d0e;
+}
+.cm-proc__name {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+.cm-proc__text {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.62);
+}
+.cm-proc__points {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cm-proc__points li {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.85rem;
+  border-radius: 99px;
+  background: rgba(121, 44, 213, 0.1);
+  border: 1px solid rgba(121, 44, 213, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 860px) {
+  .cm-proc__head { padding: 0 6%; }
+  .cm-proc__rail, .cm-proc__fill { left: 26px; }
+  .cm-proc__row { grid-template-columns: 52px 1fr; }
+  .cm-proc__node { grid-column: 1; padding-top: 2.4rem; }
+  .cm-proc__card, .cm-proc__row--flip .cm-proc__card {
+    grid-column: 2;
+    justify-self: stretch;
+    width: 100%;
+  }
+}

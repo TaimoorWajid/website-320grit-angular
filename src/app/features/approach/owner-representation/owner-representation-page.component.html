@@ -1,11 +1,20 @@
-<div class="oc-page">
-  <app-or-hero />
-  <app-or-pillar-grid [pillars]="PILLARS" />
-  <app-or-orbit [nodes]="ORBIT_NODES" />
-  <app-or-process-steps [steps]="PROCESS_STEPS" />
-  <app-or-compare />
-  <app-or-info-tablet [chips]="CHIPS" />
-  <app-or-final-cta />
+<div class="cm-page">
+  <app-cm-hero />
+  <app-cm-stats />
+  <app-cm-services />
+  <app-cm-process />
+  <app-cm-advocate />
+
+  <div data-section="cta">
+    <app-cta-band
+      sectionId="cm-cta"
+      eyebrow="05 — Get Started"
+      title="Your Project. Our Watch.<br>Zero Surprises."
+      text="Put an independent advocate on your side of the table — before the first contract is signed."
+      ctaLabel="Talk to an Advocate"
+      ctaHref="/contact-us"
+    />
+  </div>
 
   <nav class="grit-sidenav" aria-label="Page sections">
     <div class="grit-sidenav__line"></div>

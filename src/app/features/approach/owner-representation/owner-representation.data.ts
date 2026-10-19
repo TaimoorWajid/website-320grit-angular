@@ -1,8 +1,34 @@
-import { OcChip, OcOrbitNode, OcPillar, OcProcessStep } from '../shared/oc.types';
+import { OcPillar, OcProcessStep } from '../shared/oc.types';
 
 /* Construction Management / Owner Representation — expert SEO copy.
  * 320 Grit acts as the owner's fiduciary advocate across the entire
  * project lifecycle: planning, procurement, construction, and closeout. */
+
+/** Hero copy — Construction Management / Owner's Representation. */
+export const OR_HERO = {
+  eyebrow: '01 — Owner Representation',
+  titleTop: 'Your Advocate.',
+  titleBottom: 'From Vision to Keys.',
+  lead: '320 Grit serves as your owner\u2019s representative \u2014 an independent construction management expert who protects your budget, your schedule, and your interests on every decision, every day.',
+  ctaPrimary: 'How We Protect You',
+  ctaSecondary: 'Start a Project',
+};
+
+/** Animated count-up stats strip. value = target number; prefix/suffix decorate it. */
+export interface OrStat {
+  value: number;
+  decimals: number;
+  prefix: string;
+  suffix: string;
+  label: string;
+}
+
+export const OR_STATS: OrStat[] = [
+  { value: 120, decimals: 0, prefix: '', suffix: '+', label: 'Projects Managed End-to-End' },
+  { value: 850, decimals: 0, prefix: '$', suffix: 'M+', label: 'Construction Value Overseen' },
+  { value: 98, decimals: 0, prefix: '', suffix: '%', label: 'On-Time, On-Budget Delivery' },
+  { value: 25, decimals: 0, prefix: '', suffix: '+', label: 'Years of Combined Field Leadership' },
+];
 
 export const OR_PILLARS: OcPillar[] = [
   {
@@ -34,51 +60,6 @@ export const OR_PILLARS: OcPillar[] = [
     icon: '<path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/>',
     title: 'Risk Foresight',
     text: 'We surface problems while they are still inexpensive to solve—permits, soils, labor, materials, contracts—before they become claims.',
-  },
-];
-
-export const OR_ORBIT_NODES: OcOrbitNode[] = [
-  {
-    label: 'Owner',
-    icon: '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/>',
-    name: 'Owner',
-    role: 'Vision → Investment → Decisions',
-  },
-  {
-    label: 'Architect',
-    icon: '<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/>',
-    name: 'Architect',
-    role: 'Design Intent → We Verify → You Approve',
-  },
-  {
-    label: 'Contractor',
-    icon: '<path d="M2 20h20M5 20V10l7-5 7 5v10"/>',
-    name: 'General Contractor',
-    role: 'Pricing → Performance → We Enforce',
-  },
-  {
-    label: 'Engineers',
-    icon: '<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>',
-    name: 'Engineers',
-    role: 'Systems → Calculations → We Coordinate',
-  },
-  {
-    label: 'Consultants',
-    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
-    name: 'Consultants',
-    role: 'Specialty Input → We Integrate',
-  },
-  {
-    label: 'Trades',
-    icon: '<path d="M14.7 6.3a4.5 4.5 0 00-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 006-6L14 13l-3-3 3.7-3.7z"/>',
-    name: 'Trade Partners',
-    role: 'Execution → We Inspect → You Accept',
-  },
-  {
-    label: 'Lenders',
-    icon: '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>',
-    name: 'Lenders & Stakeholders',
-    role: 'Capital → Reporting → Confidence',
   },
 ];
 
@@ -120,15 +101,6 @@ export const OR_PROCESS_STEPS: OcProcessStep[] = [
   },
 ];
 
-export const OR_CHIPS: OcChip[] = [
-  { label: 'Budget', top: '8%', left: '-8%' },
-  { label: 'Schedule', top: '8%', right: '-8%' },
-  { label: 'Quality', bottom: '28%', left: '-12%' },
-  { label: 'Risk', bottom: '28%', right: '-12%' },
-  { label: 'Contracts', bottom: '5%', left: '18%' },
-  { label: 'Compliance', bottom: '5%', right: '18%' },
-];
-
 export const OR_SHOULDNT: string[] = [
   'Navigate permits alone',
   'Accept the first bid',
@@ -154,10 +126,8 @@ export interface OrSidenavItem {
 
 export const OR_SIDENAV: OrSidenavItem[] = [
   { section: 'hero', num: '01', label: 'Overview' },
-  { section: 'pillars', num: '02', label: 'What It Means' },
-  { section: 'orbit', num: '03', label: 'Your Advocate' },
-  { section: 'process', num: '04', label: 'How We Protect You' },
-  { section: 'compare', num: '05', label: 'The Difference' },
-  { section: 'info', num: '06', label: 'Why It Matters' },
-  { section: 'cta', num: '07', label: 'Get Started' },
+  { section: 'services', num: '02', label: 'What We Manage' },
+  { section: 'process', num: '03', label: 'How We Protect You' },
+  { section: 'advocate', num: '04', label: 'The Difference' },
+  { section: 'cta', num: '05', label: 'Get Started' },
 ];
