@@ -118,23 +118,6 @@ export const MEGA_MENUS: MegaMenu[] = [
         ],
       },
       {
-        header: 'Construction',
-        items: [
-          {
-            href: '/commercial-construction',
-            title: 'Commercial construction',
-            desc: 'Ground-up builds for offices, retail, and industrial.',
-            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V6l8-3 8 3v15"></path><path d="M9 21v-6h6v6"></path><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"></path></svg>`,
-          },
-          {
-            href: '/tenant-improvements',
-            title: 'Tenant Improvements',
-            desc: 'Functional, modern spaces tailored to your needs.',
-            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15a4 4 0 018 0v6H4v-6z"></path><path d="M6 15V9a6 6 0 0112 0v1"></path></svg>`,
-          },
-        ],
-      },
-      {
         header: 'Our approach',
         items: [
           {
