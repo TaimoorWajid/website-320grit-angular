@@ -118,6 +118,8 @@ export interface ServicePageData {
   cta: {
     /** Bid-Build uses id "get-started"; the forensic template uses "cta". */
     sectionId: string;
+    /** Optional — numbered eyebrow like "07 — GET STARTED". */
+    eyebrow?: string;
     titleHtml: string;
     sub: string;
     buttonText: string;
