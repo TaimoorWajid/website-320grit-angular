@@ -1,6 +1,0 @@
-@use '../../../shared/oc-base' as *;
-
-/* Node hover depth (mirrors oc-orbit). */
-.oc-orbit-node:hover {
-  z-index: 10;
-}
