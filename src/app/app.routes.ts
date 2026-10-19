@@ -207,6 +207,16 @@ export const routes: Routes = [
     ],
   },
   {
+    // Locations index page — exact match only; child location routes follow.
+    path: 'locations',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/locations/all-locations/all-locations-page.component').then(
+        (m) => m.AllLocationsPageComponent,
+      ),
+    data: { title: 'Where We Work' },
+  },
+  {
     path: 'locations',
     children: [
       {

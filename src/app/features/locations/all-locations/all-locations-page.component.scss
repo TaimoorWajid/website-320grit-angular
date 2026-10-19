@@ -1,0 +1,323 @@
+/* Locations index page — statewide coverage + California directory. */
+
+/* ---------- Hero ---------- */
+.loc-hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--grit-bg);
+}
+
+.loc-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.loc-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+.loc-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--grit-container);
+  margin: 0 auto;
+  padding: 9rem 2rem 6rem;
+}
+
+.loc-hero__eyebrow {
+  color: var(--grit-accent-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+}
+
+.loc-hero__title {
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 2rem;
+  font-weight: 700;
+}
+
+.loc-hero__dot {
+  color: var(--grit-accent-violet);
+}
+
+.loc-hero__sub {
+  color: #d4d4d8;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.7;
+  max-width: 38rem;
+  margin: 0;
+}
+
+/* ---------- Statewide coverage ---------- */
+.loc-coverage {
+  background: var(--grit-bg);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.loc-coverage__inner {
+  max-width: var(--grit-container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.loc-coverage__eyebrow {
+  color: var(--grit-accent-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+}
+
+.loc-coverage__title {
+  color: #fff;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+}
+
+.loc-coverage__text {
+  color: #d4d4d8;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 0 0 2.25rem;
+  max-width: 32rem;
+}
+
+.loc-coverage__regions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.loc-coverage__region {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--grit-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 0.4s var(--grit-ease-smooth),
+    transform 0.4s var(--grit-ease-smooth);
+}
+
+.loc-coverage__region:hover {
+  border-color: rgba(121, 44, 213, 0.6);
+  transform: translateX(6px);
+}
+
+.loc-coverage__pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(121, 44, 213, 0.5);
+  color: var(--grit-accent-violet);
+  background: rgba(7, 7, 7, 0.55);
+}
+
+.loc-coverage__region strong {
+  display: block;
+  color: #fff;
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.loc-coverage__region-detail {
+  display: block;
+  color: #a1a1aa;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.loc-coverage__map {
+  border: 1px solid var(--grit-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #060606;
+}
+
+.loc-coverage__map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- California directory card ---------- */
+.loc-card {
+  background: var(--grit-bg);
+  padding: 0 0 clamp(4rem, 8vw, 7rem);
+}
+
+.loc-card__inner {
+  max-width: var(--grit-container);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.loc-location {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid var(--grit-border);
+  transition:
+    transform 0.45s var(--grit-ease-smooth),
+    box-shadow 0.45s var(--grit-ease-smooth),
+    border-color 0.45s var(--grit-ease-smooth);
+}
+
+.loc-location:hover {
+  transform: translateY(-6px);
+  border-color: rgba(121, 44, 213, 0.6);
+  box-shadow: 0 24px 64px rgba(121, 44, 213, 0.22);
+}
+
+.loc-location__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s var(--grit-ease-smooth);
+}
+
+.loc-location:hover .loc-location__bg {
+  transform: scale(1.04);
+}
+
+.loc-location__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.94) 0%,
+    rgba(0, 0, 0, 0.72) 45%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.loc-location__body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.loc-location__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--grit-accent-orange);
+  margin: 0;
+}
+
+.loc-location__title {
+  color: #fff;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 700;
+}
+
+.loc-location__text {
+  color: #d4d4d8;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 38rem;
+}
+
+.loc-location__cta {
+  margin-top: 1.25rem;
+}
+
+/* ---------- CTA band ---------- */
+.loc-cta {
+  background: linear-gradient(135deg, var(--grit-accent-violet) 0%, #5a1fa8 100%);
+  padding: clamp(4rem, 7vw, 6rem) 0;
+}
+
+.loc-cta__inner {
+  max-width: var(--grit-container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.loc-cta__title {
+  color: #fff;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin: 0;
+  font-weight: 700;
+}
+
+.loc-cta__text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 40rem;
+  margin: 0;
+}
+
+/* White outline on the violet band (mirrors the process-card override). */
+.loc-cta .btn-explore.loc-cta__btn {
+  border-color: #fff;
+  color: #fff;
+}
+
+.loc-cta .btn-explore.loc-cta__btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+}
+
+@media (max-width: 900px) {
+  .loc-coverage__inner {
+    grid-template-columns: 1fr;
+  }
+}

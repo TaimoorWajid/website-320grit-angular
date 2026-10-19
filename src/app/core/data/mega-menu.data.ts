@@ -247,7 +247,7 @@ export const MEGA_MENUS: MegaMenu[] = [
     featureImage: '/assets/images/Industries-we-serve-feature-image.webp',
     featureTitle: `Building across key markets.<br>Local expertise.<br>National strength.`,
     featureLinkText: 'Explore locations',
-    featureLinkHref: '/locations/california',
+    featureLinkHref: '/locations',
     mapImage: '/assets/images/Nationwide-Map.webp',
   },
   {
