@@ -2,6 +2,7 @@ import {
   Component,
   DestroyRef,
   ElementRef,
+  NgZone,
   afterNextRender,
   inject,
   signal,
@@ -261,6 +262,7 @@ export class HomeMarketsComponent {
   private readonly cardRefs = viewChildren<ElementRef<HTMLElement>>('marketCard');
   private readonly smoothScroll = inject(SmoothScrollService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly ngZone = inject(NgZone);
 
   constructor() {
     // Scroll-spy: runs in the browser only (afterNextRender).
@@ -282,7 +284,8 @@ export class HomeMarketsComponent {
             bestIdx = idx;
           }
         });
-        this.activeCard.set(bestIdx);
+        // Run inside NgZone to ensure change detection fires
+        this.ngZone.run(() => this.activeCard.set(bestIdx));
       };
 
       // Initial check

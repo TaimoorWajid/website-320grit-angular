@@ -1,4 +1,4 @@
-import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal, viewChildren } from '@angular/core';
+import { Component, DestroyRef, ElementRef, NgZone, afterNextRender, inject, signal, viewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
@@ -90,6 +90,7 @@ export class HomeWhatWeDoComponent {
 
   private readonly cardRefs = viewChildren<ElementRef<HTMLElement>>('cardRef');
   private readonly destroyRef = inject(DestroyRef);
+  private readonly ngZone = inject(NgZone);
 
   constructor() {
     afterNextRender(() => this.initMediaSync());
@@ -113,7 +114,7 @@ export class HomeWhatWeDoComponent {
           bestIdx = idx;
         }
       });
-      this.activeMedia.set(bestIdx);
+      this.ngZone.run(() => this.activeMedia.set(bestIdx));
     };
 
     updateActive();
