@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 
 interface Region {
   name: string;
@@ -11,7 +12,7 @@ interface Region {
 /** Locations index page — where 320 Grit works across California. */
 @Component({
   selector: 'app-all-locations-page',
-  imports: [RouterLink, RevealDirective],
+  imports: [RouterLink, RevealDirective, CtaBandComponent],
   templateUrl: './all-locations-page.component.html',
   styleUrl: './all-locations-page.component.scss',
 })
