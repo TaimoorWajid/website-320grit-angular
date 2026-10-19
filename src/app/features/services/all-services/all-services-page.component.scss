@@ -236,7 +236,7 @@
   letter-spacing: -0.01em;
 
   span {
-    color: var(--grit-accent-orange);
+    color: var(--grit-accent-violet);
   }
 }
 
@@ -269,12 +269,12 @@
 
   &:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 93, 14, 0.6);
-    box-shadow: 0 20px 50px -12px rgba(255, 93, 14, 0.28);
+    border-color: rgba(121, 44, 213, 0.6);
+    box-shadow: 0 20px 50px -12px rgba(121, 44, 213, 0.28);
 
     .approach-card__arrow {
       transform: translateX(6px);
-      color: var(--grit-accent-orange);
+      color: var(--grit-accent-violet);
     }
   }
 }
@@ -283,7 +283,7 @@
   font-size: 2.6rem;
   font-weight: 700;
   color: transparent;
-  -webkit-text-stroke: 1px var(--grit-accent-orange);
+  -webkit-text-stroke: 1px var(--grit-accent-violet);
   flex-shrink: 0;
   line-height: 1;
 }
