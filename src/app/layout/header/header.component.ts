@@ -86,7 +86,7 @@ export class HeaderComponent {
     },
     {
       label: 'Where we work',
-      href: '#',
+      href: '/locations',
       children: [{ label: 'California', href: '/locations/california' }],
     },
     { label: 'Career', href: '/careers' },

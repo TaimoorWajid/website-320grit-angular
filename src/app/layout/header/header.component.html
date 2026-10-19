@@ -38,10 +38,17 @@
               <div class="grit-mega-menu__feature" [style.background-image]="'url(' + menu.featureImage + ')'">
                 <div class="grit-mega-menu__feature-overlay">
                   <p class="grit-mega-menu__feature-title" [innerHTML]="menu.featureTitle"></p>
+                  @if (menu.featureLinkHref.startsWith('#')) {
                   <a [href]="menu.featureLinkHref" class="grit-mega-menu__feature-link" (click)="goToAnchor(menu.featureLinkHref, $event)">
                     {{ menu.featureLinkText }}
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                   </a>
+                  } @else {
+                  <a [routerLink]="menu.featureLinkHref" class="grit-mega-menu__feature-link">
+                    {{ menu.featureLinkText }}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                  }
                 </div>
               </div>
             </div>

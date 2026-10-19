@@ -12,6 +12,16 @@ export const routes: Routes = [
     data: { title: 'Construction Consulting, Project Management & Owner Representation' },
   },
   {
+    // Services index page — exact match only; child service routes follow.
+    path: 'services',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/services/all-services/all-services-page.component').then(
+        (m) => m.AllServicesPageComponent,
+      ),
+    data: { title: 'Our Services' },
+  },
+  {
     path: 'services',
     children: [
       {
@@ -51,6 +61,15 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/services/commercial/commercial-page.component').then((m) => m.CommercialPageComponent),
     data: { title: 'Commercial Construction Services' },
+  },
+  {
+    path: 'industries',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/markets/all-industries/all-industries-page.component').then(
+        (m) => m.AllIndustriesPageComponent,
+      ),
+    data: { title: 'Industries We Serve' },
   },
   {
     path: 'industries',
@@ -186,6 +205,16 @@ export const routes: Routes = [
         data: { title: 'Owner Representation' },
       },
     ],
+  },
+  {
+    // Locations index page — exact match only; child location routes follow.
+    path: 'locations',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/locations/all-locations/all-locations-page.component').then(
+        (m) => m.AllLocationsPageComponent,
+      ),
+    data: { title: 'Where We Work' },
   },
   {
     path: 'locations',

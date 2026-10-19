@@ -155,7 +155,7 @@ export const MEGA_MENUS: MegaMenu[] = [
     featureImage: '/assets/images/What-we-do-faeture-image.webp',
     featureTitle: `End-to-end construction.`,
     featureLinkText: 'View all services',
-    featureLinkHref: '#',
+    featureLinkHref: '/services',
   },
   {
     label: 'Industries we serve',
@@ -227,7 +227,7 @@ export const MEGA_MENUS: MegaMenu[] = [
     featureImage: '/assets/images/Industries-we-serve-feature-image.webp',
     featureTitle: `Expertise across industries.`,
     featureLinkText: 'View all industries',
-    featureLinkHref: '#',
+    featureLinkHref: '/industries',
   },
   {
     label: 'Where we work',
@@ -247,7 +247,7 @@ export const MEGA_MENUS: MegaMenu[] = [
     featureImage: '/assets/images/Industries-we-serve-feature-image.webp',
     featureTitle: `Building across key markets.<br>Local expertise.<br>National strength.`,
     featureLinkText: 'Explore locations',
-    featureLinkHref: '/locations/california',
+    featureLinkHref: '/locations',
     mapImage: '/assets/images/Nationwide-Map.webp',
   },
   {

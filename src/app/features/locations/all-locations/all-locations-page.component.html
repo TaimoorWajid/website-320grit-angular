@@ -1,0 +1,83 @@
+<!-- Locations index: hero + statewide coverage + California card + CTA. -->
+<section class="loc-hero">
+  <div class="loc-hero__bg" [style.background-image]="'url(' + heroBg + ')'" aria-hidden="true"></div>
+  <div class="loc-hero__overlay" aria-hidden="true"></div>
+  <div class="loc-hero__inner">
+    <p class="loc-hero__eyebrow" appReveal>Where we work</p>
+    <h1 class="loc-hero__title" appReveal="{ y: 60, delay: 0.1 }">
+      California is<br />our home turf<span class="loc-hero__dot">.</span>
+    </h1>
+    <p class="loc-hero__sub" appReveal="{ y: 40, delay: 0.2 }">
+      320 Grit provides construction consulting, project management, and owner representation across the entire
+      state of California — one team, one standard of excellence, from San Diego to Sacramento.
+    </p>
+  </div>
+</section>
+
+<section class="loc-coverage">
+  <div class="loc-coverage__inner">
+    <div class="loc-coverage__copy" appReveal>
+      <p class="loc-coverage__eyebrow">Statewide coverage</p>
+      <h2 class="loc-coverage__title">One state.<br />Total coverage.</h2>
+      <p class="loc-coverage__text">
+        From our home base in Irvine, we deploy teams, consultants, and construction expertise wherever your
+        project lives. Every engagement gets the same owner-first approach — deep local knowledge backed by a
+        statewide network of trusted partners, subcontractors, and specialists.
+      </p>
+      <ul class="loc-coverage__regions">
+        @for (region of regions; track region.name) {
+          <li class="loc-coverage__region">
+            <span class="loc-coverage__pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M12 21s7-5.5 7-11a7 7 0 00-14 0c0 5.5 7 11 7 11z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+            </span>
+            <span>
+              <strong>{{ region.name }}</strong>
+              <span class="loc-coverage__region-detail">{{ region.detail }}</span>
+            </span>
+          </li>
+        }
+      </ul>
+    </div>
+    <div class="loc-coverage__map" appReveal="{ y: 50, delay: 0.15 }">
+      <img [src]="mapImg" alt="Map of California — 320 Grit serves clients statewide" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="loc-card">
+  <div class="loc-card__inner">
+    <article class="loc-location" appReveal="{ y: 50 }">
+      <div class="loc-location__bg" [style.background-image]="'url(' + californiaBg + ')'" aria-hidden="true"></div>
+      <div class="loc-location__overlay" aria-hidden="true"></div>
+      <div class="loc-location__body">
+        <p class="loc-location__eyebrow">Our locations</p>
+        <h2 class="loc-location__title">California</h2>
+        <p class="loc-location__text">
+          Our flagship region. Explore how 320 Grit serves owners, developers, and institutions across California —
+          the markets we build in, the services we deliver, and the approach that keeps projects on time and on
+          budget.
+        </p>
+        <a class="btn-explore loc-location__cta" routerLink="/locations/california">
+          <span>Explore More</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="loc-cta">
+  <div class="loc-cta__inner" appReveal>
+    <h2 class="loc-cta__title">Have a project anywhere in California?</h2>
+    <p class="loc-cta__text">
+      Let's talk about how 320 Grit can bring your next build to life — on time, on budget, and built to last.
+    </p>
+    <a class="btn-explore loc-cta__btn" routerLink="/contact-us">
+      <span>Start the Conversation</span>
+      <span class="btn-explore-dash" aria-hidden="true">—</span>
+    </a>
+  </div>
+</section>
