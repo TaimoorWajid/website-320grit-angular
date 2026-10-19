@@ -147,7 +147,19 @@
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ew-hero.is-loaded 
+.ew-hero.is-loaded .ew-hero__title,
+.ew-hero.is-loaded .ew-hero__subtitle,
+.ew-hero.is-loaded .ew-hero__desc,
+.ew-hero.is-loaded .ew-hero__btn {
+  opacity: 1;
+  transform: none;
+}
+
+.ew-hero.is-loaded .ew-hero__title { transition-delay: 0.28s; }
+.ew-hero.is-loaded .ew-hero__subtitle { transition-delay: 0.42s; }
+.ew-hero.is-loaded .ew-hero__desc { transition-delay: 0.55s; }
+.ew-hero.is-loaded .ew-hero__btn { transition-delay: 0.68s; }
+
 .ew-hero__title {
   font-size: clamp(3.8rem, 9vw, 7.5rem);
   font-weight: 800;
