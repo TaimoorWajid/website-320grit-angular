@@ -1271,12 +1271,12 @@
 }
 
 .grit-sidenav__item.active .grit-sidenav__num {
-  color: var(--grit-accent-violet);
+  color: var(--grit-accent-orange);
 }
 
 .grit-sidenav__item.active a::before {
-  background: var(--grit-accent-violet);
-  box-shadow: 0 0 12px rgba(121, 44, 213, 0.8);
+  background: var(--grit-accent-orange);
+  box-shadow: 0 0 12px rgba(255, 93, 14, 0.8);
 }
 
 .grit-sidenav__item.active .grit-sidenav__label {
