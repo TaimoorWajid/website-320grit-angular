@@ -438,7 +438,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .ca-radar-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(121, 44, 213, 0.18);
+  border: 1px solid rgba(255, 92, 0, 0.18);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -455,7 +455,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 24px rgba(121, 44, 213, 0.25));
+  filter: drop-shadow(0 0 24px rgba(255, 92, 0, 0.25));
 }
 .ca-hq-badge {
   display: inline-flex;
@@ -464,12 +464,12 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   margin-top: 1.75rem;
   padding: 1.15rem 1.5rem;
   background: $ca-card;
-  border: 1px solid rgba(121, 44, 213, 0.35);
+  border: 1px solid rgba(255, 92, 0, 0.35);
   border-radius: 10px;
 }
 .ca-hq-badge strong { font-size: 1.1rem; color: #fff; }
 .ca-hq-badge span { font-size: 0.85rem; color: $ca-muted; }
-.ca-hq-loc { color: $hc-purple !important; font-weight: 600; }
+.ca-hq-loc { color: $ca-orange !important; font-weight: 600; }
 
 /* ---------- HOME + WORKS ---------- */
 .ca-home { background: $ca-dark; }

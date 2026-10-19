@@ -8,20 +8,20 @@
         <svg class="ca-state-full" viewBox="0 0 280 340" role="img" aria-label="California map">
           <path
             d="M55 30 L130 12 L210 40 L225 100 L210 170 L195 240 L160 300 L100 320 L55 280 L35 200 L25 120 Z"
-            fill="rgba(121,44,213,0.08)"
-            stroke="rgba(121,44,213,0.55)"
+            fill="rgba(255,92,0,0.08)"
+            stroke="rgba(255,92,0,0.55)"
             stroke-width="1.5"
           />
           <path
             d="M130 55 L85 100 L105 125 L140 230 L155 290"
             fill="none"
-            stroke="rgba(121,44,213,0.4)"
+            stroke="rgba(255,92,0,0.4)"
             stroke-width="1.5"
             stroke-dasharray="4 4"
           />
           @for (c of cities; track c[0]) {
             <g>
-              <circle [attr.cx]="c[1]" [attr.cy]="c[2]" [attr.r]="c[3]" fill="#792CD5" />
+              <circle [attr.cx]="c[1]" [attr.cy]="c[2]" [attr.r]="c[3]" fill="#ff5c00" />
               <text
                 [attr.x]="c[1]" [attr.y]="c[2] - c[3] - 6"
                 text-anchor="middle" fill="#fff"
