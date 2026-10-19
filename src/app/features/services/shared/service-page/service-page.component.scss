@@ -1202,6 +1202,10 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 90;
+
+  @media (max-width: 1026px) {
+    display: none;
+  }
 }
 
 .grit-sidenav__line {

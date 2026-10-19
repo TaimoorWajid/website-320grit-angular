@@ -87,4 +87,15 @@ export const COMMERCIAL_DATA: ServicePageData = {
     linkHref: '#contact',
     items: SHARED_FAQ,
   },
+  sidenav: [
+    { section: 'hero', num: '01', label: 'Overview' },
+    { section: 'service-why', num: '02', label: 'The Advantage' },
+    { section: 'service-what-is', num: '03', label: 'What is Commercial Construction?' },
+    { section: 'services', num: '04', label: 'Our Services' },
+    { section: 'process', num: '05', label: 'Our Process' },
+    { section: 'industries', num: '06', label: 'Industries We Serve' },
+    { section: 'why-choose', num: '07', label: 'Why 320 Grit?' },
+    { section: 'get-started', num: '08', label: 'Get Started' },
+    { section: 'faq', num: '09', label: 'FAQs' },
+  ],
 };

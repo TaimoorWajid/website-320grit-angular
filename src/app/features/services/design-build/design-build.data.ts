@@ -105,4 +105,15 @@ export const DESIGN_BUILD_DATA: ServicePageData = {
     { q: 'What happens if something goes wrong?', a: 'That\u2019s the beauty of single-point responsibility — there\u2019s no designer-versus-builder dispute. One team owns the problem and fixes it.' },
     ],
   },
+  sidenav: [
+    { section: 'hero', num: '01', label: 'Overview' },
+    { section: 'service-why', num: '02', label: 'The Advantage' },
+    { section: 'service-what-is', num: '03', label: 'What is Design-Build?' },
+    { section: 'services', num: '04', label: 'Our Services' },
+    { section: 'process', num: '05', label: 'Our Process' },
+    { section: 'industries', num: '06', label: 'Industries We Serve' },
+    { section: 'why-choose', num: '07', label: 'Why 320 Grit?' },
+    { section: 'get-started', num: '08', label: 'Get Started' },
+    { section: 'faq', num: '09', label: 'FAQs' },
+  ],
 };

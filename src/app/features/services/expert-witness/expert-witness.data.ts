@@ -122,4 +122,14 @@ export const EXPERT_WITNESS_DATA: ServicePageData = {
   },
     ],
   },
+  sidenav: [
+    { section: 'hero', num: '01', label: 'Overview' },
+    { section: 'service-why', num: '02', label: 'The Advantage' },
+    { section: 'service-what-is', num: '03', label: 'What is Expert Witness?' },
+    { section: 'process', num: '04', label: 'Our Process' },
+    { section: 'industries', num: '05', label: 'Industries We Serve' },
+    { section: 'why-choose', num: '06', label: 'Why 320 Grit?' },
+    { section: 'get-started', num: '07', label: 'Get Started' },
+    { section: 'faq', num: '08', label: 'FAQs' },
+  ],
 };

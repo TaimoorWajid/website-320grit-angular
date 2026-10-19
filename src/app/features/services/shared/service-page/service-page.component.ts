@@ -106,11 +106,18 @@ export class ServicePageComponent {
       root.querySelectorAll('#service-why, #service-what-is').forEach((el) => inview.observe(el));
       this.destroyRef.onDestroy(() => inview.disconnect());
 
-      // Sidenav scroll-spy (bid-build only): middle-of-viewport highlight.
+      // Sidenav scroll-spy: middle-of-viewport highlight.
+      // Only updates after the user scrolls — prevents wrong initial highlight on page load.
       const sidenavItems = this.data().sidenav;
       if (sidenavItems && sidenavItems.length) {
+        let hasScrolled = false;
+        const onScroll = () => { hasScrolled = true; };
+        document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+        this.destroyRef.onDestroy(() => document.removeEventListener('scroll', onScroll, { capture: true } as EventListenerOptions));
+
         const spy = new IntersectionObserver(
           (entries) => {
+            if (!hasScrolled) return;
             for (const e of entries) {
               if (e.isIntersecting) {
                 this.activeSection.set(e.target.getAttribute('data-section') ?? 'hero');
