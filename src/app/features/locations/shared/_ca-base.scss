@@ -212,22 +212,21 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .ca-approach-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  gap: 24px;
   margin-top: 1.5rem;
 }
 @media (max-width: 600px) {
   .ca-approach-row { grid-template-columns: 1fr; }
 }
 .ca-approach-step {
-  background: $ca-card;
+  background: #0a0a0a;
   border: 1px solid $ca-border;
   border-radius: 12px;
-  padding: 1.5rem 1.25rem;
-  transition: all 0.4s $ca-ease;
+  padding: 36px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .ca-approach-step:hover {
   border-color: rgba(121, 44, 213, 0.3);
-  transform: translateY(-4px);
 }
 .ca-step-num {
   font-size: 0.7rem;
@@ -237,27 +236,32 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   margin-bottom: 0.75rem;
 }
 .ca-step-icon {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 10px;
-  background: $hc-purple-soft;
+  background: rgba(121, 44, 213, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   color: $hc-purple;
-  margin-bottom: 0.85rem;
+  margin-bottom: 20px;
+  transition: all 0.35s ease;
 }
-.ca-step-icon svg { width: 20px; height: 20px; }
-.ca-approach-step h3 {
-  font-size: 0.95rem;
-  font-weight: 600;
+.ca-approach-step:hover .ca-step-icon {
+  background: $hc-purple;
   color: #fff;
-  margin-bottom: 0.4rem;
+}
+.ca-step-icon svg { width: 24px; height: 24px; }
+.ca-approach-step h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
 }
 .ca-approach-step p {
-  font-size: 0.82rem;
+  font-size: 15px;
+  line-height: 1.6;
   color: $ca-muted;
-  line-height: 1.5;
   margin: 0;
 }
 
