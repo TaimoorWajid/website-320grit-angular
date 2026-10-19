@@ -49,7 +49,7 @@ export class HomeProcessComponent {
         'Every project starts with listening. We take time to understand your goals, priorities, budget, schedule, and long-term vision before any decisions are made.',
       cta: 'Explore More',
       mediaColor: '#792CD5',
-      photo: '/assets/images/ChatGPT-Image-Jul-30-2026-08_30_56-AM.webp',
+      photo: '/assets/images/ChatGPT-Image-Aug-3-2026-04_54_56-PM.webp',
     },
     {
       eyebrow: 'Phase',
@@ -60,7 +60,7 @@ export class HomeProcessComponent {
       cta: 'Explore More',
       // Staging card 02 is bright orange.
       mediaColor: '#FF5D0E',
-      photo: '/assets/images/ChatGPT-Image-Aug-3-2026-04_54_56-PM.webp',
+      photo: '/assets/images/ChatGPT-Image-Aug-4-2026-01_52_54-AM-1.webp',
     },
     {
       eyebrow: 'Phase',
@@ -80,7 +80,7 @@ export class HomeProcessComponent {
         'From quality assurance to project closeout, we ensure every milestone is achieved and every expectation is exceeded, delivering confidence not just completed projects.',
       cta: 'Explore More',
       mediaColor: '#FFFFFF',
-      photo: '/assets/images/commercial-construction.webp',
+      photo: '/assets/images/ChatGPT-Image-Aug-3-2026-05_11_51-PM.webp',
       light: true,
     },
   ];
