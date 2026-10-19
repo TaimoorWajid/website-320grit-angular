@@ -158,8 +158,6 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .oc-hero-inner {
   position: relative;
   z-index: 2;
-  padding-block: 140px 100px;
-  padding-left: 10%;
 }
 @media (max-width: 768px) {
   .oc-hero-inner { padding-left: 6%; }
