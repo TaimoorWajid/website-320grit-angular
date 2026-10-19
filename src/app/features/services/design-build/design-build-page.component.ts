@@ -5,9 +5,8 @@ import { DESIGN_BUILD_DATA } from './design-build.data';
 
 /**
  * Route /services/design-build.
- * Staging renders this page byte-identical to forensic-accounting
- * (same body copy, different hero image) — reproduced as-is via the
- * shared template; no design-build-specific copy is invented.
+ * Single-point design + construction delivery — one contract, one team,
+ * one point of accountability from concept to keys.
  */
 @Component({
   selector: 'app-design-build-page',
@@ -21,7 +20,7 @@ export class DesignBuildPageComponent {
     inject(SeoService).update({
       title: 'Design-Build Construction Services',
       description:
-        'Independent financial investigation. Facts you can trust. Evidence that holds up in court.',
+        'Single-point design-build delivery. One team, one contract — faster builds with total cost clarity.',
       canonicalPath: '/services/design-build',
     });
   }
