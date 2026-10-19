@@ -1,4 +1,19 @@
-<section class="cta-band" [attr.id]="sectionId()">
+<section class="cta-band" [class.cta-band--mesh]="variant() === 'mesh'" [attr.id]="sectionId()">
+  @if (variant() === 'mesh') {
+    <div class="cta-band__mesh" aria-hidden="true"></div>
+    <div class="cta-band__particles" aria-hidden="true">
+      @for (p of particles; track p.left) {
+        <span
+          class="cta-band__particle"
+          [style.left]="p.left"
+          [style.width]="p.size"
+          [style.height]="p.size"
+          [style.animation-duration]="p.duration"
+          [style.animation-delay]="p.delay"
+        ></span>
+      }
+    </div>
+  }
   <div class="cta-band__inner" appReveal>
     @if (eyebrow()) {
       <p class="cta-band__eyebrow">{{ eyebrow() }}</p>
@@ -8,12 +23,27 @@
       <p class="cta-band__text">{{ text() }}</p>
     }
     @if (isRoute()) {
-      <a class="btn-explore cta-band__btn" [routerLink]="ctaHref()">
-        <span>{{ ctaLabel() }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+      <a
+        [class]="variant() === 'mesh' ? 'cta-band__btn-solid' : 'btn-explore cta-band__btn'"
+        [routerLink]="ctaHref()"
+      >
+        @if (variant() === 'mesh') {
+          <span>{{ ctaLabel() }}</span>
+        } @else {
+          <span>{{ ctaLabel() }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        }
       </a>
     } @else {
-      <a class="btn-explore cta-band__btn" [href]="ctaHref()" (click)="onAnchorClick($event)">
-        <span>{{ ctaLabel() }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+      <a
+        [class]="variant() === 'mesh' ? 'cta-band__btn-solid' : 'btn-explore cta-band__btn'"
+        [href]="ctaHref()"
+        (click)="onAnchorClick($event)"
+      >
+        @if (variant() === 'mesh') {
+          <span>{{ ctaLabel() }}</span>
+        } @else {
+          <span>{{ ctaLabel() }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        }
       </a>
     }
   </div>
