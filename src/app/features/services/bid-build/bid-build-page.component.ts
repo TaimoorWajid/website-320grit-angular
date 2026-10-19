@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SeoService } from '../../../core/services/seo.service';
-import { ForensicServicePageComponent } from '../shared/forensic-service-page/forensic-service-page.component';
+import { ServicePageComponent } from '../shared/service-page/service-page.component';
 import { BID_BUILD_DATA } from './bid-build.data';
 
 /**
@@ -10,8 +10,8 @@ import { BID_BUILD_DATA } from './bid-build.data';
  */
 @Component({
   selector: 'app-bid-build-page',
-  imports: [ForensicServicePageComponent],
-  template: `<app-forensic-service-page [data]="data" />`,
+  imports: [ServicePageComponent],
+  template: `<app-service-page [data]="data" />`,
 })
 export class BidBuildPageComponent {
   protected readonly data = BID_BUILD_DATA;

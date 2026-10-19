@@ -1,18 +1,18 @@
-import type { ForensicServicePageData } from '../shared/forensic-service-page/forensic-service-page.data';
+import type { ServicePageData } from '../shared/service-page/service-page.data';
 import {
-  FORENSIC_FAQ,
-  FORENSIC_PROCESS,
-  FORENSIC_WHY_CHOOSE,
+  SHARED_FAQ,
+  SHARED_PROCESS,
+  SHARED_WHY_CHOOSE,
   SHARED_INDUSTRIES,
-} from '../shared/forensic-service-page/service-content.data';
+} from '../shared/service-page/service-content.data';
 
 /**
  * Page data — copy verbatim from the WP template (see notes/pages/services.md).
- * Byte-identical to the design-build template except the hero section id is "ew-hero". Hero image (commercial-construction.webp) asset is missing \u2014 gradient fallback renders until the file is added.
+ * Byte-identical to the design-build template except the hero section id is "service-hero". Hero image (commercial-construction.webp) asset is missing \u2014 gradient fallback renders until the file is added.
  */
-export const COMMERCIAL_DATA: ForensicServicePageData = {
+export const COMMERCIAL_DATA: ServicePageData = {
   hero: {
-    id: 'ew-hero',
+    id: 'service-hero',
     eyebrow: '01 \u2014 Our Services',
     titleHtml: 'FORENSIC<br><span>ACCOUNTING</span>',
     subtitleHtml: 'FOLLOW THE NUMBERS. <br>UNCOVER THE TRUTH. ',
@@ -62,7 +62,7 @@ export const COMMERCIAL_DATA: ForensicServicePageData = {
     { imageAlt: 'Dispute Resolution Support', title: 'Dispute Resolution Support', text: 'Support mediation, arbitration, and litigation processes.' },
     ],
   },
-  process: { eyebrow: 'How We Work', titleHtml: 'Our Investigative Process', steps: FORENSIC_PROCESS },
+  process: { eyebrow: 'How We Work', titleHtml: 'Our Investigative Process', steps: SHARED_PROCESS },
   industries: { title: 'Industries We Support', items: SHARED_INDUSTRIES },
   whyChoose: {
     sectionId: 'why-choose',
@@ -70,7 +70,7 @@ export const COMMERCIAL_DATA: ForensicServicePageData = {
     eyebrow: 'Our Difference',
     titleHtml: 'Why Choose<br>320 Grit?',
     body: 'We combine deep technical expertise with an unwavering commitment to objectivity, delivering findings that withstand the highest scrutiny.',
-    cards: FORENSIC_WHY_CHOOSE,
+    cards: SHARED_WHY_CHOOSE,
   },
   cta: {
     sectionId: 'cta',
@@ -85,6 +85,6 @@ export const COMMERCIAL_DATA: ForensicServicePageData = {
     body: 'Answers to the most frequently asked questions about our forensic accounting services and engagement process.',
     linkText: 'Still have questions? Contact us.',
     linkHref: '#contact',
-    items: FORENSIC_FAQ,
+    items: SHARED_FAQ,
   },
 };

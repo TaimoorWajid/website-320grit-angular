@@ -1,16 +1,16 @@
-import type { ForensicServicePageData } from '../shared/forensic-service-page/forensic-service-page.data';
+import type { ServicePageData } from '../shared/service-page/service-page.data';
 import {
-  FORENSIC_FAQ,
-  FORENSIC_PROCESS,
-  FORENSIC_WHY_CHOOSE,
+  SHARED_FAQ,
+  SHARED_PROCESS,
+  SHARED_WHY_CHOOSE,
   SHARED_INDUSTRIES,
-} from '../shared/forensic-service-page/service-content.data';
+} from '../shared/service-page/service-content.data';
 
 /**
  * Page data — copy verbatim from the WP template (see notes/pages/services.md).
  * Fully expert-witness-specific template (template-parts/components/expert-witness/expert-witness.php). Source typo "Experties" preserved. Hero image asset is missing \u2014 gradient fallback renders until the file is added.
  */
-export const EXPERT_WITNESS_DATA: ForensicServicePageData = {
+export const EXPERT_WITNESS_DATA: ServicePageData = {
   hero: {
     id: 'hero',
     eyebrow: '01 \u2014 EXPERT WITNESS',
@@ -80,7 +80,7 @@ export const EXPERT_WITNESS_DATA: ForensicServicePageData = {
     eyebrow: 'Our Difference',
     titleHtml: 'Why Choose<br>320 Grit?',
     body: 'We combine deep technical expertise with an unwavering commitment to objectivity, delivering findings that withstand the highest scrutiny.',
-    cards: FORENSIC_WHY_CHOOSE,
+    cards: SHARED_WHY_CHOOSE,
   },
   cta: {
     sectionId: 'cta',

@@ -1,16 +1,16 @@
-import type { ForensicServicePageData } from '../shared/forensic-service-page/forensic-service-page.data';
+import type { ServicePageData } from '../shared/service-page/service-page.data';
 import {
-  FORENSIC_FAQ,
-  FORENSIC_PROCESS,
-  FORENSIC_WHY_CHOOSE,
+  SHARED_FAQ,
+  SHARED_PROCESS,
+  SHARED_WHY_CHOOSE,
   SHARED_INDUSTRIES,
-} from '../shared/forensic-service-page/service-content.data';
+} from '../shared/service-page/service-content.data';
 
 /**
  * Page data — copy verbatim from the WP template (see notes/pages/services.md).
  * Bid-build-specific hero/why/what-is plus leftover forensic-accounting sections (process, industries, why-choose, CTA, FAQ) \u2014 staging renders them; reproduced as-is. Renders the scroll-spy sidenav.
  */
-export const BID_BUILD_DATA: ForensicServicePageData = {
+export const BID_BUILD_DATA: ServicePageData = {
   hero: {
     id: 'hero',
     eyebrow: '01 \u2014 Our Services',
@@ -50,7 +50,7 @@ export const BID_BUILD_DATA: ForensicServicePageData = {
     { title: 'FOUNDATION', text: 'Built on strength.' },
     ],
   },
-  process: { eyebrow: 'How We Work', titleHtml: 'Our Investigative Process', steps: FORENSIC_PROCESS },
+  process: { eyebrow: 'How We Work', titleHtml: 'Our Investigative Process', steps: SHARED_PROCESS },
   industries: { title: 'Industries We Support', items: SHARED_INDUSTRIES },
   whyChoose: {
     sectionId: 'why-320',
@@ -58,7 +58,7 @@ export const BID_BUILD_DATA: ForensicServicePageData = {
     eyebrow: 'Our Difference',
     titleHtml: 'Why Choose<br>320 Grit?',
     body: 'We combine deep technical expertise with an unwavering commitment to objectivity, delivering findings that withstand the highest scrutiny.',
-    cards: FORENSIC_WHY_CHOOSE,
+    cards: SHARED_WHY_CHOOSE,
   },
   cta: {
     sectionId: 'get-started',
@@ -73,7 +73,7 @@ export const BID_BUILD_DATA: ForensicServicePageData = {
     body: 'Answers to the most frequently asked questions about our forensic accounting services and engagement process.',
     linkText: 'Still have questions? Contact us.',
     linkHref: '#contact',
-    items: FORENSIC_FAQ,
+    items: SHARED_FAQ,
   },
   sidenav: [
     { section: 'hero', num: '01', label: 'Overview' },

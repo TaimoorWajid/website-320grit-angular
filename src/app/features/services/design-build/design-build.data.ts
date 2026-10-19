@@ -1,11 +1,11 @@
-import type { ForensicServicePageData } from '../shared/forensic-service-page/forensic-service-page.data';
-import { SHARED_INDUSTRIES } from '../shared/forensic-service-page/service-content.data';
+import type { ServicePageData } from '../shared/service-page/service-page.data';
+import { SHARED_INDUSTRIES } from '../shared/service-page/service-content.data';
 
 /**
  * Design-Build page data — single-point design + construction delivery.
  * One contract, one team, one point of accountability from concept to keys.
  */
-export const DESIGN_BUILD_DATA: ForensicServicePageData = {
+export const DESIGN_BUILD_DATA: ServicePageData = {
   hero: {
     id: 'hero',
     eyebrow: '01 \u2014 Our Services',
