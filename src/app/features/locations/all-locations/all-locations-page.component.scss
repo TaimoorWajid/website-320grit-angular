@@ -36,6 +36,7 @@
   max-width: var(--grit-container);
   margin: 0 auto;
   padding: 9rem 2rem 6rem;
+  padding-left: 10%;
 }
 
 .loc-hero__eyebrow {
@@ -274,48 +275,6 @@
 }
 
 /* ---------- CTA band ---------- */
-.loc-cta {
-  background: linear-gradient(135deg, var(--grit-accent-violet) 0%, #5a1fa8 100%);
-  padding: clamp(4rem, 7vw, 6rem) 0;
-}
-
-.loc-cta__inner {
-  max-width: var(--grit-container);
-  margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.loc-cta__title {
-  color: #fff;
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  margin: 0;
-  font-weight: 700;
-}
-
-.loc-cta__text {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  max-width: 40rem;
-  margin: 0;
-}
-
-/* White outline on the violet band (mirrors the process-card override). */
-.loc-cta .btn-explore.loc-cta__btn {
-  border-color: #fff;
-  color: #fff;
-}
-
-.loc-cta .btn-explore.loc-cta__btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: #fff;
-}
-
 @media (max-width: 900px) {
   .loc-coverage__inner {
     grid-template-columns: 1fr;
