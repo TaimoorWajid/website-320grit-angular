@@ -167,7 +167,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  width: 220px;
+  min-width: 200px;
   padding: 0.85rem 1.75rem;
   border: 1.5px solid var(--grit-accent-violet);
   border-radius: 10px;
@@ -191,9 +191,10 @@
 .btn-explore .btn-explore-dash {
   font-weight: 400;
   display: inline-block;
+  position: relative;
   width: 36px;
   text-align: center;
-  transition: transform 0.4s var(--grit-ease-smooth);
+  transition: transform 0.4s var(--grit-ease-smooth), color 0.4s var(--grit-ease-smooth);
 }
 
 .btn-explore:hover {
@@ -207,12 +208,15 @@
 
 .btn-explore:hover .btn-explore-dash {
   transform: translateX(2px);
-  font-size: 0;
+  color: transparent;
 }
 
 .btn-explore:hover .btn-explore-dash::after {
   content: '\2192';
-  font-size: 1rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
