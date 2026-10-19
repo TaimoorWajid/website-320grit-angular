@@ -1,22 +1,17 @@
 import type { ServicePageData } from '../shared/service-page/service-page.data';
-import {
-  SHARED_FAQ,
-  SHARED_PROCESS,
-  SHARED_WHY_CHOOSE,
-  SHARED_INDUSTRIES,
-} from '../shared/service-page/service-content.data';
+import { SHARED_INDUSTRIES } from '../shared/service-page/service-content.data';
 
 /**
- * Page data — copy verbatim from the WP template (see notes/pages/services.md).
- * Fully expert-witness-specific template (template-parts/components/expert-witness/expert-witness.php). Source typo "Experties" preserved. Hero image asset is missing \u2014 gradient fallback renders until the file is added.
+ * Expert Witness page data — construction dispute expertise,
+ * technical analysis, and courtroom testimony.
  */
 export const EXPERT_WITNESS_DATA: ServicePageData = {
   hero: {
     id: 'hero',
-    eyebrow: '01 \u2014 EXPERT WITNESS',
+    eyebrow: '01 \u2014 Our Services',
     titleHtml: 'EXPERT<br><span>WITNESS</span>',
     subtitleHtml: 'TRUTH. CLARITY. CREDIBILITY.',
-    descHtml: 'Independent analysis. Technical accuracy.<br>Stronger cases.',
+    descHtml: 'Independent construction expertise for litigation.<br>Technical accuracy. Stronger cases.',
     buttonText: 'LET\u2019S TALK YOUR CASE',
     buttonHref: '/contact-us',
     image: '/assets/images/ChatGPT-Image-Aug-9-2026-12_23_33-AM.webp',
@@ -25,101 +20,90 @@ export const EXPERT_WITNESS_DATA: ServicePageData = {
   },
   why: {
     eyebrow: '02 \u2014 THE ADVANTAGE',
-    titleHtml: 'Technical Experties.<br>Objective Opinion.<br><span>Real Impact.</span>',
-    desc: 'Our expert witnesses deliver clear, unbiased opinions backed by deep construction experience, technical knowledge, and industry standards. We help attorneys, owners, and organizations understand the facts\u2014and win in court.',
+    titleHtml: 'Technical Expertise.<br>Objective Opinion.<br><span>Real Impact.</span>',
+    desc: 'Our expert witnesses deliver clear, unbiased opinions backed by deep construction experience, technical knowledge, and industry standards — helping attorneys and owners win in mediation, arbitration, and court.',
     cards: [
-    { iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"> <circle cx="12" cy="12" r="10"></circle> <path d="M12 8v4l3 3"></path> </svg>`, title: 'Objective & Independent', text: 'Unbiased opinions that stand up to challenge.' },
-    { iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"> <path d="M9 11l3 3L22 4"></path> <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path> </svg>`, title: 'Technology Sound', text: 'Rooted in codes, standards, and proven methodology.' },
+    { iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"> <circle cx="12" cy="12" r="10"></circle> <path d="M12 8v4l3 3"></path> </svg>`, title: 'Objective & Independent', text: 'Unbiased opinions that stand up to the toughest cross-examination.' },
+    { iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"> <path d="M9 11l3 3L22 4"></path> <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path> </svg>`, title: 'Technically Sound', text: 'Rooted in building codes, standards, and proven methodology.' },
     { iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"> <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path> </svg>`, title: 'Courtroom Ready', text: 'Clear reports. Confident testimony. Credible results.' },
     { iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"> <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path> <circle cx="9" cy="7" r="4"></circle> <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path> </svg>`, title: 'Experience That Matters', text: 'Decades of real-world construction and claims experience.' },
     ],
   },
   whatIs: {
-    eyebrow: '03 \u2014 UNDERSTANDING THE METHOD',
+    eyebrow: '03 \u2014 UNDERSTANDING THE ROLE',
     titleHtml: 'WHAT IS AN<br><span>EXPERT WITNESS?</span>',
     paragraphs: [
       'An expert witness provides specialized knowledge, technical analysis, and professional opinions to help the court understand complex construction issues beyond common knowledge.',
+      'From construction defects and delay claims to standard-of-care opinions, our experts translate technical complexity into clear, persuasive testimony that judges, juries, and arbitrators trust.',
     ],
     image: '/assets/images/What-is-an-expert-witness.webp',
-    imageAlt: 'Exploded cutaway view of commercial building',
+    imageAlt: 'Construction expert witness analysis',
     labels: [
-    { title: 'CONSTRUCTION DEFECTS', text: 'Identify construction defects and violations.' },
-    { title: 'CLAIMS & DAMAGES', text: 'Uncover delay, disruption and productivity loss.' },
-    { title: 'STANDARD OF CARE', text: 'Code compliance and industry standards.' },
-    { title: 'Contract Disputes', text: 'Scope, change orders, interpretations.' },
-    { title: 'FORENSIC INVESTIGATION', text: 'Failure analysis and root cause identification.' },
+    { title: 'CONSTRUCTION DEFECTS', text: 'Identify defects, code violations, and workmanship failures.' },
+    { title: 'DELAY & DISRUPTION', text: 'Analyze schedule impacts and quantify productivity loss.' },
+    { title: 'STANDARD OF CARE', text: 'Opine on code compliance and industry practice.' },
+    { title: 'CONTRACT DISPUTES', text: 'Interpret scope, change orders, and entitlements.' },
+    { title: 'FAILURE ANALYSIS', text: 'Determine root cause of structural and system failures.' },
     ],
   },
   expertiseGrid: {
-    eyebrow: 'OUR EXPERTISE',
+    eyebrow: '04 \u2014 OUR EXPERTISE',
     titleHtml: 'COVERING THE FULL SPECTRUM<br><span>OF CONSTRUCTION DISPUTES</span>',
     cards: [
-    { num: '01', title: 'Construction Defects', text: 'Identify defects, design & installation issues.' },
-    { num: '02', title: 'Delay & Disruption Analysis', text: 'Quantify delays, impacts, and responsibilities.' },
-    { num: '03', title: 'Quantum & Damages', text: 'Calculate costs, losses, and financial impacts.' },
-    { num: '04', title: 'Contract Interpretation', text: 'Analyze terms, obligations, and entitlements.' },
+    { num: '01', title: 'Construction Defects', text: 'Identify defects, design errors, and installation failures.' },
+    { num: '02', title: 'Delay & Disruption Analysis', text: 'Quantify delays, impacts, and responsibility allocation.' },
+    { num: '03', title: 'Quantum & Damages', text: 'Calculate costs, losses, and financial impacts of claims.' },
+    { num: '04', title: 'Contract Interpretation', text: 'Analyze terms, obligations, changes, and entitlements.' },
     { num: '05', title: 'Forensic Engineering', text: 'Investigate failures and determine root cause.' },
     { num: '06', title: 'Expert Testimony', text: 'Deliver clear, credible, and compelling testimony.' },
     ],
   },
   process: {
-    eyebrow: 'How We Work',
+    eyebrow: '05 \u2014 HOW WE WORK',
     titleHtml: 'Our Expert Witness Process',
     steps: [
-    { num: '01', title: 'Case Evaluation', text: 'Understand the matter, objectives, and scope of engagement.' },
-    { num: '02', title: 'Investigation & Analysis', text: 'Collect and review relevant financial records and supporting data.' },
-    { num: '03', title: 'Expert Report', text: 'Analyse transactions, identify issues, and quantify findings.' },
-    { num: '04', title: 'Support & Preparation', text: 'Deliver a clear, well-supported report with conclusions and evidence.' },
-    { num: '05', title: 'Trial Testimony', text: 'Provide testimony and defend findings in legal proceedings.' },
+    { num: '01', title: 'Case Evaluation', text: 'Review the matter, understand objectives, and assess expert needs.' },
+    { num: '02', title: 'Investigation & Analysis', text: 'Inspect sites, review documents, and perform technical analysis.' },
+    { num: '03', title: 'Expert Report', text: 'Prepare clear, well-supported opinions meeting evidentiary standards.' },
+    { num: '04', title: 'Deposition Prep', text: 'Rigorous preparation for deposition and cross-examination.' },
+    { num: '05', title: 'Trial Testimony', text: 'Confident, credible testimony that persuades decision-makers.' },
     ],
   },
-  industries: { title: 'Industries We Support', items: SHARED_INDUSTRIES },
+  industries: { title: 'Industries We Serve', items: SHARED_INDUSTRIES },
   whyChoose: {
     sectionId: 'why-choose',
     dataSection: 'why-choose',
-    eyebrow: 'Our Difference',
+    eyebrow: '06 \u2014 OUR DIFFERENCE',
     titleHtml: 'Why Choose<br>320 Grit?',
-    body: 'We combine deep technical expertise with an unwavering commitment to objectivity, delivering findings that withstand the highest scrutiny.',
-    cards: SHARED_WHY_CHOOSE,
+    body: 'We are builders first — our experts have managed the work they now opine on, giving our testimony a credibility that pure academics cannot match.',
+    cards: [
+    { num: '01', title: 'Builder Credibility', text: 'Our experts have built what they testify about — real field experience.' },
+    { num: '02', title: 'Clear Communicators', text: 'Technical complexity translated for judges, juries, and arbitrators.' },
+    { num: '03', title: 'Unimpeachable Independence', text: 'Objective opinions that hold firm under cross-examination.' },
+    { num: '04', title: 'Full Litigation Support', text: 'From early case assessment through trial testimony and rebuttal.' },
+    ],
   },
   cta: {
     sectionId: 'cta',
-    titleHtml: 'Expertise You Can Trust. <br>Answers That Win Cases.',
-    sub: 'Let\u2019s discuss how we can support your case with clarity, credibility, and confidence.',
+    eyebrow: '07 \u2014 GET STARTED',
+    titleHtml: 'Expertise You Can Trust.<br>Testimony That Wins.',
+    sub: 'Let\u2019s discuss how our construction experts can strengthen your case.',
     buttonText: 'Schedule a Consultation',
     buttonHref: '/contact-us',
   },
   faq: {
-    eyebrow: 'Common Questions',
-    titleHtml: 'Everything You Need to Know',
-    body: 'Answers to the most frequently asked questions about our forensic accounting services and engagement process.',
+    eyebrow: '08 \u2014 COMMON QUESTIONS',
+    titleHtml: 'Expert Witness <span>FAQs</span>',
+    body: 'Answers to common questions about construction expert witness engagements.',
     linkText: 'Still have questions? Contact us.',
-    linkHref: '#contact',
+    linkHref: '/contact-us',
     items: [
-  {
-    q: 'What is an expert witness in forensic accounting?',
-    a: 'An expert witness is a qualified professional who provides independent, specialized knowledge to the court. In forensic accounting, this includes interpreting complex financial data, explaining methodologies, quantifying damages, and offering objective opinions that help judges and juries understand the evidence.',
-  },
-  {
-    q: 'When should I engage an expert witness?',
-    a: 'Engage an expert early \u2014 ideally during case assessment or discovery. Early involvement strengthens strategy, identifies key financial issues, supports settlement discussions, and ensures reports and testimony meet court deadlines and admissibility standards.',
-  },
-  {
-    q: 'Will your expert testimony be admissible in court?',
-    a: 'Yes. Our experts meet the standards required under Daubert, Frye, and equivalent state rules. We prepare clear, well-supported opinions grounded in accepted methodologies, maintain thorough documentation, and are experienced in both direct and cross-examination.',
-  },
-  {
-    q: 'What types of cases do your expert witnesses handle?',
-    a: 'We provide expert witness services in commercial litigation, fraud and embezzlement cases, shareholder disputes, divorce and matrimonial proceedings, construction claims, insurance disputes, bankruptcy matters, and regulatory investigations.',
-  },
-  {
-    q: 'How do you prepare for deposition and trial testimony?',
-    a: 'Preparation includes detailed case review, development of demonstrative exhibits, mock examinations, and close coordination with counsel. Our experts focus on clear communication so complex financial concepts are understandable to judges and juries.',
-  },
-  {
-    q: 'Can the same professional serve as both forensic accountant and expert witness?',
-    a: 'Yes, when independence and objectivity are maintained. Many of our senior professionals investigate the financial issues and later testify as experts. We carefully manage roles to avoid conflicts and ensure opinions remain impartial and defensible.',
-  },
+    { q: 'What does a construction expert witness do?', a: 'A construction expert witness provides specialized technical knowledge to help courts understand complex building issues — including defects, delays, cost disputes, and standard-of-care questions — through reports and testimony.' },
+    { q: 'When should I engage an expert witness?', a: 'Engage early — ideally during case assessment or discovery. Early involvement strengthens strategy, identifies key technical issues, and ensures reports meet court deadlines and admissibility standards.' },
+    { q: 'Will your testimony be admissible in court?', a: 'Yes. Our experts meet Daubert and Frye standards with opinions grounded in accepted methodology, thorough documentation, and experience in direct and cross-examination.' },
+    { q: 'What types of construction disputes do you handle?', a: 'Construction defects, delay and disruption claims, cost overruns, contract disputes, design errors, building failures, and insurance claims across commercial, residential, and infrastructure projects.' },
+    { q: 'How do you prepare for deposition and trial?', a: 'Through detailed case review, demonstrative exhibits, mock examinations, and close coordination with counsel — focused on communicating complex technical concepts clearly to judges and juries.' },
+    { q: 'Can you serve as both consultant and testifying expert?', a: 'Yes, with proper role management. Many engagements begin as consulting and evolve to testimony. We maintain independence and objectivity throughout to protect credibility.' },
     ],
   },
   sidenav: [
