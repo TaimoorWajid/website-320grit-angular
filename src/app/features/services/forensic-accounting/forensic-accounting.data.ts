@@ -72,7 +72,7 @@ export const FORENSIC_ACCOUNTING_DATA: ServicePageData = {
   whyChoose: {
     sectionId: 'why-choose',
     dataSection: 'why-choose',
-    eyebrow: '06 \u2014 OUR DIFFERENCE',
+    eyebrow: '07 \u2014 OUR DIFFERENCE',
     titleHtml: 'Why Choose<br>320 Grit?',
     body: 'We combine deep financial expertise with construction industry knowledge — a rare combination that gives our findings unmatched credibility in construction-related disputes.',
     cards: [
@@ -84,14 +84,14 @@ export const FORENSIC_ACCOUNTING_DATA: ServicePageData = {
   },
   cta: {
     sectionId: 'cta',
-    eyebrow: '07 \u2014 GET STARTED',
+    eyebrow: '08 \u2014 GET STARTED',
     titleHtml: 'Financial Truth.<br>Stronger Cases.',
     sub: 'Suspect fraud or need damages quantified? Let our forensic experts uncover the facts.',
     buttonText: 'Schedule a Consultation',
     buttonHref: '/contact-us',
   },
   faq: {
-    eyebrow: '08 \u2014 COMMON QUESTIONS',
+    eyebrow: '09 \u2014 COMMON QUESTIONS',
     titleHtml: 'Forensic Accounting <span>FAQs</span>',
     body: 'Answers to common questions about forensic accounting engagements.',
     linkText: 'Still have questions? Contact us.',
