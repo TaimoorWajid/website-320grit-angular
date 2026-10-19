@@ -113,6 +113,33 @@ export class HomeProcessComponent {
       return;
     }
 
+    // Manual scroll-driven horizontal translation (reliable with Lenis).
+    // Falls back to GSAP ScrollTrigger if available.
+    const updateHorizontal = () => {
+      const wrapRect = wrap.getBoundingClientRect();
+      const wrapHeight = wrap.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      // Progress: 0 when wrap top hits viewport top, 1 when wrap bottom hits viewport bottom
+      const scrollable = wrapHeight - viewportHeight;
+      if (scrollable <= 0) return;
+
+      const progress = Math.max(0, Math.min(1, -wrapRect.top / scrollable));
+      const maxX = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      track.style.transform = `translateX(${-progress * maxX}px)`;
+    };
+
+    window.addEventListener('scroll', updateHorizontal, { passive: true });
+    window.addEventListener('resize', updateHorizontal);
+    // Initial position
+    updateHorizontal();
+
+    this.destroyRef.onDestroy(() => {
+      window.removeEventListener('scroll', updateHorizontal);
+      window.removeEventListener('resize', updateHorizontal);
+    });
+
+    // Also set up GSAP ScrollTrigger as enhancement (if it works, it will override)
     const ctx = this.animations.createContext(() => {
       const maxX = (): number =>
         Math.max(0, track.scrollWidth - viewport.clientWidth);
@@ -126,18 +153,22 @@ export class HomeProcessComponent {
           end: 'bottom bottom',
           scrub: 1,
           invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            // Sync manual transform with ScrollTrigger progress
+            const maxXVal = Math.max(0, track.scrollWidth - viewport.clientWidth);
+            track.style.transform = `translateX(${-self.progress * maxXVal}px)`;
+          },
         },
       });
 
-      // Refresh after images/fonts load to ensure correct measurements.
       if (typeof window !== 'undefined') {
         window.addEventListener('load', () => this.animations.refresh(), { once: true });
-        // Also refresh after a short delay for dynamic content.
         setTimeout(() => this.animations.refresh(), 1000);
       }
     }, hostEl);
 
-    if (ctx) this.destroyRef.onDestroy(() => ctx.revert());
-    else hostEl.classList.add('process--static');
+    if (!ctx) {
+      // GSAP context failed, manual scroll listener is already active
+    }
   }
 }

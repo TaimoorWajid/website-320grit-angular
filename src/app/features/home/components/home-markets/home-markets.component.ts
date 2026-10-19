@@ -264,23 +264,50 @@ export class HomeMarketsComponent {
 
   constructor() {
     // Scroll-spy: runs in the browser only (afterNextRender).
+    // Uses Lenis scroll events for reliable detection with smooth scroll.
     afterNextRender(() => {
       const cards = this.cardRefs().map((r) => r.nativeElement);
-      if (!cards.length || typeof IntersectionObserver === 'undefined') return;
+      if (!cards.length) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              const idx = cards.indexOf(entry.target as HTMLElement);
-              if (idx >= 0) this.activeCard.set(idx);
-            }
+      const updateActive = () => {
+        const viewportCenter = window.innerHeight * 0.5;
+        let bestIdx = 0;
+        let bestDist = Infinity;
+        cards.forEach((card, idx) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.top + rect.height / 2;
+          const dist = Math.abs(cardCenter - viewportCenter);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestIdx = idx;
           }
-        },
-        { rootMargin: '-30% 0px -30% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
-      );
-      cards.forEach((c) => observer.observe(c));
-      this.destroyRef.onDestroy(() => observer.disconnect());
+        });
+        this.activeCard.set(bestIdx);
+      };
+
+      // Initial check
+      updateActive();
+
+      // Listen to scroll (works with Lenis via native scroll events)
+      window.addEventListener('scroll', updateActive, { passive: true });
+      this.destroyRef.onDestroy(() => window.removeEventListener('scroll', updateActive));
+
+      // Fallback: IntersectionObserver for non-Lenis environments
+      if (typeof IntersectionObserver !== 'undefined') {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                const idx = cards.indexOf(entry.target as HTMLElement);
+                if (idx >= 0) this.activeCard.set(idx);
+              }
+            }
+          },
+          { rootMargin: '-30% 0px -30% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+        );
+        cards.forEach((c) => observer.observe(c));
+        this.destroyRef.onDestroy(() => observer.disconnect());
+      }
     });
   }
 

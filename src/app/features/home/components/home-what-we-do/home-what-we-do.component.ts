@@ -98,20 +98,42 @@ export class HomeWhatWeDoComponent {
   /** Crossfade the sticky media to the card nearest the viewport center. */
   private initMediaSync(): void {
     const els = this.cardRefs().map((ref) => ref.nativeElement);
-    if (els.length === 0 || typeof IntersectionObserver === 'undefined') return;
+    if (els.length === 0) return;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const idx = els.indexOf(entry.target as HTMLElement);
-            if (idx >= 0) this.activeMedia.set(idx);
-          }
+    const updateActive = () => {
+      const viewportCenter = window.innerHeight * 0.5;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      els.forEach((el, idx) => {
+        const rect = el.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(cardCenter - viewportCenter);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = idx;
         }
-      },
-      { rootMargin: '-35% 0px -35% 0px', threshold: 0 },
-    );
-    els.forEach((el) => io.observe(el));
-    this.destroyRef.onDestroy(() => io.disconnect());
+      });
+      this.activeMedia.set(bestIdx);
+    };
+
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
+    this.destroyRef.onDestroy(() => window.removeEventListener('scroll', updateActive));
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const idx = els.indexOf(entry.target as HTMLElement);
+              if (idx >= 0) this.activeMedia.set(idx);
+            }
+          }
+        },
+        { rootMargin: '-35% 0px -35% 0px', threshold: 0 },
+      );
+      els.forEach((el) => io.observe(el));
+      this.destroyRef.onDestroy(() => io.disconnect());
+    }
   }
 }
