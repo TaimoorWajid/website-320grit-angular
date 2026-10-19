@@ -7,7 +7,7 @@ import { OcOrbitComponent } from '../shared/oc-orbit/oc-orbit.component';
 import { OcProcessStepsComponent } from '../shared/oc-process-steps/oc-process-steps.component';
 import { OcCompareComponent } from '../shared/oc-compare/oc-compare.component';
 import { OcInfoTabletComponent } from '../shared/oc-info-tablet/oc-info-tablet.component';
-import { OcFinalCtaComponent } from '../shared/oc-final-cta/oc-final-cta.component';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { CHIPS, ORBIT_NODES, PILLARS, PROCESS_STEPS, SIDENAV } from './owner-centric.data';
 
 /** Owner-Centric Experience page — composition of oc- sections in template order. */
@@ -20,7 +20,7 @@ import { CHIPS, ORBIT_NODES, PILLARS, PROCESS_STEPS, SIDENAV } from './owner-cen
     OcProcessStepsComponent,
     OcCompareComponent,
     OcInfoTabletComponent,
-    OcFinalCtaComponent,
+    CtaBandComponent,
   ],
   templateUrl: './owner-centric-page.component.html',
   styleUrl: './owner-centric-page.component.scss',
