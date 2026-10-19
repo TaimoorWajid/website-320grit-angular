@@ -36,8 +36,8 @@ export const DESIGN_BUILD_DATA: ForensicServicePageData = {
       'Design-build unites design and construction under a single contract and a single point of responsibility. Instead of hiring an architect and a contractor separately — and managing the gap between them — you partner with one integrated team accountable for the entire outcome.',
       'Because design and construction phases overlap, projects break ground faster. Because the builder prices the work while it is being designed, budgets stay honest. And because one team owns the result, there is nowhere for problems to hide.',
     ],
-    image: '/assets/images/commercial-construction.webp',
-    imageAlt: 'Design-build project under construction',
+    image: '/assets/images/what-is-design-build.webp',
+    imageAlt: 'Architectural blueprints transitioning to active construction site',
     labels: [
     { title: 'SINGLE CONTRACT', text: 'One agreement covers design and construction — simplified procurement.' },
     { title: 'OVERLAPPING PHASES', text: 'Construction begins while design is finalized — compressing schedules.' },
