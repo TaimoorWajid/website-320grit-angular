@@ -78,7 +78,7 @@
 .loc-coverage__inner {
   max-width: var(--grit-container);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2rem 0 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 5vw, 5rem);
@@ -188,7 +188,7 @@
 .loc-card__inner {
   max-width: var(--grit-container);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2rem 0 10%;
 }
 
 .loc-location {
