@@ -22,8 +22,8 @@
                 <hr class="phase-card__divider" />
                 <p class="phase-card__text">{{ phase.paragraph }}</p>
                 <!-- Source CTA has an empty href: keep the anchor, suppress navigation. -->
-                <a class="nectar-cta phase-card__cta" href="" (click)="$event.preventDefault()"
-                  ><span class="link_text">{{ phase.cta }} —</span></a
+                <a class="btn-explore phase-card__cta" href="" (click)="$event.preventDefault()"
+                  ><span>{{ phase.cta }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a
                 >
               </div>
               <div class="phase-card__photo" [style.background-image]="'url(' + phase.photo + ')'"
