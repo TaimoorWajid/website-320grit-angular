@@ -229,7 +229,7 @@
     <div class="faq-layout">
       <div class="faq-header" [appReveal]="{ y: 40 }">
         <p class="grit-eyebrow">{{ d.faq.eyebrow }}</p>
-        <h2 class="section-headline">{{ d.faq.titleHtml }}</h2>
+        <h2 class="section-headline" [innerHTML]="d.faq.titleHtml"></h2>
         <p class="section-body">{{ d.faq.body }}</p>
         <a [href]="d.faq.linkHref" class="btn-secondary">{{ d.faq.linkText }}</a>
       </div>
