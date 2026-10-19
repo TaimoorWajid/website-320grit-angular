@@ -158,6 +158,8 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .oc-hero-inner {
   position: relative;
   z-index: 2;
+  padding-block: 140px 100px;
+  padding-left: 10%;
 }
 @media (max-width: 768px) {
   .oc-hero-inner { padding-left: 6%; }
@@ -302,8 +304,8 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: 120px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #1a1a1a, #050505);
-  border: 2.5px solid $oc-violet;
-  box-shadow: 0 0 0 10px rgba(121, 44, 213, 0.07), 0 0 50px rgba(121, 44, 213, 0.3), inset 0 0 24px rgba(121, 44, 213, 0.12);
+  border: 2.5px solid $oc-orange;
+  box-shadow: 0 0 0 10px rgba(255, 92, 0, 0.07), 0 0 50px rgba(255, 92, 0, 0.3), inset 0 0 24px rgba(255, 92, 0, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -316,13 +318,13 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 @keyframes oc-core-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 10px rgba(121, 44, 213, 0.07), 0 0 50px rgba(121, 44, 213, 0.3), inset 0 0 24px rgba(121, 44, 213, 0.12);
+    box-shadow: 0 0 0 10px rgba(255, 92, 0, 0.07), 0 0 50px rgba(255, 92, 0, 0.3), inset 0 0 24px rgba(255, 92, 0, 0.12);
   }
   50% {
-    box-shadow: 0 0 0 14px rgba(121, 44, 213, 0.1), 0 0 70px rgba(121, 44, 213, 0.4), inset 0 0 28px rgba(121, 44, 213, 0.15);
+    box-shadow: 0 0 0 14px rgba(255, 92, 0, 0.1), 0 0 70px rgba(255, 92, 0, 0.4), inset 0 0 28px rgba(255, 92, 0, 0.15);
   }
 }
-.oc-core-accent { color: $oc-violet; font-size: 1rem; }
+.oc-core-accent { color: $oc-orange; font-size: 1rem; }
 .oc-orbit-node {
   position: absolute;
   z-index: 4;
@@ -342,21 +344,21 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: 56px;
   border-radius: 50%;
   background: #0c0c0c;
-  border: 2px solid $oc-violet;
+  border: 2px solid $oc-orange;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $oc-violet;
-  box-shadow: 0 0 0 5px rgba(121, 44, 213, 0.08), 0 0 20px rgba(121, 44, 213, 0.2);
+  color: $oc-orange;
+  box-shadow: 0 0 0 5px rgba(255, 92, 0, 0.08), 0 0 20px rgba(255, 92, 0, 0.2);
   transition: all 0.4s $oc-ease;
   flex-shrink: 0;
 }
 .oc-node-circle svg { width: 22px; height: 22px; }
 .oc-orbit-node:hover .oc-node-circle {
   transform: translate(-50%, -50%) scale(1.15);
-  background: $oc-violet;
+  background: $oc-orange;
   color: #fff;
-  box-shadow: 0 0 0 6px rgba(121, 44, 213, 0.15), 0 0 32px rgba(121, 44, 213, 0.45);
+  box-shadow: 0 0 0 6px rgba(255, 92, 0, 0.15), 0 0 32px rgba(255, 92, 0, 0.45);
 }
 .oc-node-label {
   position: absolute;
