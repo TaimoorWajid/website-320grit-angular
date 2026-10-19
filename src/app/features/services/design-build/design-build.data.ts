@@ -85,7 +85,7 @@ export const DESIGN_BUILD_DATA: ServicePageData = {
   cta: {
     sectionId: 'cta',
     eyebrow: '07 \u2014 GET STARTED',
-    titleHtml: 'One Team.<br>One Vision.<br>Built Right.',
+    titleHtml: 'One Team. One Vision.<br>Built Right.',
     sub: 'Ready to simplify your next build? Let\u2019s talk about how design-build can deliver your project faster, with total cost clarity.',
     buttonText: 'Start Your Project',
     buttonHref: '/contact-us',

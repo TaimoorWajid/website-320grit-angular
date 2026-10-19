@@ -234,7 +234,10 @@
         <p class="grit-eyebrow">{{ d.faq.eyebrow }}</p>
         <h2 class="section-headline" [innerHTML]="d.faq.titleHtml"></h2>
         <p class="section-body">{{ d.faq.body }}</p>
-        <a [href]="d.faq.linkHref" class="btn-secondary">{{ d.faq.linkText }}</a>
+        <a [href]="d.faq.linkHref" class="btn-explore">
+          <span>{{ d.faq.linkText }}</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
       </div>
       <div class="faq-accordion">
         @for (faq of d.faq.items; track faq.q; let i = $index) {
