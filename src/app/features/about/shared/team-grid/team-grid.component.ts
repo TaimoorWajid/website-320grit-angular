@@ -15,4 +15,14 @@ export class TeamGridComponent {
   readonly label = input<string>();
   readonly title = input<string>();
   readonly members = input.required<TeamMember[]>();
+
+  /** Initials badge for members whose photo is not yet available. */
+  initials(m: TeamMember): string {
+    return m.name
+      .split(/\s+/)
+      .map((w) => w.charAt(0))
+      .slice(0, 2)
+      .join('')
+      .toUpperCase();
+  }
 }

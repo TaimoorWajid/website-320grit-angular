@@ -10,7 +10,11 @@
       @for (m of members(); track m.name) {
         <article class="ab-team-card">
           <div class="ab-team-photo">
-            <img [src]="m.img" [alt]="m.name" width="300" height="300" loading="lazy" />
+            @if (m.img) {
+              <img [src]="m.img" [alt]="m.name" width="300" height="300" loading="lazy" />
+            } @else {
+              <span class="ab-team-initials" aria-hidden="true">{{ initials(m) }}</span>
+            }
           </div>
           <div class="ab-team-info">
             <h3>{{ m.name }}</h3>

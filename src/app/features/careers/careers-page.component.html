@@ -61,8 +61,18 @@
           Built on People.<br /><span>Driven by Excellence.</span>
         </h2>
         <p class="grit-cl-culture__text">
-          We are builders, problem solvers, and innovators. We value ownership, initiative, and a commitment
-          to raising the standard&mdash;together.
+          At 320 Grit, we believe a positive culture is the foundation of every successful project.
+          We&rsquo;ve built a company where people enjoy coming to work, take pride in what they do,
+          and are committed to supporting one another. We foster an environment built on trust, respect,
+          collaboration, and open communication - because great projects are delivered by great teams.
+        </p>
+        <p class="grit-cl-culture__text">
+          While we maintain an approachable atmosphere, we&rsquo;re serious about our work. We hold
+          ourselves to a high standard, embrace accountability, and are committed to delivering quality
+          results for every client, every time. We value strong relationships, continuous growth, and
+          creating a workplace where hard work is recognized, ideas are welcomed, and success is shared.
+          At 320 Grit, our culture is about more than the work we do, it&rsquo;s about the people we
+          do it with.
         </p>
         <a class="grit-btn grit-btn--outline-light" routerLink="/our-story">
           Learn More About Us
@@ -98,6 +108,37 @@
     </div>
   </section>
 
+  <!-- S03B Benefits -->
+  <section class="grit-cl-values" aria-labelledby="grit-benefits-heading">
+    <div class="grit-cl-values__inner">
+      <span class="grit-eyebrow" appReveal>Benefits</span>
+      <h2 class="grit-cl-values__title" id="grit-benefits-heading" appReveal>
+        Investing in <span>Our Team.</span>
+      </h2>
+      <p class="grit-cl-values__subtitle" appReveal>
+        At 320 Grit, we believe investing in our team is one of the best investments we can make. We are
+        committed to providing a competitive benefits package that supports your health, financial
+        well-being, professional growth, and work-life balance. Our benefits include:
+      </p>
+      <div class="grit-cl-values__grid">
+        @for (benefit of benefits; track benefit) {
+          <article class="grit-cl-value-card" appReveal>
+            <div
+              class="grit-cl-value-card__icon"
+              aria-hidden="true"
+              [innerHTML]="icons.checkCircleSm() | safeHtml"
+            ></div>
+            <h3 class="grit-cl-value-card__title">{{ benefit }}</h3>
+          </article>
+        }
+      </div>
+      <p class="grit-cl-values__subtitle" appReveal>
+        We&rsquo;re building more than exceptional projects, we&rsquo;re building a workplace where
+        talented people can grow, thrive, and build long-term careers.
+      </p>
+    </div>
+  </section>
+
   <!-- S04 Open Positions preview -->
   <section class="grit-cl-positions" aria-labelledby="grit-positions-heading">
     <div class="grit-cl-positions__inner">
@@ -130,6 +171,68 @@
           <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- S04B Professional Growth -->
+  <section class="grit-cl-culture" aria-labelledby="grit-growth-heading">
+    <div class="grit-cl-values__inner">
+      <span class="grit-eyebrow grit-eyebrow--light" appReveal>Professional Growth</span>
+      <h2 class="grit-cl-culture__title" id="grit-growth-heading" appReveal>
+        We Invest in <span>Our People.</span>
+      </h2>
+      <p class="grit-cl-culture__text" appReveal>
+        We don&rsquo;t just hire employees; we invest in people with the drive to build meaningful careers.
+        As a growing company, you&rsquo;ll have the opportunity to take on new challenges, expand your
+        responsibilities, and make a direct impact on the success of your projects and business. We believe
+        growth comes through hands-on experience, mentorship, continuous learning, and the confidence to lead.
+      </p>
+      <div class="grit-cl-featured__columns" appReveal>
+        <div>
+          <ul class="grit-check-list">
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Clear Career
+              Advancement Opportunities
+            </li>
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Hands-On Project
+              Experience
+            </li>
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Mentorship from
+              Experienced Industry Professionals
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="grit-check-list">
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Leadership
+              Development
+            </li>
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Continuing
+              Education &amp; Industry Training
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="grit-check-list">
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Support for
+              Professional Certifications and Licenses
+            </li>
+            <li>
+              <span aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>Exposure to
+              Diverse and Challenging Projects
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="grit-cl-culture__text" appReveal>
+        Your career isn&rsquo;t limited by a corporate ladder&mdash;it&rsquo;s shaped by your ambition,
+        work ethic, and willingness to grow.
+      </p>
     </div>
   </section>
 

@@ -1,8 +1,7 @@
 import { HeroData, SplitData, StatItem, TeamMember, ValueCard } from '../shared/about.types';
 
-/* Copy verbatim from template-parts/components/about-us/our-leadership.php.
-   NOTE: team photos/bios are placeholder content (Unsplash portraits,
-   generic executive names) — reproduced as-is; flag for replacement. */
+/* Real 320 Grit leadership team (client-provided bios and photos).
+   Soda Kuy's photo is forthcoming — she renders with an initials badge. */
 
 export const HERO: HeroData = {
   id: 'lead-hero',
@@ -61,34 +60,22 @@ export const APPROACH: ValueCard[] = [
 
 export const TEAM: TeamMember[] = [
   {
-    name: 'Michael D. Campbell',
-    role: 'Chief Executive Officer',
-    bio: 'Visionary leader with 25+ years in construction and real estate development.',
-    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
-  },
-  {
-    name: 'Sarah J. Mitchell',
+    name: 'Brett Smith',
     role: 'President',
-    bio: 'Expert in operational strategy and project delivery with a focus on people and process.',
-    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+    bio: 'Brett has over 8 years of construction project oversight with a focus on railroad, medical, commercial, and multifamily, and residential construction. He has developed his expertise in delivering urgent and complex projects from pre-construction through completion while keeping stakeholder\u2019s expectations and interests at heart. Brett\u2019s passion for construction is driven by the opportunity to create lasting, tangible spaces that impact people\u2019s lives and contribute to the growth and development of our families and communities. Whether it\u2019s a hospital that saves lives, an office space that fosters innovation, or a multifamily building that provides an inviting home to families, Brett is driven by the ability to leave a lasting impact. The knowledge that he has contributed to shaping the spaces where people work, live, and heal is what fuels his ongoing dedication to the craft of construction.',
+    img: 'assets/images/team-brett-smith.jpg',
   },
   {
-    name: 'David R. Thompson',
-    role: 'Chief Operating Officer',
-    bio: 'Drives performance across projects and markets with precision and accountability.',
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+    name: 'Mason Laurin',
+    role: 'Construction Manager',
+    bio: 'Mason is a Development professional in the making and a future leader in our industry. Having grown up with design, construction, management, and business, he brings fresh perspective and energy to 320 Grit. Currently pursuing an Engineering and Business degree, he\u2019s already shaping 320 Grit while CM consulting $82M of hospital projects.',
+    img: 'assets/images/team-mason-laurin.jpg',
   },
   {
-    name: 'Jason P. Anderson',
-    role: 'Chief Financial Officer',
-    bio: 'Financial steward focused on sustainable growth and long-term value creation.',
-    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
-  },
-  {
-    name: 'Melissa K. Rodriguez',
-    role: 'Chief People Officer',
-    bio: 'Champion of culture, talent development, and a people-first mindset.',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80',
+    name: 'Soda Kuy',
+    role: 'Business Management',
+    bio: 'Soda leads business management at 320 Grit, keeping our operations, finances, and client relationships running smoothly behind the scenes.',
+    img: '',
   },
 ];
 

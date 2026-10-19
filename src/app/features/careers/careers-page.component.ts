@@ -66,6 +66,21 @@ export class CareersPageComponent {
   protected readonly pills = ['All Departments', ...DEPARTMENTS];
   protected readonly activeDept = signal('All Departments');
 
+  protected readonly benefits: string[] = [
+    'Competitive Salary',
+    'Performance-Based Bonuses',
+    'Medical, Dental & Vision Insurance',
+    'Paid Time Off & Company Holidays',
+    '401(k) Retirement Plan',
+    'Professional Development & Continuing Education',
+    'Career Advancement Opportunities',
+    'Company-Sponsored Training & Certifications',
+    'Mileage & Travel Reimbursement (when applicable)',
+    'Technology & Equipment Provided',
+    'Team Events & Company Gatherings',
+    'Flexible Work Environment (position dependent)',
+  ];
+
   private readonly allJobs = this.jobsService.getAll();
   protected readonly previewJobs = computed<Job[]>(() =>
     this.allJobs.slice(0, 5).filter((j) => this.activeDept() === 'All Departments' || j.department === this.activeDept()),
