@@ -6,4 +6,22 @@
   <app-oc-compare />
   <app-oc-info-tablet [chips]="CHIPS" />
   <app-oc-final-cta />
+
+  <nav class="grit-sidenav" aria-label="Page sections">
+    <div class="grit-sidenav__line"></div>
+    <ul class="grit-sidenav__list">
+      @for (item of SIDENAV; track item.section) {
+        <li
+          class="grit-sidenav__item"
+          [class.active]="activeSection() === item.section"
+          [attr.data-section]="item.section"
+        >
+          <a href="#{{ item.section }}" (click)="scrollToSection(item.section, $event)">
+            <span class="grit-sidenav__num">{{ item.num }}</span>
+            <span class="grit-sidenav__label">{{ item.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
 </div>

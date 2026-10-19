@@ -126,3 +126,20 @@ export const CHIPS: OcChip[] = [
   { label: 'Scope', bottom: '5%', left: '18%' },
   { label: 'Coordination', bottom: '5%', right: '18%' },
 ];
+
+/** Sticky section nav — mirrors the services pages' grit-sidenav pattern. */
+export interface OcSidenavItem {
+  section: string;
+  num: string;
+  label: string;
+}
+
+export const SIDENAV: OcSidenavItem[] = [
+  { section: 'hero', num: '01', label: 'Overview' },
+  { section: 'pillars', num: '02', label: 'Our Pillars' },
+  { section: 'orbit', num: '03', label: 'One Team' },
+  { section: 'process', num: '04', label: 'How We Work' },
+  { section: 'compare', num: '05', label: 'The Difference' },
+  { section: 'info', num: '06', label: 'Good Information' },
+  { section: 'cta', num: '07', label: 'Get Started' },
+];

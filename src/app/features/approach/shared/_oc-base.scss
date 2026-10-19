@@ -8,6 +8,11 @@
 $oc-orange: #ff5c00;
 $oc-orange-dim: rgba(255, 92, 0, 0.15);
 $oc-orange-glow: rgba(255, 92, 0, 0.4);
+/* Site standard: 80% purple / 20% orange. Purple is the dominant accent;
+   orange is reserved for eyebrows (grit-eyebrow), CTA buttons and active states. */
+$oc-violet: #792cd5;
+$oc-violet-dim: rgba(121, 44, 213, 0.15);
+$oc-violet-glow: rgba(121, 44, 213, 0.4);
 $oc-black: #050505;
 $oc-dark: #0a0a0a;
 $oc-card: #121212;
@@ -40,13 +45,10 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   overflow: hidden;
 }
 
-.oc-eyebrow {
+/* Eyebrows use the site-standard .grit-eyebrow (orange) — see templates.
+   Scoped spacing to match the old .oc-eyebrow rhythm. */
+.grit-eyebrow {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: $oc-orange;
   margin-bottom: 1.25rem;
 }
 
@@ -64,7 +66,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   letter-spacing: -0.025em;
 }
 
-.oc-accent { color: $oc-orange; }
+.oc-accent { color: $oc-violet; }
 
 .oc-lead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
@@ -87,42 +89,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-/* Buttons */
-.oc-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  padding: 0.95rem 1.85rem;
-  border-radius: 4px;
-  transition: all 0.45s $oc-ease;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-.oc-btn-primary {
-  background: $oc-orange;
-  color: #fff;
-}
-.oc-btn-primary:hover {
-  background: #e54f00;
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px $oc-orange-glow;
-}
-.oc-btn-ghost {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-.oc-btn-ghost:hover {
-  border-color: $oc-orange;
-  color: $oc-orange;
-}
-.oc-btn-lg {
-  padding: 1.15rem 2.25rem;
-  font-size: 1rem;
-}
+/* Buttons: site-default .btn-explore is used in templates (see _utilities.scss). */
 
 /* Reveal system (mirrors owner-centric.js) */
 [data-reveal] {
@@ -179,7 +146,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: 60vmax;
   top: 20%;
   right: -15%;
-  background: radial-gradient(circle, rgba(255, 92, 0, 0.18) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(121, 44, 213, 0.22) 0%, transparent 65%);
   z-index: 1;
   pointer-events: none;
   animation: oc-pulse 8s ease-in-out infinite;
@@ -192,6 +159,10 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   position: relative;
   z-index: 2;
   padding-block: 140px 100px;
+  padding-left: 10%;
+}
+@media (max-width: 768px) {
+  .oc-hero-inner { padding-left: 6%; }
 }
 .oc-hero-content .oc-line { display: block; }
 .oc-hero-cta {
@@ -218,7 +189,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .oc-scroll-line {
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, $oc-orange, transparent);
+  background: linear-gradient(to bottom, $oc-violet, transparent);
   animation: oc-scroll-pulse 2s ease-in-out infinite;
 }
 @keyframes oc-scroll-pulse {
@@ -249,7 +220,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   overflow: hidden;
 }
 .oc-pillar-card:hover {
-  border-color: rgba(255, 92, 0, 0.35);
+  border-color: rgba(121, 44, 213, 0.35);
   transform: translateY(-8px);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
 }
@@ -257,7 +228,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, $oc-orange, transparent);
+  background: linear-gradient(90deg, transparent, $oc-violet, transparent);
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -265,7 +236,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .oc-pillar-num {
   font-size: 0.75rem;
   font-weight: 700;
-  color: $oc-orange;
+  color: $oc-violet;
   letter-spacing: 0.08em;
   margin-bottom: 1rem;
 }
@@ -273,11 +244,11 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: $oc-orange-dim;
+  background: $oc-violet-dim;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $oc-orange;
+  color: $oc-violet;
   margin-bottom: 1.25rem;
   transition: transform 0.4s $oc-ease;
 }
@@ -333,8 +304,8 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: 120px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #1a1a1a, #050505);
-  border: 2.5px solid $oc-orange;
-  box-shadow: 0 0 0 10px rgba(255, 92, 0, 0.07), 0 0 50px rgba(255, 92, 0, 0.3), inset 0 0 24px rgba(255, 92, 0, 0.12);
+  border: 2.5px solid $oc-violet;
+  box-shadow: 0 0 0 10px rgba(121, 44, 213, 0.07), 0 0 50px rgba(121, 44, 213, 0.3), inset 0 0 24px rgba(121, 44, 213, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -347,13 +318,13 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 @keyframes oc-core-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 10px rgba(255, 92, 0, 0.07), 0 0 50px rgba(255, 92, 0, 0.3), inset 0 0 24px rgba(255, 92, 0, 0.12);
+    box-shadow: 0 0 0 10px rgba(121, 44, 213, 0.07), 0 0 50px rgba(121, 44, 213, 0.3), inset 0 0 24px rgba(121, 44, 213, 0.12);
   }
   50% {
-    box-shadow: 0 0 0 14px rgba(255, 92, 0, 0.1), 0 0 70px rgba(255, 92, 0, 0.4), inset 0 0 28px rgba(255, 92, 0, 0.15);
+    box-shadow: 0 0 0 14px rgba(121, 44, 213, 0.1), 0 0 70px rgba(121, 44, 213, 0.4), inset 0 0 28px rgba(121, 44, 213, 0.15);
   }
 }
-.oc-core-accent { color: $oc-orange; font-size: 1rem; }
+.oc-core-accent { color: $oc-violet; font-size: 1rem; }
 .oc-orbit-node {
   position: absolute;
   z-index: 4;
@@ -373,21 +344,21 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: 56px;
   border-radius: 50%;
   background: #0c0c0c;
-  border: 2px solid $oc-orange;
+  border: 2px solid $oc-violet;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $oc-orange;
-  box-shadow: 0 0 0 5px rgba(255, 92, 0, 0.08), 0 0 20px rgba(255, 92, 0, 0.2);
+  color: $oc-violet;
+  box-shadow: 0 0 0 5px rgba(121, 44, 213, 0.08), 0 0 20px rgba(121, 44, 213, 0.2);
   transition: all 0.4s $oc-ease;
   flex-shrink: 0;
 }
 .oc-node-circle svg { width: 22px; height: 22px; }
 .oc-orbit-node:hover .oc-node-circle {
   transform: translate(-50%, -50%) scale(1.15);
-  background: $oc-orange;
+  background: $oc-violet;
   color: #fff;
-  box-shadow: 0 0 0 6px rgba(255, 92, 0, 0.15), 0 0 32px rgba(255, 92, 0, 0.45);
+  box-shadow: 0 0 0 6px rgba(121, 44, 213, 0.15), 0 0 32px rgba(121, 44, 213, 0.45);
 }
 .oc-node-label {
   position: absolute;
@@ -408,7 +379,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   pointer-events: none;
 }
 .oc-orbit-node:hover .oc-node-label {
-  border-color: rgba(255, 92, 0, 0.4);
+  border-color: rgba(121, 44, 213, 0.4);
   color: #fff;
 }
 .oc-orbit-legend {
@@ -426,7 +397,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .oc-legend-name {
   font-size: 0.8rem;
   font-weight: 600;
-  color: $oc-orange;
+  color: $oc-violet;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -456,14 +427,14 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   transition: all 0.45s $oc-ease;
 }
 .oc-process-step:hover {
-  border-color: rgba(255, 92, 0, 0.3);
+  border-color: rgba(121, 44, 213, 0.3);
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 .oc-step-num {
   font-size: 0.7rem;
   font-weight: 700;
-  color: $oc-orange;
+  color: $oc-violet;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
 }
@@ -471,19 +442,19 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: $oc-orange-dim;
+  background: $oc-violet-dim;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $oc-orange;
+  color: $oc-violet;
   margin-bottom: 1.1rem;
   transition: all 0.4s $oc-ease;
 }
 .oc-step-icon svg { width: 22px; height: 22px; }
 .oc-process-step:hover .oc-step-icon {
-  background: $oc-orange;
+  background: $oc-violet;
   color: #fff;
-  box-shadow: 0 0 24px $oc-orange-glow;
+  box-shadow: 0 0 24px $oc-violet-glow;
 }
 .oc-process-step h3 {
   font-size: 1.05rem;
@@ -513,7 +484,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   content: '·';
   position: absolute;
   left: 0;
-  color: $oc-orange;
+  color: $oc-violet;
   font-weight: 700;
 }
 .oc-step-connector { display: none; }
@@ -525,7 +496,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     right: -0.65rem;
     width: 1.25rem;
     height: 2px;
-    background: linear-gradient(90deg, $oc-orange, transparent);
+    background: linear-gradient(90deg, $oc-violet, transparent);
     z-index: 2;
   }
 }
@@ -568,7 +539,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, transparent 60%);
 }
 .oc-overlay-good {
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(255, 92, 0, 0.08) 100%);
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(121, 44, 213, 0.08) 100%);
 }
 .oc-compare-body { padding: 1.75rem 1.5rem 2rem; }
 .oc-compare-body h3 {
@@ -612,13 +583,13 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: $oc-orange;
+  background: $oc-violet;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  box-shadow: 0 0 30px $oc-orange-glow;
+  box-shadow: 0 0 30px $oc-violet-glow;
   animation: oc-arrow-pulse 2.5s ease-in-out infinite;
 }
 @keyframes oc-arrow-pulse {
@@ -670,13 +641,13 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   position: absolute;
   padding: 0.5rem 1rem;
   background: rgba(18, 18, 18, 0.92);
-  border: 1px solid rgba(255, 92, 0, 0.35);
+  border: 1px solid rgba(121, 44, 213, 0.35);
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: $oc-orange;
+  color: $oc-violet;
   backdrop-filter: blur(8px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -684,7 +655,7 @@ $oc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 .oc-dim-chip:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px $oc-orange-glow;
+  box-shadow: 0 0 20px $oc-violet-glow;
 }
 
 /* ---------- FINAL CTA ---------- */

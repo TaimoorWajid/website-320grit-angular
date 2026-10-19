@@ -1,4 +1,4 @@
-<section class="oc-hero" id="oc-hero" ocParallax>
+<section class="oc-hero" id="oc-hero" data-section="hero" ocParallax>
   <div class="oc-hero-bg" data-speed="0.35" aria-hidden="true">
     <img
       src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=85"
@@ -12,7 +12,7 @@
   <div class="oc-hero-glow" aria-hidden="true"></div>
   <div class="oc-container oc-hero-inner">
     <div class="oc-hero-content" ocReveal="up">
-      <span class="oc-eyebrow">Decidedly</span>
+      <span class="grit-eyebrow">01 — Our Approach</span>
       <h1 class="oc-display">
         <span class="oc-line">Owner</span>
         <span class="oc-line oc-accent">&amp; Team-Centric.</span>
@@ -23,8 +23,12 @@
         and a shared commitment to the outcome.
       </p>
       <div class="oc-hero-cta">
-        <app-oc-button [link]="primaryCta" />
-        <app-oc-button [link]="ghostCta" />
+        <a href="#oc-pillars" class="btn-explore" (click)="scrollTo('#oc-pillars', $event)">
+          <span>How We Work</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+        <a routerLink="/contact-us" class="btn-explore">
+          <span>Start a Project</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
       </div>
     </div>
   </div>

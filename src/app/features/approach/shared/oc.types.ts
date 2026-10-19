@@ -1,13 +1,5 @@
 /* Shared content shapes for the approach (oc-) feature. */
 
-export interface OcCta {
-  label: string;
-  /** '#oc-*' → smooth scroll w/ -60px offset · '#contact' → /contact-us · '/path/' → route */
-  href: string;
-  variant?: 'primary' | 'ghost';
-  large?: boolean;
-}
-
 export interface OcPillar {
   num: string;
   icon: string;
@@ -47,8 +39,3 @@ export function ocIcon(paths: string, size = 24, strokeWidth = 1.6): string {
   );
 }
 
-/** 16px button arrow (spec §2d). */
-export const OC_ARROW =
-  `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">` +
-  `<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" ` +
-  `stroke-linecap="round" stroke-linejoin="round"/></svg>`;

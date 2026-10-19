@@ -13,15 +13,19 @@
     <div class="oc-hero-glow" aria-hidden="true"></div>
     <div class="oc-container oc-hero-inner">
       <div class="oc-hero-content" ocReveal="up">
-        <span class="oc-eyebrow">What We Do</span>
+        <span class="grit-eyebrow">What We Do</span>
         <h1 class="oc-display">
           <span class="oc-line">Owner</span>
           <span class="oc-line oc-accent">Representation.</span>
         </h1>
         <p class="oc-lead">Independent representation focused on the owner’s objectives.</p>
         <div class="oc-hero-cta">
-          <app-oc-button [link]="primaryCta" />
-          <app-oc-button [link]="ghostCta" />
+          <a href="#oc-pillars" class="btn-explore" (click)="scrollTo('#oc-pillars', $event)">
+            <span>How We Work</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
+          <a routerLink="/contact-us" class="btn-explore">
+            <span>Start a Project</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
         </div>
       </div>
     </div>

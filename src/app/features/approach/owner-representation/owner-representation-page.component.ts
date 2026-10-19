@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
+import { SmoothScrollService } from '../../../core/services/smooth-scroll.service';
 import { OcRevealDirective } from '../shared/oc-reveal.directive';
 import { OcParallaxDirective } from '../shared/oc-parallax.directive';
-import { OcButtonComponent } from '../shared/oc-button/oc-button.component';
 import { OcPillarGridComponent } from '../shared/oc-pillar-grid/oc-pillar-grid.component';
 import { OcFinalCtaComponent } from '../shared/oc-final-cta/oc-final-cta.component';
 import { PILLARS } from '../owner-centric/owner-centric.data';
@@ -22,7 +23,7 @@ import { PILLARS } from '../owner-centric/owner-centric.data';
   imports: [
     OcRevealDirective,
     OcParallaxDirective,
-    OcButtonComponent,
+    RouterLink,
     OcPillarGridComponent,
     OcFinalCtaComponent,
   ],
@@ -31,10 +32,15 @@ import { PILLARS } from '../owner-centric/owner-centric.data';
 })
 export class OwnerRepresentationPageComponent {
   protected readonly PILLARS = PILLARS;
-  protected readonly primaryCta = { label: 'How We Work', href: '#oc-pillars', variant: 'primary' as const };
-  protected readonly ghostCta = { label: 'Start a Project', href: '#contact', variant: 'ghost' as const };
+
+  private readonly smoothScroll = inject(SmoothScrollService);
 
   constructor() {
     inject(SeoService).update({ title: 'Owner Representation', canonicalPath: '/approach/owner-representation' });
+  }
+
+  protected scrollTo(selector: string, event: Event): void {
+    event.preventDefault();
+    this.smoothScroll.scrollTo(selector, { offset: -60 });
   }
 }
