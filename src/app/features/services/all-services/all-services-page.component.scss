@@ -37,25 +37,6 @@
   padding-left: 10%;
 }
 
-.services-hero__crumbs {
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--grit-text-muted);
-  margin-bottom: 1.5rem;
-
-  a {
-    color: var(--grit-text-muted);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--grit-accent-violet);
-    }
-  }
-}
 
 .services-hero__title {
   font-family: var(--grit-font-display);
@@ -148,25 +129,6 @@
   flex: 1;
 }
 
-.service-card__icon {
-  position: absolute;
-  top: -26px;
-  right: 2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
-  background: #0d0d0f;
-  border: 1px solid rgba(121, 44, 213, 0.5);
-  color: var(--grit-accent-violet);
-
-  svg {
-    width: 26px;
-    height: 26px;
-  }
-}
 
 .service-card__title {
   font-size: 1.65rem;
@@ -317,52 +279,6 @@
 }
 
 /* ============ CTA BAND ============ */
-.services-cta {
-  position: relative;
-  background:
-    linear-gradient(135deg, rgba(121, 44, 213, 0.92) 0%, rgba(90, 28, 168, 0.94) 100%),
-    url('/assets/images/320-Grit-Banner-Image.webp') center / cover;
-  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
-  text-align: center;
-  overflow: hidden;
-}
-
-.services-cta__inner {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem;
-
-  .grit-eyebrow {
-    color: rgba(255, 255, 255, 0.85);
-  }
-}
-
-.services-cta__title {
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  font-weight: 700;
-  color: #ffffff;
-  margin: 1rem 0 1.25rem;
-  letter-spacing: -0.01em;
-}
-
-.services-cta__text {
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.7;
-  font-size: 1.05rem;
-  margin-bottom: 2.25rem;
-}
-
-/* White-outline Explore More on the violet CTA band. */
-.services-cta__btn {
-  border-color: #ffffff;
-  color: #ffffff;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.14);
-    border-color: #ffffff;
-  }
-}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {

@@ -2,8 +2,9 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
-import { APPROACH_CARDS, SERVICES_CTA, SERVICES_HERO, SERVICE_CARDS } from './all-services.data';
+import { APPROACH_CARDS, SERVICES_HERO, SERVICE_CARDS } from './all-services.data';
 
 /**
  * Route /services — the main services index page.
@@ -11,7 +12,7 @@ import { APPROACH_CARDS, SERVICES_CTA, SERVICES_HERO, SERVICE_CARDS } from './al
  */
 @Component({
   selector: 'app-all-services-page',
-  imports: [RouterLink, RevealDirective, SafeHtmlPipe],
+  imports: [RouterLink, RevealDirective, SafeHtmlPipe, CtaBandComponent],
   templateUrl: './all-services-page.component.html',
   styleUrl: './all-services-page.component.scss',
 })
@@ -19,7 +20,6 @@ export class AllServicesPageComponent {
   protected readonly hero = SERVICES_HERO;
   protected readonly cards = SERVICE_CARDS;
   protected readonly approach = APPROACH_CARDS;
-  protected readonly cta = SERVICES_CTA;
 
   protected readonly heroImage = '/assets/images/320-Grit-Banner-Image.webp';
 

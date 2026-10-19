@@ -4,11 +4,6 @@
 <section class="services-hero" [style.background-image]="'url(' + heroImage + ')'">
   <div class="services-hero__overlay" aria-hidden="true"></div>
   <div class="services-hero__inner">
-    <nav class="services-hero__crumbs" aria-label="Breadcrumb">
-      <a routerLink="/">Home</a>
-      <span aria-hidden="true">/</span>
-      <span aria-current="page">Services</span>
-    </nav>
     <p class="grit-eyebrow" appReveal>{{ hero.eyebrow }}</p>
     <h1 class="services-hero__title" appReveal>End-to-End Construction<br /><span>Expertise.</span></h1>
     <p class="services-hero__intro" appReveal>{{ hero.intro }}</p>
@@ -25,7 +20,6 @@
           <span class="service-card__media-shade" aria-hidden="true"></span>
         </a>
         <div class="service-card__body">
-          <span class="service-card__icon" [innerHTML]="card.icon | safeHtml" aria-hidden="true"></span>
           <h2 class="service-card__title">{{ card.title }}</h2>
           <p class="service-card__desc">{{ card.desc }}</p>
           <ul class="service-card__bullets">
@@ -70,14 +64,11 @@
 </section>
 
 <!-- CTA BAND -->
-<section class="services-cta" aria-label="Request a consultation">
-  <div class="services-cta__inner">
-    <p class="grit-eyebrow" appReveal>{{ cta.eyebrow }}</p>
-    <h2 class="services-cta__title" appReveal>{{ cta.title }}</h2>
-    <p class="services-cta__text" appReveal>{{ cta.text }}</p>
-    <a class="btn-explore services-cta__btn" [routerLink]="cta.buttonHref" appReveal>
-      <span>{{ cta.buttonText }}</span>
-      <span class="btn-explore-dash" aria-hidden="true">—</span>
-    </a>
-  </div>
-</section>
+<app-cta-band
+  sectionId="services-cta"
+  eyebrow="Let's build"
+  title="Have a project in mind?"
+  text="Let's talk about how 320 Grit can bring your vision to life — on time, on budget, and built to last."
+  ctaLabel="Start the Conversation"
+  ctaHref="/contact-us"
+/>
