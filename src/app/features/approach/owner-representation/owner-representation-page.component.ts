@@ -1,46 +1,91 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
 import { SeoService } from '../../../core/services/seo.service';
 import { SmoothScrollService } from '../../../core/services/smooth-scroll.service';
-import { OcRevealDirective } from '../shared/oc-reveal.directive';
-import { OcParallaxDirective } from '../shared/oc-parallax.directive';
-import { OcPillarGridComponent } from '../shared/oc-pillar-grid/oc-pillar-grid.component';
-import { OcFinalCtaComponent } from '../shared/oc-final-cta/oc-final-cta.component';
-import { PILLARS } from '../owner-centric/owner-centric.data';
+import { OrPillarGridComponent } from './components/or-pillar-grid/or-pillar-grid.component';
+import { OrProcessStepsComponent } from './components/or-process-steps/or-process-steps.component';
+import { OrHeroComponent } from './components/or-hero/or-hero.component';
+import { OrOrbitComponent } from './components/or-orbit/or-orbit.component';
+import { OrCompareComponent } from './components/or-compare/or-compare.component';
+import { OrInfoTabletComponent } from './components/or-info-tablet/or-info-tablet.component';
+import { OrFinalCtaComponent } from './components/or-final-cta/or-final-cta.component';
+import {
+  OR_CHIPS,
+  OR_ORBIT_NODES,
+  OR_PILLARS,
+  OR_PROCESS_STEPS,
+  OR_SIDENAV,
+} from './owner-representation.data';
 
-/**
- * Owner Representation page.
- *
- * NOTE: the WordPress mega-menu links to /approach/owner-representation but
- * NO template exists in the theme repo, so there is no source copy for this
- * page. This is a tasteful placeholder assembled from verbatim lines that do
- * exist in the spec (the California "Owner Representation" service card and
- * the owner-centric pillars, which describe how 320 Grit works with owners).
- * The site owner should supply real copy.
- */
+/** Construction Management / Owner Representation — composition of or- sections in template order. */
 @Component({
   selector: 'app-owner-representation-page',
   imports: [
-    OcRevealDirective,
-    OcParallaxDirective,
-    RouterLink,
-    OcPillarGridComponent,
-    OcFinalCtaComponent,
+    OrHeroComponent,
+    OrPillarGridComponent,
+    OrOrbitComponent,
+    OrProcessStepsComponent,
+    OrCompareComponent,
+    OrInfoTabletComponent,
+    OrFinalCtaComponent,
   ],
   templateUrl: './owner-representation-page.component.html',
   styleUrl: './owner-representation-page.component.scss',
 })
 export class OwnerRepresentationPageComponent {
-  protected readonly PILLARS = PILLARS;
+  protected readonly PILLARS = OR_PILLARS;
+  protected readonly ORBIT_NODES = OR_ORBIT_NODES;
+  protected readonly PROCESS_STEPS = OR_PROCESS_STEPS;
+  protected readonly CHIPS = OR_CHIPS;
+  protected readonly SIDENAV = OR_SIDENAV;
 
+  /** Sidenav scroll-spy highlight (mirrors the services pages). */
+  protected readonly activeSection = signal('hero');
+
+  private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly destroyRef = inject(DestroyRef);
   private readonly smoothScroll = inject(SmoothScrollService);
 
   constructor() {
-    inject(SeoService).update({ title: 'Owner Representation', canonicalPath: '/approach/owner-representation' });
+    inject(SeoService).update({
+      title: 'Construction Management & Owner Representation Services',
+      description:
+        '320 Grit provides owner’s representation and construction management services — independent advocacy protecting your budget, schedule, and quality from planning through closeout.',
+      canonicalPath: '/approach/owner-representation',
+    });
+
+    afterNextRender(() => {
+      const root = this.host.nativeElement;
+
+      // Sidenav scroll-spy: middle-of-viewport highlight.
+      // Only updates after the user scrolls — prevents wrong initial highlight on page load.
+      let hasScrolled = false;
+      const onScroll = () => {
+        hasScrolled = true;
+      };
+      document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+      this.destroyRef.onDestroy(() =>
+        document.removeEventListener('scroll', onScroll, { capture: true } as EventListenerOptions),
+      );
+
+      const spy = new IntersectionObserver(
+        (entries) => {
+          if (!hasScrolled) return;
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              this.activeSection.set(e.target.getAttribute('data-section') ?? 'hero');
+            }
+          }
+        },
+        { rootMargin: '-45% 0px -45% 0px' },
+      );
+      root.querySelectorAll('[data-section]').forEach((el: Element) => spy.observe(el));
+      this.destroyRef.onDestroy(() => spy.disconnect());
+    });
   }
 
-  protected scrollTo(selector: string, event: Event): void {
+  protected scrollToSection(section: string, event: Event): void {
     event.preventDefault();
-    this.smoothScroll.scrollTo(selector, { offset: -60 });
+    const el = this.host.nativeElement.querySelector(`[data-section="${section}"]`);
+    if (el) this.smoothScroll.scrollTo(el as HTMLElement);
   }
 }

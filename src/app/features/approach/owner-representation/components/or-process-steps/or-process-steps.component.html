@@ -1,0 +1,30 @@
+<section class="oc-section oc-process" id="oc-process" data-section="process">
+  <div class="oc-container">
+    <div class="oc-section-head" ocReveal="up">
+      <span class="grit-eyebrow">04 — How We Protect You</span>
+      <h2 class="oc-h2">How We Protect <span class="oc-accent">Your Interests</span></h2>
+      <p class="oc-body">
+        From first feasibility sketch to final lien release, our construction management
+        process keeps your project under professional control at every phase.
+      </p>
+    </div>
+    <div class="oc-process-track">
+      @for (s of steps(); track s.num; let i = $index; let last = $last) {
+        <div class="oc-process-step" ocReveal="up" [ocDelay]="i * 90">
+          <div class="oc-step-num">{{ s.num }}</div>
+          <div class="oc-step-icon" [innerHTML]="icon(s.icon) | safeHtml" aria-hidden="true"></div>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+          <ul class="oc-step-list">
+            @for (pt of s.points; track pt) {
+              <li>{{ pt }}</li>
+            }
+          </ul>
+          @if (!last) {
+            <span class="oc-step-connector" aria-hidden="true"></span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

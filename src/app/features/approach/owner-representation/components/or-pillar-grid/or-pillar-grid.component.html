@@ -1,0 +1,24 @@
+<section class="oc-section oc-pillars" id="oc-pillars" data-section="pillars">
+  <div class="oc-container">
+    <div class="oc-section-head" ocReveal="up">
+      <span class="grit-eyebrow">02 — What It Means</span>
+      <h2 class="oc-h2">What Owner’s Representation <span class="oc-accent">Really Means</span></h2>
+      <p class="oc-body">
+        An owner’s representative is your fiduciary in the construction process—a seasoned
+        construction management professional who sits on your side of the table through
+        planning, procurement, construction, and closeout.
+      </p>
+    </div>
+    <div class="oc-pillar-grid">
+      @for (p of pillars(); track p.num; let i = $index) {
+        <article class="oc-pillar-card" ocReveal="up" [ocDelay]="i * 80">
+          <span class="oc-pillar-glow" aria-hidden="true"></span>
+          <div class="oc-pillar-num">{{ p.num }}</div>
+          <div class="oc-pillar-icon" [innerHTML]="icon(p.icon) | safeHtml" aria-hidden="true"></div>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,1 +1,89 @@
 @use '../shared/oc-base' as *;
+
+/* Sticky section nav — same pattern as the services pages. */
+.grit-sidenav {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+
+  @media (max-width: 1026px) {
+    display: none;
+  }
+}
+
+.grit-sidenav__line {
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--grit-border-subtle);
+}
+
+.grit-sidenav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.grit-sidenav__item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding-left: 40px;
+  position: relative;
+}
+
+.grit-sidenav__item a::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--grit-border-subtle);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grit-sidenav__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #52525b;
+  transition: color 0.3s ease;
+}
+
+.grit-sidenav__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8a8a93;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.grit-sidenav__item:hover .grit-sidenav__label,
+.grit-sidenav__item.active .grit-sidenav__label {
+  opacity: 1;
+  transform: none;
+}
+
+.grit-sidenav__item.active .grit-sidenav__num {
+  color: var(--grit-accent-orange);
+}
+
+.grit-sidenav__item.active a::before {
+  background: var(--grit-accent-orange);
+  box-shadow: 0 0 12px rgba(255, 93, 14, 0.8);
+}
+
+.grit-sidenav__item.active .grit-sidenav__label {
+  color: #fff;
+}

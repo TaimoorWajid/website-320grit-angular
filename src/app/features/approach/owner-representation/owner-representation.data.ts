@@ -1,0 +1,163 @@
+import { OcChip, OcOrbitNode, OcPillar, OcProcessStep } from '../shared/oc.types';
+
+/* Construction Management / Owner Representation — expert SEO copy.
+ * 320 Grit acts as the owner's fiduciary advocate across the entire
+ * project lifecycle: planning, procurement, construction, and closeout. */
+
+export const OR_PILLARS: OcPillar[] = [
+  {
+    num: '01',
+    icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>',
+    title: 'Fiduciary Loyalty',
+    text: 'We answer only to you. Every recommendation we make is measured against a single standard: what serves the owner’s interest best.',
+  },
+  {
+    num: '02',
+    icon: '<path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>',
+    title: 'Cost Command',
+    text: 'From conceptual budgets to final change-order negotiation, we keep every dollar accountable—so the price you approve is the price you pay.',
+  },
+  {
+    num: '03',
+    icon: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    title: 'Schedule Certainty',
+    text: 'We build the master schedule, drive the critical path, and hold every party to their commitments—so milestones are met, not moved.',
+  },
+  {
+    num: '04',
+    icon: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>',
+    title: 'Quality Without Compromise',
+    text: 'Independent inspections, submittal review, and punch-list rigor ensure the building you receive matches the building you were promised.',
+  },
+  {
+    num: '05',
+    icon: '<path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/>',
+    title: 'Risk Foresight',
+    text: 'We surface problems while they are still inexpensive to solve—permits, soils, labor, materials, contracts—before they become claims.',
+  },
+];
+
+export const OR_ORBIT_NODES: OcOrbitNode[] = [
+  {
+    label: 'Owner',
+    icon: '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/>',
+    name: 'Owner',
+    role: 'Vision → Investment → Decisions',
+  },
+  {
+    label: 'Architect',
+    icon: '<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/>',
+    name: 'Architect',
+    role: 'Design Intent → We Verify → You Approve',
+  },
+  {
+    label: 'Contractor',
+    icon: '<path d="M2 20h20M5 20V10l7-5 7 5v10"/>',
+    name: 'General Contractor',
+    role: 'Pricing → Performance → We Enforce',
+  },
+  {
+    label: 'Engineers',
+    icon: '<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>',
+    name: 'Engineers',
+    role: 'Systems → Calculations → We Coordinate',
+  },
+  {
+    label: 'Consultants',
+    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
+    name: 'Consultants',
+    role: 'Specialty Input → We Integrate',
+  },
+  {
+    label: 'Trades',
+    icon: '<path d="M14.7 6.3a4.5 4.5 0 00-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 006-6L14 13l-3-3 3.7-3.7z"/>',
+    name: 'Trade Partners',
+    role: 'Execution → We Inspect → You Accept',
+  },
+  {
+    label: 'Lenders',
+    icon: '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>',
+    name: 'Lenders & Stakeholders',
+    role: 'Capital → Reporting → Confidence',
+  },
+];
+
+export const OR_PROCESS_STEPS: OcProcessStep[] = [
+  {
+    num: '01',
+    icon: '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>',
+    title: 'Engage & Assess',
+    text: 'We learn your objectives, constraints, and definition of success—then map every risk standing between you and it.',
+    points: ['Goals & priorities', 'Budget reality-check', 'Site & entitlement review', 'Risk register'],
+  },
+  {
+    num: '02',
+    icon: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>',
+    title: 'Plan & Budget',
+    text: 'We turn vision into a buildable plan: real budgets, real schedules, and procurement strategies set before design locks.',
+    points: ['Conceptual estimating', 'Master scheduling', 'Delivery-method strategy', 'Cash-flow forecasting'],
+  },
+  {
+    num: '03',
+    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
+    title: 'Procure & Contract',
+    text: 'We run competitive, transparent procurement—qualifying bidders, leveling proposals, and negotiating contracts that protect you.',
+    points: ['Bid packaging', 'Contractor qualification', 'Bid leveling', 'Contract negotiation'],
+  },
+  {
+    num: '04',
+    icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    title: 'Manage & Control',
+    text: 'During construction we are your eyes on site: cost control, schedule enforcement, quality inspections, and change-order discipline.',
+    points: ['Cost & draw management', 'Schedule enforcement', 'QA inspections', 'Change-order control', 'Safety oversight'],
+  },
+  {
+    num: '05',
+    icon: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>',
+    title: 'Closeout & Handover',
+    text: 'We drive punch-list to zero, commission every system, assemble your closeout documents, and stand beside you at final acceptance.',
+    points: ['Punch-list completion', 'Systems commissioning', 'Warranties & O&M manuals', 'Final accounting'],
+  },
+];
+
+export const OR_CHIPS: OcChip[] = [
+  { label: 'Budget', top: '8%', left: '-8%' },
+  { label: 'Schedule', top: '8%', right: '-8%' },
+  { label: 'Quality', bottom: '28%', left: '-12%' },
+  { label: 'Risk', bottom: '28%', right: '-12%' },
+  { label: 'Contracts', bottom: '5%', left: '18%' },
+  { label: 'Compliance', bottom: '5%', right: '18%' },
+];
+
+export const OR_SHOULDNT: string[] = [
+  'Navigate permits alone',
+  'Accept the first bid',
+  'Learn about overruns late',
+  'Argue change orders yourself',
+  'Wonder what is happening on site',
+];
+
+export const OR_SHOULD: string[] = [
+  'An expert in your corner',
+  'Competitive, vetted pricing',
+  'Real-time cost visibility',
+  'Negotiated like a professional',
+  'Total project transparency',
+];
+
+/** Sticky section nav — mirrors the services pages' grit-sidenav pattern. */
+export interface OrSidenavItem {
+  section: string;
+  num: string;
+  label: string;
+}
+
+export const OR_SIDENAV: OrSidenavItem[] = [
+  { section: 'hero', num: '01', label: 'Overview' },
+  { section: 'pillars', num: '02', label: 'What It Means' },
+  { section: 'orbit', num: '03', label: 'Your Advocate' },
+  { section: 'process', num: '04', label: 'How We Protect You' },
+  { section: 'compare', num: '05', label: 'The Difference' },
+  { section: 'info', num: '06', label: 'Why It Matters' },
+  { section: 'cta', num: '07', label: 'Get Started' },
+];

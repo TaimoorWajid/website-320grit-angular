@@ -1,0 +1,54 @@
+<section class="oc-section oc-orbit-sec" id="oc-orbit" data-section="orbit">
+  <div class="oc-container oc-orbit-layout">
+    <div class="oc-orbit-copy" ocReveal="left">
+      <span class="grit-eyebrow">03 — Your Advocate</span>
+      <h2 class="oc-h2">One Advocate.<br /><span class="oc-accent">Total Oversight.</span></h2>
+      <p class="oc-body">
+        Construction involves dozens of parties with competing interests. As your owner’s
+        representative, 320 Grit sits at the center—coordinating every voice, verifying
+        every claim, and keeping the entire project accountable to you.
+      </p>
+    </div>
+
+    <div class="oc-orbit-stage" ocReveal="scale" role="img" aria-label="320 Grit at the center as owner's representative: owner, architect, general contractor, engineers, consultants, trade partners, lenders and stakeholders">
+      <svg class="oc-orbit-spokes" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="148" fill="none" stroke="rgba(121,44,213,0.12)" stroke-width="1.5" stroke-dasharray="4 6" />
+        @for (n of nodes(); track n.label; let i = $index) {
+          <line
+            x1="200" y1="200"
+            [attr.x2]="spoke(i).x2" [attr.y2]="spoke(i).y2"
+            stroke="rgba(121,44,213,0.35)" stroke-width="1.5" stroke-dasharray="3 5"
+          />
+        }
+      </svg>
+      <div class="oc-orbit-core" aria-hidden="true">
+        <span>320</span>
+        <span class="oc-core-accent">GRIT</span>
+      </div>
+      @for (n of nodes(); track n.label; let i = $index) {
+        <div
+          class="oc-orbit-node"
+          [style.top]="nodePos(i)[0] + '%'"
+          [style.left]="nodePos(i)[1] + '%'"
+          [title]="n.name + ' — ' + n.role"
+        >
+          <span class="oc-node-circle" [innerHTML]="icon(n.icon) | safeHtml"></span>
+          <span class="oc-node-label">{{ n.label }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="oc-orbit-legend" ocReveal="right">
+      @for (n of nodes(); track n.label) {
+        <div class="oc-legend-row">
+          <span class="oc-legend-name">{{ n.name }}</span>
+          <span class="oc-legend-role">{{ n.role }}</span>
+        </div>
+      }
+      <div class="oc-legend-row oc-legend-self">
+        <span class="oc-legend-name">320 GRIT</span>
+        <span class="oc-legend-role">Advocacy → Oversight → Accountability</span>
+      </div>
+    </div>
+  </div>
+</section>

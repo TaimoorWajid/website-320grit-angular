@@ -1,40 +1,27 @@
 <div class="oc-page">
-  <section class="oc-hero" id="oc-hero" ocParallax>
-    <div class="oc-hero-bg" data-speed="0.35" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=85"
-        alt=""
-        width="1920"
-        height="1080"
-        fetchpriority="high"
-      />
-    </div>
-    <div class="oc-hero-overlay" aria-hidden="true"></div>
-    <div class="oc-hero-glow" aria-hidden="true"></div>
-    <div class="oc-container oc-hero-inner">
-      <div class="oc-hero-content" ocReveal="up">
-        <span class="grit-eyebrow">What We Do</span>
-        <h1 class="oc-display">
-          <span class="oc-line">Owner</span>
-          <span class="oc-line oc-accent">Representation.</span>
-        </h1>
-        <p class="oc-lead">Independent representation focused on the owner’s objectives.</p>
-        <div class="oc-hero-cta">
-          <a href="#oc-pillars" class="btn-explore" (click)="scrollTo('#oc-pillars', $event)">
-            <span>How We Work</span><span class="btn-explore-dash" aria-hidden="true">—</span>
-          </a>
-          <a routerLink="/contact-us" class="btn-explore">
-            <span>Start a Project</span><span class="btn-explore-dash" aria-hidden="true">—</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="oc-scroll-hint" ocReveal="fade" aria-hidden="true">
-      <span>Scroll</span>
-      <span class="oc-scroll-line"></span>
-    </div>
-  </section>
+  <app-or-hero />
+  <app-or-pillar-grid [pillars]="PILLARS" />
+  <app-or-orbit [nodes]="ORBIT_NODES" />
+  <app-or-process-steps [steps]="PROCESS_STEPS" />
+  <app-or-compare />
+  <app-or-info-tablet [chips]="CHIPS" />
+  <app-or-final-cta />
 
-  <app-oc-pillar-grid [pillars]="PILLARS" />
-  <app-oc-final-cta />
+  <nav class="grit-sidenav" aria-label="Page sections">
+    <div class="grit-sidenav__line"></div>
+    <ul class="grit-sidenav__list">
+      @for (item of SIDENAV; track item.section) {
+        <li
+          class="grit-sidenav__item"
+          [class.active]="activeSection() === item.section"
+          [attr.data-section]="item.section"
+        >
+          <a href="#{{ item.section }}" (click)="scrollToSection(item.section, $event)">
+            <span class="grit-sidenav__num">{{ item.num }}</span>
+            <span class="grit-sidenav__label">{{ item.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
 </div>
