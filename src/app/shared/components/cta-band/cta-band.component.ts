@@ -24,8 +24,8 @@ export class CtaBandComponent {
   readonly ctaLabel = input.required<string>();
   /** '/contact-us' → routerLink · '#id' → smooth scroll. */
   readonly ctaHref = input('/contact-us');
-  /** 'violet' (default) or 'mesh' (design-build dark style with gradient mesh + orange button). */
-  readonly variant = input<'violet' | 'mesh'>('violet');
+  /** 'mesh' (design-build dark style) is the site standard; 'violet' keeps the old gradient. */
+  readonly variant = input<'violet' | 'mesh'>('mesh');
 
   /** Floating particles for the mesh variant (design-build style). */
   protected readonly particles = Array.from({ length: 24 }, (_, i) => ({
