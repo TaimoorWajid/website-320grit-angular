@@ -18,7 +18,7 @@
     @if (eyebrow()) {
       <p class="cta-band__eyebrow">{{ eyebrow() }}</p>
     }
-    <h2 class="cta-band__title">{{ title() }}</h2>
+    <h2 class="cta-band__title" [innerHTML]="title()"></h2>
     @if (text()) {
       <p class="cta-band__text">{{ text() }}</p>
     }
