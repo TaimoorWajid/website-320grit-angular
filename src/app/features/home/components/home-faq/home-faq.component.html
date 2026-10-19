@@ -4,7 +4,10 @@
       <p class="section-eyebrow">Common Questions</p>
       <h2 class="section-headline" id="faq-heading">Everything You Need to Know</h2>
       <p class="section-body">Answers to the most frequently asked questions about our services and engagement process.</p>
-      <a href="#contact-form" class="btn-secondary" (click)="goToContact($event)">Still have questions? Contact us.</a>
+      <a href="#contact-form" class="btn-explore" (click)="goToContact($event)">
+        <span>Still have questions? Contact us.</span>
+        <span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
     </div>
     <div class="faq-accordion">
       @for (faq of faqs; track faq.q; let i = $index) {
