@@ -47,7 +47,7 @@ export const DESIGN_BUILD_DATA: ServicePageData = {
     ],
   },
   servicesGrid: {
-    eyebrow: 'What We Do',
+    eyebrow: '04 \u2014 WHAT WE DO',
     titleHtml: 'Our Design-Build Services',
     cards: [
     { image: '/assets/images/commercial-construction.webp', imageAlt: 'Ground-up design-build', title: 'Ground-Up Design-Build', text: 'Complete design and construction of new facilities under one roof.' },
@@ -59,7 +59,7 @@ export const DESIGN_BUILD_DATA: ServicePageData = {
     ],
   },
   process: {
-    eyebrow: 'How We Work',
+    eyebrow: '05 \u2014 HOW WE WORK',
     titleHtml: 'Our Design-Build Process',
     steps: [
     { num: '01', title: 'Define & Align', text: 'We lock in your goals, budget, and success criteria before a single line is drawn.' },
@@ -72,7 +72,7 @@ export const DESIGN_BUILD_DATA: ServicePageData = {
   whyChoose: {
     sectionId: 'why-choose',
     dataSection: 'why-choose',
-    eyebrow: 'Our Difference',
+    eyebrow: '06 \u2014 OUR DIFFERENCE',
     titleHtml: 'Why Choose<br>320 Grit?',
     body: 'We run design-build the way it was meant to run — designers and builders pulling in the same direction, with the owner\u2019s interests driving every decision.',
     cards: [
@@ -90,7 +90,7 @@ export const DESIGN_BUILD_DATA: ServicePageData = {
     buttonHref: '/contact-us',
   },
   faq: {
-    eyebrow: 'Common Questions',
+    eyebrow: '07 \u2014 COMMON QUESTIONS',
     titleHtml: 'Design-Build <span>FAQs</span>',
     body: 'Everything owners ask us before choosing design-build delivery.',
     linkText: 'Still have questions? Contact us.',
