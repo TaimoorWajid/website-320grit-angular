@@ -2,7 +2,6 @@
    ca- design system base (california page).
    Transcribed from assets/css/our-locations/california.css
    (read-only). @use'd by each locations-feature component.
-   Includes the hc-hero subset (hero uses hc-/rr- classes per spec §5.1).
    Font: Inter (inherited from Salient theme body).
    ============================================================ */
 
@@ -25,7 +24,9 @@ $hc-purple-soft: rgba(121, 44, 213, 0.12);
 $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
 .ca-page {
-  font-family: $ca-font;
+  /* Inherit the site font (Instrument Sans) — the old Inter override
+     clashed with the rest of the site. */
+  font-family: inherit;
   background: $ca-black;
   color: $ca-text;
   overflow: clip;
@@ -69,7 +70,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   letter-spacing: -0.025em;
 }
 
-.ca-accent { color: $ca-orange; }
+.ca-accent { color: $hc-purple; }
 
 .ca-lead {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
@@ -109,13 +110,13 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   cursor: pointer;
 }
 .ca-btn-primary {
-  background: $ca-orange;
+  background: $hc-purple;
   color: #fff;
 }
 .ca-btn-primary:hover {
-  background: #e54f00;
+  background: $hc-purple-hover;
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px $ca-orange-glow;
+  box-shadow: 0 16px 40px $hc-purple-glow;
 }
 .ca-btn-ghost {
   background: transparent;
@@ -123,8 +124,8 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .ca-btn-ghost:hover {
-  border-color: $ca-orange;
-  color: $ca-orange;
+  border-color: $hc-purple;
+  color: $hc-purple;
 }
 .ca-btn-ghost-purple {
   background: transparent;
@@ -142,7 +143,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   gap: 0.35rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: $ca-orange;
+  color: $hc-purple;
   text-decoration: none;
   margin-top: 0.75rem;
 }
@@ -167,115 +168,6 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     transform: none !important;
     transition: none !important;
   }
-}
-
-/* ---------- HERO (hc-based, fixed bg) ---------- */
-.ca-page .hc-hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: transparent;
-}
-.ca-page .hc-hero-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-.ca-page .hc-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.45) contrast(1.05);
-}
-.ca-page .hc-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.5) 55%, rgba(5, 5, 5, 0.3) 100%);
-  z-index: 0;
-}
-.ca-page .hc-hero-inner {
-  position: relative;
-  z-index: 1;
-  padding-block: 140px 100px;
-}
-.ca-page .hc-hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-.ca-page .hc-hero-label .hc-line {
-  width: 32px;
-  height: 2px;
-  background: $hc-purple;
-}
-.ca-page .hc-label {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $hc-purple;
-}
-.ca-page .hc-hero h1 {
-  font-size: clamp(2.75rem, 6vw, 4.75rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  color: #fff;
-}
-.ca-page .hc-hero h1 .hc-purple { color: $hc-purple; }
-.ca-page .hc-hero-sub {
-  font-size: 1.125rem;
-  color: #fff;
-  max-width: 480px;
-  margin-bottom: 2.25rem;
-  line-height: 1.7;
-}
-.ca-page .hc-hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2.25rem;
-  align-items: center;
-}
-.ca-page .hc-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 0.9rem 1.75rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: all 0.45s $ca-ease;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-.ca-page .hc-btn-primary {
-  background: $hc-purple;
-  color: #fff;
-}
-.ca-page .hc-btn-primary:hover {
-  background: $hc-purple-hover;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px $hc-purple-glow;
-}
-.ca-page .hc-btn-outline {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.25);
-}
-.ca-page .hc-btn-outline:hover {
-  border-color: $hc-purple;
-  color: $hc-purple;
-  background: $hc-purple-soft;
 }
 
 /* ---------- MOVES ---------- */
@@ -307,7 +199,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 40%, rgba(255, 92, 0, 0.25) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 30% 40%, rgba(121, 44, 213, 0.22) 0%, transparent 65%);
 }
 .ca-moves-content {
   position: relative;
@@ -334,13 +226,13 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   transition: all 0.4s $ca-ease;
 }
 .ca-approach-step:hover {
-  border-color: rgba(255, 92, 0, 0.3);
+  border-color: rgba(121, 44, 213, 0.3);
   transform: translateY(-4px);
 }
 .ca-step-num {
   font-size: 0.7rem;
   font-weight: 700;
-  color: $ca-orange;
+  color: $hc-purple;
   letter-spacing: 0.1em;
   margin-bottom: 0.75rem;
 }
@@ -348,11 +240,11 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: $ca-orange-dim;
+  background: $hc-purple-soft;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $ca-orange;
+  color: $hc-purple;
   margin-bottom: 0.85rem;
 }
 .ca-step-icon svg { width: 20px; height: 20px; }
@@ -542,7 +434,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .ca-radar-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(255, 92, 0, 0.12);
+  border: 1px solid rgba(121, 44, 213, 0.18);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -559,7 +451,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 24px rgba(255, 92, 0, 0.2));
+  filter: drop-shadow(0 0 24px rgba(121, 44, 213, 0.25));
 }
 .ca-hq-badge {
   display: inline-flex;
@@ -568,12 +460,12 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   margin-top: 1.75rem;
   padding: 1.15rem 1.5rem;
   background: $ca-card;
-  border: 1px solid rgba(255, 92, 0, 0.3);
+  border: 1px solid rgba(121, 44, 213, 0.35);
   border-radius: 10px;
 }
 .ca-hq-badge strong { font-size: 1.1rem; color: #fff; }
 .ca-hq-badge span { font-size: 0.85rem; color: $ca-muted; }
-.ca-hq-loc { color: $ca-orange !important; font-weight: 600; }
+.ca-hq-loc { color: $hc-purple !important; font-weight: 600; }
 
 /* ---------- HOME + WORKS ---------- */
 .ca-home { background: $ca-dark; }
@@ -597,7 +489,7 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 .ca-hq-pin { font-size: 1.5rem; }
 .ca-hq-card strong { display: block; font-size: 0.95rem; color: #fff; }
-.ca-hq-card span { font-size: 0.82rem; color: $ca-orange; }
+.ca-hq-card span { font-size: 0.82rem; color: $hc-purple; }
 .ca-works-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -614,11 +506,11 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   padding: 1.35rem 1.2rem;
   transition: border-color 0.3s;
 }
-.ca-works-item:hover { border-color: rgba(255, 92, 0, 0.3); }
+.ca-works-item:hover { border-color: rgba(121, 44, 213, 0.3); }
 .ca-works-num {
   font-size: 0.7rem;
   font-weight: 700;
-  color: $ca-orange;
+  color: $hc-purple;
   letter-spacing: 0.08em;
 }
 .ca-works-item h3 {
@@ -725,11 +617,11 @@ $ca-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: $ca-orange-dim;
+  background: $hc-purple-soft;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $ca-orange;
+  color: $hc-purple;
   flex-shrink: 0;
 }
 .ca-beyond-icon svg { width: 22px; height: 22px; }

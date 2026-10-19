@@ -1,28 +1,19 @@
-import { Component, inject, signal } from '@angular/core';
-import { RevealDirective } from '../../../../shared/directives/reveal.directive';
-import { SmoothScrollService } from '../../../../core/services/smooth-scroll.service';
-
-interface Faq {
-  q: string;
-  a: string;
-}
+import { Component } from '@angular/core';
+import { FaqComponent, FaqItem } from '../../../../shared/components/faq/faq.component';
 
 /**
  * Homepage FAQ section (Section 8 / "SECTION 13: FAQ").
  * Copy is verbatim from template-parts/home/home-page-faqs.php.
- * The "Contact us" link targets #contact-form (the staging #contact
- * anchor does not exist) via the app's SmoothScrollService.
+ * Rendering is delegated to the shared <app-faq> so every page's
+ * FAQ stays 100% visually identical.
  */
 @Component({
   selector: 'app-home-faq',
-  templateUrl: './home-faq.component.html',
-  styleUrl: './home-faq.component.scss',
-  imports: [RevealDirective],
+  imports: [FaqComponent],
+  template: `<app-faq [faqs]="faqs" />`,
 })
 export class HomeFaqComponent {
-  private readonly smoothScroll = inject(SmoothScrollService);
-
-  readonly faqs: Faq[] = [
+  readonly faqs: FaqItem[] = [
     {
       q: 'What construction services does 320 Grit provide?',
       a: '320 Grit provides Bid-Build, Design-Build, Expert Witness, and Forensic Accounting services. Our approach is centered on helping owners and project teams make informed decisions, manage risk, control costs, and successfully deliver complex construction projects.',
@@ -52,16 +43,4 @@ export class HomeFaqComponent {
       a: 'The first step is to contact 320 Grit and discuss your project, goals, challenges, and requirements. Our team can then determine how our construction services and expertise can best support your project from planning through delivery.',
     },
   ];
-
-  /** Single-open accordion; all closed by default (matches staging). -1 = all closed. */
-  readonly openIndex = signal(-1);
-
-  toggle(index: number): void {
-    this.openIndex.set(this.openIndex() === index ? -1 : index);
-  }
-
-  goToContact(event: Event): void {
-    event.preventDefault();
-    this.smoothScroll.scrollTo('#contact-form');
-  }
 }

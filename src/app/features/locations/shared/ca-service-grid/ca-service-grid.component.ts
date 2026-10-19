@@ -14,7 +14,7 @@ import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 export class CaServiceGridComponent {
   readonly services = input.required<CaIconCard[]>();
 
-  protected readonly viewAll = { label: 'View All Services', href: '#contact', variant: 'ghost-purple' as const };
+  protected readonly viewAll = { label: 'View All Services', href: '/services', variant: 'ghost-purple' as const };
 
   protected icon(paths: string): string {
     return caIcon(paths, 24, 1.6);

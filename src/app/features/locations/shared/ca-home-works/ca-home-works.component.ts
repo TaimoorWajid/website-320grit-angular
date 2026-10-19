@@ -11,5 +11,9 @@ import { CaRevealDirective } from '../ca-reveal.directive';
 })
 export class CaHomeWorksComponent {
   readonly items = input.required<{ num: string; title: string; text: string }[]>();
-  protected readonly directions = { label: 'View Directions', href: '#contact', variant: 'ghost' as const };
+  protected readonly directions = {
+    label: 'View Directions',
+    href: 'https://www.google.com/maps/search/?api=1&query=100+Spectrum+Center+Drive+Suite+900+Irvine+CA+92618',
+    variant: 'ghost' as const,
+  };
 }

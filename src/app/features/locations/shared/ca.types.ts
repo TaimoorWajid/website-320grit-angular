@@ -2,7 +2,7 @@
 
 export interface CaCta {
   label: string;
-  /** '#ca-*' → smooth scroll w/ -50px offset · '#contact' → /contact-us · '/path/' → route */
+  /** '#ca-*' → smooth scroll w/ -50px offset · '#contact' → /contact-us · '/path/' → route · 'https://…' → new tab */
   href: string;
   variant?: 'primary' | 'ghost' | 'ghost-purple' | 'hc-primary' | 'hc-outline';
   large?: boolean;

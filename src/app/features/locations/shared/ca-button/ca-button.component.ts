@@ -36,6 +36,11 @@ export class CaButtonComponent {
     return this.link().href.startsWith('#ca-');
   }
 
+  protected get isExternal(): boolean {
+    const h = this.link().href;
+    return h.startsWith('http://') || h.startsWith('https://');
+  }
+
   protected scrollTo(event: Event): void {
     event.preventDefault();
     this.smoothScroll.scrollTo(this.link().href, { offset: -50 });

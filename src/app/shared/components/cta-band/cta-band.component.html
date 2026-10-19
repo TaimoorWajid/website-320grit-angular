@@ -1,0 +1,20 @@
+<section class="cta-band" [attr.id]="sectionId()">
+  <div class="cta-band__inner" appReveal>
+    @if (eyebrow()) {
+      <p class="cta-band__eyebrow">{{ eyebrow() }}</p>
+    }
+    <h2 class="cta-band__title">{{ title() }}</h2>
+    @if (text()) {
+      <p class="cta-band__text">{{ text() }}</p>
+    }
+    @if (isRoute()) {
+      <a class="btn-explore cta-band__btn" [routerLink]="ctaHref()">
+        <span>{{ ctaLabel() }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+    } @else {
+      <a class="btn-explore cta-band__btn" [href]="ctaHref()" (click)="onAnchorClick($event)">
+        <span>{{ ctaLabel() }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+    }
+  </div>
+</section>

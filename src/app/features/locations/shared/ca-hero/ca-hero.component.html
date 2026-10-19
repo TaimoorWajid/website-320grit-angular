@@ -1,29 +1,20 @@
-<section class="hc-hero rr-hero" id="at-hero" #hero>
-  <div class="hc-hero-bg" #heroBg aria-hidden="true">
-    <img
-      src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=85"
-      alt=""
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-    />
-  </div>
-  <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
-  <div class="hc-container">
-    <div class="hc-hero-inner" caReveal="up">
-      <p class="hc-hero-label">
-        <span class="hc-line" aria-hidden="true"></span>
-        <span class="hc-label">Where We Work</span>
-      </p>
-      <h1>California<br /><span class="hc-purple">Built with Purpose.</span></h1>
-      <p class="hc-hero-sub">
-        From complex commercial environments to specialized facilities, 320 Grit brings construction management,
-        owner representation and development expertise to projects across California.
-      </p>
-      <div class="hc-hero-cta">
-        <app-ca-button [link]="talkCta" />
-        <app-ca-button [link]="servicesCta" />
-      </div>
+<section class="ca-hero" id="ca-hero">
+  <div class="ca-hero__bg" aria-hidden="true"></div>
+  <div class="ca-hero__overlay" aria-hidden="true"></div>
+  <div class="ca-container ca-hero__inner">
+    <p class="ca-hero__eyebrow" caReveal="up">Where We Work</p>
+    <h1 class="ca-hero__title" caReveal="up">California,<br />Built <span class="ca-hero__accent">with Purpose.</span></h1>
+    <p class="ca-hero__sub" caReveal="up">
+      From San Diego to Sacramento, 320 Grit brings owner-first construction consulting, project management,
+      and development expertise to California&rsquo;s most demanding builds.
+    </p>
+    <div class="ca-hero__ctas" caReveal="up">
+      <a class="btn-explore ca-hero__cta" href="#ca-cta" (click)="scrollToCta($event)">
+        <span>Talk to Our California Team</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+      <a class="btn-explore ca-hero__cta" routerLink="/services">
+        <span>Explore Our Services</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
     </div>
   </div>
 </section>

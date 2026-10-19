@@ -2,6 +2,8 @@
   <a routerLink="/contact-us" [class]="classes"><span>{{ link().label }}</span><span [innerHTML]="arrow"></span></a>
 } @else if (isPageAnchor) {
   <a [href]="link().href" [class]="classes" (click)="scrollTo($event)"><span>{{ link().label }}</span><span [innerHTML]="arrow"></span></a>
+} @else if (isExternal) {
+  <a [href]="link().href" [class]="classes" target="_blank" rel="noopener"><span>{{ link().label }}</span><span [innerHTML]="arrow"></span></a>
 } @else {
   <a [routerLink]="link().href" [class]="classes"><span>{{ link().label }}</span><span [innerHTML]="arrow"></span></a>
 }

@@ -1,0 +1,35 @@
+<section class="faq-section" [attr.id]="sectionId()" aria-labelledby="faq-heading">
+  <div class="faq-layout">
+    <div class="faq-header" [appReveal]="{ y: 40 }">
+      <p class="section-eyebrow">{{ eyebrow() }}</p>
+      <h2 class="section-headline" id="faq-heading">{{ headline() }}</h2>
+      <p class="section-body">{{ body() }}</p>
+      <a [href]="ctaHref()" class="btn-explore" (click)="goToCta($event)">
+        <span>{{ ctaLabel() }}</span>
+        <span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+    </div>
+    <div class="faq-accordion">
+      @for (faq of faqs(); track faq.q; let i = $index) {
+        <div
+          class="faq-item"
+          [class.active]="openIndex() === i"
+          [appReveal]="{ y: 30, duration: 0.8, delay: i * 0.05 }"
+        >
+          <button
+            class="faq-question"
+            type="button"
+            [attr.aria-expanded]="openIndex() === i"
+            (click)="toggle(i)"
+          >
+            {{ faq.q }}
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>{{ faq.a }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

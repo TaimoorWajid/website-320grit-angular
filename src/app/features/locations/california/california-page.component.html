@@ -7,6 +7,21 @@
   <app-ca-home-works [items]="WORKS" />
   <app-ca-why-grid [items]="WHY" />
   <app-ca-beyond-strip [items]="BEYOND" />
-  <app-ca-faq-accordion [faqs]="FAQS" />
-  <app-ca-final-cta />
+  <app-faq
+    sectionId="ca-faq"
+    eyebrow="California FAQ"
+    headline="Everything You Need to Know"
+    body="Answers to the most frequently asked questions about 320 Grit's services, markets, and coverage across California."
+    ctaLabel="Talk to Our California Team"
+    ctaHref="#ca-cta"
+    [faqs]="FAQS"
+  />
+  <app-cta-band
+    sectionId="ca-cta"
+    eyebrow="Let's build"
+    title="Build What's Next in California."
+    text="Have a project taking shape in California? Let's talk about what it will take to deliver it well — on time, on budget, and built to last."
+    ctaLabel="Start the Conversation"
+    ctaHref="/contact-us"
+  />
 </div>

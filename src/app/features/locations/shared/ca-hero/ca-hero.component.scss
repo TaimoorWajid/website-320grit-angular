@@ -1,1 +1,77 @@
-@use '../ca-base' as *;
+/* California hero — premium full-viewport hero (mirrors the /locations index page). */
+
+.ca-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #050505;
+}
+
+.ca-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/320-Grit-Banner-Image.webp') center / cover no-repeat;
+}
+
+.ca-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+.ca-hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 9rem;
+  padding-bottom: 6rem;
+}
+
+.ca-hero__eyebrow {
+  color: #ff5c00;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+}
+
+.ca-hero__title {
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.75rem;
+  font-weight: 700;
+}
+
+.ca-hero__accent {
+  color: #792cd5;
+}
+
+.ca-hero__sub {
+  color: #d4d4d8;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.7;
+  max-width: 38rem;
+  margin: 0 0 2.5rem;
+}
+
+.ca-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .ca-hero {
+    min-height: 85vh;
+  }
+}

@@ -1,0 +1,54 @@
+/* Shared violet CTA band — mirrors the /locations + /industries index pages. */
+
+.cta-band {
+  background: linear-gradient(135deg, var(--grit-accent-violet) 0%, #5a1fa8 100%);
+  padding: clamp(4rem, 7vw, 6rem) 0;
+}
+
+.cta-band__inner {
+  max-width: var(--grit-container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cta-band__eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cta-band__title {
+  color: #fff;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  max-width: 44rem;
+}
+
+.cta-band__text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 40rem;
+  margin: 0;
+}
+
+/* White outline on the violet band (mirrors the process-card override). */
+.cta-band .btn-explore.cta-band__btn {
+  border-color: #fff;
+  color: #fff;
+}
+
+.cta-band .btn-explore.cta-band__btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+}
