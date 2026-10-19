@@ -229,3 +229,16 @@
     min-width: 100%;
   }
 }
+
+/* Site-wide hero standard: all hero content containers get 10% left padding. */
+[class*='hero'][class*='inner'],
+[class*='hero'][class*='content'] {
+  padding-left: 10%;
+}
+
+@media (max-width: 768px) {
+  [class*='hero'][class*='inner'],
+  [class*='hero'][class*='content'] {
+    padding-left: 6%;
+  }
+}
