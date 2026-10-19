@@ -1,4 +1,4 @@
-import { Component, DestroyRef, ElementRef, NgZone, afterNextRender, inject, signal, viewChildren } from '@angular/core';
+import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal, viewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
@@ -90,7 +90,6 @@ export class HomeWhatWeDoComponent {
 
   private readonly cardRefs = viewChildren<ElementRef<HTMLElement>>('cardRef');
   private readonly destroyRef = inject(DestroyRef);
-  private readonly ngZone = inject(NgZone);
 
   constructor() {
     afterNextRender(() => this.initMediaSync());
@@ -114,27 +113,14 @@ export class HomeWhatWeDoComponent {
           bestIdx = idx;
         }
       });
-      this.ngZone.run(() => this.activeMedia.set(bestIdx));
+      this.activeMedia.set(bestIdx);
     };
 
     updateActive();
-    window.addEventListener('scroll', updateActive, { passive: true });
-    this.destroyRef.onDestroy(() => window.removeEventListener('scroll', updateActive));
+    // Scroll events from the document's scrolling element are captured at
+    // document (they do not bubble to window in every browser/runtime).
+    document.addEventListener('scroll', updateActive, { passive: true, capture: true });
+    this.destroyRef.onDestroy(() => document.removeEventListener('scroll', updateActive, true));
 
-    if (typeof IntersectionObserver !== 'undefined') {
-      const io = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              const idx = els.indexOf(entry.target as HTMLElement);
-              if (idx >= 0) this.activeMedia.set(idx);
-            }
-          }
-        },
-        { rootMargin: '-35% 0px -35% 0px', threshold: 0 },
-      );
-      els.forEach((el) => io.observe(el));
-      this.destroyRef.onDestroy(() => io.disconnect());
-    }
   }
 }

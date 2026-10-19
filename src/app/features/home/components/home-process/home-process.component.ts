@@ -6,10 +6,8 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
-import { AnimationManagerService } from '../../../../core/animations/animation-manager.service';
 import { prefersReducedMotion } from '../../../../core/animations/animation.util';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
-import { gsap } from 'gsap';
 
 interface PhaseCard {
   eyebrow: string;
@@ -87,7 +85,6 @@ export class HomeProcessComponent {
     },
   ];
 
-  private readonly animations = inject(AnimationManagerService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly host = inject(ElementRef<HTMLElement>);
 
@@ -108,67 +105,31 @@ export class HomeProcessComponent {
     const track = this.track()?.nativeElement;
 
     // SSR / reduced-motion: static scroll-snap strip, no pinning.
-    if (!this.animations.browser || prefersReducedMotion() || !wrap || !viewport || !track) {
+    if (prefersReducedMotion() || !wrap || !viewport || !track) {
       hostEl.classList.add('process--static');
       return;
     }
 
-    // Manual scroll-driven horizontal translation (reliable with Lenis).
-    // Falls back to GSAP ScrollTrigger if available.
+    // Native scrolling drives the horizontal track. Keep the calculation
+    // frame-coalesced so scroll and resize events share one layout pass.
+    const maxX = (): number => Math.max(0, track.scrollWidth - viewport.clientWidth);
+    // Update synchronously from the real document scroll event. This avoids
+    // an animation-frame dependency and keeps the native-scroll path primary.
     const updateHorizontal = () => {
-      const wrapRect = wrap.getBoundingClientRect();
-      const wrapHeight = wrap.offsetHeight;
-      const viewportHeight = window.innerHeight;
-
-      // Progress: 0 when wrap top hits viewport top, 1 when wrap bottom hits viewport bottom
-      const scrollable = wrapHeight - viewportHeight;
+      const scrollable = wrap.offsetHeight - window.innerHeight;
       if (scrollable <= 0) return;
-
-      const progress = Math.max(0, Math.min(1, -wrapRect.top / scrollable));
-      const maxX = Math.max(0, track.scrollWidth - viewport.clientWidth);
-      track.style.transform = `translateX(${-progress * maxX}px)`;
+      const progress = Math.max(0, Math.min(1, -wrap.getBoundingClientRect().top / scrollable));
+      track.style.transform = `translate3d(${-progress * maxX()}px, 0, 0)`;
     };
-
-    window.addEventListener('scroll', updateHorizontal, { passive: true });
+    document.addEventListener('scroll', updateHorizontal, { passive: true, capture: true });
     window.addEventListener('resize', updateHorizontal);
-    // Initial position
     updateHorizontal();
 
     this.destroyRef.onDestroy(() => {
-      window.removeEventListener('scroll', updateHorizontal);
+      document.removeEventListener('scroll', updateHorizontal, true);
       window.removeEventListener('resize', updateHorizontal);
     });
-
-    // Also set up GSAP ScrollTrigger as enhancement (if it works, it will override)
-    const ctx = this.animations.createContext(() => {
-      const maxX = (): number =>
-        Math.max(0, track.scrollWidth - viewport.clientWidth);
-
-      gsap.to(track, {
-        x: () => -maxX(),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: wrap,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            // Sync manual transform with ScrollTrigger progress
-            const maxXVal = Math.max(0, track.scrollWidth - viewport.clientWidth);
-            track.style.transform = `translateX(${-self.progress * maxXVal}px)`;
-          },
-        },
-      });
-
-      if (typeof window !== 'undefined') {
-        window.addEventListener('load', () => this.animations.refresh(), { once: true });
-        setTimeout(() => this.animations.refresh(), 1000);
-      }
-    }, hostEl);
-
-    if (!ctx) {
-      // GSAP context failed, manual scroll listener is already active
-    }
+    window.addEventListener('load', updateHorizontal, { once: true });
+    this.destroyRef.onDestroy(() => window.removeEventListener('load', updateHorizontal));
   }
 }

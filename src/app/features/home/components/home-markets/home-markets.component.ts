@@ -2,7 +2,6 @@ import {
   Component,
   DestroyRef,
   ElementRef,
-  NgZone,
   afterNextRender,
   inject,
   signal,
@@ -262,7 +261,6 @@ export class HomeMarketsComponent {
   private readonly cardRefs = viewChildren<ElementRef<HTMLElement>>('marketCard');
   private readonly smoothScroll = inject(SmoothScrollService);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly ngZone = inject(NgZone);
 
   constructor() {
     // Scroll-spy: runs in the browser only (afterNextRender).
@@ -284,33 +282,17 @@ export class HomeMarketsComponent {
             bestIdx = idx;
           }
         });
-        // Run inside NgZone to ensure change detection fires
-        this.ngZone.run(() => this.activeCard.set(bestIdx));
+        this.activeCard.set(bestIdx);
       };
 
       // Initial check
       updateActive();
 
-      // Listen to scroll (works with Lenis via native scroll events)
-      window.addEventListener('scroll', updateActive, { passive: true });
-      this.destroyRef.onDestroy(() => window.removeEventListener('scroll', updateActive));
+      // Capture scroll from the document scrolling element; its scroll event
+      // does not reliably reach window in every browser/runtime.
+      document.addEventListener('scroll', updateActive, { passive: true, capture: true });
+      this.destroyRef.onDestroy(() => document.removeEventListener('scroll', updateActive, true));
 
-      // Fallback: IntersectionObserver for non-Lenis environments
-      if (typeof IntersectionObserver !== 'undefined') {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                const idx = cards.indexOf(entry.target as HTMLElement);
-                if (idx >= 0) this.activeCard.set(idx);
-              }
-            }
-          },
-          { rootMargin: '-30% 0px -30% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
-        );
-        cards.forEach((c) => observer.observe(c));
-        this.destroyRef.onDestroy(() => observer.disconnect());
-      }
     });
   }
 
