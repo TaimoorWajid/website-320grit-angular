@@ -277,7 +277,7 @@ export class HomeMarketsComponent {
             }
           }
         },
-        { rootMargin: '-40% 0px -40% 0px', threshold: 0 },
+        { rootMargin: '-30% 0px -30% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
       );
       cards.forEach((c) => observer.observe(c));
       this.destroyRef.onDestroy(() => observer.disconnect());

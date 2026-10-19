@@ -128,6 +128,13 @@ export class HomeProcessComponent {
           invalidateOnRefresh: true,
         },
       });
+
+      // Refresh after images/fonts load to ensure correct measurements.
+      if (typeof window !== 'undefined') {
+        window.addEventListener('load', () => this.animations.refresh(), { once: true });
+        // Also refresh after a short delay for dynamic content.
+        setTimeout(() => this.animations.refresh(), 1000);
+      }
     }, hostEl);
 
     if (ctx) this.destroyRef.onDestroy(() => ctx.revert());
