@@ -21,7 +21,7 @@ export class AllServicesPageComponent {
   protected readonly cards = SERVICE_CARDS;
   protected readonly approach = APPROACH_CARDS;
 
-  protected readonly heroImage = '/assets/images/320-Grit-Banner-Image.webp';
+  protected readonly heroImage = '/assets/images/What-we-do-faeture-image.webp';
 
   constructor() {
     inject(SeoService).update({
