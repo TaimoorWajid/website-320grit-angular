@@ -234,8 +234,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  // flex: 1 1 0;
-  width: 200px;
+  flex: 1 1 0;
   min-width: 0;
   padding: 0.7rem 1.1rem;
   background: rgba(10, 10, 10, 0.55);
@@ -322,7 +321,7 @@
 .markets__explore-dash {
   font-weight: 400;
   display: inline-block;
-  width: 2.2em;
+  width: 36px;
   text-align: center;
   letter-spacing: 0;
   transition: transform 0.4s var(--grit-ease-smooth);
