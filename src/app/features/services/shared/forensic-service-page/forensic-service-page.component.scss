@@ -29,14 +29,6 @@
   padding-inline: clamp(20px, 5vw, 40px);
 }
 
-.section-eyebrow {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grit-accent-violet);
-  margin-bottom: 16px;
-}
 
 .section-headline {
   font-size: clamp(36px, 5vw, 64px);
@@ -146,7 +138,6 @@
   width: 100%;
 }
 
-.ew-hero__eyebrow,
 .ew-hero__title,
 .ew-hero__subtitle,
 .ew-hero__desc,
@@ -156,21 +147,7 @@
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ew-hero.is-loaded .ew-hero__eyebrow { opacity: 1; transform: none; transition-delay: 0.15s; }
-.ew-hero.is-loaded .ew-hero__title { opacity: 1; transform: none; transition-delay: 0.28s; }
-.ew-hero.is-loaded .ew-hero__subtitle { opacity: 1; transform: none; transition-delay: 0.42s; }
-.ew-hero.is-loaded .ew-hero__desc { opacity: 1; transform: none; transition-delay: 0.55s; }
-.ew-hero.is-loaded .ew-hero__btn { opacity: 1; transform: none; transition-delay: 0.68s; }
-
-.ew-hero__eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--grit-accent-violet);
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
+.ew-hero.is-loaded 
 .ew-hero__title {
   font-size: clamp(3.8rem, 9vw, 7.5rem);
   font-weight: 800;
@@ -292,17 +269,6 @@
   max-width: 580px;
 }
 
-.service-why__eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--grit-accent-violet);
-  margin-bottom: 20px;
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 .service-why__title {
   font-size: clamp(42px, 5vw, 64px);
@@ -329,14 +295,12 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-why.is-inview .service-why__eyebrow,
 .service-why.is-inview .service-why__title,
 .service-why.is-inview .service-why__desc {
   opacity: 1;
   transform: none;
 }
 
-.service-why.is-inview .service-why__eyebrow { transition-delay: 0.1s; }
 .service-why.is-inview .service-why__title { transition-delay: 0.2s; }
 .service-why.is-inview .service-why__desc { transition-delay: 0.35s; }
 
@@ -419,17 +383,6 @@
   max-width: 480px;
 }
 
-.service-what-is__eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--grit-accent-violet);
-  margin-bottom: 20px;
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 .service-what-is__title {
   font-size: clamp(42px, 5vw, 64px);
@@ -463,18 +416,7 @@
   transform: none;
 }
 
-.service-what-is.is-inview .service-what-is__eyebrow { transition-delay: 0.1s; }
-.service-what-is.is-inview .service-what-is__title { transition-delay: 0.2s; }
-.service-what-is.is-inview .service-what-is__text p { transition-delay: 0.35s; }
-
-.service-what-is__visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-}
-
+.service-what-is.is-inview 
 .service-what-is__building-wrapper {
   position: relative;
   width: 100%;
@@ -694,14 +636,6 @@
   margin-bottom: 60px;
 }
 
-.ew-services__eyebrow {
-  font-size: 11.5px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--grit-accent-violet);
-  font-weight: 500;
-  margin-bottom: 20px;
-}
 
 .ew-services__title {
   font-size: clamp(2.4rem, 4vw, 3.4rem);
@@ -1528,8 +1462,7 @@
     transition-duration: 0.01ms !important;
   }
 
-  .ew-hero__eyebrow,
-  .ew-hero__title,
+    .ew-hero__title,
   .ew-hero__subtitle,
   .ew-hero__desc,
   .ew-hero__btn,

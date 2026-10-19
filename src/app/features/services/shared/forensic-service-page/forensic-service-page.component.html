@@ -14,7 +14,7 @@
     </div>
     @if (d.hero.useHcContainer) {
       <div class="hc-container">
-        <div class="ew-hero__eyebrow">{{ d.hero.eyebrow }}</div>
+        <div class="grit-eyebrow">{{ d.hero.eyebrow }}</div>
         <h1 class="ew-hero__title" [innerHTML]="d.hero.titleHtml"></h1>
         <p class="ew-hero__subtitle" [innerHTML]="d.hero.subtitleHtml"></p>
         <p class="ew-hero__desc" [innerHTML]="d.hero.descHtml"></p>
@@ -24,7 +24,7 @@
       </div>
     } @else {
       <div class="ew-hero__content">
-        <div class="ew-hero__eyebrow">{{ d.hero.eyebrow }}</div>
+        <div class="grit-eyebrow">{{ d.hero.eyebrow }}</div>
         <h1 class="ew-hero__title" [innerHTML]="d.hero.titleHtml"></h1>
         <p class="ew-hero__subtitle" [innerHTML]="d.hero.subtitleHtml"></p>
         <p class="ew-hero__desc" [innerHTML]="d.hero.descHtml"></p>
@@ -49,7 +49,7 @@
         }
       </div>
       <div class="service-why__content">
-        <div class="service-why__eyebrow">{{ d.why.eyebrow }}</div>
+        <div class="grit-eyebrow">{{ d.why.eyebrow }}</div>
         <h2 class="service-why__title" [innerHTML]="d.why.titleHtml"></h2>
         <p class="service-why__desc">{{ d.why.desc }}</p>
       </div>
@@ -60,7 +60,7 @@
   <section class="service-what-is" id="service-what-is" data-section="service-what-is">
     <div class="service-what-is__container">
       <div class="service-what-is__content">
-        <div class="service-what-is__eyebrow">{{ d.whatIs.eyebrow }}</div>
+        <div class="grit-eyebrow">{{ d.whatIs.eyebrow }}</div>
         <h2 class="service-what-is__title" [innerHTML]="d.whatIs.titleHtml"></h2>
         <div class="service-what-is__text">
           @for (p of d.whatIs.paragraphs; track p) {
@@ -97,7 +97,7 @@
   @if (d.servicesGrid) {
     <section class="fa-services" id="services" data-section="services">
       <div class="fa-services__header" [appReveal]="{ y: 40 }">
-        <p class="section-eyebrow">{{ d.servicesGrid.eyebrow }}</p>
+        <p class="grit-eyebrow">{{ d.servicesGrid.eyebrow }}</p>
         <h2 class="section-headline" [innerHTML]="d.servicesGrid.titleHtml"></h2>
       </div>
       <div class="fa-services__grid">
@@ -125,7 +125,7 @@
     <section class="ew-services" id="ew-services">
       <div class="ew-services__container">
         <div class="ew-services__header" [appReveal]="{ y: 40 }">
-          <div class="ew-services__eyebrow">{{ d.expertiseGrid.eyebrow }}</div>
+          <div class="grit-eyebrow">{{ d.expertiseGrid.eyebrow }}</div>
           <h2 class="ew-services__title" [innerHTML]="d.expertiseGrid.titleHtml"></h2>
         </div>
         <div class="ew-services__grid">
@@ -144,7 +144,7 @@
   <!-- 05 — Process -->
   <section class="fa-process" id="process" data-section="process">
     <div class="fa-process__header" [appReveal]="{ y: 40 }">
-      <p class="section-eyebrow">{{ d.process.eyebrow }}</p>
+      <p class="grit-eyebrow">{{ d.process.eyebrow }}</p>
       <h2 class="section-headline">{{ d.process.titleHtml }}</h2>
     </div>
     <div class="fa-process__timeline">
@@ -190,7 +190,7 @@
   <section class="fa-choose" [id]="d.whyChoose.sectionId" [attr.data-section]="d.whyChoose.dataSection">
     <div class="fa-choose__inner">
       <div class="fa-choose__left" [appReveal]="{ y: 40 }">
-        <p class="section-eyebrow">{{ d.whyChoose.eyebrow }}</p>
+        <p class="grit-eyebrow">{{ d.whyChoose.eyebrow }}</p>
         <h2 class="section-headline" [innerHTML]="d.whyChoose.titleHtml"></h2>
         <p class="section-body">{{ d.whyChoose.body }}</p>
       </div>
@@ -228,7 +228,7 @@
   <section class="faq-section" id="faq" data-section="faq" aria-label="Frequently asked questions">
     <div class="faq-layout">
       <div class="faq-header" [appReveal]="{ y: 40 }">
-        <p class="section-eyebrow">{{ d.faq.eyebrow }}</p>
+        <p class="grit-eyebrow">{{ d.faq.eyebrow }}</p>
         <h2 class="section-headline">{{ d.faq.titleHtml }}</h2>
         <p class="section-body">{{ d.faq.body }}</p>
         <a [href]="d.faq.linkHref" class="btn-secondary">{{ d.faq.linkText }}</a>
