@@ -21,8 +21,7 @@
                 <h3 class="phase-card__title">{{ phase.title }}</h3>
                 <hr class="phase-card__divider" />
                 <p class="phase-card__text">{{ phase.paragraph }}</p>
-                <!-- Source CTA has an empty href: keep the anchor, suppress navigation. -->
-                <a class="btn-explore phase-card__cta" href="" (click)="$event.preventDefault()"
+                <a class="btn-explore phase-card__cta" routerLink="/approach/owner-centric"
                   ><span>{{ phase.cta }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a
                 >
               </div>

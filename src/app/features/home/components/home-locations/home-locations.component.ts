@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
 /**
  * Homepage locations section (Section 9).
  * Copy is verbatim from the staging homepage analysis.
- * The "Explore More" CTA carries an empty href on the live site;
- * it is preserved as href="" with preventDefault.
+ * The "Explore More" CTA links to the California location page.
  */
 @Component({
   selector: 'app-home-locations',
   templateUrl: './home-locations.component.html',
   styleUrl: './home-locations.component.scss',
-  imports: [RevealDirective],
+  imports: [RevealDirective, RouterLink],
 })
-export class HomeLocationsComponent {
-  exploreMore(event: Event): void {
-    event.preventDefault();
-  }
-}
+export class HomeLocationsComponent {}
