@@ -1,3 +1,13 @@
 @use '../shared/hc-base' as *;
 
 /* Page wrapper font comes from the base partial (.about-page). */
+
+/* Values grid: 6 in one line on desktop (inline columns input), responsive below. */
+#story-values .ab-value-grid {
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr !important;
+  }
+}

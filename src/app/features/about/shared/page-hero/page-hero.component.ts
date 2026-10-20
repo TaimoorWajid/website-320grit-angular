@@ -1,12 +1,12 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { HeroData } from '../about.types';
 import { HcRevealDirective } from '../hc-reveal.directive';
-import { HcButtonComponent } from '../hc-button/hc-button.component';
 
-/** Shared hc- page hero (section.hc-hero.rr-hero): bg image + overlay + labeled content. */
+/** Shared hc- page hero: bg image + overlay + labeled content. Content sits at 10% left padding (6% mobile), matching the service-page hero standard. */
 @Component({
   selector: 'app-about-hero',
-  imports: [HcRevealDirective, HcButtonComponent],
+  imports: [HcRevealDirective, RouterLink],
   templateUrl: './page-hero.component.html',
   styleUrl: './page-hero.component.scss',
 })

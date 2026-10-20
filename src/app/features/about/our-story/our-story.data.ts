@@ -1,4 +1,4 @@
-import { HeroData, SplitData, TimelineItem, ValueCard } from '../shared/about.types';
+import { HeroData, SplitData, ValueCard } from '../shared/about.types';
 
 /* Copy verbatim from template-parts/components/about-us/our-story.php */
 
@@ -26,10 +26,10 @@ export const BEGAN: SplitData = {
     '320 Grit was created with a simple mission: deliver high-quality work without compromising on communication, professionalism, or attention to detail. Whether we’re managing a project from concept to completion or solving complex construction challenges, we approach every job with the same level of dedication and pride.',
     'We understand that every project represents more than just a building, it represents our clients’ investment, vision, and trust. That’s why we’re committed to providing honest guidance, transparent communication, and quality results every step of the way. We’re not just building projects, we’re building our clients’ goals, dreams, and responsibilities that will stand the test of time.',
   ],
-  cta: { label: 'Our Journey', href: '#story-milestones', variant: 'outline' },
+  cta: { label: 'Our Journey', href: '#story-values', variant: 'outline' },
   image: {
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    alt: 'Construction team at sunrise',
+    src: 'assets/images/story-began.webp',
+    alt: 'Construction team reviewing plans at a jobsite at dusk',
   },
   imagePosition: 'right',
 };
@@ -64,34 +64,6 @@ export const VALUES: ValueCard[] = [
     icon: '<path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>',
     title: 'Continuous Improvement',
     text: 'Construction is constantly evolving, and so are we. We embrace new technologies, innovative solutions, and lessons learned to continually improve the way we serve our clients.',
-  },
-];
-
-export const MILESTONES: TimelineItem[] = [
-  {
-    year: '2008',
-    title: 'Founded',
-    text: '320 GRIT was established with a vision to raise the standard in construction.',
-  },
-  {
-    year: '2012',
-    title: 'First Major Project',
-    text: 'Delivered our first large-scale project, earning our clients’ confidence.',
-  },
-  {
-    year: '2016',
-    title: 'Expansion',
-    text: 'Expanded our team and services to meet growing demand across markets.',
-  },
-  {
-    year: '2020',
-    title: 'National Reach',
-    text: 'Strengthened our presence nationwide with key projects in multiple industries.',
-  },
-  {
-    year: '2024',
-    title: 'Continuing the Journey',
-    text: 'Focused on innovation, sustainability, and long-term partnerships for the future.',
   },
 ];
 

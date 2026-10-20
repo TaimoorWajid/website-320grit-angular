@@ -9,21 +9,22 @@
     />
   </div>
   <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
-  <div class="hc-container">
-    <div class="hc-hero-content" hcReveal>
-      <p class="hc-hero-label">
-        <span class="hc-line" aria-hidden="true"></span>
-        <span class="hc-label">{{ hero().label }}</span>
-      </p>
-      <h1 class="hc-display-xl" [innerHTML]="hero().title"></h1>
-      <p class="rr-hero-desc" [style.max-width]="hero().descriptionWidth ?? '520px'">{{ hero().description }}</p>
-      @if (hero().ctas?.length) {
-        <div class="hc-hero-actions">
-          @for (cta of hero().ctas; track cta.label) {
-            <app-hc-button [link]="cta" />
+  <div class="hc-hero-content" hcReveal>
+    <span class="grit-eyebrow">{{ hero().label }}</span>
+    <h1 class="hc-display-xl" [innerHTML]="hero().title"></h1>
+    <p class="rr-hero-desc" [style.max-width]="hero().descriptionWidth ?? '520px'">{{ hero().description }}</p>
+    @if (hero().ctas?.length) {
+      <div class="hc-hero-actions">
+        @for (cta of hero().ctas; track cta.label) {
+          @if (cta.href === '#contact') {
+            <a routerLink="/contact-us" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+          } @else if (cta.href.startsWith('#')) {
+            <a [href]="cta.href" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+          } @else {
+            <a [routerLink]="cta.href" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
           }
-        </div>
-      }
-    </div>
+        }
+      </div>
+    }
   </div>
 </section>

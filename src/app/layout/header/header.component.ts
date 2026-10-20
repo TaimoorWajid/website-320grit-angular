@@ -52,9 +52,6 @@ export class HeaderComponent {
           href: '#',
           children: [
             { label: 'Sustainability', href: '/sustainability' },
-            { label: 'Community', href: '/community' },
-            { label: 'Awards and recognition', href: '/awards' },
-            { label: 'Quality', href: '/quality' },
           ],
         },
       ],

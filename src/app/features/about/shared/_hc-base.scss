@@ -191,20 +191,17 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .hc-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 640px;
+  max-width: 680px;
+  padding: 0 2.5rem 0 10%;
 }
-.hc-hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-.hc-hero-label .hc-line {
-  width: 32px;
-  height: 2px;
-  background: $hc-purple;
+@media (max-width: 768px) {
+  .hc-hero-content { padding: 0 1.75rem 0 6%; }
 }
 .hc-hero h1 { margin-bottom: 1.5rem; }
+.hc-hero .grit-eyebrow {
+  display: block;
+  margin-bottom: 1.5rem;
+}
 .hc-hero h1 .hc-orange { display: block; }
 .hc-hero-sub {
   font-size: 1.125rem;
@@ -629,7 +626,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
-  align-items: center;
+  align-items: stretch;
 }
 @media (max-width: 900px) {
   .ab-split { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -637,11 +634,12 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .ab-split-img {
   border-radius: 14px;
   overflow: hidden;
-  aspect-ratio: 16/11;
+  min-height: 100%;
 }
 .ab-split-img img {
   width: 100%;
   height: 100%;
+  min-height: 320px;
   object-fit: cover;
   display: block;
 }

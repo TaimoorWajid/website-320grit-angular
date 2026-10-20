@@ -1,4 +1,4 @@
-import { HeroData, SplitData, StatItem, TeamMember, ValueCard } from '../shared/about.types';
+import { HeroData, SplitData, TeamMember, ValueCard } from '../shared/about.types';
 
 /* Real 320 Grit leadership team (client-provided bios and photos).
    Soda Kuy's photo is forthcoming — she renders with an initials badge. */
@@ -16,29 +16,6 @@ export const HERO: HeroData = {
     fetchPriority: 'high',
   },
 };
-
-export const STATS: StatItem[] = [
-  {
-    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z"/>',
-    num: '100+',
-    label: 'Years of Combined Experience',
-  },
-  {
-    icon: '<path d="M3 21h18M5 21V7l7-4 7 4v14"/>',
-    num: '500+',
-    label: 'Projects Completed Across the U.S.',
-  },
-  {
-    icon: '<path d="M2 20h20M5 20V10l7-5 7 5v10"/>',
-    num: '20+',
-    label: 'Markets Served',
-  },
-  {
-    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
-    num: '1',
-    label: 'Unified Commitment to Excellence',
-  },
-];
 
 export const APPROACH: ValueCard[] = [
   {

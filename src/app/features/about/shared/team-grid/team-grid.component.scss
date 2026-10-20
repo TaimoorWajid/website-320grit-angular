@@ -1,1 +1,28 @@
 @use '../hc-base' as *;
+
+/* Leadership team grid: 3 evenly-divided columns, equal-height cards,
+   consistent photo aspect ratio across all members. */
+.ab-team-grid {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+.ab-team-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.ab-team-photo {
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+.ab-team-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 900px) {
+  .ab-team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .ab-team-grid { grid-template-columns: 1fr; }
+}

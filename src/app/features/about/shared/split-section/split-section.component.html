@@ -8,7 +8,7 @@
       }
       <div hcReveal class="hc-delay-2">
         @if (split().label) {
-          <span class="hc-label">{{ split().label }}</span>
+          <span class="grit-eyebrow">{{ split().label }}</span>
         }
         <h2 class="hc-display-md" [style.margin-top]="split().label ? '0.75rem' : null" [innerHTML]="split().title"></h2>
         @for (p of split().paragraphs ?? []; track p; let i = $index) {
@@ -40,9 +40,15 @@
             }
           </div>
         }
-        @if (split().cta) {
+        @if (split().cta; as c) {
           <div [style.margin-top]="'1.75rem'">
-            <app-hc-button [link]="split().cta!" />
+            @if (c.href === '#contact') {
+              <a routerLink="/contact-us" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            } @else if (c.href.startsWith('#')) {
+              <a [href]="c.href" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            } @else {
+              <a [routerLink]="c.href" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            }
           </div>
         }
       </div>

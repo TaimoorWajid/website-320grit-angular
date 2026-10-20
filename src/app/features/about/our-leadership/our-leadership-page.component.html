@@ -1,6 +1,5 @@
 <div class="about-page">
   <app-about-hero [hero]="HERO" />
-  <app-stats-bar sectionId="lead-stats" background="#0A0A0A" [overlap]="true" [items]="STATS" />
   <app-value-grid
     sectionId="lead-approach"
     background="#050505"
@@ -24,7 +23,7 @@
           <img [src]="VALUES_SPLIT.image.src" [alt]="VALUES_SPLIT.image.alt" width="700" height="480" loading="lazy" />
         </div>
         <div hcReveal class="hc-delay-2">
-          <span class="hc-label">{{ VALUES_SPLIT.label }}</span>
+          <span class="grit-eyebrow">{{ VALUES_SPLIT.label }}</span>
           <h2 class="hc-display-md" [style.margin-top]="'0.75rem'">{{ VALUES_SPLIT.title }}</h2>
           <div
             class="ab-value-grid lead-values-list"
