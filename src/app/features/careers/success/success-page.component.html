@@ -3,7 +3,7 @@
     <!-- Direct visit — no confirmation context -->
     <section class="sc-hero" aria-labelledby="sc-title">
       <div class="sc-hero__inner" appReveal>
-        <p class="grit-eyebrow">01 — Application</p>
+        <p class="grit-eyebrow">Application</p>
         <h1 class="sc-hero__title" id="sc-title">Your next chapter<br />starts here.</h1>
         <p class="sc-hero__sub">
           There's no application confirmation in this tab yet. If you started an application, head back to the
@@ -19,9 +19,9 @@
     <section class="sc-hero" aria-labelledby="sc-title">
       <div class="sc-hero__inner" appReveal>
         @if (mode() === 'received') {
-          <p class="grit-eyebrow">01 — Application Received</p>
+          <p class="grit-eyebrow">Application Received</p>
         } @else {
-          <p class="grit-eyebrow">01 — Application Prepared</p>
+          <p class="grit-eyebrow">Application Prepared</p>
         }
         <div class="sc-card">
           <span class="sc-card__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg() | safeHtml"></span>
@@ -54,7 +54,7 @@
     <!-- What happens next -->
     <section class="sc-next" aria-label="What happens next">
       <div class="sc-next__inner" appReveal>
-        <p class="grit-eyebrow">02 — What Happens Next</p>
+        <p class="grit-eyebrow">What Happens Next</p>
         <ol class="sc-steps">
           @for (s of nextSteps(); track s.title; let i = $index) {
             <li class="sc-step">
@@ -79,7 +79,7 @@
   <!-- CTA -->
   <app-cta-band
     sectionId="sc-cta"
-    eyebrow="03 — Keep Exploring"
+    eyebrow="Keep Exploring"
     title="See how we build.<br />See who we are."
     text="Life at 320 Grit is built on grit, respect, and real growth."
     ctaLabel="Our Culture"

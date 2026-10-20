@@ -221,9 +221,6 @@
       </div>
     </div>
     <div class="cta-content">
-      @if (d.cta.eyebrow) {
-        <p class="grit-eyebrow" [appReveal]="{ y: 30 }">{{ d.cta.eyebrow }}</p>
-      }
       <h2 class="cta-headline" [innerHTML]="d.cta.titleHtml" [appReveal]="{ y: 50 }"></h2>
       <p class="cta-subheadline" [appReveal]="{ y: 30 }">{{ d.cta.sub }}</p>
       <a [href]="d.cta.buttonHref" class="btn-cta magnetic" [appReveal]="{ y: 30 }">{{ d.cta.buttonText }}</a>

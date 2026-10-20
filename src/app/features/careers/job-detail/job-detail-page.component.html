@@ -4,7 +4,7 @@
     <section class="jd-hero" aria-labelledby="jd-title">
       <div class="jd-hero__inner" appReveal>
         <a class="jd-back" [routerLink]="'/careers/jobs'">← All opportunities</a>
-        <p class="grit-eyebrow">01 — {{ j.department }}</p>
+        <p class="grit-eyebrow">{{ j.department }}</p>
         <h1 class="jd-hero__title" id="jd-title">{{ j.title }}</h1>
         <ul class="jd-meta" aria-label="Role details">
           <li><span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ j.location }}</li>
@@ -29,12 +29,12 @@
     <div class="jd-body">
       <div class="jd-body__main">
         <section class="jd-section" appReveal>
-          <p class="grit-eyebrow">02 — The Opportunity</p>
+          <p class="grit-eyebrow">The Opportunity</p>
           <p class="jd-lead">{{ j.overview }}</p>
         </section>
 
         <section class="jd-section" appReveal>
-          <p class="grit-eyebrow">03 — What You'll Do</p>
+          <p class="grit-eyebrow">What You'll Do</p>
           <ul class="jd-list">
             @for (r of j.responsibilities; track r) {
               <li>
@@ -46,7 +46,7 @@
         </section>
 
         <section class="jd-section" appReveal>
-          <p class="grit-eyebrow">04 — What You'll Bring</p>
+          <p class="grit-eyebrow">What You'll Bring</p>
           <ul class="jd-list">
             @for (q of j.qualifications; track q) {
               <li>
@@ -58,7 +58,7 @@
         </section>
 
         <section class="jd-section" appReveal>
-          <p class="grit-eyebrow">05 — Benefits &amp; Perks</p>
+          <p class="grit-eyebrow">Benefits &amp; Perks</p>
           <ul class="jd-chips">
             @for (b of j.benefits; track b) {
               <li>{{ b }}</li>
@@ -67,7 +67,7 @@
         </section>
 
         <section class="jd-section" appReveal>
-          <p class="grit-eyebrow">06 — Why 320 Grit</p>
+          <p class="grit-eyebrow">Why 320 Grit</p>
           <h2 class="jd-section__title">Built with grit.<br />Backed by <span class="jd-accent">people.</span></h2>
           <ul class="jd-why">
             @for (w of j.why_grit; track w) {
@@ -81,7 +81,7 @@
 
         @if (related(); as rel) {
           <section class="jd-section jd-related" appReveal>
-            <p class="grit-eyebrow">07 — Also Open</p>
+            <p class="grit-eyebrow">Also Open</p>
             <a class="jd-related__card" [routerLink]="['/careers', rel.slug]">
               <div>
                 <p class="jd-related__dept">{{ rel.department }}</p>
@@ -118,7 +118,7 @@
     <!-- S03 CTA -->
     <app-cta-band
       sectionId="jd-cta"
-      eyebrow="08 — Not the Right Fit?"
+      eyebrow="Not the Right Fit?"
       title="Explore all open roles<br />or introduce yourself."
       text="Two roles are open now — and we're always glad to meet people who build with grit."
       ctaLabel="View All Roles"
