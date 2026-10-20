@@ -14,7 +14,7 @@ export interface ServiceCard {
 }
 
 export const SERVICES_HERO = {
-  eyebrow: 'What we do',
+  eyebrow: '01 — What We Do',
   intro:
     'From the first sketch to the final walkthrough — and the courtroom when it matters — 320 GRIT delivers every construction service an owner needs under one accountable roof.',
 } as const;
@@ -91,11 +91,3 @@ export const APPROACH_CARDS: ApproachCard[] = [
     href: '/approach/owner-representation',
   },
 ];
-
-export const SERVICES_CTA = {
-  eyebrow: 'Start the conversation',
-  title: 'Have a project in mind?',
-  text: 'Tell us about your goals and timeline. We will respond with a clear, honest assessment of how we can help — no pressure, no jargon.',
-  buttonText: 'Request a Consultation',
-  buttonHref: '/contact-us',
-} as const;
