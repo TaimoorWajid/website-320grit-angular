@@ -130,7 +130,7 @@ export class HomeMarketsComponent {
       bg: MARKET_IMG.behavioralHealth,
     },
     {
-      label: 'ADVANCED TECHNOLOGY',
+      label: 'Advanced Technology',
       number: '04',
       icon: 'cpu',
       eyebrow: 'ADVANCED TECHNOLOGY',
@@ -155,7 +155,7 @@ export class HomeMarketsComponent {
       bg: MARKET_IMG.lab,
     },
     {
-      label: 'COMMERCIAL',
+      label: 'Commercial',
       number: '05',
       icon: 'building',
       eyebrow: 'COMMERCIAL',
@@ -180,7 +180,7 @@ export class HomeMarketsComponent {
       bg: MARKET_IMG.commercial,
     },
     {
-      label: 'TENANT IMPROVEMENT',
+      label: 'Tenant Improvement',
       number: '06',
       icon: 'pencil',
       eyebrow: 'TENANT IMPROVEMENT',
@@ -205,7 +205,7 @@ export class HomeMarketsComponent {
       bg: MARKET_IMG.planning,
     },
     {
-      label: 'EDUCATION',
+      label: 'Education',
       number: '07',
       icon: 'graduation-cap',
       eyebrow: 'EDUCATION',
@@ -230,7 +230,7 @@ export class HomeMarketsComponent {
       bg: MARKET_IMG.industries,
     },
     {
-      label: 'HOSPITALITY',
+      label: 'Hospitality',
       number: '08',
       icon: 'bell',
       eyebrow: 'HOSPITALITY',
