@@ -1,0 +1,323 @@
+@use '../shared/careers';
+/* Site-standard eyebrow (the careers partial's purple variant is overridden
+   to the site orange per CAREERS-STANDARDS.md). */
+.grit-eyebrow {
+  color: #ff5d0e;
+  letter-spacing: 0.25em;
+}
+
+
+/* ======================================================
+   Professional growth — careers rebuild standards:
+   dark sections alternating #000/#070707, 10% hero padding,
+   numbered orange grit-eyebrows, purple #792CD5 accents.
+   `.grit-careers-page` is kept as the wrapper so the careers
+   design tokens inherit; its legacy light chrome is overridden
+   to the dark site standard below.
+   ====================================================== */
+
+.grit-careers-page.growth-page {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ---- Hero (service-page pattern) ---- */
+.career-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background: #050505;
+  overflow: hidden;
+}
+
+.career-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.career-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.72) 42%, rgba(5, 5, 5, 0.35));
+}
+
+.career-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 8rem 2.5rem 6rem 10%;
+}
+
+.career-hero__title {
+  margin: 1.25rem 0 1.5rem;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.career-hero__sub {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 60ch;
+}
+
+/* ---- Sections ---- */
+.career-section {
+  padding: 6.5rem 0;
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  &--alt {
+    background: #070707;
+  }
+}
+
+.career-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.career-center {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+}
+
+.career-h2 {
+  margin: 1rem 0 1.25rem;
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+.career-body {
+  margin: 0 0 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #a1a1aa;
+
+  &--narrow {
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* ---- Split (narrative) ---- */
+.career-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.career-quote {
+  border-left: 3px solid #792cd5;
+  padding: 2rem 2rem 2rem 2.5rem;
+  background: #0a0a0a;
+  border-radius: 0 12px 12px 0;
+
+  &__text {
+    margin: 0;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    line-height: 1.45;
+    color: #ffffff;
+  }
+}
+
+/* ---- Growth area cards ---- */
+.career-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.career-card {
+  background: #0a0a0a;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 2rem;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    border-color: rgba(121, 44, 213, 0.55);
+    box-shadow: 0 16px 40px rgba(121, 44, 213, 0.14);
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: rgba(121, 44, 213, 0.14);
+    color: #8a42f0;
+    margin-bottom: 1.25rem;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #a1a1aa;
+  }
+}
+
+/* ---- Career path visual ---- */
+.career-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.career-path {
+  background: #0a0a0a;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 2.25rem;
+
+  &__label {
+    margin: 0 0 1.75rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a42f0;
+  }
+
+  &__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__step {
+    position: relative;
+    display: flex;
+    gap: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+  &__node {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #792cd5;
+    background: #070707;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9375rem;
+  }
+
+  &__line {
+    position: absolute;
+    left: 21px;
+    top: 46px;
+    bottom: 2px;
+    width: 2px;
+    background: linear-gradient(180deg, #792cd5, rgba(121, 44, 213, 0.15));
+  }
+
+  &__body {
+    padding-top: 0.5rem;
+
+    h4 {
+      margin: 0 0 0.375rem;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: #a1a1aa;
+    }
+  }
+}
+
+.career-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 1024px) {
+  .career-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .career-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-hero__content {
+    padding: 7rem 1.5rem 5rem 6%;
+  }
+
+  .career-section {
+    padding: 4.5rem 0;
+  }
+
+  .career-container {
+    padding: 0 1.5rem;
+  }
+
+  .career-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .career-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,184 @@
+<div class="grit-careers-page introduce-page">
+  <!-- 01 — Hero -->
+  <section class="career-hero" aria-labelledby="intro-hero-heading">
+    <div class="career-hero__overlay" aria-hidden="true"></div>
+    <div class="career-hero__content" appReveal>
+      <span class="grit-eyebrow">01 — Introduce Yourself</span>
+      <h1 class="career-hero__title" id="intro-hero-heading">
+        Don&rsquo;t See The Right Role?<br />We&rsquo;d Still Love To Hear From You.
+      </h1>
+      <p class="career-hero__sub">
+        Great people make great projects. Introduce yourself and join our talent pool &mdash; when
+        a matching role opens, you&rsquo;ll be the first to know.
+      </p>
+    </div>
+  </section>
+
+  <!-- 02 — Reasons + form -->
+  <section class="career-section" aria-labelledby="intro-form-heading">
+    <div class="career-container">
+      <div class="intro-grid">
+        <div class="intro-reasons" appReveal>
+          <span class="grit-eyebrow">02 — Why Introduce Yourself?</span>
+          <h2 class="career-h2" id="intro-form-heading">Join Our Talent Pool</h2>
+          <ul class="intro-reasons__list">
+            @for (reason of reasons; track reason.title) {
+              <li class="intro-reasons__item">
+                <div class="intro-reasons__icon" aria-hidden="true" [innerHTML]="reason.icon | safeHtml"></div>
+                <div>
+                  <h3>{{ reason.title }}</h3>
+                  <p>{{ reason.text }}</p>
+                </div>
+              </li>
+            }
+          </ul>
+          <p class="intro-reasons__note">
+            No spam, no cold calls. We reach out when there&rsquo;s a real fit &mdash; and you can
+            ask to be removed anytime.
+          </p>
+        </div>
+
+        <div class="intro-form-wrap" appReveal>
+          @if (!submitted()) {
+            <form class="intro-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+              <h2 class="intro-form__title">Introduce Yourself</h2>
+
+              @if (backendMissing()) {
+                <div class="intro-notice intro-notice--warn" role="alert">
+                  <strong>We couldn&rsquo;t send this online yet.</strong>
+                  Our form backend isn&rsquo;t connected. Please send your introduction directly to
+                  <a href="mailto:info@320grit.com">info&#64;320grit.com</a> &mdash; include your
+                  name, area of interest, and a brief note about yourself.
+                </div>
+              }
+
+              @if (submitError()) {
+                <div class="intro-notice intro-notice--error" role="alert">
+                  <strong>Something went wrong.</strong>
+                  Your introduction wasn&rsquo;t sent. Please try again &mdash; or email
+                  <a href="mailto:info@320grit.com">info&#64;320grit.com</a> directly.
+                </div>
+              }
+
+              <div class="intro-form__row">
+                <div class="intro-form__field">
+                  <label for="intro-name">Full Name <span class="intro-req">*</span></label>
+                  <input type="text" id="intro-name" formControlName="fullName" autocomplete="name"
+                    [class.is-invalid]="fieldInvalid('fullName')" />
+                  @if (fieldError('fullName')) {
+                    <span class="intro-field-error" role="alert">{{ fieldError('fullName') }}</span>
+                  }
+                </div>
+                <div class="intro-form__field">
+                  <label for="intro-email">Email Address <span class="intro-req">*</span></label>
+                  <input type="email" id="intro-email" formControlName="email" autocomplete="email"
+                    [class.is-invalid]="fieldInvalid('email')" />
+                  @if (fieldError('email')) {
+                    <span class="intro-field-error" role="alert">{{ fieldError('email') }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="intro-form__row">
+                <div class="intro-form__field">
+                  <label for="intro-phone">Phone <span class="intro-opt">(Optional)</span></label>
+                  <input type="tel" id="intro-phone" formControlName="phone" autocomplete="tel" />
+                </div>
+                <div class="intro-form__field">
+                  <label for="intro-interest">Area of Interest <span class="intro-req">*</span></label>
+                  <select id="intro-interest" formControlName="interest"
+                    [class.is-invalid]="fieldInvalid('interest')">
+                    <option value="">Select an area</option>
+                    @for (opt of interestOptions; track opt) {
+                      <option [value]="opt">{{ opt }}</option>
+                    }
+                  </select>
+                  @if (fieldError('interest')) {
+                    <span class="intro-field-error" role="alert">{{ fieldError('interest') }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="intro-form__row">
+                <div class="intro-form__field intro-form__field--full">
+                  <label for="intro-years">Years of Experience <span class="intro-opt">(Optional)</span></label>
+                  <select id="intro-years" formControlName="years">
+                    <option value="">Select experience</option>
+                    @for (opt of yearsOptions; track opt) {
+                      <option [value]="opt">{{ opt }}</option>
+                    }
+                  </select>
+                </div>
+              </div>
+
+              <div class="intro-form__row">
+                <div class="intro-form__field intro-form__field--full">
+                  <label for="intro-message">Tell Us About Yourself <span class="intro-req">*</span></label>
+                  <textarea id="intro-message" formControlName="message" rows="5"
+                    placeholder="Your background, skills, and what you'd like to do at 320 Grit."
+                    [class.is-invalid]="fieldInvalid('message')"></textarea>
+                  @if (fieldError('message')) {
+                    <span class="intro-field-error" role="alert">{{ fieldError('message') }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="intro-form__row">
+                <div class="intro-form__field intro-form__field--full intro-form__upload">
+                  <app-file-upload
+                    label="Resume"
+                    inputId="intro-resume"
+                    inputName="resume"
+                    [(file)]="resumeFile"
+                  />
+                  <span class="intro-hint">Optional &mdash; PDF, DOC, DOCX (Max 5MB)</span>
+                </div>
+              </div>
+
+              <div class="intro-form__row">
+                <label class="intro-checkbox">
+                  <input type="checkbox" formControlName="consent" />
+                  <span>
+                    I agree to be contacted by 320 Grit about opportunities that match my background.
+                    <span class="intro-req">*</span>
+                  </span>
+                </label>
+              </div>
+              @if (fieldError('consent')) {
+                <span class="intro-field-error" role="alert">{{ fieldError('consent') }}</span>
+              }
+
+              <div class="intro-form__submit">
+                <button type="submit" class="btn-explore" [disabled]="submitting()">
+                  <span>{{ submitting() ? 'Sending…' : 'Introduce Yourself' }}</span>
+                  <span class="btn-explore-dash" aria-hidden="true">—</span>
+                </button>
+              </div>
+            </form>
+          } @else {
+            <div class="intro-success" role="status">
+              <h2 class="intro-form__title">Thanks for Reaching Out</h2>
+              <p class="career-body">
+                Your introduction was sent successfully. We&rsquo;ll be in touch when a role that
+                fits your background opens up.
+              </p>
+              <a class="btn-explore" [routerLink]="'/careers/jobs'">
+                <span>View Open Positions</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+              </a>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — CTA -->
+  <app-cta-band
+    sectionId="intro-cta"
+    eyebrow="03 — Keep Exploring"
+    title="Looking For Open Roles<br />Right Now?"
+    text="Check our current openings — Superintendent and Project Engineer positions are live."
+    ctaLabel="View Open Positions"
+    ctaHref="/careers/jobs"
+  />
+</div>

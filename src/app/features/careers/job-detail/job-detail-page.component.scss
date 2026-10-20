@@ -1,285 +1,336 @@
 @use '../shared/careers';
 
-/* Job detail — ported from job-detail.css. */
+/* ======================================================
+   Job detail (/careers/:slug) — rebuilt per Howell flow
+   with the 320 Grit careers dark-theme standards.
+   ====================================================== */
 
-.grit-job-detail__breadcrumb {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 0;
+.jd-page {
+  background: #000;
+  color: #fff;
+  font-family: var(--grit-font-sans, 'Inter', system-ui, sans-serif);
 }
 
-/* ---- S02 Hero ---- */
-.grit-job-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
-  align-items: center;
+/* Site-standard orange eyebrow (careers partial defaults purple). */
+.jd-page .grit-eyebrow {
+  color: #ff5d0e;
+  letter-spacing: 0.25em;
 }
 
-.grit-job-hero__meta {
+/* ---- S01 Hero ---- */
+.jd-hero {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.jd-hero__inner {
+  padding: 4.5rem 2.5rem 4rem 10%;
+  max-width: 1100px;
+}
+
+.jd-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: #a1a1aa;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.jd-hero__title {
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.jd-meta {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  color: var(--grit-gray-600);
+  gap: 0.5rem 1.75rem;
+  color: #a1a1aa;
+  font-size: 0.9375rem;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  [aria-hidden] {
+    display: inline-flex;
+    color: #792cd5;
+  }
 }
 
-.grit-job-hero__meta-item {
-  display: inline-flex;
+.jd-hero__actions {
+  display: flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
-.grit-job-hero__title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.25rem;
-  color: var(--grit-dark);
+/* Save button fits the dark aside/hero. */
+.jd-hero__actions app-save-job-button .grit-save-job {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #d4d4d8;
 }
 
-.grit-job-hero__excerpt {
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--grit-gray-600);
-  margin: 0 0 1.75rem;
-}
-
-.grit-job-hero__visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--grit-radius-lg);
-}
-
-/* ---- S03 Overview + details ---- */
-.grit-role-overview {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 3rem;
-  max-width: 1280px;
+/* ---- S02 Body ---- */
+.jd-body {
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 1.5rem 5rem;
+  padding: 4rem 2.5rem 5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 4rem;
   align-items: start;
 }
 
-.grit-tabs {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--grit-gray-200);
-  margin-bottom: 2rem;
-  overflow-x: auto;
+.jd-section {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 }
 
-.grit-tabs__btn {
-  padding: 0.875rem 1.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  font-family: inherit;
-  color: var(--grit-gray-500);
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  white-space: nowrap;
-  transition:
-    color var(--grit-transition),
-    border-color var(--grit-transition);
+.jd-lead {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #e4e4e7;
+  max-width: 44rem;
+  margin: 0.5rem 0 0;
+}
+
+.jd-section__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.jd-accent {
+  color: #792cd5;
+}
+
+.jd-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+
+  li {
+    display: flex;
+    gap: 0.875rem;
+    color: #d4d4d8;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+.jd-list__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: #792cd5;
+}
+
+.jd-chips {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  li {
+    padding: 0.625rem 1.125rem;
+    border: 1px solid rgba(121, 44, 213, 0.5);
+    border-radius: 999px;
+    background: rgba(121, 44, 213, 0.08);
+    color: #e4e4e7;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.jd-why {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 2rem;
+
+  li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    color: #e4e4e7;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+.jd-why__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: rgba(121, 44, 213, 0.12);
+  color: #792cd5;
+  flex-shrink: 0;
+}
+
+/* ---- Related role ---- */
+.jd-related__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: #070707;
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 
   &:hover {
-    color: var(--grit-dark);
-  }
-
-  &.is-active {
-    color: var(--grit-purple);
-    border-bottom-color: var(--grit-purple);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--grit-purple);
-    outline-offset: -2px;
+    border-color: rgba(121, 44, 213, 0.6);
+    transform: translateY(-3px);
   }
 }
 
-.grit-tabs__panel {
-  animation: grit-careers-fade-in 0.25s ease;
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.25rem;
-    color: var(--grit-dark);
-  }
-
-  p {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--grit-gray-600);
-    margin: 0;
-  }
+.jd-related__dept {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ff5d0e;
+  margin: 0 0 0.5rem;
 }
 
-@keyframes grit-careers-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.jd-related__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.25rem;
 }
 
-.grit-job-details-card {
-  background: var(--grit-gray-50);
-  border: 1px solid var(--grit-gray-200);
-  border-radius: var(--grit-radius-lg);
-  padding: 1.75rem;
-  position: sticky;
-  top: 2rem;
-
-  h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin: 0 0 1rem;
-  }
-
-  h4 {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    margin: 1.5rem 0 0.75rem;
-  }
-}
-
-.grit-job-details-card__list {
+.jd-related__meta {
+  color: #a1a1aa;
+  font-size: 0.9375rem;
   margin: 0;
 }
 
-.grit-job-details-card__row {
+.jd-related__arrow {
+  display: inline-flex;
+  color: #792cd5;
+}
+
+/* ---- Sticky aside apply card ---- */
+.jd-aside {
+  position: sticky;
+  top: 6rem;
+}
+
+.jd-apply-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: #0a0a0a;
+  padding: 2rem;
+}
+
+.jd-apply-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ff5d0e;
+  margin: 0 0 0.75rem;
+}
+
+.jd-apply-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.5rem;
+}
+
+.jd-apply-card__meta {
+  margin: 0 0 1.75rem;
+  display: grid;
+  gap: 0.875rem;
+}
+
+.jd-apply-card__row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.625rem 0;
-  border-bottom: 1px solid var(--grit-gray-200);
-  font-size: 0.875rem;
-
-  &:last-child {
-    border-bottom: none;
-  }
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
   dt {
-    color: var(--grit-gray-500);
-    font-weight: 500;
+    font-size: 0.8125rem;
+    color: #a1a1aa;
   }
 
   dd {
     margin: 0;
+    font-size: 0.875rem;
     font-weight: 600;
+    color: #fff;
     text-align: right;
   }
 }
 
-.grit-job-details-card__why {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--grit-gray-600);
-
-    svg {
-      color: var(--grit-purple);
-      flex-shrink: 0;
-    }
-  }
-}
-
-.grit-job-details-card__img {
-  width: 100%;
-  border-radius: var(--grit-radius);
-  margin-top: 1.5rem;
-  object-fit: cover;
-}
-
-/* ---- S04 Related ---- */
-.grit-related-positions {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem 5rem;
-}
-
-.grit-related-positions__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-  }
-}
-
-.grit-related-positions__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-/* ---- S05 Final CTA ---- */
-.grit-final-cta {
-  background: var(--grit-dark);
-  color: var(--grit-white);
-  padding: 4.5rem 1.5rem;
-}
-
-.grit-final-cta__inner {
-  max-width: 720px;
-  margin: 0 auto;
+.jd-apply-card__fine {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  color: #a1a1aa;
   text-align: center;
-
-  h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    font-weight: 700;
-    color: var(--grit-white);
-    margin: 0.75rem 0 1rem;
-  }
-
-  p {
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0 0 2rem;
-  }
 }
 
-@media (max-width: 1023px) {
-  .grit-job-hero {
+/* ---- Share buttons on dark ---- */
+.jd-hero app-share-buttons {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 1024px) {
+  .jd-body {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .grit-role-overview {
-    grid-template-columns: 1fr;
-  }
-
-  .grit-job-details-card {
+  .jd-aside {
     position: static;
   }
+}
 
-  .grit-related-positions__grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .jd-hero__inner {
+    padding: 3.5rem 1.5rem 3rem 6%;
+  }
+
+  .jd-body {
+    padding: 3rem 1.5rem 4rem;
   }
 }

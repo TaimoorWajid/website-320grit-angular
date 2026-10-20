@@ -1,173 +1,127 @@
-@use '../shared/careers';
-
-<div class="grit-careers-page">
+<div class="grit-careers-page jd-page">
   @if (job(); as j) {
-    <!-- S01 Breadcrumb -->
-    <div class="grit-job-detail__breadcrumb">
-      <app-breadcrumb
-        [crumbs]="[
-          { label: 'Careers', url: '/careers' },
-          { label: 'Open Positions', url: '/open-positions' },
-          { label: j.title },
-        ]"
-      />
-    </div>
-
-    <!-- S02 Job hero -->
-    <section class="grit-job-hero" aria-labelledby="grit-job-title">
-      <div class="grit-job-hero__content" appReveal>
-        <div class="grit-job-hero__meta">
-          <span class="grit-job-hero__meta-item">
-            <span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ j.location }}
-          </span>
-          <span class="grit-job-hero__meta-item">
-            <span aria-hidden="true" [innerHTML]="icons.briefcase() | safeHtml"></span>{{ j.employment_type }}
-          </span>
+    <!-- S01 Hero -->
+    <section class="jd-hero" aria-labelledby="jd-title">
+      <div class="jd-hero__inner" appReveal>
+        <a class="jd-back" [routerLink]="'/careers/jobs'">← All opportunities</a>
+        <p class="grit-eyebrow">01 — {{ j.department }}</p>
+        <h1 class="jd-hero__title" id="jd-title">{{ j.title }}</h1>
+        <ul class="jd-meta" aria-label="Role details">
+          <li><span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ j.location }}</li>
+          <li><span aria-hidden="true" [innerHTML]="icons.briefcase() | safeHtml"></span>{{ j.employment_type }}</li>
+          <li>Posted {{ postedLabel() }}</li>
+          <li>Reports to {{ j.reports_to }}</li>
+          <li>Travel: {{ j.travel }}</li>
+        </ul>
+        <div class="jd-hero__actions">
+          <a class="btn-explore" [routerLink]="['/careers', j.slug, 'apply']">
+            <span>Apply Now</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
+          <app-save-job-button [job]="j" />
         </div>
-        <h1 class="grit-job-hero__title" id="grit-job-title">{{ j.title }}</h1>
-        <p class="grit-job-hero__excerpt">{{ j.excerpt }}</p>
-        <a class="grit-btn grit-btn--primary grit-btn--lg" [routerLink]="['/careers/apply']" [queryParams]="{ job: j.slug }">
-          Apply Now
-          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
-        </a>
         <app-share-buttons [job]="j" />
       </div>
-      <div class="grit-job-hero__visual" appReveal>
-        <img
-          src="/assets/images/labour-320-grit.webp"
-          alt="320 Grit construction professionals on site at sunset"
-          loading="eager"
-          width="600"
-          height="700"
-        />
-      </div>
     </section>
 
-    <!-- S03 Role overview + details -->
-    <section class="grit-role-overview" aria-label="Job information">
-      <div class="grit-role-overview__main" appReveal>
-        <div class="grit-tabs" role="tablist" aria-label="Job information">
-          @for (tab of tabs; track tab.id; let i = $index) {
-            <button
-              #tabButton
-              type="button"
-              role="tab"
-              [id]="'tab-' + tab.id"
-              [attr.aria-selected]="activeTab() === tab.id"
-              [attr.aria-controls]="tab.panelId"
-              [attr.tabindex]="activeTab() === tab.id ? 0 : -1"
-              class="grit-tabs__btn"
-              [class.is-active]="activeTab() === tab.id"
-              (click)="selectTab(tab.id)"
-              (keydown)="onTabKeydown($event, i)"
-            >
-              {{ tab.label }}
-            </button>
-          }
+    <!-- S02 Body -->
+    <div class="jd-body">
+      <div class="jd-body__main">
+        <section class="jd-section" appReveal>
+          <p class="grit-eyebrow">02 — The Opportunity</p>
+          <p class="jd-lead">{{ j.overview }}</p>
+        </section>
+
+        <section class="jd-section" appReveal>
+          <p class="grit-eyebrow">03 — What You'll Do</p>
+          <ul class="jd-list">
+            @for (r of j.responsibilities; track r) {
+              <li>
+                <span class="jd-list__icon" aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>
+                {{ r }}
+              </li>
+            }
+          </ul>
+        </section>
+
+        <section class="jd-section" appReveal>
+          <p class="grit-eyebrow">04 — What You'll Bring</p>
+          <ul class="jd-list">
+            @for (q of j.qualifications; track q) {
+              <li>
+                <span class="jd-list__icon" aria-hidden="true" [innerHTML]="icons.checkCircleSm() | safeHtml"></span>
+                {{ q }}
+              </li>
+            }
+          </ul>
+        </section>
+
+        <section class="jd-section" appReveal>
+          <p class="grit-eyebrow">05 — Benefits &amp; Perks</p>
+          <ul class="jd-chips">
+            @for (b of j.benefits; track b) {
+              <li>{{ b }}</li>
+            }
+          </ul>
+        </section>
+
+        <section class="jd-section" appReveal>
+          <p class="grit-eyebrow">06 — Why 320 Grit</p>
+          <h2 class="jd-section__title">Built with grit.<br />Backed by <span class="jd-accent">people.</span></h2>
+          <ul class="jd-why">
+            @for (w of j.why_grit; track w) {
+              <li>
+                <span class="jd-why__icon" aria-hidden="true" [innerHTML]="icons.check() | safeHtml"></span>
+                {{ w }}
+              </li>
+            }
+          </ul>
+        </section>
+
+        @if (related(); as rel) {
+          <section class="jd-section jd-related" appReveal>
+            <p class="grit-eyebrow">07 — Also Open</p>
+            <a class="jd-related__card" [routerLink]="['/careers', rel.slug]">
+              <div>
+                <p class="jd-related__dept">{{ rel.department }}</p>
+                <h3 class="jd-related__title">{{ rel.title }}</h3>
+                <p class="jd-related__meta">{{ rel.location }} · {{ rel.employment_type }}</p>
+              </div>
+              <span class="jd-related__arrow" aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
+            </a>
+          </section>
+        }
+      </div>
+
+      <!-- Sticky aside apply card -->
+      <aside class="jd-aside" aria-label="Apply for this role">
+        <div class="jd-apply-card" appReveal>
+          <p class="jd-apply-card__label">Your Next Step</p>
+          <h2 class="jd-apply-card__title">Ready to build with grit?</h2>
+          <dl class="jd-apply-card__meta">
+            @for (row of metaRows(); track row.label) {
+              <div class="jd-apply-card__row">
+                <dt>{{ row.label }}</dt>
+                <dd>{{ row.value }}</dd>
+              </div>
+            }
+          </dl>
+          <a class="btn-explore" [routerLink]="['/careers', j.slug, 'apply']">
+            <span>Apply Now</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
+          <p class="jd-apply-card__fine">Have your resume ready. No account needed.</p>
         </div>
-
-        @if (activeTab() === 'overview') {
-          <div class="grit-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
-            <h2>About The Role</h2>
-            <p>{{ j.overview }}</p>
-          </div>
-        }
-        @if (activeTab() === 'responsibilities') {
-          <div class="grit-tabs__panel" id="panel-responsibilities" role="tabpanel" aria-labelledby="tab-responsibilities" tabindex="0">
-            <h2>Key Responsibilities</h2>
-            <ul class="grit-check-list">
-              @for (item of j.responsibilities; track item) {
-                <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircle() | safeHtml"></span>{{ item }}
-                </li>
-              }
-            </ul>
-          </div>
-        }
-        @if (activeTab() === 'qualifications') {
-          <div class="grit-tabs__panel" id="panel-qualifications" role="tabpanel" aria-labelledby="tab-qualifications" tabindex="0">
-            <h2>Qualifications</h2>
-            <ul class="grit-check-list">
-              @for (item of j.qualifications; track item) {
-                <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircle() | safeHtml"></span>{{ item }}
-                </li>
-              }
-            </ul>
-          </div>
-        }
-        @if (activeTab() === 'benefits') {
-          <div class="grit-tabs__panel" id="panel-benefits" role="tabpanel" aria-labelledby="tab-benefits" tabindex="0">
-            <h2>What We Offer</h2>
-            <ul class="grit-check-list">
-              @for (item of j.benefits; track item) {
-                <li>
-                  <span aria-hidden="true" [innerHTML]="icons.checkCircle() | safeHtml"></span>{{ item }}
-                </li>
-              }
-            </ul>
-          </div>
-        }
-      </div>
-
-      <aside class="grit-job-details-card" appReveal aria-label="Job details">
-        <h3>Job Details</h3>
-        <dl class="grit-job-details-card__list">
-          @for (row of detailRows(); track row.label) {
-            <div class="grit-job-details-card__row">
-              <dt>{{ row.label }}</dt>
-              <dd>{{ row.value }}</dd>
-            </div>
-          }
-        </dl>
-        <h4>Why 320 Grit?</h4>
-        <ul class="grit-job-details-card__why">
-          @for (item of j.why_grit; track item) {
-            <li>
-              <span aria-hidden="true" [innerHTML]="icons.check() | safeHtml"></span>{{ item }}
-            </li>
-          }
-        </ul>
-        <img
-          class="grit-job-details-card__img"
-          src="/assets/images/career-feature-image.webp"
-          alt="320 Grit construction site with crane at sunset"
-          loading="lazy"
-          width="360"
-          height="220"
-        />
       </aside>
-    </section>
+    </div>
 
-    <!-- S04 Related positions -->
-    <section class="grit-related-positions" aria-labelledby="grit-related-positions-heading">
-      <div class="grit-related-positions__header">
-        <h2 id="grit-related-positions-heading">Similar Positions</h2>
-        <a class="grit-link-arrow" routerLink="/open-positions">
-          View All Positions <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
-        </a>
-      </div>
-      <div class="grit-related-positions__grid">
-        @for (rel of related(); track rel.id) {
-          <app-job-card variant="related" [job]="rel" />
-        }
-      </div>
-    </section>
-
-    <!-- S05 Final CTA -->
-    <section class="grit-final-cta" aria-labelledby="grit-final-cta-heading">
-      <div class="grit-final-cta__inner" appReveal>
-        <span class="grit-eyebrow grit-eyebrow--light">Ready to join the team?</span>
-        <h2 id="grit-final-cta-heading">Apply for {{ j.title }}</h2>
-        <p>
-          Take the next step in your career with 320 Grit. We&rsquo;re looking for people who build with purpose.
-        </p>
-        <a class="grit-btn grit-btn--primary grit-btn--lg" [routerLink]="['/careers/apply']" [queryParams]="{ job: j.slug }">
-          Apply Now
-          <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
-        </a>
-      </div>
-    </section>
+    <!-- S03 CTA -->
+    <app-cta-band
+      sectionId="jd-cta"
+      eyebrow="08 — Not the Right Fit?"
+      title="Explore all open roles<br />or introduce yourself."
+      text="Two roles are open now — and we're always glad to meet people who build with grit."
+      ctaLabel="View All Roles"
+      ctaHref="/careers/jobs"
+    />
   } @else {
     <app-not-found />
   }

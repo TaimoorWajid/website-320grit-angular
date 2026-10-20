@@ -1,0 +1,138 @@
+<div class="grit-careers-page growth-page">
+  <!-- 01 — Hero -->
+  <section class="career-hero" aria-labelledby="growth-hero-heading">
+    <div class="career-hero__bg" aria-hidden="true">
+      <img [src]="heroBg" alt="" width="1920" height="1080" fetchpriority="high" />
+      <div class="career-hero__overlay" aria-hidden="true"></div>
+    </div>
+    <div class="career-hero__content" appReveal>
+      <span class="grit-eyebrow">01 — Professional Growth</span>
+      <h1 class="career-hero__title" id="growth-hero-heading">
+        Grow Your Career.<br />Build Your Future.
+      </h1>
+      <p class="career-hero__sub">
+        We don&rsquo;t just hire employees &mdash; we invest in people with the drive to build
+        meaningful careers. As a growing company, you&rsquo;ll have the opportunity to take on new
+        challenges, expand your responsibilities, and make a direct impact on the success of your
+        projects and business.
+      </p>
+    </div>
+  </section>
+
+  <!-- 02 — Our approach to growth (client narrative) -->
+  <section class="career-section" aria-labelledby="growth-approach-heading">
+    <div class="career-container">
+      <div class="career-split" appReveal>
+        <div class="career-split__text">
+          <span class="grit-eyebrow">02 — The 320 Grit Way to Grow</span>
+          <h2 class="career-h2" id="growth-approach-heading">Invested In, Not Just Hired</h2>
+          <p class="career-body">
+            At 320 Grit, we believe growth comes through hands-on experience, mentorship, continuous
+            learning, and the confidence to lead. Whether you&rsquo;re just starting your career or
+            bringing years of experience, we&rsquo;re committed to helping you reach the next level.
+          </p>
+          <p class="career-body">
+            Your career isn&rsquo;t limited by a corporate ladder &mdash; it&rsquo;s shaped by your
+            ambition, work ethic, and willingness to grow. As our company continues to expand, so do
+            the opportunities for our team to grow alongside it. If you&rsquo;re looking for a place
+            where your ideas are valued, your contributions make a difference, and your potential has
+            no ceiling, you&rsquo;ll feel right at home at 320 Grit.
+          </p>
+        </div>
+        <div class="career-split__panel" aria-hidden="true">
+          <div class="career-quote">
+            <p class="career-quote__text">
+              We&rsquo;re building more than exceptional projects &mdash; we&rsquo;re building a
+              workplace where talented people can grow, thrive, and build long-term careers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — The 7 growth areas -->
+  <section class="career-section career-section--alt" aria-labelledby="growth-areas-heading">
+    <div class="career-container">
+      <div class="career-center" appReveal>
+        <span class="grit-eyebrow">03 — How We Invest In You</span>
+        <h2 class="career-h2" id="growth-areas-heading">Built To Help You Reach The Next Level</h2>
+      </div>
+      <div class="career-cards">
+        @for (area of growthAreas; track area.title) {
+          <article class="career-card" appReveal>
+            <div class="career-card__icon" aria-hidden="true" [innerHTML]="area.icon | safeHtml"></div>
+            <h3 class="career-card__title">{{ area.title }}</h3>
+            <p class="career-card__text">{{ area.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — Career path visual -->
+  <section class="career-section" aria-labelledby="growth-path-heading">
+    <div class="career-container">
+      <div class="career-center" appReveal>
+        <span class="grit-eyebrow">04 — Where Your Career Can Go</span>
+        <h2 class="career-h2" id="growth-path-heading">Illustrative Career Paths</h2>
+        <p class="career-body career-body--narrow">
+          Every path at 320 Grit starts on real projects. Below are examples of how careers can
+          progress here &mdash; your route is shaped by your ambition, experience, and how you grow
+          with us.
+        </p>
+      </div>
+      <div class="career-paths">
+        <div class="career-path" appReveal>
+          <h3 class="career-path__label">Office Track</h3>
+          <ol class="career-path__steps">
+            @for (step of officePath; track step.title; let last = $last) {
+              <li class="career-path__step">
+                <div class="career-path__node" aria-hidden="true">{{ $index + 1 }}</div>
+                <div class="career-path__body">
+                  <h4>{{ step.title }}</h4>
+                  <p>{{ step.text }}</p>
+                </div>
+                @if (!last) {
+                  <span class="career-path__line" aria-hidden="true"></span>
+                }
+              </li>
+            }
+          </ol>
+        </div>
+        <div class="career-path" appReveal>
+          <h3 class="career-path__label">Field Track</h3>
+          <ol class="career-path__steps">
+            @for (step of fieldPath; track step.title; let last = $last) {
+              <li class="career-path__step">
+                <div class="career-path__node" aria-hidden="true">{{ $index + 1 }}</div>
+                <div class="career-path__body">
+                  <h4>{{ step.title }}</h4>
+                  <p>{{ step.text }}</p>
+                </div>
+                @if (!last) {
+                  <span class="career-path__line" aria-hidden="true"></span>
+                }
+              </li>
+            }
+          </ol>
+        </div>
+      </div>
+      <div class="career-cta-row" appReveal>
+        <a class="btn-explore" [routerLink]="'/careers/jobs'">
+          <span>View Open Positions</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — CTA -->
+  <app-cta-band
+    sectionId="growth-cta"
+    eyebrow="05 — Get Started"
+    title="Ready to Reach<br />Your Next Level?"
+    text="Introduce yourself today — we'd love to hear where you want your career to go."
+    ctaLabel="Introduce Yourself"
+    ctaHref="/careers/introduce-yourself"
+  />
+</div>

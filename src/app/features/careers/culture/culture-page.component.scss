@@ -1,0 +1,342 @@
+@use '../shared/careers';
+
+/* ============================================================
+   Our Culture — finalized careers design system.
+   80/20 purple; numbered grit-eyebrow; alternating #000000 /
+   #070707 sections; hero content at 10% left padding.
+   ============================================================ */
+
+.cult-page {
+  background: #000;
+}
+
+.cult-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ---------- Sections ---------- */
+.cult-section {
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cult-section--black {
+  background: #000;
+}
+
+.cult-section--dark {
+  background: #070707;
+}
+
+.cult-section__title {
+  color: #fff;
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.cult-accent {
+  color: var(--grit-accent-violet);
+}
+
+.cult-body {
+  color: #d4d4d8;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+  max-width: 46rem;
+}
+
+.cult-body--lead {
+  max-width: 52rem;
+}
+
+/* ---------- Hero ---------- */
+.cult-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cult-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.cult-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cult-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+.cult-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 7rem 2.5rem 7rem 10%;
+}
+
+.cult-hero__title {
+  color: #fff;
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.cult-hero__intro {
+  color: #d4d4d8;
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  margin: 0 0 2.25rem;
+  max-width: 560px;
+}
+
+.cult-hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .cult-hero__inner {
+    padding-left: 6%;
+  }
+}
+
+/* ---------- Narrative ---------- */
+.cult-narrative {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.cult-quote {
+  margin: 0;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--grit-accent-violet);
+  border-radius: 12px;
+  padding: 2.25rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.cult-quote blockquote {
+  margin: 0 0 1rem;
+  color: #fff;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cult-quote__cite {
+  margin: 0;
+  color: var(--grit-accent-violet);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Cards ---------- */
+.cult-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.cult-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2.25rem 2rem;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cult-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(121, 44, 213, 0.55);
+  box-shadow: 0 20px 50px rgba(121, 44, 213, 0.18);
+}
+
+.cult-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(121, 44, 213, 0.14);
+  color: var(--grit-accent-violet);
+  margin-bottom: 1.5rem;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.cult-card:hover .cult-card__icon {
+  background: var(--grit-accent-violet);
+  color: #fff;
+}
+
+.cult-card__title {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.cult-card__text {
+  color: #a1a1aa;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---------- Life grid ---------- */
+.cult-life-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.cult-life-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: border-color 0.35s ease;
+}
+
+.cult-life-item:hover {
+  border-color: rgba(121, 44, 213, 0.55);
+}
+
+.cult-life-item__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(121, 44, 213, 0.14);
+  color: var(--grit-accent-violet);
+}
+
+.cult-life-item__title {
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.cult-life-item__text {
+  color: #a1a1aa;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- Link cards ---------- */
+.cult-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.cult-link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2.25rem 2rem;
+  text-decoration: none;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cult-link-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(121, 44, 213, 0.55);
+  box-shadow: 0 20px 50px rgba(121, 44, 213, 0.18);
+}
+
+.cult-link-card__title {
+  color: #fff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cult-link-card__text {
+  color: #a1a1aa;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.cult-link-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--grit-accent-violet);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cult-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cult-links {
+    grid-template-columns: 1fr;
+  }
+
+  .cult-narrative {
+    grid-template-columns: 1fr;
+  }
+
+  .cult-quote {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .cult-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cult-life-grid {
+    grid-template-columns: 1fr;
+  }
+}
