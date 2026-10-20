@@ -3,7 +3,7 @@
   <app-value-grid
     sectionId="val-core"
     background="#0A0A0A"
-    [header]="{ label: 'Our Core Values', title: 'What We Stand For.', text: 'Six principles. Zero compromises. The values that drive how 320 Grit plans, prices, and delivers construction projects across the United States.', centered: true }"
+    [header]="{ label: '02 — Our Core Values', title: 'What We Stand For.', text: 'Six principles. Zero compromises. The values that drive how 320 Grit plans, prices, and delivers construction projects across the United States.', centered: true }"
     [cards]="CORE_VALUES"
     columns="repeat(6, 1fr)"
   />
@@ -12,7 +12,7 @@
     sectionId="val-action"
     background="#0A0A0A"
     [header]="{
-      label: 'Our Commitment',
+      label: '04 — Our Commitment',
       title: 'Values in Action.<br><span class=\'hc-orange\'>Every Day.</span>',
       text: 'Our values are more than words on a wall — they show up in how we lead field teams, how we build to spec, and how we care for the communities our projects serve. From daily safety huddles to final punch-list walkthroughs, this is the 320 Grit difference in action.',
       centered: false,
@@ -21,5 +21,13 @@
     [introCta]="{ label: 'Start a Project', href: '#contact', variant: 'primary' }"
     [cards]="IN_ACTION"
     columns="repeat(4, 1fr)"
+  />
+  <app-cta-band
+    sectionId="val-cta"
+    eyebrow="05 — Get Started"
+    title="Values You Can<br>Build On."
+    text="Work with a construction partner whose principles show up on every jobsite — integrity in every budget, quality in every detail, and accountability through final handover."
+    ctaLabel="Start a Project"
+    ctaHref="/contact-us"
   />
 </div>

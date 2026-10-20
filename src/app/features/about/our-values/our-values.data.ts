@@ -4,14 +4,18 @@ import { HeroData, ProjectCard, SplitData, ValueCard } from '../shared/about.typ
 
 export const HERO: HeroData = {
   id: 'val-hero',
-  label: 'Our Values',
+  label: '01 — Our Values',
   title: 'The Principles That<br><span class="hc-orange">Build Us.</span>',
   description:
     'Integrity, quality, accountability, collaboration, safety, and continuous improvement — these six principles govern every 320 Grit project, from preconstruction planning through final handover. They shape how we estimate, how we manage trade partners, and how we stand behind our work long after closeout.',
   descriptionWidth: '520px',
+  ctas: [
+    { label: 'Our Story', href: '/our-story' },
+    { label: 'Start a Conversation', href: '/contact-us', variant: 'outline' },
+  ],
   image: {
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=85',
-    alt: '',
+    src: 'assets/images/values-hero.webp',
+    alt: 'Construction site in daylight — built on integrity, quality, and safety',
     fetchPriority: 'high',
   },
 };
@@ -52,17 +56,17 @@ export const CORE_VALUES: ValueCard[] = [
 export const DRIVE: SplitData = {
   id: 'val-drive',
   background: '#050505',
-  label: 'What Drives Us',
+  label: '03 — What Drives Us',
   title: 'More Than Buildings,<br><span class="hc-orange">We Build Legacies.</span>',
   paragraphs: [
     'We are driven by purpose, not just plans. Every 320 Grit project — from railroad infrastructure to hospital and medical construction — is guided by the same six values, applied with the same discipline on every jobsite.',
     'That means open-book transparency in our budgets, uncompromising safety planning before mobilization, and accountability that doesn’t end at substantial completion. When challenges arise, we address them directly and follow through until the work is right.',
     'The result is lasting impact: facilities that heal, infrastructure that moves commerce, and partnerships that owners return to project after project.',
   ],
-  cta: { label: 'Our Story', href: '/our-story/', variant: 'outline' },
+  cta: { label: 'Our Story', href: '/our-story', variant: 'outline' },
   image: {
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    alt: 'Team silhouette on site',
+    src: 'assets/images/values-drive.webp',
+    alt: 'Completed modern commercial building built to last',
   },
   imagePosition: 'right',
 };
@@ -71,21 +75,21 @@ export const IN_ACTION: ProjectCard[] = [
   {
     title: 'We Lead',
     text: 'With integrity and accountability — transparent budgets, honest schedules, and decisions that put the owner’s interests first on every project.',
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80',
+    img: 'assets/images/values-lead.webp',
   },
   {
     title: 'We Build',
     text: 'With precision and perseverance — quality workmanship, tight coordination of trade partners, and an uncompromising commitment to doing it right the first time.',
-    img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80',
+    img: 'assets/images/values-build.webp',
   },
   {
     title: 'We Partner',
     text: 'With respect, trust, and true collaboration — working shoulder-to-shoulder with owners, architects, and engineers from preconstruction through closeout.',
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80',
+    img: 'assets/images/values-partner.webp',
   },
   {
     title: 'We Impact',
     text: 'Communities and industries through the work we do — hospitals that heal, infrastructure that connects, and buildings that serve for generations.',
-    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80',
+    img: 'assets/images/values-impact.webp',
   },
 ];
