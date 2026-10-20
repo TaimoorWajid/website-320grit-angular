@@ -70,7 +70,7 @@ export class JobDetailPageComponent {
       { label: 'Employment type', value: j.employment_type },
       { label: 'Reports to', value: j.reports_to },
       { label: 'Travel', value: j.travel },
-      { label: 'Posted', value: this.postedLabel() },
+      ...(this.postedLabel() ? [{ label: 'Posted', value: this.postedLabel() }] : []),
     ];
   });
 

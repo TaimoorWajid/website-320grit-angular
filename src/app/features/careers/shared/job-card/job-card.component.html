@@ -1,4 +1,3 @@
-@use '../../shared/careers';
 
 @if (variant() === 'preview') {
   <article
@@ -46,7 +45,9 @@
     </div>
     <p class="grit-job-card__desc">{{ job().short_desc }}</p>
     <div class="grit-job-card__footer">
-      <span class="grit-job-card__posted">{{ postedLabel() }}</span>
+      @if (postedLabel()) {
+        <span class="grit-job-card__posted">{{ postedLabel() }}</span>
+      }
       <a class="grit-link-arrow" [routerLink]="jobUrl()">
         View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
       </a>

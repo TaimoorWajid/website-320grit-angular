@@ -29,7 +29,9 @@ export class JobCardComponent {
   }
 
   postedLabel(): string {
-    const d = new Date(`${this.job().posted_date}T00:00:00`);
+    const raw = this.job().posted_date;
+    if (!raw) return '';
+    const d = new Date(`${raw}T00:00:00`);
     return `Posted ${d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
   }
 }

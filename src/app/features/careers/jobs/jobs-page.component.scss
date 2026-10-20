@@ -1,4 +1,10 @@
 @use '../shared/careers';
+/* Site-standard eyebrow (the careers partial's purple variant is overridden
+   to the site orange per CAREERS-STANDARDS.md). */
+.grit-eyebrow {
+  color: #ff5d0e;
+  letter-spacing: 0.25em;
+}
 
 /* ======================================================
    /careers/jobs — open positions listing (Howell flow,

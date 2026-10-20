@@ -9,12 +9,14 @@
         <ul class="jd-meta" aria-label="Role details">
           <li><span aria-hidden="true" [innerHTML]="icons.pin() | safeHtml"></span>{{ j.location }}</li>
           <li><span aria-hidden="true" [innerHTML]="icons.briefcase() | safeHtml"></span>{{ j.employment_type }}</li>
-          <li>Posted {{ postedLabel() }}</li>
+          @if (postedLabel()) {
+            <li>Posted {{ postedLabel() }}</li>
+          }
           <li>Reports to {{ j.reports_to }}</li>
           <li>Travel: {{ j.travel }}</li>
         </ul>
         <div class="jd-hero__actions">
-          <a class="btn-explore" [routerLink]="['/careers', j.slug, 'apply']">
+          <a class="btn-explore btn-explore--filled" [routerLink]="['/careers', j.slug, 'apply']">
             <span>Apply Now</span><span class="btn-explore-dash" aria-hidden="true">—</span>
           </a>
           <app-save-job-button [job]="j" />

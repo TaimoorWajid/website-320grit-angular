@@ -24,11 +24,12 @@ export interface Job {
 }
 
 const SHARED_BENEFITS = [
-  'Competitive compensation',
-  'Health, dental & vision benefits',
-  '401(k) with company match',
-  'Professional development',
-  'A culture that values people',
+  'Competitive Salary',
+  'Performance-Based Bonuses',
+  'Medical, Dental & Vision Coverage',
+  'Paid Time Off & Holidays',
+  '401(k) Retirement Plan',
+  'Professional Development & Continuing Education',
 ];
 
 const SHARED_WHY_GRIT = [
@@ -48,7 +49,7 @@ export const JOBS: Job[] = [
     location: 'California, USA',
     employment_type: 'Full-Time',
     short_desc: 'Oversee field operations and ensure projects are built safely and on time.',
-    posted_date: '2026-05-08',
+    posted_date: '',
     excerpt:
       'Lead on-site construction activities, coordinate subcontractors, and uphold the highest safety and quality standards.',
     overview:
@@ -79,7 +80,7 @@ export const JOBS: Job[] = [
     location: 'California, USA',
     employment_type: 'Full-Time',
     short_desc: 'Support project managers with documentation, planning and day-to-day coordination.',
-    posted_date: '2026-05-12',
+    posted_date: '',
     excerpt:
       'Provide technical and administrative support to Project Managers while developing core project management skills.',
     overview:
