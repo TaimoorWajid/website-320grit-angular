@@ -134,6 +134,19 @@ export class AllIndustriesPageComponent {
       href: '/industries/hospitality',
       bg: MARKET_IMG.lobby,
     },
+    {
+      number: '08',
+      icon: 'building',
+      eyebrow: 'Commercial',
+      title: 'Commercial Construction',
+      bullets: ['Office Buildings', 'Retail Centers', 'Industrial & Warehouse', 'Mixed-Use Developments'],
+      paragraph:
+        'From ground-up office buildings to retail centers and industrial facilities, 320 Grit delivers commercial ' +
+        'construction with disciplined preconstruction, transparent cost control, and field execution that protects ' +
+        'your pro forma — on time, on budget, and built for decades of service.',
+      href: '/commercial-construction',
+      bg: MARKET_IMG.commercial,
+    },
   ];
 
   constructor() {

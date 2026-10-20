@@ -29,5 +29,5 @@ export const MARKET_IMG = {
   /** Commercial building — Commercial market card bg (staging). */
   commercial: '/assets/images/commercial-construction.webp',
   /** Industrial feature image — education contexts. */
-  industries: '/assets/images/Industries-we-serve-feature-image.webp',
+  industries: '/assets/images/hero-industries.webp',
 } as const;
