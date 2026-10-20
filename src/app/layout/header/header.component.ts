@@ -44,13 +44,13 @@ export class HeaderComponent {
             { label: 'Our Story', href: '/our-story' },
             { label: 'Our Leadership', href: '/our-leadership' },
             { label: 'Our Values', href: '/our-values' },
-            { label: 'Safety', href: '/safety' },
           ],
         },
         {
           label: 'Commitment',
           href: '#',
           children: [
+            { label: 'Safety', href: '/safety' },
             { label: 'Sustainability', href: '/sustainability' },
           ],
         },

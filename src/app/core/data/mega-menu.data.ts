@@ -42,17 +42,17 @@ export const MEGA_MENUS: MegaMenu[] = [
             desc: 'Integrity, excellence, teamwork.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.6-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.4-7 10-7 10-1.5-.9-2.9-1.8-4-2.8"></path><path d="M9 12h6"></path></svg>`,
           },
+        ],
+      },
+      {
+        header: 'Commitment',
+        items: [
           {
             href: '/safety',
             title: 'Safety',
             desc: 'Safety is our way of life.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>`,
           },
-        ],
-      },
-      {
-        header: 'Commitment',
-        items: [
           {
             href: '/sustainability',
             title: 'Sustainability',
