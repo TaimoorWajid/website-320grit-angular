@@ -6,7 +6,7 @@ interface FeatureCard {
   eyebrow: string;
   title: string;
   paragraphs: [string, string];
-  /** Verbatim checklist items from staging (.grit-feature-list). */
+  /** Five checklist items per service card (.grit-feature-list). */
   checklist: [string, string, string, string, string];
   cta: string;
   /** Site-relative route, or '' when the source CTA has an empty href. */
@@ -18,9 +18,11 @@ interface FeatureCard {
  * Section 4 — "What we do": sticky-media feature cards.
  * Ports Salient's nectar-sticky-media-sections (media-width-60pct,
  * media-height-75vh, content-position-right): the left media panel sticks
- * while the three content cards scroll; an IntersectionObserver crossfades
+ * while the content cards scroll; an IntersectionObserver crossfades
  * the sticky media to the card currently in view.
- * Copy is verbatim from refs/grit-staging/sections.md §4.
+ * Cards are the client's 4 core services (Design-Build, Bid-Build,
+ * Expert Witness, Forensic Accounting); copy is drawn from each service
+ * page, and each card's image is that service page's hero image.
  */
 @Component({
   selector: 'app-home-what-we-do',
@@ -31,57 +33,75 @@ interface FeatureCard {
 export class HomeWhatWeDoComponent {
   protected readonly cards: FeatureCard[] = [
     {
-      eyebrow: 'COMMERCIAL CONSTRUCTION',
-      title: 'Building Commercial Spaces That Drive Business.',
+      eyebrow: 'DESIGN-BUILD',
+      title: 'Design and Construction, Delivered as One.',
       paragraphs: [
-        'From corporate headquarters and retail centers to medical facilities and mixed-use developments, we deliver commercial construction with precision, transparency, and uncompromising quality.',
-        'Every milestone is managed by experienced professionals, ensuring projects stay on schedule, within budget, and built to perform for decades.',
+        'Our design-build services collapse design and construction into a single, streamlined workflow — cutting months off your schedule while giving you cost certainty from day one.',
+        'With one contract and one accountable team, decisions happen faster, risk transfers to us, and your project moves from concept to completion without the friction of separate design and build contracts.',
       ],
-      cta: 'Explore Commercial Projects',
-      href: '/industries/commercial-construction',
-      image: 'assets/images/What-we-do-faeture-image.webp',
+      cta: 'Explore Design-Build',
+      href: '/services/design-build',
+      image: 'assets/images/commercial-construction.webp',
       checklist: [
-        '25+ Years of Combined Experience',
-        'Skilled Craftsmen & In-House Team',
-        'Safety Focused, Quality Driven',
-        'Transparent Communication',
-        'Built on Integrity. Delivered with Grit.',
+        'Single Contract, Single Point of Responsibility',
+        'Overlapping Phases for Faster Delivery',
+        'Early Cost Lock & Budget Certainty',
+        'Integrated Design & Build Team',
+        'Risk Transfer to the Design-Builder',
       ],
     },
     {
-      eyebrow: 'RESIDENTIAL CONSTRUCTION',
-      title: 'Crafted Homes. Built for Generations.',
+      eyebrow: 'BID-BUILD',
+      title: 'Competitive Bids. Transparent Pricing. Disciplined Execution.',
       paragraphs: [
-        'Every home we build is designed around your vision, lifestyle, and long-term investment. From custom residences to luxury estates, we combine exceptional craftsmanship, premium materials, and meticulous project management to deliver homes that are as enduring as they are beautiful.',
-        'Our collaborative approach ensures a seamless experience—from concept and planning to the final walkthrough.',
+        'A proven delivery method built on competitive bidding, transparent pricing, and disciplined execution — giving owners clarity and control from the first bid to final handover.',
+        'Your design is completed first, qualified contractors compete on price, and construction proceeds under a lump-sum contract with clear accountability at every step.',
       ],
-      cta: 'Explore Residential Projects',
-      href: '',
-      image: 'assets/images/ChatGPT-Image-Jul-27-2026-08_14_05-PM.webp',
+      cta: 'Explore Bid-Build',
+      href: '/services/bid-build',
+      image: 'assets/images/labour-320-grit.webp',
       checklist: [
-        'Modern & Contemporary Designs',
-        'High-End Interior Finishes',
-        'Energy-Efficient Construction',
-        'Transparent Budget & Timeline',
-        'Dedicated Project Management',
+        'Complete Design Before Bidding',
+        'Competitive Bidding for Best Value',
+        'Lump-Sum Contract Pricing',
+        'Clear Accountability & Documentation',
+        'Full Owner Control of Design',
       ],
     },
     {
-      eyebrow: 'PROJECT MANAGEMENT',
-      title: 'Building Success Through Exceptional Leadership.',
+      eyebrow: 'EXPERT WITNESS',
+      title: 'Independent Expertise That Strengthens Your Case.',
       paragraphs: [
-        'Every milestone is carefully planned, every resource strategically managed, and every detail meticulously executed. Our project managers coordinate people, timelines, budgets, and quality standards to ensure seamless delivery from groundbreaking to final handover.',
-        'With a commitment to transparency and accountability, we provide clients with complete confidence throughout every stage of construction.',
+        'Our expert witnesses deliver clear, unbiased opinions backed by deep construction experience, technical knowledge, and industry standards — helping attorneys and owners win in mediation, arbitration, and court.',
+        'From construction defects and delay claims to standard-of-care opinions, we translate technical complexity into clear, persuasive testimony that judges, juries, and arbitrators trust.',
       ],
-      cta: 'Explore Projects Managed By Us',
-      href: '',
-      image: 'assets/images/ChatGPT-Image-Jul-28-2026-07_22_35-AM.webp',
+      cta: 'Explore Expert Witness',
+      href: '/services/expert-witness',
+      image: 'assets/images/ChatGPT-Image-Aug-9-2026-12_23_33-AM.webp',
       checklist: [
-        'Strategic Planning & Execution',
-        'Schedule & Budget Optimization',
-        'Vendor & Subcontractor Management',
-        'Quality & Safety Oversight',
-        'Seamless Client Communication',
+        'Objective & Independent Opinions',
+        'Defect, Delay & Cost Claim Analysis',
+        'Daubert & Frye-Compliant Methodology',
+        'Deposition & Trial Testimony',
+        'Standard-of-Care Opinions',
+      ],
+    },
+    {
+      eyebrow: 'FORENSIC ACCOUNTING',
+      title: 'Financial Facts That Hold Up in Court.',
+      paragraphs: [
+        'Our forensic accounting services deliver unbiased analysis, uncover financial irregularities, and provide the evidence you need to make informed decisions and win cases.',
+        'From fraud detection and damage quantification to expert reports and litigation support, we follow the money through complex construction finances and present findings that withstand scrutiny.',
+      ],
+      cta: 'Explore Forensic Accounting',
+      href: '/services/forensic-accounting',
+      image: 'assets/images/forensic-expert-bg-hero.webp',
+      checklist: [
+        'Fraud Detection & Investigation',
+        'Financial Investigations',
+        'Damage Quantification',
+        'Court-Ready Expert Reports',
+        'Litigation Support',
       ],
     },
   ];
