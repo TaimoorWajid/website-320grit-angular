@@ -4,9 +4,17 @@
   <app-value-grid
     sectionId="story-values"
     background="#050505"
-    [header]="{ title: 'Our Values. Our Foundation.', centered: true }"
+    [header]="{ label: '03 — What We Stand For', title: 'Our Values. Our Foundation.', centered: true }"
     [cards]="VALUES"
     columns="repeat(6, 1fr)"
   />
   <app-split-section [split]="PURPOSE" />
+  <app-cta-band
+    sectionId="story-cta"
+    eyebrow="05 — Get Started"
+    title="Let's Build Something<br>That Lasts."
+    text="Tell us about your project and see how 25+ years of combined experience, honest communication, and disciplined management deliver results you can trust."
+    ctaLabel="Start the Conversation"
+    ctaHref="/contact-us"
+  />
 </div>

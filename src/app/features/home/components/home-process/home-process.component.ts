@@ -6,6 +6,7 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { prefersReducedMotion } from '../../../../core/animations/animation.util';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
@@ -35,7 +36,7 @@ interface PhaseCard {
  */
 @Component({
   selector: 'app-home-process',
-  imports: [RevealDirective],
+  imports: [RevealDirective, RouterLink],
   templateUrl: './home-process.component.html',
   styleUrl: './home-process.component.scss',
 })

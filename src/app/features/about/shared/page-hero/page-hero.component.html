@@ -19,7 +19,7 @@
           @if (cta.href === '#contact') {
             <a routerLink="/contact-us" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
           } @else if (cta.href.startsWith('#')) {
-            <a [href]="cta.href" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            <a [href]="cta.href" (click)="scrollToHash($event, cta.href)" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
           } @else {
             <a [routerLink]="cta.href" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
           }

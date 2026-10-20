@@ -17,4 +17,17 @@ export class SplitSectionComponent {
   protected icon(paths: string): string {
     return iconSvg(paths, 20, 1.75);
   }
+
+  /**
+   * In-page anchor CTAs (href="#section-id"): with <base href="/"> a raw
+   * hash href resolves to the home page, so intercept the click and
+   * scroll to the element instead (same pattern as the homepage hero).
+   */
+  protected scrollToHash(event: Event, href: string): void {
+    const el = document.getElementById(href.slice(1));
+    if (!el) return;
+    event.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', href);
+  }
 }

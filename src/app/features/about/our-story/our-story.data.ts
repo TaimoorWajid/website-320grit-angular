@@ -4,14 +4,18 @@ import { HeroData, SplitData, ValueCard } from '../shared/about.types';
 
 export const HERO: HeroData = {
   id: 'story-hero',
-  label: 'Our Story',
+  label: '01 — Our Story',
   title: 'Built on Experience.<br><span class="hc-orange">Driven by Purpose.</span>',
   description:
     '320 GRIT was founded on the belief that great construction is more than building structures—it’s about building trust, relationships, and a better future for the communities we serve.',
   descriptionWidth: '540px',
+  ctas: [
+    { label: 'Meet Our Leadership', href: '/our-leadership' },
+    { label: 'Start a Conversation', href: '/contact-us', variant: 'outline' },
+  ],
   image: {
-    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=85',
-    alt: '',
+    src: 'assets/images/story-hero.webp',
+    alt: 'Commercial construction project rising under a clear sky',
     fetchPriority: 'high',
   },
 };
@@ -19,7 +23,7 @@ export const HERO: HeroData = {
 export const BEGAN: SplitData = {
   id: 'story-began',
   background: '#0A0A0A',
-  label: 'How It All Began',
+  label: '02 — How It All Began',
   title: 'From the Ground Up',
   paragraphs: [
     'At 320 Grit, we believe great construction is built on experience, integrity, and doing the job right the first time. Founded by two partners from different generations, our company combines over 25 years of hands-on construction experience. One partner brings decades of industry knowledge and proven expertise, while the other brings fresh perspective, energy, and a commitment to modern project management. Together, we’ve built a company that values craftsmanship, accountability, and lasting relationships.',
@@ -29,7 +33,7 @@ export const BEGAN: SplitData = {
   cta: { label: 'Our Journey', href: '#story-values', variant: 'outline' },
   image: {
     src: 'assets/images/story-began.webp',
-    alt: 'Construction team reviewing plans at a jobsite at dusk',
+    alt: 'Construction team reviewing plans at a daylight jobsite',
   },
   imagePosition: 'right',
 };
@@ -70,7 +74,7 @@ export const VALUES: ValueCard[] = [
 export const PURPOSE: SplitData = {
   id: 'story-purpose',
   background: '#050505',
-  label: 'Our Purpose',
+  label: '04 — Our Purpose',
   title: 'Building More Than Structures',
   paragraphs: [
     'We’re in the business of building more than buildings. We build lasting partnerships, stronger communities, and a legacy of trust that extends far beyond the last day on site.',
@@ -80,8 +84,8 @@ export const PURPOSE: SplitData = {
     cite: '— 320 GRIT Leadership Team',
   },
   image: {
-    src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
-    alt: 'Modern building exterior at night',
+    src: 'assets/images/story-purpose.webp',
+    alt: 'Completed modern commercial building interior with sunlight through tall windows',
   },
   imagePosition: 'left',
 };
