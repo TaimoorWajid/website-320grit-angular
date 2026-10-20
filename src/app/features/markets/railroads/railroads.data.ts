@@ -13,7 +13,7 @@ export const RAILROADS_DATA: MarketPageData = {
     subMaxWidth: '520px',
     desc: 'From new track construction and line expansions to turnouts, grade crossings, and rail yard development, 320 Grit delivers railroad construction with strict safety compliance, precision trackwork, and a relentless focus on operational performance.',
     buttons: [{ label: 'Let’s Build What Moves', variant: 'primary', anchor: '#rr-cta' }],
-    image: MARKET_IMG.banner,
+    image: MARKET_IMG.railroad,
   },
   overview: {
     id: 'rr-overview',

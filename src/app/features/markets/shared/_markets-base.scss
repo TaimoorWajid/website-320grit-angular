@@ -18,7 +18,7 @@
     --hc-purple-glow: rgba(121, 44, 213, 0.35);
     --hc-purple-soft: rgba(121, 44, 213, 0.12);
     --hc-black: #050505;
-    --hc-dark: #0a0a0a;
+    --hc-dark: #000000;
     --hc-dark-2: #111111;
     --hc-dark-3: #161616;
     --hc-dark-4: #1c1c1c;
@@ -305,8 +305,9 @@
 
   /* ============ S2 — OVERVIEW ============ */
   .rr-overview {
-    background: #0a0a0a;
+    background: #000000;
     color: var(--hc-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .rr-overview-grid {
@@ -405,6 +406,7 @@
   /* ============ S3 — CAPABILITIES ============ */
   .rr-capabilities {
     background: var(--hc-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .rr-cap-grid {
@@ -473,8 +475,9 @@
 
   /* ============ S4 — PROJECT TYPES ============ */
   .rr-projects {
-    background: #0a0a0a;
+    background: #000000;
     color: var(--hc-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .rr-projects-grid {
@@ -545,6 +548,7 @@
   /* ============ S5 — APPROACH ============ */
   .rr-approach {
     background: var(--hc-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .rr-approach-steps {
@@ -632,8 +636,9 @@
 
   /* ============ S6 — PARTNER ============ */
   .rr-partner {
-    background: #0a0a0a;
+    background: #000000;
     color: var(--hc-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .rr-partner-grid {

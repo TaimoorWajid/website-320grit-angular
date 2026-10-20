@@ -181,7 +181,7 @@
       <div class="rr-partner-text" appReveal>
         <span class="grit-eyebrow">{{ data().partner.label }}</span>
         @if (data().partner.heading) {
-          <h2 class="hc-display-md" style="margin-top: 0.75rem; color: #111">
+          <h2 class="hc-display-md" style="margin-top: 0.75rem">
             @for (line of data().partner.heading; track line.text; let last = $last) {
               @if (line.accent) {
                 <span class="hc-orange">{{ line.text }}</span>
