@@ -56,7 +56,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
     label: '04 — Project Types',
     heading: 'Types of Hospitality Projects',
     image: MARKET_IMG.residence,
-    imageAlt: 'Resort terrace at sunset',
+    imageAlt: 'Luxury residence at dusk',
     items: [
       { icon: 'building-windows', title: 'Hotels & Resorts', text: 'Full-service, select-service, boutique, and extended-stay properties.' },
       { icon: 'utensils', title: 'Restaurants & Bars', text: 'Destination dining, bars, and food-and-beverage venues.' },

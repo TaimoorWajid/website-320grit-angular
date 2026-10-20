@@ -50,7 +50,7 @@ export const RAILROADS_DATA: MarketPageData = {
     heading: 'Types of Rail Projects We Deliver',
     imageFirst: true,
     image: MARKET_IMG.banner,
-    imageAlt: 'Passenger train on curved track at sunset',
+    imageAlt: 'Construction site with work in progress',
     items: [
       { icon: 'train', title: 'Mainline Rail Construction', text: 'New mainline track, double-tracking, sidings, and capacity expansion projects.' },
       { icon: 'train-alt', title: 'Commuter & Passenger Rail', text: 'Stations, platforms, parking structures, and passenger rail trackwork.' },

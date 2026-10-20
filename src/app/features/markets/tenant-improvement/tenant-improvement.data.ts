@@ -88,7 +88,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
       'Safety, quality, and client satisfaction on every project',
     ],
     image: MARKET_IMG.lab,
-    imageAlt: 'Modern lounge space',
+    imageAlt: 'Cleanroom laboratory interior',
     diffHeading: 'The 320 Grit Difference',
     diffCards: [
       { icon: 'clock', title: 'On-Time Delivery', text: 'Move-in dates are commitments. We plan backward from yours.' },

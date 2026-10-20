@@ -30,7 +30,7 @@ export const EDUCATION_DATA: MarketPageData = {
       'Our team partners with school districts, private institutions, and community leaders to deliver safe, sustainable, and flexible facilities—phased around the academic calendar and built for today’s needs and tomorrow’s growth.',
     ],
     image: MARKET_IMG.industries,
-    imageAlt: 'Modern school interior',
+    imageAlt: 'Industrial construction site',
     points: [
       { icon: 'shield', title: 'Safe Campuses', text: 'Secure entries, controlled access, and student-safe construction practices on occupied campuses.' },
       { icon: 'user', title: 'Designed for Learning', text: 'Daylighting, acoustics, and flexible layouts that support teaching and student well-being.' },
@@ -56,7 +56,7 @@ export const EDUCATION_DATA: MarketPageData = {
     label: '04 — Project Types',
     heading: 'Types of Education Projects',
     image: MARKET_IMG.industries,
-    imageAlt: 'School campus',
+    imageAlt: 'Industrial construction project',
     items: [
       { icon: 'user', title: 'Early Learning Centers', text: 'Secure, engaging early childhood facilities.' },
       { icon: 'building', title: 'K-12 Schools', text: 'New schools and modernizations that serve communities for generations.' },
