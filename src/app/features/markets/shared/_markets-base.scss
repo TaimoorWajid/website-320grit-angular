@@ -305,8 +305,8 @@
 
   /* ============ S2 — OVERVIEW ============ */
   .rr-overview {
-    background: #f7f7f7;
-    color: #111;
+    background: #0a0a0a;
+    color: var(--hc-white);
   }
 
   .rr-overview-grid {
@@ -324,14 +324,14 @@
   }
 
   .rr-overview-title {
-    color: #111;
+    color: var(--hc-white);
     margin-top: 0.75rem;
   }
 
   .rr-overview-body {
     font-size: 1.0625rem;
     line-height: 1.75;
-    color: #444;
+    color: var(--hc-text-muted);
     margin-top: 1.25rem;
     max-width: 480px;
   }
@@ -473,8 +473,8 @@
 
   /* ============ S4 — PROJECT TYPES ============ */
   .rr-projects {
-    background: #f7f7f7;
-    color: #111;
+    background: #0a0a0a;
+    color: var(--hc-white);
   }
 
   .rr-projects-grid {
@@ -531,13 +531,13 @@
   .rr-project-item h3 {
     font-size: 1.0625rem;
     font-weight: 600;
-    color: #111;
+    color: var(--hc-white);
     margin-bottom: 0.25rem;
   }
 
   .rr-project-item p {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--hc-text-muted);
     margin: 0;
     line-height: 1.5;
   }
@@ -632,8 +632,8 @@
 
   /* ============ S6 — PARTNER ============ */
   .rr-partner {
-    background: #f7f7f7;
-    color: #111;
+    background: #0a0a0a;
+    color: var(--hc-white);
   }
 
   .rr-partner-grid {
@@ -653,7 +653,7 @@
   .rr-partner-body {
     font-size: 1.0625rem;
     line-height: 1.75;
-    color: #444;
+    color: var(--hc-text-muted);
     margin-top: 1.25rem;
     max-width: 460px;
   }
@@ -683,7 +683,7 @@
     margin-bottom: 0.85rem;
     font-size: 1rem;
     line-height: 1.55;
-    color: #444;
+    color: var(--hc-text-muted);
   }
 
   .rr-check-list li::before {
@@ -712,8 +712,8 @@
   }
 
   .rr-diff-card {
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
@@ -737,13 +737,13 @@
   .rr-diff-card h4 {
     font-size: 1rem;
     font-weight: 600;
-    color: #111;
+    color: var(--hc-white);
     margin-bottom: 0.4rem;
   }
 
   .rr-diff-card p {
     font-size: 0.875rem;
-    color: #555;
+    color: var(--hc-text-muted);
     margin: 0;
     line-height: 1.5;
   }
@@ -751,7 +751,7 @@
   .rr-diff-heading {
     grid-column: 1 / -1;
     margin-bottom: 1.5rem;
-    color: #111;
+    color: var(--hc-white);
   }
 
   /* ============ S7 — FINAL CTA ============ */
