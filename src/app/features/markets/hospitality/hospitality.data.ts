@@ -7,7 +7,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   canonicalPath: '/industries/hospitality',
   hero: {
     id: 'hos-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Hospitality' }],
     sub: [
       { text: 'Building Experiences.', accent: true },
@@ -23,7 +23,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   },
   overview: {
     id: 'hos-overview',
-    label: 'Overview',
+    label: '02 — Overview',
     title: [{ text: 'Thoughtfully Built.' }, { text: 'Expertly Delivered.', accent: true }],
     paragraphs: [
       'Hospitality construction demands precision, creativity, and an unwavering focus on the guest experience. We partner with owners, developers, and brands to bring their vision to life—on time, on budget, and built to last.',
@@ -40,6 +40,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'hos-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Hospitality Construction Capabilities',
     cards: [
       { icon: 'building-windows', title: 'New Construction', text: 'Ground-up hotels, resorts, and mixed-use hospitality developments.' },
@@ -52,6 +53,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   },
   projects: {
     id: 'hos-projects',
+    label: '04 — Project Types',
     heading: 'Types of Hospitality Projects',
     image: MARKET_IMG.residence,
     imageAlt: 'Resort terrace at sunset',
@@ -65,7 +67,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   },
   approach: {
     id: 'hos-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     steps: [
       { num: '1', title: 'Listen', text: 'We learn your brand standards, guest profile, and business objectives.' },
       { num: '2', title: 'Plan', text: 'Phased planning that protects revenue and minimizes guest disruption.' },
@@ -77,7 +79,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   partner: {
     id: 'hos-partner',
     variant: 'checklist',
-    label: 'A Partner You Can Count On',
+    label: '06 — A Partner You Can Count On',
     heading: [{ text: 'Hospitality Is About More Than Buildings.' }, { text: 'It’s About People.' }],
     body: 'Hospitality construction is about trust, timing, and detail. 320 Grit delivers hotels, resorts, and restaurants with the precision your brand demands.',
     checks: [
@@ -91,6 +93,7 @@ export const HOSPITALITY_DATA: MarketPageData = {
   },
   cta: {
     id: 'hos-cta',
+    label: '07 — Get Started',
     heading: [{ text: 'Let’s Build Spaces That' }, { text: 'Welcome the World.', accent: true }],
     body: 'From ground-up resorts to occupied-hotel renovations, 320 Grit builds hospitality spaces guests remember.',
     button: { label: 'Start a Conversation', variant: 'primary', route: '/contact-us' },

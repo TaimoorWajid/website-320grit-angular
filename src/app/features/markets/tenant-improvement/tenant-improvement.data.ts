@@ -7,7 +7,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   canonicalPath: '/industries/tenant-improvement',
   hero: {
     id: 'ti-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Tenant' }, { text: 'Improvement', accent: true }],
     sub: [{ text: 'Transforming spaces. Elevating performance.' }],
     subMaxWidth: '520px',
@@ -20,7 +20,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   },
   overview: {
     id: 'ti-overview',
-    label: 'Overview',
+    label: '02 — Overview',
     title: [{ text: 'Spaces Designed Around ', inline: true }, { text: 'Your Business.', accent: true }],
     paragraphs: [
       'Every business is unique—and your space should be too. Our tenant improvement solutions combine smart space planning, efficient scheduling, and expert interior construction to create environments that support productivity, reflect your brand, and impress clients.',
@@ -37,6 +37,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'ti-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Tenant Improvement Capabilities',
     cards: [
       { icon: 'layout-grid', title: 'Space Planning & Design', text: 'Test fits, space planning, and design collaboration that maximize usable square footage.' },
@@ -49,6 +50,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   },
   projects: {
     id: 'ti-projects',
+    label: '04 — Project Types',
     heading: 'Types of Tenant Improvement Projects',
     image: MARKET_IMG.planning,
     imageAlt: 'Modern open office',
@@ -63,7 +65,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   },
   approach: {
     id: 'ti-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     columns: 4,
     splitNumTitle: true,
     steps: [
@@ -76,7 +78,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   partner: {
     id: 'ti-why',
     variant: 'checklist-difference',
-    label: 'Why Partner with 320 Grit?',
+    label: '06 — Why Partner with 320 Grit?',
     body: '320 Grit specializes in tenant improvements—office buildouts, renovations, and interior construction delivered fast, with minimal disruption and finishes that last.',
     checks: [
       'Tenant improvement specialists—from 1,000 SF refreshes to full-floor buildouts',
@@ -97,6 +99,7 @@ export const TENANT_IMPROVEMENT_DATA: MarketPageData = {
   },
   cta: {
     id: 'ti-cta',
+    label: '07 — Get Started',
     heading: [{ text: 'Transform Your Space.' }, { text: 'Elevate Your Business.', accent: true }],
     body: 'From test fit to move-in day, 320 Grit builds tenant improvements that work as hard as you do.',
     button: { label: 'Start Your Project', variant: 'primary', route: '/contact-us' },

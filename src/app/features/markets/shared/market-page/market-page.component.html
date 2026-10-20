@@ -95,6 +95,9 @@
 <section class="hc-section rr-capabilities" [id]="data().capabilities.id">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
+      @if (data().capabilities.label) {
+        <span class="grit-eyebrow">{{ data().capabilities.label }}</span>
+      }
       <h2 class="hc-display-md">{{ data().capabilities.heading }}</h2>
     </div>
     <div class="rr-cap-grid">
@@ -119,6 +122,9 @@
         </div>
       }
       <div class="rr-projects-list" appReveal>
+        @if (data().projects.label) {
+          <span class="grit-eyebrow">{{ data().projects.label }}</span>
+        }
         <h2 class="hc-display-md" style="margin-bottom: 1.5rem">{{ data().projects.heading }}</h2>
         @for (item of data().projects.items; track item.title) {
           <div class="rr-project-item">
@@ -267,6 +273,7 @@
 <!-- S7 — FINAL CTA -->
 <app-cta-band
   [sectionId]="data().cta.id"
+  [eyebrow]="data().cta.label ?? ''"
   [title]="ctaTitle()"
   [text]="data().cta.body"
   [ctaLabel]="data().cta.button.label"

@@ -7,7 +7,7 @@ export const RAILROADS_DATA: MarketPageData = {
   canonicalPath: '/industries/railroads',
   hero: {
     id: 'rr-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Railroads' }],
     sub: [{ text: 'Railroad construction and track rehabilitation built for safety, capacity, and long-term performance.' }],
     subMaxWidth: '520px',
@@ -17,7 +17,7 @@ export const RAILROADS_DATA: MarketPageData = {
   },
   overview: {
     id: 'rr-overview',
-    label: 'Overview',
+    label: '02 — Overview',
     title: [{ text: 'Rail Infrastructure Built for Safety, Capacity, and Performance.' }],
     paragraphs: [
       'Rail is one of the most efficient, sustainable, and reliable ways to move people and goods. 320 Grit partners with freight railroads, transit agencies, and private rail owners to deliver track construction, rehabilitation, and rail structures that improve safety, expand capacity, and support long-term growth.',
@@ -33,6 +33,7 @@ export const RAILROADS_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'rr-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Railroad Construction Capabilities',
     cards: [
       { icon: 'train', title: 'Track Construction & Rehabilitation', text: 'New track builds, panelized track installation, rail relay, tie replacement, ballast regulation, and surfacing.' },
@@ -45,6 +46,7 @@ export const RAILROADS_DATA: MarketPageData = {
   },
   projects: {
     id: 'rr-projects',
+    label: '04 — Project Types',
     heading: 'Types of Rail Projects We Deliver',
     imageFirst: true,
     image: MARKET_IMG.banner,
@@ -59,7 +61,7 @@ export const RAILROADS_DATA: MarketPageData = {
   },
   approach: {
     id: 'rr-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     heading: 'How We Deliver',
     showIcons: true,
     showArrows: true,
@@ -74,7 +76,7 @@ export const RAILROADS_DATA: MarketPageData = {
   partner: {
     id: 'rr-partner',
     variant: 'text-image',
-    label: 'A Partner You Can Count On',
+    label: '06 — A Partner You Can Count On',
     heading: [{ text: 'Experience. Accountability.' }, { text: 'Infrastructure That Lasts.' }],
     body: '320 Grit brings railroad construction expertise, disciplined project management, and a commitment to delivering rail infrastructure that performs—safely, on schedule, and built to last.',
     image: MARKET_IMG.labour,
@@ -82,6 +84,7 @@ export const RAILROADS_DATA: MarketPageData = {
   },
   cta: {
     id: 'rr-cta',
+    label: '07 — Get Started',
     heading: [
       { text: 'Let’s Build What ', inline: true },
       { text: 'Moves', accent: true, inline: true },

@@ -57,12 +57,14 @@ export interface MarketOverviewData {
 
 export interface MarketCapabilitiesData {
   id: string;
+  label?: string;
   heading: string;
   cards: IconText[];
 }
 
 export interface MarketProjectsData {
   id: string;
+  label?: string;
   heading: string;
   items: IconText[];
   image: string;
@@ -122,6 +124,7 @@ export interface MarketPartnerData {
 
 export interface MarketCtaData {
   id: string;
+  label?: string;
   heading: RichLine[];
   body: string;
   button: MarketButton;

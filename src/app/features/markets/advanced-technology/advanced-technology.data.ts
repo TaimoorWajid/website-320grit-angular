@@ -7,7 +7,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   canonicalPath: '/industries/advanced-technology',
   hero: {
     id: 'at-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Advanced' }, { text: 'Technology', accent: true }],
     sub: [{ text: 'Cleanrooms, laboratories, and mission-critical facilities engineered for precision.' }],
     subMaxWidth: '520px',
@@ -20,7 +20,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   },
   overview: {
     id: 'at-overview',
-    label: 'Built for Complexity.',
+    label: '02 — Built for Complexity.',
     labelAccent: true,
     title: [{ text: 'Environments That' }, { text: 'Drive Innovation.', accent: true }],
     paragraphs: [
@@ -38,6 +38,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'at-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Advanced Technology Capabilities',
     cards: [
       { icon: 'flask', title: 'Research Laboratories', text: 'Wet labs, dry labs, vivariums, and specialized research spaces with precision MEP systems.' },
@@ -50,6 +51,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   },
   projects: {
     id: 'at-projects',
+    label: '04 — Project Types',
     heading: 'Types of Advanced Technology Projects',
     image: MARKET_IMG.lab,
     imageAlt: 'Cleanroom / lab',
@@ -63,7 +65,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   },
   approach: {
     id: 'at-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     steps: [
       { num: '1', title: 'Listen', text: 'We learn your science, process requirements, and operational constraints.' },
       { num: '2', title: 'Plan', text: 'Detailed planning around validation, compliance, and long-term performance.' },
@@ -75,7 +77,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   partner: {
     id: 'at-why',
     variant: 'checklist',
-    label: 'Why Partner with 320 Grit',
+    label: '06 — Why Partner with 320 Grit',
     heading: [{ text: 'Expertise. Precision.' }, { text: 'Performance.', accent: true }],
     body: 'Advanced technology construction demands precision at every level. 320 Grit delivers cleanrooms, laboratories, and mission-critical facilities with the technical rigor your work requires.',
     checks: [
@@ -89,6 +91,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
   },
   cta: {
     id: 'at-cta',
+    label: '07 — Get Started',
     heading: [
       { text: 'Let’s Build ', inline: true },
       { text: 'What’s Next.', accent: true },

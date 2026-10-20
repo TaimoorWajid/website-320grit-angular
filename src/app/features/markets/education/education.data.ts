@@ -7,7 +7,7 @@ export const EDUCATION_DATA: MarketPageData = {
   canonicalPath: '/industries/education',
   hero: {
     id: 'edu-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Education' }],
     sub: [
       { text: 'Building Spaces That Inspire', accent: true },
@@ -23,7 +23,7 @@ export const EDUCATION_DATA: MarketPageData = {
   },
   overview: {
     id: 'edu-overview',
-    label: 'Overview',
+    label: '02 — Overview',
     title: [{ text: 'Learning Environments' }, { text: 'Built for Impact.', accent: true }],
     paragraphs: [
       'We understand that every educational facility is more than a building—it is a place where curiosity is sparked, potential is discovered, and futures are shaped.',
@@ -40,6 +40,7 @@ export const EDUCATION_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'edu-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Education Construction Capabilities',
     cards: [
       { icon: 'building', title: 'Pre-K – 12 Schools', text: 'Classrooms, STEM labs, gymnasiums, and secure campus entries for K-12 districts.' },
@@ -52,6 +53,7 @@ export const EDUCATION_DATA: MarketPageData = {
   },
   projects: {
     id: 'edu-projects',
+    label: '04 — Project Types',
     heading: 'Types of Education Projects',
     image: MARKET_IMG.industries,
     imageAlt: 'School campus',
@@ -65,7 +67,7 @@ export const EDUCATION_DATA: MarketPageData = {
   },
   approach: {
     id: 'edu-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     steps: [
       { num: '1', title: 'Listen', text: 'We learn your educational vision, enrollment needs, and community priorities.' },
       { num: '2', title: 'Plan', text: 'Smart planning around bond funding, approvals, and the academic calendar.' },
@@ -77,7 +79,7 @@ export const EDUCATION_DATA: MarketPageData = {
   partner: {
     id: 'edu-result',
     variant: 'result',
-    label: 'The Result',
+    label: '06 — The Result',
     heading: [{ text: 'Spaces That Educate.' }, { text: 'Communities That Thrive.', accent: true }],
     body: '320 Grit builds educational facilities that serve students, educators, and communities—delivered safely, on schedule, and ready for the first day of school.',
     ctaButton: { label: 'Start Your Project', variant: 'primary', anchor: '#edu-cta' },
@@ -90,6 +92,7 @@ export const EDUCATION_DATA: MarketPageData = {
   },
   cta: {
     id: 'edu-cta',
+    label: '07 — Get Started',
     heading: [{ text: 'Building Today’s Schools.' }, { text: 'Inspiring Tomorrow’s Leaders.', accent: true }],
     body: 'Partner with 320 Grit for K-12 and higher education construction—new builds, modernizations, and campus improvements.',
     button: { label: 'Let’s Talk', variant: 'primary', route: '/contact-us' },

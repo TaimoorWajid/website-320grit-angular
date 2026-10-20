@@ -7,7 +7,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   canonicalPath: '/industries/behavioral-health',
   hero: {
     id: 'bh-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Behavioral' }, { text: 'Health', accent: true }],
     sub: [{ text: 'Thoughtfully built environments that support healing, dignity, and long-term well-being.' }],
     subMaxWidth: '520px',
@@ -20,7 +20,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   },
   overview: {
     id: 'bh-overview',
-    label: 'Overview',
+    label: '02 — Overview',
     title: [{ text: 'Spaces That Put' }, { text: 'People First.', accent: true }],
     paragraphs: [
       'Behavioral health facilities require more than construction expertise—they require empathy, careful planning, and a deep understanding of how the built environment impacts recovery.',
@@ -37,6 +37,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'bh-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Behavioral Health Construction Capabilities',
     cards: [
       { icon: 'shield-check', title: 'Secure Environments', text: 'Ligature-resistant and tamper-resistant construction for inpatient and secure behavioral health units.' },
@@ -49,6 +50,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   },
   projects: {
     id: 'bh-projects',
+    label: '04 — Project Types',
     heading: 'Types of Behavioral Health Projects',
     image: MARKET_IMG.residence,
     imageAlt: 'Behavioral health outdoor courtyard',
@@ -62,7 +64,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   },
   approach: {
     id: 'bh-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     steps: [
       { num: '1', title: 'Listen', text: 'We learn your care model, patient population, and operational requirements.' },
       { num: '2', title: 'Plan', text: 'Thoughtful planning that balances therapeutic goals, safety requirements, and budget.' },
@@ -74,7 +76,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   partner: {
     id: 'bh-commitment',
     variant: 'commitment',
-    label: 'Our Commitment',
+    label: '06 — Our Commitment',
     heading: [{ text: 'Building Hope.' }, { text: 'Creating Possibilities.', accent: true }],
     body: 'Behavioral health facilities are more than buildings—they are instruments of care. 320 Grit builds secure, therapeutic environments that protect patients, support staff, and strengthen communities.',
     diffCardLeft: true,
@@ -86,6 +88,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
   },
   cta: {
     id: 'bh-cta',
+    label: '07 — Get Started',
     heading: [{ text: 'Let’s Build Spaces Where' }, { text: 'People Can Heal.', accent: true }],
     body: 'Partner with 320 Grit for behavioral health construction—from inpatient units to outpatient centers.',
     button: { label: 'Start a Conversation', variant: 'primary', route: '/contact-us' },

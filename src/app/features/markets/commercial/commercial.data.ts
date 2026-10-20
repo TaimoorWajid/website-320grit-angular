@@ -7,7 +7,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   canonicalPath: '/industries/commercial-construction',
   hero: {
     id: 'cc-hero',
-    label: 'Markets We Serve',
+    label: '01 — Markets We Serve',
     title: [{ text: 'Commercial Construction' }],
     sub: [{ text: 'Ground-up commercial construction and redevelopment built to protect your pro forma.' }],
     subMaxWidth: '520px',
@@ -17,7 +17,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   },
   overview: {
     id: 'cc-overview',
-    label: 'Overview',
+    label: '02 — Overview',
     title: [{ text: 'Commercial Builds Engineered for Returns, Delivered With Certainty.' }],
     paragraphs: [
       'Commercial construction is a business decision. Every square foot you build must earn its place in the pro forma — and every week of delay erodes it. 320 Grit partners with developers, owners, and investors to deliver office buildings, retail centers, industrial facilities, and mixed-use projects with the cost certainty, schedule discipline, and quality finishes that strong returns are built on.',
@@ -33,6 +33,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   },
   capabilities: {
     id: 'cc-capabilities',
+    label: '03 — Our Capabilities',
     heading: 'Our Commercial Construction Capabilities',
     cards: [
       { icon: 'building', title: 'Ground-Up Construction', text: 'New office buildings, retail centers, and commercial shells — from site work to certificate of occupancy.' },
@@ -45,6 +46,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   },
   projects: {
     id: 'cc-projects',
+    label: '04 — Project Types',
     heading: 'Types of Commercial Projects We Deliver',
     imageFirst: true,
     image: MARKET_IMG.commercial,
@@ -59,7 +61,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   },
   approach: {
     id: 'cc-approach',
-    label: 'Our Approach',
+    label: '05 — Our Approach',
     heading: 'How We Deliver',
     showIcons: true,
     showArrows: true,
@@ -74,7 +76,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   partner: {
     id: 'cc-partner',
     variant: 'text-image',
-    label: 'A Partner You Can Count On',
+    label: '06 — A Partner You Can Count On',
     heading: [{ text: 'Cost Certainty. Schedule Discipline.' }, { text: 'Assets That Perform.' }],
     body: '320 Grit brings commercial construction expertise, rigorous preconstruction, and field leadership that treats your budget like our own — delivering buildings that protect the pro forma and perform for decades.',
     image: MARKET_IMG.commercialPartner,
@@ -82,6 +84,7 @@ export const COMMERCIAL_DATA: MarketPageData = {
   },
   cta: {
     id: 'cc-cta',
+    label: '07 — Get Started',
     heading: [
       { text: 'Let’s Build What ', inline: true },
       { text: 'Performs', accent: true, inline: true },
