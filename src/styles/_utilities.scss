@@ -203,6 +203,17 @@
   border-color: var(--grit-accent-violet);
 }
 
+/* Pre-filled variant: solid violet by default, lighter violet on hover. */
+.btn-explore--filled {
+  background: var(--grit-accent-violet);
+  border-color: var(--grit-accent-violet);
+}
+
+.btn-explore--filled:hover {
+  background: var(--grit-accent-violet-light);
+  border-color: var(--grit-accent-violet-light);
+}
+
 .btn-explore:hover > span:first-child {
   transform: translateX(-4px);
 }
