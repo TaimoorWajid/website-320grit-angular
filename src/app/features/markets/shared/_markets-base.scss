@@ -53,7 +53,7 @@
   }
 
   .hc-orange {
-    color: var(--hc-orange);
+    color: var(--hc-purple);
   }
 
   .hc-purple {
@@ -226,7 +226,7 @@
   .hc-hero-content {
     position: relative;
     z-index: 2;
-    max-width: 640px;
+    max-width: 780px;
   }
 
   .hc-hero-label {
@@ -246,7 +246,8 @@
     margin-bottom: 1.5rem;
   }
 
-  .hc-hero h1 .hc-orange {
+  .hc-hero h1 .hc-orange,
+  .hc-hero h1 .hc-purple {
     display: block;
   }
 
@@ -263,6 +264,13 @@
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
+  }
+
+  /* Hero buttons stay side by side at desktop widths — no wrapping. */
+  @media (min-width: 769px) {
+    .hc-hero-actions {
+      flex-wrap: nowrap;
+    }
   }
 
   .hc-hero-side {
@@ -405,7 +413,7 @@
 
   /* ============ S3 — CAPABILITIES ============ */
   .rr-capabilities {
-    background: var(--hc-dark);
+    background: #070707;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
@@ -547,7 +555,7 @@
 
   /* ============ S5 — APPROACH ============ */
   .rr-approach {
-    background: var(--hc-dark);
+    background: #070707;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
