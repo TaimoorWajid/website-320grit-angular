@@ -101,7 +101,8 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   text-transform: uppercase;
   color: $hc-purple;
 }
-.hc-orange { color: $hc-orange; }
+/* Site standard: title accent words render PURPLE (class name kept for data compatibility). */
+.hc-orange { color: $hc-purple; }
 .hc-purple { color: $hc-purple; }
 
 /* ---------- buttons ---------- */

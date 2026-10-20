@@ -45,7 +45,7 @@
             @if (c.href === '#contact') {
               <a routerLink="/contact-us" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
             } @else if (c.href.startsWith('#')) {
-              <a [href]="c.href" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+              <a [href]="c.href" (click)="scrollToHash($event, c.href)" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
             } @else {
               <a [routerLink]="c.href" class="btn-explore"><span>{{ c.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
             }

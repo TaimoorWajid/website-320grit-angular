@@ -3,12 +3,13 @@ import { SeoService } from '../../../core/services/seo.service';
 import { PageHeroComponent } from '../shared/page-hero/page-hero.component';
 import { SplitSectionComponent } from '../shared/split-section/split-section.component';
 import { ValueCardGridComponent } from '../shared/value-card-grid/value-card-grid.component';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { BEGAN, HERO, PURPOSE, VALUES } from './our-story.data';
 
 /** Our Story page — composition of shared hc- sections. */
 @Component({
   selector: 'app-our-story-page',
-  imports: [PageHeroComponent, SplitSectionComponent, ValueCardGridComponent],
+  imports: [PageHeroComponent, SplitSectionComponent, ValueCardGridComponent, CtaBandComponent],
   templateUrl: './our-story-page.component.html',
   styleUrl: './our-story-page.component.scss',
 })
