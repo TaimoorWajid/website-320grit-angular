@@ -12,6 +12,8 @@ export interface CaMarket {
   title: string;
   text: string;
   img: string;
+  /** Industry page route for the card's "Explore Market" link. */
+  route: string;
 }
 
 export interface CaIconCard {

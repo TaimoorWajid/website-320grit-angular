@@ -1,4 +1,5 @@
 import { Component, DestroyRef, ElementRef, afterNextRender, inject, input, signal, viewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CaMarket } from '../ca.types';
 import { CaRevealDirective } from '../ca-reveal.directive';
 import { prefersReducedMotion } from '../../../../core/animations/animation.util';
@@ -15,7 +16,7 @@ const LERP = 0.12;
  */
 @Component({
   selector: 'app-ca-ring-carousel',
-  imports: [CaRevealDirective],
+  imports: [CaRevealDirective, RouterLink],
   templateUrl: './ca-ring-carousel.component.html',
   styleUrl: './ca-ring-carousel.component.scss',
 })
@@ -91,10 +92,6 @@ export class CaRingCarouselComponent {
       this.displayAngle.set(this.targetAngle);
       this.rafId = 0;
     }
-  }
-
-  protected noop(event: Event): void {
-    event.preventDefault();
   }
 
   constructor() {
