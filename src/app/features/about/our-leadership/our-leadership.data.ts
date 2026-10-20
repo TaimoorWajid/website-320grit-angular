@@ -5,14 +5,18 @@ import { HeroData, SplitData, TeamMember, ValueCard } from '../shared/about.type
 
 export const HERO: HeroData = {
   id: 'lead-hero',
-  label: 'Our Leadership',
+  label: '01 — Our Leadership',
   title: 'Leadership That Builds<br><span class="hc-orange">Legacies.</span>',
   description:
     'Behind every 320 Grit project is leadership that takes personal ownership of the outcome. From preconstruction planning to final handover, our leaders bring hands-on construction expertise, transparent communication, and an uncompromising commitment to delivering on schedule and on budget.',
   descriptionWidth: '540px',
+  ctas: [
+    { label: 'Our Story', href: '/our-story' },
+    { label: 'Start a Conversation', href: '/contact-us', variant: 'outline' },
+  ],
   image: {
-    src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=85',
-    alt: '',
+    src: 'assets/images/leadership-hero.webp',
+    alt: 'Construction leadership reviewing progress on a daylight jobsite',
     fetchPriority: 'high',
   },
 };
@@ -60,11 +64,11 @@ export const TEAM: TeamMember[] = [
 export const VALUES_SPLIT: SplitData = {
   id: 'lead-values',
   background: '#050505',
-  label: 'Our Values',
+  label: '04 — Our Values',
   title: 'How We Lead Every Project',
   image: {
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    alt: 'Team on site at sunset',
+    src: 'assets/images/leadership-values.webp',
+    alt: '320 Grit team collaborating on a daylight jobsite',
   },
   imagePosition: 'left',
 };

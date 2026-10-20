@@ -4,7 +4,7 @@
     sectionId="lead-approach"
     background="#050505"
     [header]="{
-      label: 'Our Approach to Leadership',
+      label: '02 — Our Approach to Leadership',
       title: 'Experience. Integrity. Impact.',
       text: 'Our leaders set the standard for how 320 Grit plans, builds, and delivers. They mentor field teams, hold every trade partner accountable, and make sure each project\u2014from railroad infrastructure to hospital construction\u2014reflects our promise of precision, integrity, and care.',
       centered: true,
@@ -14,7 +14,7 @@
     gridMaxWidth="900px"
     gridMargin="0 auto"
   />
-  <app-team-grid sectionId="lead-team" background="#0A0A0A" label="Meet Our Team" title="Our Leadership Team" [members]="TEAM" />
+  <app-team-grid sectionId="lead-team" background="#0A0A0A" label="03 — Meet Our Team" title="Our Leadership Team" [members]="TEAM" />
   <!-- Values split: custom nested 2-col plain list per source -->
   <section class="hc-section" id="lead-values" [style.background]="'#050505'">
     <div class="hc-container">
@@ -42,4 +42,12 @@
       </div>
     </div>
   </section>
+  <app-cta-band
+    sectionId="lead-cta"
+    eyebrow="05 — Get Started"
+    title="Build With Leaders<br>Who Own the Outcome."
+    text="Start a conversation with the team that plans, manages, and stands behind every 320 Grit project — from first bid to final handover."
+    ctaLabel="Start the Conversation"
+    ctaHref="/contact-us"
+  />
 </div>
