@@ -95,8 +95,3 @@ export const FOCUS: ValueCard[] = [
   },
 ];
 
-export const CTA = {
-  title: 'Safety Isn’t a Policy.<br><span class="hc-orange">It’s Our Culture.</span>',
-  text: 'Partner with a contractor whose safety program protects your people, your schedule, and your reputation. Every worker home safe, every day.',
-  cta: { label: 'Start a Safe Project', href: '#contact', variant: 'primary' as const },
-};

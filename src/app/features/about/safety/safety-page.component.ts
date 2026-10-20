@@ -3,8 +3,8 @@ import { SeoService } from '../../../core/services/seo.service';
 import { PageHeroComponent } from '../shared/page-hero/page-hero.component';
 import { ValueCardGridComponent } from '../shared/value-card-grid/value-card-grid.component';
 import { SplitSectionComponent } from '../shared/split-section/split-section.component';
-import { FinalCtaComponent } from '../shared/final-cta/final-cta.component';
-import { APPROACH, CTA, CULTURE, FOCUS, HERO } from './safety.data';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
+import { APPROACH, CULTURE, FOCUS, HERO } from './safety.data';
 
 /** Safety page — composition of shared hc- sections. */
 @Component({
@@ -13,7 +13,7 @@ import { APPROACH, CTA, CULTURE, FOCUS, HERO } from './safety.data';
     PageHeroComponent,
     ValueCardGridComponent,
     SplitSectionComponent,
-    FinalCtaComponent,
+    CtaBandComponent,
   ],
   templateUrl: './safety-page.component.html',
   styleUrl: './safety-page.component.scss',
@@ -23,7 +23,6 @@ export class SafetyPageComponent {
   protected readonly APPROACH = APPROACH;
   protected readonly CULTURE = CULTURE;
   protected readonly FOCUS = FOCUS;
-  protected readonly CTA = CTA;
 
   constructor() {
     inject(SeoService).update({ title: 'Safety', canonicalPath: '/safety' });

@@ -14,12 +14,11 @@
     columns="repeat(4, 1fr)"
   />
   <app-split-section [split]="HOW" />
-  <app-project-grid
-    sectionId="sus-projects"
-    background="#050505"
-    [header]="{ label: 'Sustainable in Action', title: 'Built Green. Built to Perform.', centered: false }"
-    [cards]="PROJECTS"
-    columns="repeat(3, 1fr)"
+  <app-cta-band
+    sectionId="sus-cta"
+    title="Build Green.<br>Build to Last."
+    text="Partner with a contractor that treats sustainability as standard practice—lower operating costs, healthier spaces, and a smaller footprint."
+    ctaLabel="Build Sustainably With Us"
+    ctaHref="/contact-us"
   />
-  <app-final-cta sectionId="sus-cta" [title]="CTA.title" [text]="CTA.text" [cta]="CTA.cta" />
 </div>

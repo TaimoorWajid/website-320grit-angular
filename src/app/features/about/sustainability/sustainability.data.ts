@@ -75,29 +75,4 @@ export const HOW: SplitData = {
   imagePosition: 'right',
 };
 
-export const PROJECTS: ProjectCard[] = [
-  {
-    title: 'EcoEdge Corporate Campus',
-    loc: 'Austin, TX',
-    text: 'High-performance corporate campus engineered for energy efficiency, occupant wellness, and a reduced carbon footprint.',
-    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
-  },
-  {
-    title: 'Riverside Education Center',
-    loc: 'Portland, OR',
-    text: 'Education facility designed for net-zero energy readiness—sustainable materials, daylighting, and renewable-ready systems.',
-    img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80',
-  },
-  {
-    title: 'Greenway Medical Pavilion',
-    loc: 'Nashville, TN',
-    text: 'Medical pavilion designed around patient well-being—efficient MEP systems that cut energy and water use without compromising care.',
-    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80',
-  },
-];
 
-export const CTA = {
-  title: 'Build Green.<br><span class="hc-orange">Build to Last.</span>',
-  text: 'Partner with a contractor that treats sustainability as standard practice—lower operating costs, healthier spaces, and a smaller footprint.',
-  cta: { label: 'Build Sustainably With Us', href: '#contact', variant: 'primary' as const },
-};
