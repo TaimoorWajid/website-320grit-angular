@@ -4,12 +4,12 @@
     <img [src]="heroImage" alt="" width="1920" height="1080" fetchpriority="high" />
   </div>
   <div class="hc-hero-overlay" aria-hidden="true"></div>
-  <span class="hc-hero-side" aria-hidden="true">Markets We Serve · Healthcare</span>
   <div class="hc-container">
     <div class="hc-hero-content" appReveal>
       <span class="grit-eyebrow">01 — Healthcare</span>
       <h1 class="hc-display-xl">Healthcare<br />Building for<br /><span class="hc-purple">What Matters Most.</span></h1>
-      <p class="hc-hero-sub">Hospital, MOB, and imaging construction where precision, infection control, and operational continuity matter — delivered by a California-based team that understands HCAI.</p>
+      <p class="hc-hero-sub">Hospital, MOB, and imaging construction where precision, infection control, and operational
+        continuity matter — delivered by a California-based team that understands HCAI.</p>
       <div class="hc-hero-actions">
         <a href="#hc-cta" (click)="onAnchor($event, '#hc-cta')" class="btn-explore">
           <span>Discuss Your Project</span><span class="btn-explore-dash" aria-hidden="true">—</span>
@@ -28,7 +28,8 @@
     <div class="hc-disruption-grid">
       <div class="hc-disruption-text" appReveal>
         <span class="grit-eyebrow">02 — The Challenge</span>
-        <h2 class="hc-display-md">In Healthcare,<br />There’s No Room<br /><span class="hc-purple">for Disruption.</span></h2>
+        <h2 class="hc-display-md">In Healthcare,<br />There’s No Room<br /><span class="hc-purple">for
+            Disruption.</span></h2>
         <p class="hc-body-lg">
           Every healthcare environment carries unique operational, regulatory, and infection-control demands — from
           HCAI oversight to 24/7 patient care. Our approach begins by understanding those demands and building
@@ -36,7 +37,7 @@
         </p>
         <div class="hc-flow-legend">
           @for (flow of flowLegend; track flow.key) {
-            <div class="hc-flow-item"><span class="hc-flow-dot {{ flow.key }}"></span>{{ flow.label }}</div>
+          <div class="hc-flow-item"><span class="hc-flow-dot {{ flow.key }}"></span>{{ flow.label }}</div>
           }
         </div>
       </div>
@@ -52,13 +53,16 @@
           <rect x="350" y="170" width="110" height="110" stroke="#2a2a2a" stroke-width="1" fill="#1a1a1a" />
           <rect x="150" y="60" width="50" height="220" stroke="#2a2a2a" stroke-width="1" fill="#141414" />
           <rect x="60" y="150" width="400" height="20" stroke="#2a2a2a" stroke-width="1" fill="#141414" />
-          <path d="M80 105 H140 M140 105 V160 H250 M250 160 V220" stroke="#792CD5" stroke-width="2.5" stroke-linecap="round" opacity="0.9" />
+          <path d="M80 105 H140 M140 105 V160 H250 M250 160 V220" stroke="#792CD5" stroke-width="2.5"
+            stroke-linecap="round" opacity="0.9" />
           <circle cx="80" cy="105" r="4" fill="#792CD5" />
           <circle cx="250" cy="220" r="4" fill="#792CD5" />
-          <path d="M220 90 H320 M320 90 V140 H400" stroke="#00C2FF" stroke-width="2" stroke-linecap="round" opacity="0.85" />
+          <path d="M220 90 H320 M320 90 V140 H400" stroke="#00C2FF" stroke-width="2" stroke-linecap="round"
+            opacity="0.85" />
           <circle cx="220" cy="90" r="3.5" fill="#00C2FF" />
           <circle cx="400" cy="140" r="3.5" fill="#00C2FF" />
-          <path d="M100 200 H160 M160 200 V240 H300" stroke="#7CFF6B" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+          <path d="M100 200 H160 M160 200 V240 H300" stroke="#7CFF6B" stroke-width="2" stroke-linecap="round"
+            opacity="0.8" />
           <circle cx="100" cy="200" r="3.5" fill="#7CFF6B" />
           <path d="M380 100 V160 H430" stroke="#FF3B3B" stroke-width="2.5" stroke-linecap="round" opacity="0.9" />
           <circle cx="430" cy="160" r="4" fill="#FF3B3B" />
@@ -78,12 +82,12 @@
     </div>
     <div class="hc-feature-grid">
       @for (card of differenceCards; track card.title; let i = $index) {
-        <div class="hc-feature-card" appReveal [appReveal]="{ delay: capDelay(i) }">
-          <div class="hc-icon-wrap"><app-market-icon [name]="card.icon" [size]="24" stroke="1.75" /></div>
-          <div class="hc-num">0{{ i + 1 }}</div>
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.text }}</p>
-        </div>
+      <div class="hc-feature-card" appReveal [appReveal]="{ delay: capDelay(i) }">
+        <div class="hc-icon-wrap"><app-market-icon [name]="card.icon" [size]="24" stroke="1.75" /></div>
+        <div class="hc-num">0{{ i + 1 }}</div>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+      </div>
       }
     </div>
   </div>
@@ -102,7 +106,7 @@
         </p>
         <ul class="hc-layer-list">
           @for (layer of layers; track layer) {
-            <li class="hc-layer-item"><span class="hc-dot"></span>{{ layer }}</li>
+          <li class="hc-layer-item"><span class="hc-dot"></span>{{ layer }}</li>
           }
         </ul>
       </div>
@@ -122,29 +126,18 @@
     </div>
     <div class="hc-env-grid" appReveal role="tablist" aria-label="Healthcare environments">
       @for (tab of envTabs; track tab.tabTitle; let i = $index) {
-        <button
-          type="button"
-          role="tab"
-          class="hc-env-card"
-          [class.active]="activeEnv() === i"
-          [attr.aria-selected]="activeEnv() === i"
-          (click)="selectEnv(i)"
-        >
-          <span class="hc-env-icon"><app-market-icon [name]="tab.icon" [size]="28" stroke="1.5" /></span>
-          <h4>{{ tab.tabTitle }}</h4>
-        </button>
+      <button type="button" role="tab" class="hc-env-card" [class.active]="activeEnv() === i"
+        [attr.aria-selected]="activeEnv() === i" (click)="selectEnv(i)">
+        <span class="hc-env-icon"><app-market-icon [name]="tab.icon" [size]="28" stroke="1.5" /></span>
+        <h4>{{ tab.tabTitle }}</h4>
+      </button>
       }
     </div>
     <div class="hc-env-showcase" appReveal>
       <div class="hc-env-image-panel">
-        <img
-          [src]="envTabs[activeEnv()].image"
+        <img [src]="envTabs[activeEnv()].image"
           [alt]="activeEnv() === 0 ? 'Hospital interior' : envTabs[activeEnv()].tabTitle"
-          [style.opacity]="envVisible() ? 1 : 0"
-          width="900"
-          height="620"
-          loading="lazy"
-        />
+          [style.opacity]="envVisible() ? 1 : 0" width="900" height="620" loading="lazy" />
         <div class="hc-env-caption">
           <h3>{{ envTabs[activeEnv()].fullTitle }}</h3>
           <p>{{ envTabs[activeEnv()].desc }}</p>
@@ -169,15 +162,16 @@
     <div class="hc-section-header hc-center" appReveal>
       <span class="grit-eyebrow">06 — Our Process</span>
       <h2 class="hc-display-md">Our Healthcare<br />Delivery Approach</h2>
-      <p class="hc-body-lg">A disciplined, HCAI-aware process that keeps your operations, schedule, and patients at the center.</p>
+      <p class="hc-body-lg">A disciplined, HCAI-aware process that keeps your operations, schedule, and patients at the
+        center.</p>
     </div>
     <div class="hc-process-steps" appReveal>
       @for (step of approachSteps; track step.num) {
-        <div class="hc-process-step">
-          <div class="hc-step-icon">{{ step.num }}</div>
-          <h4>{{ step.title }}</h4>
-          <p>{{ step.text }}</p>
-        </div>
+      <div class="hc-process-step">
+        <div class="hc-step-icon">{{ step.num }}</div>
+        <h4>{{ step.title }}</h4>
+        <p>{{ step.text }}</p>
+      </div>
       }
     </div>
     <div class="hc-approach-layout">
@@ -192,7 +186,7 @@
         </p>
         <ul class="hc-bullet-list">
           @for (bullet of approachBullets; track bullet) {
-            <li><span class="hc-dot"></span>{{ bullet }}</li>
+          <li><span class="hc-dot"></span>{{ bullet }}</li>
           }
         </ul>
       </div>
@@ -205,7 +199,8 @@
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
       <span class="grit-eyebrow">07 — Phased Delivery</span>
-      <h2 class="hc-display-md">Building Without Losing Sight<br /><span class="hc-purple">of the Environment.</span></h2>
+      <h2 class="hc-display-md">Building Without Losing Sight<br /><span class="hc-purple">of the Environment.</span>
+      </h2>
       <p class="hc-body-lg">
         Whether it’s an ICRA renovation or new construction on an active campus, we protect patient care and
         life-safety systems while building what’s next.
@@ -213,13 +208,13 @@
     </div>
     <div class="hc-transition-stages" appReveal>
       @for (stage of stages; track stage.label; let last = $last) {
-        <div class="hc-stage-card" [class.active]="stage.active">
-          <img [src]="stage.image" [alt]="stage.label" width="600" height="375" loading="lazy" />
-          <div class="hc-stage-label">{{ stage.label }}</div>
-        </div>
-        @if (!last) {
-          <div class="hc-stage-arrow" aria-hidden="true">→</div>
-        }
+      <div class="hc-stage-card" [class.active]="stage.active">
+        <img [src]="stage.image" [alt]="stage.label" width="600" height="375" loading="lazy" />
+        <div class="hc-stage-label">{{ stage.label }}</div>
+      </div>
+      @if (!last) {
+      <div class="hc-stage-arrow" aria-hidden="true">→</div>
+      }
       }
     </div>
   </div>
@@ -231,14 +226,15 @@
     <div class="hc-section-header hc-center" appReveal>
       <span class="grit-eyebrow">08 — Integrated Systems</span>
       <h2 class="hc-display-md">Every System Has a Purpose.</h2>
-      <p class="hc-body-lg">BIM-integrated planning across every building system — commissioned and documented for HCAI closeout.</p>
+      <p class="hc-body-lg">BIM-integrated planning across every building system — commissioned and documented for HCAI
+        closeout.</p>
     </div>
     <div class="hc-systems-row" appReveal>
       @for (system of systems; track system.title) {
-        <div class="hc-system-pill">
-          <span class="hc-sys-icon"><app-market-icon [name]="system.icon" [size]="36" stroke="1.5" /></span>
-          <span>{{ system.title }}</span>
-        </div>
+      <div class="hc-system-pill">
+        <span class="hc-sys-icon"><app-market-icon [name]="system.icon" [size]="36" stroke="1.5" /></span>
+        <span>{{ system.title }}</span>
+      </div>
       }
     </div>
   </div>
@@ -253,11 +249,11 @@
         <h2 class="hc-display-md" style="margin-bottom: 2rem">Why Partner with<br />320 Grit?</h2>
         <div class="hc-why-grid">
           @for (card of whyCards; track card.title) {
-            <div class="hc-why-card">
-              <div class="hc-why-icon"><app-market-icon [name]="card.icon" [size]="22" stroke="1.75" /></div>
-              <h3>{{ card.title }}</h3>
-              <p>{{ card.text }}</p>
-            </div>
+          <div class="hc-why-card">
+            <div class="hc-why-icon"><app-market-icon [name]="card.icon" [size]="22" stroke="1.75" /></div>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.text }}</p>
+          </div>
           }
         </div>
       </div>
@@ -266,20 +262,17 @@
         <h2 class="hc-display-md" style="margin-bottom: 2rem">Frequently Asked<br />Questions</h2>
         <div class="hc-faq-list">
           @for (faq of faqs; track faq.q; let i = $index) {
-            <div class="hc-faq-item" [class.active]="openFaq() === i">
-              <button
-                type="button"
-                class="hc-faq-question"
-                [attr.aria-expanded]="openFaq() === i"
-                (click)="toggleFaq(i)"
-              >
-                {{ faq.q }}
-                <span class="hc-faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="hc-faq-answer">
-                <div class="hc-faq-answer-inner"><p>{{ faq.a }}</p></div>
+          <div class="hc-faq-item" [class.active]="openFaq() === i">
+            <button type="button" class="hc-faq-question" [attr.aria-expanded]="openFaq() === i" (click)="toggleFaq(i)">
+              {{ faq.q }}
+              <span class="hc-faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="hc-faq-answer">
+              <div class="hc-faq-answer-inner">
+                <p>{{ faq.a }}</p>
               </div>
             </div>
+          </div>
           }
         </div>
       </div>
@@ -288,11 +281,6 @@
 </section>
 
 <!-- SECTION 10 — FINAL CTA -->
-<app-cta-band
-  sectionId="hc-cta"
-  eyebrow="11 — Get Started"
-  title="Let’s Build<br>What Matters Most."
+<app-cta-band sectionId="hc-cta" eyebrow="11 — Get Started" title="Let’s Build<br>What Matters Most."
   text="Let’s discuss how we can support your next healthcare project — from ground-up hospitals to occupied renovations."
-  ctaLabel="Start a Project"
-  ctaHref="/contact-us"
-/>
+  ctaLabel="Start a Project" ctaHref="/contact-us" />
