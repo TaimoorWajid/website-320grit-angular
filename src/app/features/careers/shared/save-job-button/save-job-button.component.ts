@@ -1,5 +1,6 @@
 import { Component, afterNextRender, computed, inject, input } from '@angular/core';
 import { CAREERS_ICONS } from '../careers-icons';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 import { SavedJobsService } from '../saved-jobs.service';
 import type { Job } from '../jobs.data';
 
@@ -11,6 +12,7 @@ import type { Job } from '../jobs.data';
  */
 @Component({
   selector: 'app-save-job-button',
+  imports: [SafeHtmlPipe],
   template: `
     <button
       type="button"
@@ -19,7 +21,7 @@ import type { Job } from '../jobs.data';
       [attr.aria-label]="(saved() ? 'Saved: ' : 'Save ') + job().title"
       [attr.aria-pressed]="saved()"
       (click)="toggle($event)"
-      [innerHTML]="icons.bookmark()"
+      [innerHTML]="icons.bookmark() | safeHtml"
     ></button>
   `,
   styleUrl: './save-job-button.component.scss',

@@ -1,6 +1,7 @@
 import { Component, PLATFORM_ID, inject, input, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CAREERS_ICONS } from '../careers-icons';
+import { SafeHtmlPipe } from '../../../../shared/pipes/safe-html.pipe';
 import type { Job } from '../jobs.data';
 
 /**
@@ -12,14 +13,15 @@ import type { Job } from '../jobs.data';
  */
 @Component({
   selector: 'app-share-buttons',
+  imports: [SafeHtmlPipe],
   template: `
     <div class="grit-share">
       <span class="grit-share__label">Share this position</span>
       <button type="button" class="grit-share__btn" aria-label="Share on LinkedIn" (click)="share('linkedin')">
-        <span aria-hidden="true" [innerHTML]="icons.linkedin()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.linkedin() | safeHtml"></span>
       </button>
       <button type="button" class="grit-share__btn" aria-label="Share via email" (click)="share('email')">
-        <span aria-hidden="true" [innerHTML]="icons.email()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.email() | safeHtml"></span>
       </button>
       <button
         type="button"
@@ -28,7 +30,7 @@ import type { Job } from '../jobs.data';
         [attr.aria-label]="copied() ? 'Link copied!' : 'Copy link'"
         (click)="share('copy')"
       >
-        <span aria-hidden="true" [innerHTML]="icons.copyLink()"></span>
+        <span aria-hidden="true" [innerHTML]="icons.copyLink() | safeHtml"></span>
       </button>
     </div>
   `,
