@@ -28,6 +28,10 @@ export const MARKET_IMG = {
   behavioralHealth: '/assets/images/ChatGPT-Image-Jul-30-2026-07_53_38-AM.webp',
   /** Commercial building — Commercial market card bg (staging). */
   commercial: '/assets/images/commercial-construction.webp',
+  /** Commercial construction overview — AI-generated (hero image style, bright daylight). */
+  commercialOverview: '/assets/images/commercial-overview.webp',
+  /** Commercial construction partner — AI-generated (hero image style, bright daylight). */
+  commercialPartner: '/assets/images/commercial-partner.webp',
   /** Industrial feature image — education contexts. */
   industries: '/assets/images/hero-industries.webp',
 } as const;

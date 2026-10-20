@@ -124,7 +124,7 @@ export const routes: Routes = [
       {
         path: 'commercial-construction',
         loadComponent: () =>
-          import('./features/services/commercial/commercial-page.component').then(
+          import('./features/markets/commercial/commercial-page.component').then(
             (m) => m.CommercialPageComponent,
           ),
         data: { title: 'Commercial Construction Services' },
