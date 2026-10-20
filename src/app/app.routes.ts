@@ -134,6 +134,13 @@ export const routes: Routes = [
   // Alias used by the "What we do" mega-menu (services list).
   { path: 'tenant-improvements', redirectTo: '/industries/tenant-improvement', pathMatch: 'full' },
   {
+    // About index page — links to the five "Who we are" pages.
+    path: 'about-us',
+    loadComponent: () =>
+      import('./features/about/about-us/about-us-page.component').then((m) => m.AboutUsPageComponent),
+    data: { title: 'About Us | 320 Grit' },
+  },
+  {
     path: 'our-story',
     loadComponent: () =>
       import('./features/about/our-story/our-story-page.component').then((m) => m.OurStoryPageComponent),
