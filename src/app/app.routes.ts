@@ -58,9 +58,8 @@ export const routes: Routes = [
   },
   {
     path: 'commercial-construction',
-    loadComponent: () =>
-      import('./features/services/commercial/commercial-page.component').then((m) => m.CommercialPageComponent),
-    data: { title: 'Commercial Construction Services' },
+    redirectTo: '/industries/commercial-construction',
+    pathMatch: 'full',
   },
   {
     path: 'industries',
@@ -124,8 +123,11 @@ export const routes: Routes = [
       },
       {
         path: 'commercial-construction',
-        redirectTo: '/commercial-construction',
-        pathMatch: 'full',
+        loadComponent: () =>
+          import('./features/services/commercial/commercial-page.component').then(
+            (m) => m.CommercialPageComponent,
+          ),
+        data: { title: 'Commercial Construction Services' },
       },
     ],
   },

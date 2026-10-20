@@ -56,7 +56,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     title: 'Commercial Construction',
     desc: 'Ground-up builds for offices, retail, and industrial. We deliver commercial spaces that work as hard as you do — built to spec, built to last, and built around how your business operates.',
     bullets: ['Ground-up construction', 'Corporate offices and retail', 'Industrial and mixed-use'],
-    href: '/commercial-construction',
+    href: '/industries/commercial-construction',
     image: '/assets/images/Industries-we-serve-feature-image.webp',
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V6l8-3 8 3v15"></path><path d="M9 21v-6h6v6"></path><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"></path></svg>`,
   },

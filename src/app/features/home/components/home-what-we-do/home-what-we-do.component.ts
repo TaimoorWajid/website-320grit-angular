@@ -38,7 +38,7 @@ export class HomeWhatWeDoComponent {
         'Every milestone is managed by experienced professionals, ensuring projects stay on schedule, within budget, and built to perform for decades.',
       ],
       cta: 'Explore Commercial Projects',
-      href: '/commercial-construction',
+      href: '/industries/commercial-construction',
       image: 'assets/images/What-we-do-faeture-image.webp',
       checklist: [
         '25+ Years of Combined Experience',

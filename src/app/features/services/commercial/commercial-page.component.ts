@@ -4,7 +4,7 @@ import { ServicePageComponent } from '../shared/service-page/service-page.compon
 import { COMMERCIAL_DATA } from './commercial.data';
 
 /**
- * Route /commercial-construction.
+ * Route /industries/commercial-construction.
  * Staging renders this page byte-identical to design-build except the
  * hero section id ("service-hero") — reproduced as-is via the shared template.
  */
@@ -21,7 +21,7 @@ export class CommercialPageComponent {
       title: 'Commercial Construction Services',
       description:
         'Independent financial investigation. Facts you can trust. Evidence that holds up in court.',
-      canonicalPath: '/commercial-construction',
+      canonicalPath: '/industries/commercial-construction',
     });
   }
 }

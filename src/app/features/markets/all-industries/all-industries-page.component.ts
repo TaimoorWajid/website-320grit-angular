@@ -144,7 +144,7 @@ export class AllIndustriesPageComponent {
         'From ground-up office buildings to retail centers and industrial facilities, 320 Grit delivers commercial ' +
         'construction with disciplined preconstruction, transparent cost control, and field execution that protects ' +
         'your pro forma — on time, on budget, and built for decades of service.',
-      href: '/commercial-construction',
+      href: '/industries/commercial-construction',
       bg: MARKET_IMG.commercial,
     },
   ];

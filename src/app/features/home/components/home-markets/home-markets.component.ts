@@ -176,7 +176,7 @@ export class HomeMarketsComponent {
         { icon: 'dollar', line1: 'VALUE', line2: 'ENGINEERING' },
         { icon: 'users', line1: 'TENANT', line2: 'FOCUSED' },
       ],
-      href: '/commercial-construction',
+      href: '/industries/commercial-construction',
       bg: MARKET_IMG.commercial,
     },
     {

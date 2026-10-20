@@ -26,7 +26,7 @@ interface Particle {
 /**
  * Shared service page template.
  * Renders /services/forensic-accounting, /services/design-build,
- * /commercial-construction (identical body copy, parameterized hero),
+ * /industries/commercial-construction (identical body copy, parameterized hero),
  * /services/expert-witness and /services/bid-build from data objects —
  * replacing five copy-pasted WP templates with one component.
  *

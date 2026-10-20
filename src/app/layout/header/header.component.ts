@@ -71,7 +71,7 @@ export class HeaderComponent {
       label: 'Industries we serve',
       href: '#',
       children: [
-        { label: 'Commercial Construction', href: '/commercial-construction' },
+        { label: 'Commercial Construction', href: '/industries/commercial-construction' },
         { label: 'Hospitality', href: '/industries/hospitality' },
         { label: 'RailRoads', href: '/industries/railroads' },
         { label: 'Advanced Technology', href: '/industries/advanced-technology' },
