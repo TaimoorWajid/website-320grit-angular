@@ -5,14 +5,14 @@ import { HeroData, ProjectCard, SplitData, ValueCard } from '../shared/about.typ
 
 export const HERO: HeroData = {
   id: 'sus-hero',
-  label: 'Sustainability',
+  label: '01 — Sustainability',
   title: 'Building a Better Future.<br><span class="hc-orange">Together.</span>',
   description:
     'Sustainable construction isn’t an add-on at 320 Grit—it’s how we build. From waste diversion and responsible material sourcing to energy-efficient delivery, we reduce environmental impact while delivering buildings that perform for decades.',
   descriptionWidth: '540px',
   image: {
-    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=85',
-    alt: '',
+    src: 'assets/images/sustainability-hero.webp',
+    alt: 'Modern green commercial building with solar panels in daylight',
     fetchPriority: 'high',
   },
   ctas: [{ label: 'Our Approach to Sustainability', href: '#sus-commit', variant: 'outline' }],
@@ -44,7 +44,7 @@ export const COMMITMENT: ValueCard[] = [
 export const HOW: SplitData = {
   id: 'sus-how',
   background: '#0A0A0A',
-  label: 'How We Build Sustainably',
+  label: '03 — How We Build Sustainably',
   title: 'Smarter Solutions.<br>Measurable Impact.',
   iconRows: [
     {
@@ -69,8 +69,8 @@ export const HOW: SplitData = {
     },
   ],
   image: {
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    alt: 'Workers overlooking city',
+    src: 'assets/images/sustainability-how.webp',
+    alt: 'Workers installing rooftop solar panels',
   },
   imagePosition: 'right',
 };

@@ -4,15 +4,14 @@ import { HeroData, SplitData, ValueCard } from '../shared/about.types';
 
 export const HERO: HeroData = {
   id: 'safe-hero',
-  label: 'Safety',
+  label: '01 — Safety',
   title: 'Building with Care.<br><span class="hc-orange">Protecting People.</span>',
   description:
     'Construction safety isn’t a checklist at 320 Grit—it’s how we run every jobsite. From OSHA-compliant safety planning to daily field enforcement, we protect our crews, trade partners, and the public on every project we build.',
   descriptionWidth: '520px',
   image: {
-    /* NOTE: template uses ?w=900 on the hero (likely a source typo) — reproduced as-is. */
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85',
-    alt: '',
+    src: 'assets/images/safety-hero.webp',
+    alt: 'Construction worker in full PPE on a daylight jobsite',
     fetchPriority: 'high',
   },
   ctas: [{ label: 'Our Safety Approach', href: '#safe-approach', variant: 'outline' }],
@@ -44,7 +43,7 @@ export const APPROACH: ValueCard[] = [
 export const CULTURE: SplitData = {
   id: 'safe-culture',
   background: '#0A0A0A',
-  label: 'Our Safety Culture',
+  label: '03 — Our Safety Culture',
   title: 'Every Person. Every Day.',
   paragraphs: [
     'We believe every construction incident is preventable. That conviction shapes our safety culture: every person on a 320 Grit jobsite—employee or subcontractor—is empowered to speak up, stop work when something looks wrong, and take safety personally. It’s not a program handed down from the office; it’s a field-level commitment lived out in pre-task planning, daily huddles, and open reporting.',
@@ -56,8 +55,8 @@ export const CULTURE: SplitData = {
     'Ongoing OSHA training, certifications, and mentorship for field teams',
   ],
   image: {
-    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    alt: 'Worker on rebar',
+    src: 'assets/images/safety-culture.webp',
+    alt: 'Morning safety huddle on a 320 Grit jobsite',
   },
   imagePosition: 'left',
 };
