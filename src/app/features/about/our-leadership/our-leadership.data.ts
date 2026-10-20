@@ -8,7 +8,7 @@ export const HERO: HeroData = {
   label: 'Our Leadership',
   title: 'Leadership That Builds<br><span class="hc-orange">Legacies.</span>',
   description:
-    'Great projects start with strong leadership. Our leadership team brings decades of experience, a passion for excellence, and a shared commitment to building a better future.',
+    'Behind every 320 Grit project is leadership that takes personal ownership of the outcome. From preconstruction planning to final handover, our leaders bring hands-on construction expertise, transparent communication, and an uncompromising commitment to delivering on schedule and on budget.',
   descriptionWidth: '540px',
   image: {
     src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=85',
@@ -21,17 +21,17 @@ export const APPROACH: ValueCard[] = [
   {
     icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
     title: 'Lead with Integrity',
-    text: 'We do what’s right—always.',
+    text: 'We do what’s right—always. Open-book transparency, honest guidance, and promises kept on every project, from bid to closeout.',
   },
   {
     icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z"/>',
     title: 'Empower Our Teams',
-    text: 'We invest in our people and encourage ownership.',
+    text: 'We invest in our people and give them real ownership. Empowered field teams make faster decisions and deliver sharper results.',
   },
   {
     icon: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
     title: 'Deliver Lasting Impact',
-    text: 'We build more than projects—we build trust and communities.',
+    text: 'We build more than structures—we build trust, relationships, and community assets that perform for decades.',
   },
 ];
 
@@ -61,7 +61,7 @@ export const VALUES_SPLIT: SplitData = {
   id: 'lead-values',
   background: '#050505',
   label: 'Our Values',
-  title: 'The Principles That Guide Us',
+  title: 'How We Lead Every Project',
   image: {
     src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
     alt: 'Team on site at sunset',
@@ -70,9 +70,9 @@ export const VALUES_SPLIT: SplitData = {
 };
 
 export const VALUES_LIST: { title: string; text: string }[] = [
-  { title: 'Safety', text: 'We prioritize safety in every decision, every time.' },
-  { title: 'Integrity', text: 'We build trust through honesty, transparency, and accountability.' },
-  { title: 'Quality', text: 'We are committed to delivering the highest standards.' },
-  { title: 'Innovation', text: 'We embrace innovation to solve complex challenges.' },
-  { title: 'Community', text: 'We strengthen communities through meaningful partnerships.' },
+  { title: 'Safety', text: 'Zero-compromise safety culture—training, planning, and field awareness on every jobsite, every day.' },
+  { title: 'Integrity', text: 'Open-book honesty with owners, partners, and crews. We say what we’ll do, then do it.' },
+  { title: 'Quality', text: 'No shortcuts, no excuses. Exceptional workmanship from preconstruction through punch list.' },
+  { title: 'Innovation', text: 'Modern project management, current technology, and smarter methods for complex builds.' },
+  { title: 'Community', text: 'Hospitals, schools, and workplaces that serve—we build where our communities live and grow.' },
 ];
