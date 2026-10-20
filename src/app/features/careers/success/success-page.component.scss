@@ -1,0 +1,179 @@
+@use '../shared/careers';
+
+/* ======================================================
+   Application success (/careers/application/success).
+   Honest confirmation states only — no fabricated claims.
+   ====================================================== */
+
+.sc-page {
+  background: #000;
+  color: #fff;
+}
+
+.sc-page .grit-eyebrow {
+  color: #ff5d0e;
+  letter-spacing: 0.25em;
+}
+
+.sc-hero {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sc-hero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4.5rem 2.5rem 4rem;
+  text-align: center;
+}
+
+.sc-hero__title {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.sc-hero__sub {
+  font-size: 1.125rem;
+  color: #a1a1aa;
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+}
+
+.sc-hero .grit-eyebrow {
+  margin-bottom: 1rem;
+}
+
+/* ---- Confirmation card ---- */
+.sc-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: #0a0a0a;
+  padding: 3.5rem 3rem;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(121, 44, 213, 0.12);
+}
+
+.sc-card__icon {
+  display: inline-flex;
+  color: #792cd5;
+  margin-bottom: 1.5rem;
+}
+
+.sc-card__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.sc-card__text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #d4d4d8;
+  max-width: 34rem;
+  margin: 0 auto;
+
+  strong {
+    color: #fff;
+  }
+
+  a {
+    color: #792cd5;
+    font-weight: 600;
+  }
+}
+
+/* ---- What happens next ---- */
+.sc-next {
+  background: #070707;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sc-next__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4.5rem 2.5rem;
+}
+
+.sc-steps {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.sc-step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: #a1a1aa;
+    line-height: 1.65;
+  }
+}
+
+.sc-step__num {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(121, 44, 213, 0.8);
+}
+
+.sc-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.sc-back {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .sc-hero__inner {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .sc-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .sc-next__inner {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .sc-step {
+    grid-template-columns: 48px 1fr;
+    gap: 1rem;
+  }
+}

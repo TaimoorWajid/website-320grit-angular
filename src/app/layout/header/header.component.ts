@@ -86,7 +86,17 @@ export class HeaderComponent {
       href: '/locations',
       children: [{ label: 'California', href: '/locations/california' }],
     },
-    { label: 'Career', href: '/careers' },
+    {
+      label: 'Career',
+      href: '/careers',
+      children: [
+        { label: 'Our culture', href: '/careers/our-culture' },
+        { label: 'Benefits', href: '/careers/benefits' },
+        { label: 'Professional growth', href: '/careers/professional-growth' },
+        { label: 'Open positions', href: '/careers/jobs' },
+        { label: 'Internships', href: '/careers/internships' },
+      ],
+    },
     { label: 'Contact Us', href: '/contact-us' },
   ];
 

@@ -1,0 +1,299 @@
+@use '../shared/careers';
+
+/* ======================================================
+   /careers/jobs — open positions listing (Howell flow,
+   320 Grit dark design system). Overrides the light
+   .grit-careers-page base from the shared partial.
+   ====================================================== */
+
+.cj-page {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ---- S01 Hero (compact, 10% left edge) ---- */
+.cj-hero {
+  background: #000000;
+}
+
+.cj-hero__inner {
+  padding: 4.5rem 2rem 4rem 10%;
+}
+
+@media (max-width: 768px) {
+  .cj-hero__inner {
+    padding: 3.5rem 1.25rem 3rem 6%;
+  }
+}
+
+.cj-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--grit-purple);
+  }
+}
+
+.cj-hero__title {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.cj-hero__sub {
+  margin: 0;
+  max-width: 560px;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #a1a1aa;
+}
+
+/* ---- S02 Listing ---- */
+.cj-listing {
+  background: #070707;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cj-listing__inner {
+  max-width: var(--grit-container, 1400px);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 2rem;
+}
+
+.cj-listing__title {
+  margin: 0.75rem 0 2rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ---- Filters ---- */
+.cj-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cj-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cj-field__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.cj-field input,
+.cj-field select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: #111111;
+  border: 1px solid #27272a;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+
+  &::placeholder {
+    color: #52525b;
+  }
+
+  &:focus {
+    border-color: var(--grit-purple);
+  }
+}
+
+.cj-field select {
+  cursor: pointer;
+
+  option {
+    background: #111111;
+    color: #ffffff;
+  }
+}
+
+/* ---- Result meta ---- */
+.cj-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.cj-meta__count {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+.cj-meta__clear {
+  padding: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--grit-purple);
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #8a42f0;
+  }
+}
+
+/* ---- Job rows (Howell style: full rows, not cards) ---- */
+.cj-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cj-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  &:hover {
+    border-color: rgba(121, 44, 213, 0.55);
+    box-shadow: 0 16px 40px rgba(121, 44, 213, 0.14);
+  }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    padding: 1.4rem;
+  }
+}
+
+.cj-row__dept {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grit-purple);
+}
+
+.cj-row__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--grit-purple);
+    }
+  }
+}
+
+.cj-row__meta {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  color: #a1a1aa;
+}
+
+.cj-row__desc {
+  margin: 0;
+  max-width: 620px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #d4d4d8;
+}
+
+.cj-row__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
+  flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.cj-row__view {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--grit-purple);
+  }
+}
+
+/* ---- Empty state ---- */
+.cj-empty {
+  padding: 3.5rem 2rem;
+  text-align: center;
+  background: #111111;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+}
+
+.cj-empty__title {
+  margin: 0 0 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cj-empty__text {
+  margin: 0 auto 1.75rem;
+  max-width: 440px;
+  line-height: 1.65;
+  color: #a1a1aa;
+}
+
+.cj-empty .btn-explore {
+  margin: 0 auto;
+}

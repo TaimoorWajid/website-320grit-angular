@@ -1,67 +1,79 @@
 @use '../shared/careers';
 
-<div class="grit-careers-page">
-  <!-- S01 Hero -->
-  <section class="grit-saved-hero" aria-labelledby="grit-saved-hero-heading">
-    <div class="grit-saved-hero__bg" aria-hidden="true">
-      <img src="/assets/images/labour-320-grit.webp" alt="" loading="eager" />
-    </div>
-    <div class="grit-saved-hero__content" appReveal>
-      <h1 class="grit-saved-hero__title" id="grit-saved-hero-heading">Saved For Later</h1>
-      <p class="grit-saved-hero__sub">Jobs you&rsquo;ve saved for future consideration.</p>
+<div class="grit-careers-page cs-page">
+  <!-- S01 — Hero (compact) -->
+  <section class="cs-hero" aria-labelledby="cs-hero-heading">
+    <div class="cs-hero__inner">
+      <a class="cs-back" routerLink="/careers">
+        <span aria-hidden="true">&larr;</span> Life at 320 Grit
+      </a>
+      <p class="grit-eyebrow" appReveal>01 &mdash; Saved Positions</p>
+      <h1 class="cs-hero__title" id="cs-hero-heading" appReveal>Saved for later.</h1>
+      <p class="cs-hero__sub" appReveal>
+        Roles you&rsquo;ve bookmarked for future consideration. Ready to apply when you are.
+      </p>
     </div>
   </section>
 
-  <!-- S02 List -->
-  <section class="grit-saved-list" aria-labelledby="grit-saved-list-heading">
-    <h2 id="grit-saved-list-heading" class="grit-sr-only">Saved positions</h2>
-    <div class="grit-saved-list__inner">
+  <!-- S02 — Saved job rows -->
+  <section class="cs-listing" aria-labelledby="cs-listing-heading">
+    <div class="cs-listing__inner">
+      <p class="grit-eyebrow" appReveal>02 &mdash; Your List</p>
+      <h2 class="cs-listing__title" id="cs-listing-heading" appReveal>Your saved roles</h2>
+
       @if (jobs().length > 0) {
-        <p class="grit-saved-list__count" id="grit-saved-count" aria-live="polite">
-          <strong>{{ jobs().length }}</strong> {{ resultsNoun() }}
-        </p>
-        <div class="grit-saved-list__items">
+        <p class="cs-count" aria-live="polite" appReveal>{{ countLine() }}</p>
+        <div class="cs-rows">
           @for (job of jobs(); track job.id) {
-            <article class="grit-saved-item" [attr.data-job-id]="job.id">
-              <div class="grit-saved-item__info">
-                <h2 class="grit-saved-item__title">
+            <article class="cs-row" [attr.data-job-id]="job.id" appReveal>
+              <div class="cs-row__main">
+                <span class="cs-row__dept">{{ job.department }}</span>
+                <h3 class="cs-row__title">
                   <a [routerLink]="['/careers', job.slug]">{{ job.title }}</a>
-                </h2>
-                <div class="grit-saved-item__meta">{{ job.location }} &middot; {{ job.employment_type }}</div>
-                <div class="grit-saved-item__date">{{ savedOn(job.id) }}</div>
+                </h3>
+                <p class="cs-row__meta">{{ job.location }} &middot; {{ job.employment_type }}</p>
+                <p class="cs-row__desc">{{ job.short_desc }}</p>
+                <p class="cs-row__date">{{ savedOn(job.id) }}</p>
               </div>
-              <div class="grit-saved-item__actions">
-                <a class="grit-link-arrow" [routerLink]="['/careers', job.slug]">
-                  View Position <span aria-hidden="true" [innerHTML]="icons.linkArrow() | safeHtml"></span>
-                </a>
+              <div class="cs-row__side">
                 <button
                   type="button"
-                  class="grit-saved-item__remove"
+                  class="cs-row__remove"
                   [attr.aria-label]="'Remove ' + job.title + ' from saved'"
                   (click)="remove(job.id)"
                 >
                   <span aria-hidden="true" [innerHTML]="icons.trash() | safeHtml"></span>
+                  Remove
                 </button>
+                <a class="cs-row__view" [routerLink]="['/careers', job.slug]">
+                  View Role <span aria-hidden="true">&nearr;</span>
+                </a>
               </div>
             </article>
           }
         </div>
-        <div class="grit-saved-footer" id="grit-saved-footer">
-          <p class="grit-saved-footer__note">
-            Don&rsquo;t see a job you saved? It may have been closed or removed.
-          </p>
-          <a class="grit-btn grit-btn--primary" routerLink="/open-positions">Browse All Positions</a>
-        </div>
       } @else {
-        <div class="grit-saved-empty" id="grit-saved-empty">
-          <span class="grit-saved-empty__icon" aria-hidden="true" [innerHTML]="icons.bookmark() | safeHtml"></span>
-          <h2 class="grit-saved-empty__title">No Saved Positions Yet</h2>
-          <p class="grit-saved-empty__text">
-            Save positions you&rsquo;re interested in and come back when you&rsquo;re ready.
+        <div class="cs-empty" appReveal>
+          <h3 class="cs-empty__title">No saved roles yet.</h3>
+          <p class="cs-empty__text">
+            Tap the bookmark on any open position and it will wait for you here.
           </p>
-          <a class="grit-btn grit-btn--primary" routerLink="/open-positions">View All Positions</a>
+          <a class="btn-explore" routerLink="/careers/jobs">
+            <span>Browse open positions</span>
+            <span class="btn-explore-dash" aria-hidden="true">&mdash;</span>
+          </a>
         </div>
       }
     </div>
   </section>
+
+  <!-- S03 — CTA -->
+  <app-cta-band
+    sectionId="saved-cta"
+    eyebrow="03 &mdash; Keep Exploring"
+    title="Ready when you are.<br />So are we."
+    text="Compare roles, share a position with a friend, or introduce yourself even if nothing matches today."
+    ctaLabel="View Open Positions"
+    ctaHref="/careers/jobs"
+  />
 </div>

@@ -1,0 +1,371 @@
+/* Careers landing — rebuilt 2026-10-20. Dark, 80/20 purple, numbered eyebrows. */
+
+.cl-page {
+  background: #000000;
+  color: #fff;
+}
+
+.cl-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ---------- HERO ---------- */
+.cl-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cl-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.cl-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cl-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.96) 0%,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+/* 10% left padding comes from the site-wide hero rule; mobile 6% likewise. */
+.cl-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  padding-right: 2.5rem;
+  max-width: 720px;
+}
+
+.cl-hero__title {
+  font-size: clamp(2.6rem, 5.8vw, 5.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.cl-accent {
+  color: #792cd5;
+}
+
+.cl-hero__sub {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #e8e8e8;
+  max-width: 560px;
+  margin: 0 0 2.5rem;
+}
+
+.cl-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ---------- SECTIONS ---------- */
+.cl-section {
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cl-section--black {
+  background: #000000;
+}
+
+.cl-section--gray {
+  background: #070707;
+}
+
+.cl-title {
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin: 1rem 0 0;
+}
+
+.cl-text {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #d4d4d8;
+  margin: 1.25rem 0 0;
+  max-width: 34rem;
+}
+
+.cl-text--wide {
+  max-width: 46rem;
+}
+
+.cl-text--muted {
+  color: #a1a1aa;
+  margin-top: 2.5rem;
+}
+
+.cl-inline-link {
+  color: #792cd5;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cl-section-link {
+  margin-top: 2rem;
+}
+
+.cl-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.cl-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  margin-top: 2.5rem;
+  align-items: start;
+}
+
+/* ---------- WHY PILLARS ---------- */
+.cl-pillars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.cl-pillars li {
+  background: #0a0a0a;
+  border: 1px solid rgba(121, 44, 213, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cl-pillars li:hover {
+  border-color: rgba(121, 44, 213, 0.6);
+  box-shadow: 0 12px 40px rgba(121, 44, 213, 0.18);
+}
+
+.cl-pillars h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.4rem;
+}
+
+.cl-pillars p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+/* ---------- JOBS ---------- */
+.cl-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* ---------- BENEFITS ---------- */
+.cl-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+
+.cl-benefit-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cl-benefit-card:hover {
+  border-color: rgba(121, 44, 213, 0.6);
+  box-shadow: 0 12px 40px rgba(121, 44, 213, 0.15);
+}
+
+.cl-benefit-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(121, 44, 213, 0.12);
+  color: #792cd5;
+  margin-bottom: 1.25rem;
+}
+
+.cl-benefit-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cl-benefit-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ---------- CHECK LIST ---------- */
+.cl-check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.cl-check-list li {
+  position: relative;
+  font-size: 1.05rem;
+  color: #e4e4e7;
+  padding-left: 2rem;
+  line-height: 1.6;
+}
+
+.cl-check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(121, 44, 213, 0.12);
+  color: #792cd5;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ---------- INTERNSHIPS BAND ---------- */
+.cl-intern-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  background: #0a0a0a;
+  border: 1px solid rgba(121, 44, 213, 0.3);
+  border-radius: 16px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.cl-intern-band .cl-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+}
+
+/* ---------- PROCESS ---------- */
+.cl-process {
+  list-style: none;
+  margin: 3rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.cl-process-step {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cl-process-step:hover {
+  border-color: rgba(121, 44, 213, 0.6);
+  box-shadow: 0 12px 40px rgba(121, 44, 213, 0.15);
+}
+
+.cl-process-step__num {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(121, 44, 213, 0.7);
+  margin-bottom: 1.25rem;
+}
+
+.cl-process-step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.6rem;
+}
+
+.cl-process-step p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .cl-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cl-process {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .cl-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .cl-jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cl-container {
+    padding: 0 1.5rem;
+  }
+
+  .cl-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cl-intern-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

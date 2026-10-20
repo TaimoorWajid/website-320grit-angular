@@ -1,0 +1,88 @@
+<div class="grit-careers-page sc-page">
+  @if (mode() === 'generic') {
+    <!-- Direct visit — no confirmation context -->
+    <section class="sc-hero" aria-labelledby="sc-title">
+      <div class="sc-hero__inner" appReveal>
+        <p class="grit-eyebrow">01 — Application</p>
+        <h1 class="sc-hero__title" id="sc-title">Your next chapter<br />starts here.</h1>
+        <p class="sc-hero__sub">
+          There's no application confirmation in this tab yet. If you started an application, head back to the
+          open roles to continue.
+        </p>
+        <a class="btn-explore" routerLink="/careers/jobs">
+          <span>Explore Open Roles</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </section>
+  } @else {
+    <!-- Confirmation -->
+    <section class="sc-hero" aria-labelledby="sc-title">
+      <div class="sc-hero__inner" appReveal>
+        @if (mode() === 'received') {
+          <p class="grit-eyebrow">01 — Application Received</p>
+        } @else {
+          <p class="grit-eyebrow">01 — Application Prepared</p>
+        }
+        <div class="sc-card">
+          <span class="sc-card__icon" aria-hidden="true" [innerHTML]="icons.checkCircleLg() | safeHtml"></span>
+          @if (mode() === 'received') {
+            <h1 class="sc-card__title" id="sc-title">Application Received</h1>
+            <p class="sc-card__text">
+              Thank you for introducing yourself. Your application
+              @if (jobTitle()) {
+                for the <strong>{{ jobTitle() }}</strong> role
+              }
+              has been received — the 320 Grit hiring team will review it shortly.
+            </p>
+          } @else {
+            <h1 class="sc-card__title" id="sc-title">Almost done — send it by email</h1>
+            <p class="sc-card__text">
+              Your application
+              @if (jobTitle()) {
+                for the <strong>{{ jobTitle() }}</strong> role
+              }
+              is prepared, but <strong>nothing has been submitted online</strong>. Complete it now by emailing your
+              resume to
+              <a href="mailto:info@320grit.com?subject={{ encodeSubject() }}">info&#64;320grit.com</a>
+              with the job title in the subject line.
+            </p>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- What happens next -->
+    <section class="sc-next" aria-label="What happens next">
+      <div class="sc-next__inner" appReveal>
+        <p class="grit-eyebrow">02 — What Happens Next</p>
+        <ol class="sc-steps">
+          @for (s of nextSteps(); track s.title; let i = $index) {
+            <li class="sc-step">
+              <span class="sc-step__num" aria-hidden="true">0{{ i + 1 }}</span>
+              <div>
+                <h2>{{ s.title }}</h2>
+                <p>{{ s.text }}</p>
+              </div>
+            </li>
+          }
+        </ol>
+        <div class="sc-actions">
+          <a class="btn-explore" routerLink="/careers/jobs">
+            <span>Explore More Roles</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
+          <a class="sc-back" routerLink="/careers">Back to careers ↗</a>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- CTA -->
+  <app-cta-band
+    sectionId="sc-cta"
+    eyebrow="03 — Keep Exploring"
+    title="See how we build.<br />See who we are."
+    text="Life at 320 Grit is built on grit, respect, and real growth."
+    ctaLabel="Our Culture"
+    ctaHref="/careers/our-culture"
+  />
+</div>

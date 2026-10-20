@@ -1,45 +1,40 @@
-import { Component, ElementRef, computed, effect, inject, signal, viewChildren } from '@angular/core';
+import { Component, computed, effect, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { SeoService } from '../../../core/services/seo.service';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
 import { NotFoundComponent } from '../../../shared/components/not-found/not-found.component';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { JobsService } from '../shared/jobs.service';
 import { CAREERS_ICONS } from '../shared/careers-icons';
-import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
+import { SaveJobButtonComponent } from '../shared/save-job-button/save-job-button.component';
 import { ShareButtonsComponent } from '../shared/share-buttons/share-buttons.component';
-import { JobCardComponent } from '../shared/job-card/job-card.component';
 import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
 
-interface JobTab {
-  id: string;
-  label: string;
-  panelId: string;
-}
-
 /**
- * Job detail (/careers/{slug}) — ported from job-detail.php.
- * Unknown slugs render a proper 404 (the WP template silently fell
- * back to project-manager; the spec recommends 404 instead).
+ * Job detail (/careers/:slug) — rebuilt following Howell's detail
+ * flow: back link, department eyebrow, meta row, long-form body
+ * (opportunity / responsibilities / qualifications / benefits /
+ * why-grit) and a sticky aside apply card. Unknown slugs render a
+ * proper 404 — never a silent fallback to another job.
  */
 @Component({
   selector: 'app-job-detail-page',
-  imports: [RouterLink, RevealDirective, NotFoundComponent, BreadcrumbComponent, ShareButtonsComponent, JobCardComponent, SafeHtmlPipe],
+  imports: [
+    RouterLink,
+    RevealDirective,
+    NotFoundComponent,
+    CtaBandComponent,
+    SaveJobButtonComponent,
+    ShareButtonsComponent,
+    SafeHtmlPipe,
+  ],
   templateUrl: './job-detail-page.component.html',
   styleUrl: './job-detail-page.component.scss',
 })
 export class JobDetailPageComponent {
   protected readonly icons = CAREERS_ICONS;
-
-  protected readonly tabs: JobTab[] = [
-    { id: 'overview', label: 'Overview', panelId: 'panel-overview' },
-    { id: 'responsibilities', label: 'Responsibilities', panelId: 'panel-responsibilities' },
-    { id: 'qualifications', label: 'Qualifications', panelId: 'panel-qualifications' },
-    { id: 'benefits', label: 'Benefits', panelId: 'panel-benefits' },
-  ];
-  protected readonly activeTab = signal('overview');
-  private readonly tabButtons = viewChildren<ElementRef<HTMLButtonElement>>('tabButton');
 
   private readonly jobsService = inject(JobsService);
   private readonly seo = inject(SeoService);
@@ -49,46 +44,46 @@ export class JobDetailPageComponent {
 
   /** Reactive job lookup — survives client-side navigation between jobs. */
   protected readonly job = computed(() => this.jobsService.getBySlug(this.slug()));
+
+  /** The other open role (only two jobs exist). */
   protected readonly related = computed(() => {
     const j = this.job();
-    return j ? this.jobsService.getRelated(j.slug, 3) : [];
+    return j ? (this.jobsService.getRelated(j.slug, 1)[0] ?? null) : null;
+  });
+
+  /** "May 8, 2026" — parsed as a plain calendar date (no TZ shift). */
+  protected readonly postedLabel = computed(() => {
+    const j = this.job();
+    if (!j) return '';
+    const d = new Date(`${j.posted_date}T00:00:00`);
+    return Number.isNaN(d.getTime())
+      ? j.posted_date
+      : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(d);
+  });
+
+  protected readonly metaRows = computed(() => {
+    const j = this.job();
+    if (!j) return [];
+    return [
+      { label: 'Department', value: j.department },
+      { label: 'Location', value: j.location },
+      { label: 'Employment type', value: j.employment_type },
+      { label: 'Reports to', value: j.reports_to },
+      { label: 'Travel', value: j.travel },
+      { label: 'Posted', value: this.postedLabel() },
+    ];
   });
 
   constructor() {
     effect(() => {
       const j = this.job();
-      if (j) this.seo.update({ title: `${j.title} — Careers`, canonicalPath: `/careers/${j.slug}` });
+      if (j) {
+        this.seo.update({
+          title: `${j.title} — Careers`,
+          description: j.excerpt,
+          canonicalPath: `/careers/${j.slug}`,
+        });
+      }
     });
-  }
-
-  protected readonly detailRows = computed(() => {
-    const j = this.job();
-    if (!j) return [];
-    return [
-      { label: 'Department', value: j.department },
-      { label: 'Reports To', value: j.reports_to },
-      { label: 'Employment Type', value: j.employment_type },
-      { label: 'Location', value: j.location },
-      { label: 'Travel', value: j.travel },
-    ];
-  });
-
-  selectTab(id: string): void {
-    this.activeTab.set(id);
-  }
-
-  onTabKeydown(event: KeyboardEvent, index: number): void {
-    const buttons = this.tabButtons().map((b) => b.nativeElement);
-    if (buttons.length === 0) return;
-    let next = -1;
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % buttons.length;
-    else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + buttons.length) % buttons.length;
-    else if (event.key === 'Home') next = 0;
-    else if (event.key === 'End') next = buttons.length - 1;
-    if (next >= 0) {
-      event.preventDefault();
-      buttons[next].focus();
-      this.activeTab.set(this.tabs[next].id);
-    }
   }
 }

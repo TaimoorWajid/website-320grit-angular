@@ -1,0 +1,211 @@
+<div class="cl-page">
+  <!-- S01 — HERO -->
+  <section class="cl-hero" aria-labelledby="cl-hero-heading">
+    <div class="cl-hero__bg" aria-hidden="true">
+      <img src="/assets/images/careers-hero.webp" alt="" width="1920" height="1080" fetchpriority="high" />
+    </div>
+    <div class="cl-hero__overlay" aria-hidden="true"></div>
+    <div class="cl-hero__inner">
+      <p class="grit-eyebrow" appReveal>01 — Careers at 320 Grit</p>
+      <h1 class="cl-hero__title" id="cl-hero-heading" appReveal>
+        Build More<br />Than <span class="cl-accent">Structures.</span>
+      </h1>
+      <p class="cl-hero__sub" appReveal>
+        320 Grit is a California commercial contractor where hard work is recognized, ideas are
+        welcomed, and careers are built alongside the projects. Explore open positions in field
+        operations and project management — and see what it means to build with grit.
+      </p>
+      <div class="cl-hero__actions" appReveal>
+        <a class="btn-explore" routerLink="/careers/jobs">
+          <span>View Open Positions</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+        <a class="btn-explore" routerLink="/careers/our-culture">
+          <span>Our Culture</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S02 — WHY 320 GRIT -->
+  <section class="cl-section cl-section--black" aria-labelledby="cl-why-heading">
+    <div class="cl-container">
+      <p class="grit-eyebrow" appReveal>02 — Why 320 Grit</p>
+      <h2 class="cl-title" id="cl-why-heading" appReveal>Built on People.<br />Driven by Excellence.</h2>
+      <div class="cl-two-col">
+        <div appReveal>
+          <p class="cl-text">
+            At 320 Grit, we believe a positive culture is the foundation of every successful project.
+            We've built a company where people enjoy coming to work, take pride in what they do, and
+            are committed to supporting one another. We foster an environment built on trust,
+            respect, collaboration, and open communication — because great projects are delivered
+            by great teams.
+          </p>
+          <p class="cl-text">
+            While we maintain an approachable atmosphere, we're serious about our work. We hold
+            ourselves to a high standard, embrace accountability, and are committed to delivering
+            quality results for every client, every time. At 320 Grit, our culture is about more
+            than the work we do — it's about the people we do it with.
+          </p>
+          <a class="btn-explore cl-section-link" routerLink="/careers/our-culture">
+            <span>Discover Our Culture</span>
+            <span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
+        </div>
+        <ul class="cl-pillars">
+          <li appReveal>
+            <h3>Trust</h3>
+            <p>We say what we will do — and then we do it, for clients and for each other.</p>
+          </li>
+          <li appReveal>
+            <h3>Respect</h3>
+            <p>Every trade, every role, every voice on the project matters.</p>
+          </li>
+          <li appReveal>
+            <h3>Collaboration</h3>
+            <p>Open communication and shared ownership of every outcome.</p>
+          </li>
+          <li appReveal>
+            <h3>Accountability</h3>
+            <p>High standards, owned results, and quality on every project, every time.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- S03 — OPEN POSITIONS PREVIEW -->
+  <section class="cl-section cl-section--gray" aria-labelledby="cl-jobs-heading">
+    <div class="cl-container">
+      <div class="cl-section-head">
+        <div>
+          <p class="grit-eyebrow" appReveal>03 — Open Positions</p>
+          <h2 class="cl-title" id="cl-jobs-heading" appReveal>Current Openings</h2>
+        </div>
+        <a class="btn-explore" routerLink="/careers/jobs" appReveal>
+          <span>View All Positions</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+      <div class="cl-jobs-grid">
+        @for (job of jobs; track job.slug) {
+          <app-job-card [job]="job" variant="preview" appReveal />
+        }
+      </div>
+      <p class="cl-text cl-text--muted" appReveal>
+        Don't see your role? Tell us about yourself — we are always interested in people who build
+        the way we do.
+        <a class="cl-inline-link" routerLink="/careers/introduce-yourself">Introduce yourself</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- S04 — BENEFITS PREVIEW -->
+  <section class="cl-section cl-section--black" aria-labelledby="cl-benefits-heading">
+    <div class="cl-container">
+      <p class="grit-eyebrow" appReveal>04 — Benefits</p>
+      <h2 class="cl-title" id="cl-benefits-heading" appReveal>Investing in Our Team</h2>
+      <p class="cl-text cl-text--wide" appReveal>
+        We believe investing in our team is one of the best investments we can make. Our benefits
+        package supports your health, financial well-being, professional growth, and work-life
+        balance.
+      </p>
+      <div class="cl-benefits-grid">
+        @for (benefit of benefitPreview; track benefit.title) {
+          <article class="cl-benefit-card" appReveal>
+            <div class="cl-benefit-card__icon" aria-hidden="true" [innerHTML]="benefit.icon | safeHtml"></div>
+            <h3>{{ benefit.title }}</h3>
+          </article>
+        }
+      </div>
+      <a class="btn-explore cl-section-link" routerLink="/careers/benefits" appReveal>
+        <span>See All Benefits</span>
+        <span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- S05 — GROWTH PREVIEW -->
+  <section class="cl-section cl-section--gray" aria-labelledby="cl-growth-heading">
+    <div class="cl-container">
+      <p class="grit-eyebrow" appReveal>05 — Professional Growth</p>
+      <h2 class="cl-title" id="cl-growth-heading" appReveal>We Invest in Our People.</h2>
+      <div class="cl-two-col">
+        <div appReveal>
+          <p class="cl-text">
+            We don't just hire employees; we invest in people with the drive to build meaningful
+            careers. As a growing company, you'll have the opportunity to take on new challenges,
+            expand your responsibilities, and make a direct impact on the success of your projects
+            and business.
+          </p>
+          <p class="cl-text">
+            Growth comes through hands-on experience, mentorship, continuous learning, and the
+            confidence to lead.
+          </p>
+          <a class="btn-explore cl-section-link" routerLink="/careers/professional-growth">
+            <span>Explore Growth Paths</span>
+            <span class="btn-explore-dash" aria-hidden="true">—</span>
+          </a>
+        </div>
+        <ul class="cl-check-list">
+          <li appReveal>Clear career advancement opportunities</li>
+          <li appReveal>Mentorship from experienced industry professionals</li>
+          <li appReveal>Continuing education &amp; industry training</li>
+          <li appReveal>Support for professional certifications and licenses</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- S06 — INTERNSHIPS TEASER -->
+  <section class="cl-section cl-section--black" aria-labelledby="cl-intern-heading">
+    <div class="cl-container">
+      <div class="cl-intern-band" appReveal>
+        <div>
+          <p class="grit-eyebrow">06 — Internships</p>
+          <h2 class="cl-title" id="cl-intern-heading">Start Your Career in the Field</h2>
+          <p class="cl-text">
+            Still in school or just starting out? Our internships put you on real projects —
+            learning estimating, project coordination, and field operations from the people who
+            do it every day.
+          </p>
+        </div>
+        <a class="btn-explore" routerLink="/careers/internships">
+          <span>Explore Internships</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S07 — APPLICATION PROCESS -->
+  <section class="cl-section cl-section--gray" aria-labelledby="cl-process-heading">
+    <div class="cl-container">
+      <p class="grit-eyebrow" appReveal>07 — How to Apply</p>
+      <h2 class="cl-title" id="cl-process-heading" appReveal>What Comes Next</h2>
+      <p class="cl-text cl-text--wide" appReveal>
+        Applying takes minutes. Here's how the process works from first click to first day.
+      </p>
+      <ol class="cl-process">
+        @for (step of processSteps; track step.num) {
+          <li class="cl-process-step" appReveal>
+            <span class="cl-process-step__num" aria-hidden="true">{{ step.num }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- S08 — CTA -->
+  <app-cta-band
+    sectionId="careers-cta"
+    eyebrow="08 — Get Started"
+    title="Ready to Build Your<br />Future With Us?"
+    text="Browse open positions, or introduce yourself and tell us how you build."
+    ctaLabel="View Open Positions"
+    ctaHref="/careers/jobs"
+  />
+</div>

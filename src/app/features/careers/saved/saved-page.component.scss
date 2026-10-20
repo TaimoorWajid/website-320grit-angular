@@ -1,99 +1,141 @@
 @use '../shared/careers';
 
-/* Saved positions — ported from saved-positions.css. */
+/* ======================================================
+   /careers/saved — saved positions (Howell flow,
+   320 Grit dark design system). Overrides the light
+   .grit-careers-page base from the shared partial.
+   ====================================================== */
 
-.grit-saved-hero {
-  position: relative;
-  min-height: 280px;
-  display: flex;
+.cs-page {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ---- S01 Hero (compact, 10% left edge) ---- */
+.cs-hero {
+  background: #000000;
+}
+
+.cs-hero__inner {
+  padding: 4.5rem 2rem 4rem 10%;
+}
+
+@media (max-width: 768px) {
+  .cs-hero__inner {
+    padding: 3.5rem 1.25rem 3rem 6%;
+  }
+}
+
+.cs-back {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  color: var(--grit-white);
-}
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  text-decoration: none;
+  transition: color 0.3s ease;
 
-.grit-saved-hero__bg {
-  position: absolute;
-  inset: 0;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(13, 13, 13, 0.55), rgba(13, 13, 13, 0.75));
+  &:hover {
+    color: var(--grit-purple);
   }
 }
 
-.grit-saved-hero__content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 3rem 1.5rem;
-}
-
-.grit-saved-hero__title {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+.cs-hero__title {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: 1.08;
   font-weight: 700;
-  color: var(--grit-white);
-  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
 }
 
-.grit-saved-hero__sub {
-  color: rgba(255, 255, 255, 0.8);
+.cs-hero__sub {
   margin: 0;
+  max-width: 560px;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #a1a1aa;
 }
 
-.grit-saved-list {
-  padding: 3rem 0 5rem;
+/* ---- S02 Listing ---- */
+.cs-listing {
+  background: #070707;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.grit-saved-list__inner {
-  max-width: 1100px;
+.cs-listing__inner {
+  max-width: var(--grit-container, 1400px);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 2rem;
 }
 
-.grit-saved-list__count {
-  font-size: 0.9375rem;
-  color: var(--grit-gray-600);
-  margin: 0 0 1.5rem;
-
-  strong {
-    color: var(--grit-dark);
-  }
+.cs-listing__title {
+  margin: 0.75rem 0 1.25rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.grit-saved-list__items {
+.cs-count {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+/* ---- Saved rows (mirror /careers/jobs rows) ---- */
+.cs-rows {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.grit-saved-item {
+.cs-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
-  background: var(--grit-white);
-  border: 1px solid var(--grit-gray-200);
-  border-radius: var(--grit-radius-lg);
-  padding: 1.25rem 1.5rem;
+  padding: 1.75rem;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  &:hover {
+    border-color: rgba(121, 44, 213, 0.55);
+    box-shadow: 0 16px 40px rgba(121, 44, 213, 0.14);
+  }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    padding: 1.4rem;
+  }
 }
 
-.grit-saved-item__title {
-  font-size: 1.125rem;
+.cs-row__dept {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  margin: 0 0 0.25rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grit-purple);
+}
+
+.cs-row__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
 
   a {
-    color: var(--grit-dark);
+    color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease;
 
     &:hover {
       color: var(--grit-purple);
@@ -101,92 +143,107 @@
   }
 }
 
-.grit-saved-item__meta {
-  font-size: 0.875rem;
-  color: var(--grit-gray-600);
+.cs-row__meta {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  color: #a1a1aa;
 }
 
-.grit-saved-item__date {
-  font-size: 0.8125rem;
-  color: var(--grit-gray-400);
-  margin-top: 0.25rem;
+.cs-row__desc {
+  margin: 0;
+  max-width: 620px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #d4d4d8;
 }
 
-.grit-saved-item__actions {
+.cs-row__date {
+  margin: 0.7rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #737373;
+}
+
+.cs-row__side {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
   flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
-.grit-saved-item__remove {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: transparent;
-  border: 1px solid var(--grit-gray-200);
-  border-radius: 50%;
-  color: var(--grit-gray-500);
-  cursor: pointer;
-  transition:
-    color var(--grit-transition),
-    border-color var(--grit-transition);
+.cs-row__view {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: #dc2626;
-    border-color: #dc2626;
+    color: var(--grit-purple);
   }
 }
 
-.grit-saved-empty {
-  text-align: center;
-  padding: 4rem 1.5rem;
-}
-
-.grit-saved-empty__icon {
+.cs-row__remove {
   display: inline-flex;
-  color: var(--grit-gray-300);
-  margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #737373;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.3s ease;
 
-  svg {
-    width: 56px;
-    height: 56px;
+  span[aria-hidden='true'] {
+    display: inline-flex;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &:hover {
+    color: #ef4444;
   }
 }
 
-.grit-saved-empty__title {
+/* ---- Empty state ---- */
+.cs-empty {
+  padding: 3.5rem 2rem;
+  text-align: center;
+  background: #111111;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+}
+
+.cs-empty__title {
+  margin: 0 0 0.6rem;
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 0 0 0.5rem;
+  color: #ffffff;
 }
 
-.grit-saved-empty__text {
-  color: var(--grit-gray-600);
-  margin: 0 0 1.75rem;
+.cs-empty__text {
+  margin: 0 auto 1.75rem;
+  max-width: 440px;
+  line-height: 1.65;
+  color: #a1a1aa;
 }
 
-.grit-saved-footer {
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--grit-gray-200);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.grit-saved-footer__note {
-  font-size: 0.875rem;
-  color: var(--grit-gray-500);
-  margin: 0;
-}
-
-@media (max-width: 767px) {
-  .grit-saved-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.cs-empty .btn-explore {
+  margin: 0 auto;
 }
