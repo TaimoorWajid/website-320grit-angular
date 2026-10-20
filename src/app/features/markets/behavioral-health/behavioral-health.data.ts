@@ -53,7 +53,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
     label: '04 — Project Types',
     heading: 'Types of Behavioral Health Projects',
     image: MARKET_IMG.residence,
-    imageAlt: 'Behavioral health outdoor courtyard',
+    imageAlt: 'Luxury residence at dusk',
     items: [
       { icon: 'building', title: 'Inpatient Facilities', text: 'Acute psychiatric units, crisis stabilization, and long-term residential treatment facilities.' },
       { icon: 'home', title: 'Outpatient & Community Centers', text: 'Outpatient clinics, counseling centers, and community-based behavioral health facilities.' },

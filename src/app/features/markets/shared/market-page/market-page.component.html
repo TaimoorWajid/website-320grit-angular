@@ -9,7 +9,7 @@
       <h1 class="hc-display-xl">
         @for (line of data().hero.title; track line.text; let last = $last) {
           @if (line.accent) {
-            <span class="hc-orange">{{ line.text }}</span>
+            <span class="hc-purple">{{ line.text }}</span>
           } @else {
             {{ line.text }}
           }
@@ -21,7 +21,7 @@
       <p class="hc-hero-sub" [style.max-width]="data().hero.subMaxWidth ?? null">
         @for (line of data().hero.sub; track line.text; let last = $last) {
           @if (line.accent) {
-            <span class="hc-orange">{{ line.text }}</span>
+            <span class="hc-purple">{{ line.text }}</span>
           } @else {
             {{ line.text }}
           }
@@ -34,11 +34,11 @@
       <div class="hc-hero-actions">
         @for (btn of data().hero.buttons; track btn.label) {
           @if (btn.route) {
-            <a [routerLink]="btn.route" class="btn-explore">
+            <a [routerLink]="btn.route" class="btn-explore" [class.btn-explore--filled]="$first && data().hero.buttons.length > 1">
               <span>{{ btn.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
             </a>
           } @else {
-            <a [href]="btn.anchor" (click)="onAnchor($event, btn.anchor)" class="btn-explore">
+            <a [href]="btn.anchor" (click)="onAnchor($event, btn.anchor)" class="btn-explore" [class.btn-explore--filled]="$first && data().hero.buttons.length > 1">
               <span>{{ btn.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
             </a>
           }
@@ -58,7 +58,7 @@
         <h2 class="hc-display-md rr-overview-title">
           @for (line of data().overview.title; track line.text; let last = $last) {
             @if (line.accent) {
-              <span class="hc-orange">{{ line.text }}</span>
+              <span class="hc-purple">{{ line.text }}</span>
             } @else {
               {{ line.text }}
             }
@@ -190,7 +190,7 @@
           <h2 class="hc-display-md" style="margin-top: 0.75rem">
             @for (line of data().partner.heading; track line.text; let last = $last) {
               @if (line.accent) {
-                <span class="hc-orange">{{ line.text }}</span>
+                <span class="hc-purple">{{ line.text }}</span>
               } @else {
                 {{ line.text }}
               }

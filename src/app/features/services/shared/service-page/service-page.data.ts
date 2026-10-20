@@ -101,6 +101,8 @@ export interface ServicePageData {
   expertiseGrid?: { eyebrow: string; titleHtml: string; cards: ExpertiseCard[] };
   process: { eyebrow: string; titleHtml: string; steps: ProcessStep[] };
   industries: {
+    /** Optional — numbered eyebrow like "06 — INDUSTRIES WE SERVE". */
+    eyebrow?: string;
     title: string;
     /** Optional — section renders a dark gradient when absent. */
     bgImage?: string;

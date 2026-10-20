@@ -7,32 +7,38 @@ export const MARKETS: CaMarket[] = [
   {
     title: 'Healthcare',
     text: 'Hospitals, medical office buildings, and imaging centers designed around patients, providers, and operational performance.',
-    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80',
+    img: '/assets/images/healthcare-bg.webp',
+    route: '/industries/healthcare',
   },
   {
     title: 'Behavioral Health',
     text: 'Purpose-built environments that balance safety, dignity, and effective care for California communities.',
-    img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80',
+    img: '/assets/images/ChatGPT-Image-Jul-30-2026-07_53_38-AM.webp',
+    route: '/industries/behavioral-health',
   },
   {
     title: 'Advanced Technology',
     text: 'Laboratories, research facilities, and high-performance environments where precision is non-negotiable.',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+    img: '/assets/images/ChatGPT-Image-Jul-30-2026-08_25_58-AM.webp',
+    route: '/industries/advanced-technology',
   },
   {
     title: 'Education',
     text: 'K-12 campuses and higher-education facilities built for the way California students learn today — and tomorrow.',
-    img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80',
+    img: '/assets/images/hero-industries.webp',
+    route: '/industries/education',
   },
   {
     title: 'Hospitality',
     text: 'Hotels, restaurants, and guest destinations where design, operations, and experience intersect.',
-    img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80',
+    img: '/assets/images/ChatGPT-Image-Jul-30-2026-08_30_56-AM.webp',
+    route: '/industries/hospitality',
   },
   {
     title: 'Railroads & Transportation',
     text: 'Rail and transit infrastructure where coordination, safety, and reliability keep California moving.',
-    img: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80',
+    img: '/assets/images/railroad-infrastructure-bg.webp',
+    route: '/industries/railroads',
   },
 ];
 

@@ -68,7 +68,7 @@ export const FORENSIC_ACCOUNTING_DATA: ServicePageData = {
     { num: '04', title: 'Report & Testify', text: 'Deliver defensible findings and expert testimony when needed.' },
     ],
   },
-  industries: { title: 'Industries We Serve', items: SHARED_INDUSTRIES },
+  industries: { eyebrow: '06 \u2014 INDUSTRIES WE SERVE', title: 'Industries We Serve', items: SHARED_INDUSTRIES },
   whyChoose: {
     sectionId: 'why-choose',
     dataSection: 'why-choose',

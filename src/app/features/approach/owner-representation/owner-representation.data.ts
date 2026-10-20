@@ -14,22 +14,6 @@ export const OR_HERO = {
   ctaSecondary: 'Start a Project',
 };
 
-/** Animated count-up stats strip. value = target number; prefix/suffix decorate it. */
-export interface OrStat {
-  value: number;
-  decimals: number;
-  prefix: string;
-  suffix: string;
-  label: string;
-}
-
-export const OR_STATS: OrStat[] = [
-  { value: 120, decimals: 0, prefix: '', suffix: '+', label: 'Projects Managed End-to-End' },
-  { value: 850, decimals: 0, prefix: '$', suffix: 'M+', label: 'Construction Value Overseen' },
-  { value: 98, decimals: 0, prefix: '', suffix: '%', label: 'On-Time, On-Budget Delivery' },
-  { value: 25, decimals: 0, prefix: '', suffix: '+', label: 'Years of Combined Field Leadership' },
-];
-
 export const OR_PILLARS: OcPillar[] = [
   {
     num: '01',

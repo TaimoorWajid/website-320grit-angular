@@ -36,7 +36,7 @@ export const BID_BUILD_DATA: ServicePageData = {
       'Bid-build is the traditional project delivery method: the owner first completes design with their architect and engineers, then solicits competitive bids from qualified contractors, awards the contract to the best value proposal, and construction begins.',
       'This sequential approach gives owners complete control over design, transparent price competition, and straightforward contractual relationships. It remains the most widely used delivery method for public works and private commercial construction alike.',
     ],
-    image: '/assets/images/ChatGPT-Image-Aug-8-2026-02_23_28-AM.webp',
+    image: 'assets/images/what-is-bid-build.webp',
     imageAlt: 'Exploded cutaway view of commercial building',
     labels: [
     { title: 'COMPLETE DESIGN FIRST', text: 'Full plans and specs finished before any contractor prices the work.' },
@@ -56,7 +56,7 @@ export const BID_BUILD_DATA: ServicePageData = {
     { num: '04', title: 'Build & Deliver', text: 'Disciplined construction management through final handover.' },
     ],
   },
-  industries: { title: 'Industries We Build For', items: SHARED_INDUSTRIES },
+  industries: { eyebrow: '05 \u2014 INDUSTRIES WE SERVE', title: 'Industries We Build For', items: SHARED_INDUSTRIES },
   whyChoose: {
     sectionId: 'why-320',
     dataSection: 'why-320',

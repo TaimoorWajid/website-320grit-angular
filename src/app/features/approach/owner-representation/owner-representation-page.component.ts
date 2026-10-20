@@ -3,7 +3,6 @@ import { SeoService } from '../../../core/services/seo.service';
 import { SmoothScrollService } from '../../../core/services/smooth-scroll.service';
 import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { CmHeroComponent } from './components/cm-hero/cm-hero.component';
-import { CmStatsComponent } from './components/cm-stats/cm-stats.component';
 import { CmServicesComponent } from './components/cm-services/cm-services.component';
 import { CmProcessComponent } from './components/cm-process/cm-process.component';
 import { CmAdvocateComponent } from './components/cm-advocate/cm-advocate.component';
@@ -14,7 +13,6 @@ import { OR_SIDENAV } from './owner-representation.data';
   selector: 'app-owner-representation-page',
   imports: [
     CmHeroComponent,
-    CmStatsComponent,
     CmServicesComponent,
     CmProcessComponent,
     CmAdvocateComponent,
