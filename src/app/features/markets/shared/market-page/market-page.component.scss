@@ -2,5 +2,19 @@
 
 @include mk.markets-base;
 
-/* Page-specific tweaks live in the per-page data (all structural
-   styles come from the markets-base mixin). */
+/* Market hero: content aligns to the 10% site-standard left edge
+   (the .hc-container wrapper was removed from the hero template). */
+:host .hc-hero .hc-hero-content {
+  padding: 0 2.5rem 0 10%;
+}
+@media (max-width: 768px) {
+  :host .hc-hero .hc-hero-content {
+    padding-left: 6%;
+  }
+}
+
+/* Standard orange eyebrow spacing inside market sections. */
+:host .grit-eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+}

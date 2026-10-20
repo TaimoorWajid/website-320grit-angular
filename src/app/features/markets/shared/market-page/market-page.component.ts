@@ -2,8 +2,9 @@ import { Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 import { SmoothScrollService } from '../../../../core/services/smooth-scroll.service';
+import { CtaBandComponent } from '../../../../shared/components/cta-band/cta-band.component';
 import { MarketIconComponent } from '../market-icon/market-icon.component';
-import { MarketButton, MarketPageData } from './market-page.data';
+import { MarketPageData, RichLine } from './market-page.data';
 
 /**
  * Shared layout for the 6 rr-* market pages (railroads, advanced-technology,
@@ -13,7 +14,7 @@ import { MarketButton, MarketPageData } from './market-page.data';
  */
 @Component({
   selector: 'app-market-page',
-  imports: [RouterLink, RevealDirective, MarketIconComponent],
+  imports: [RouterLink, RevealDirective, MarketIconComponent, CtaBandComponent],
   templateUrl: './market-page.component.html',
   styleUrl: './market-page.component.scss',
 })
@@ -34,13 +35,19 @@ export class MarketPageComponent {
     this.smoothScroll.scrollTo(anchor, { offset: 80 });
   }
 
-  /** Primary + ghost buttons carry the arrow SVG; outline buttons do not. */
-  protected hasArrow(btn: MarketButton): boolean {
-    return btn.variant !== 'outline';
+  /** CTA band title: RichLine[] → HTML with <br> breaks and accent spans. */
+  protected ctaTitle(): string {
+    return richLinesToHtml(this.data().cta.heading);
   }
+}
 
-  protected arrowSvg(btn: MarketButton): string {
-    const cls = btn.variant === 'ghost' ? ' class="hc-arrow"' : '';
-    return `<svg${cls} width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  }
+/** Shared RichLine[] → HTML renderer (accent spans + line breaks). */
+export function richLinesToHtml(lines: RichLine[]): string {
+  return lines
+    .map((line, i) => {
+      const text = line.accent ? `<span class="hc-orange">${line.text}</span>` : line.text;
+      const br = i < lines.length - 1 && !line.inline ? '<br />' : '';
+      return text + br;
+    })
+    .join('');
 }

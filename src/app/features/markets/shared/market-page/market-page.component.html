@@ -4,11 +4,8 @@
     <img [src]="data().hero.image" alt="" width="1920" height="1080" fetchpriority="high" />
   </div>
   <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
-  <div class="hc-container">
-    <div class="hc-hero-content" appReveal>
-      <div class="hc-hero-label">
-        <span class="hc-line"></span><span class="hc-label">{{ data().hero.label }}</span>
-      </div>
+  <div class="hc-hero-content" appReveal>
+      <span class="grit-eyebrow">{{ data().hero.label }}</span>
       <h1 class="hc-display-xl">
         @for (line of data().hero.title; track line.text; let last = $last) {
           @if (line.accent) {
@@ -37,24 +34,17 @@
       <div class="hc-hero-actions">
         @for (btn of data().hero.buttons; track btn.label) {
           @if (btn.route) {
-            <a [routerLink]="btn.route" class="hc-btn hc-btn-{{ btn.variant }}">
-              {{ btn.label }}
-              @if (hasArrow(btn)) {
-                <span [innerHTML]="arrowSvg(btn)"></span>
-              }
+            <a [routerLink]="btn.route" class="btn-explore">
+              <span>{{ btn.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
             </a>
           } @else {
-            <a [href]="btn.anchor" (click)="onAnchor($event, btn.anchor)" class="hc-btn hc-btn-{{ btn.variant }}">
-              {{ btn.label }}
-              @if (hasArrow(btn)) {
-                <span [innerHTML]="arrowSvg(btn)"></span>
-              }
+            <a [href]="btn.anchor" (click)="onAnchor($event, btn.anchor)" class="btn-explore">
+              <span>{{ btn.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
             </a>
           }
         }
       </div>
     </div>
-  </div>
 </section>
 
 <!-- S2 — OVERVIEW -->
@@ -62,7 +52,7 @@
   <div class="hc-container">
     <div class="rr-overview-grid">
       <div class="rr-overview-text" appReveal>
-        <span class="hc-label" [class.hc-label--orange]="data().overview.labelAccent">
+        <span class="grit-eyebrow">
           {{ data().overview.label }}
         </span>
         <h2 class="hc-display-md rr-overview-title">
@@ -153,7 +143,7 @@
 <section class="hc-section rr-approach" [id]="data().approach.id">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
-      <span class="hc-label">{{ data().approach.label }}</span>
+      <span class="grit-eyebrow">{{ data().approach.label }}</span>
       @if (data().approach.heading) {
         <h2 class="hc-display-md">{{ data().approach.heading }}</h2>
       }
@@ -189,7 +179,7 @@
   <div class="hc-container">
     <div class="rr-partner-grid">
       <div class="rr-partner-text" appReveal>
-        <span class="hc-label">{{ data().partner.label }}</span>
+        <span class="grit-eyebrow">{{ data().partner.label }}</span>
         @if (data().partner.heading) {
           <h2 class="hc-display-md" style="margin-top: 0.75rem; color: #111">
             @for (line of data().partner.heading; track line.text; let last = $last) {
@@ -216,13 +206,10 @@
           <a
             [href]="cta.anchor"
             (click)="onAnchor($event, cta.anchor)"
-            class="hc-btn hc-btn-{{ cta.variant }}"
+            class="btn-explore"
             style="margin-top: 1.5rem"
           >
-            {{ cta.label }}
-            @if (hasArrow(cta)) {
-              <span [innerHTML]="arrowSvg(cta)"></span>
-            }
+            <span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span>
           </a>
         }
       </div>
@@ -278,28 +265,10 @@
 </section>
 
 <!-- S7 — FINAL CTA -->
-<section class="rr-final-cta" [id]="data().cta.id" [attr.style]="'--cta-bg: url(' + data().cta.bgImage + ')'">
-  <div class="hc-container">
-    <div class="rr-cta-inner" appReveal>
-      <h2 class="hc-display-lg">
-        @for (line of data().cta.heading; track line.text; let last = $last) {
-          @if (line.accent) {
-            <span class="hc-orange">{{ line.text }}</span>
-          } @else {
-            {{ line.text }}
-          }
-          @if (!last && !line.inline) {
-            <br />
-          }
-        }
-      </h2>
-      <p>{{ data().cta.body }}</p>
-      <a [routerLink]="data().cta.button.route" class="hc-btn hc-btn-{{ data().cta.button.variant }}">
-        {{ data().cta.button.label }}
-        @if (hasArrow(data().cta.button)) {
-          <span [innerHTML]="arrowSvg(data().cta.button)"></span>
-        }
-      </a>
-    </div>
-  </div>
-</section>
+<app-cta-band
+  [sectionId]="data().cta.id"
+  [title]="ctaTitle()"
+  [text]="data().cta.body"
+  [ctaLabel]="data().cta.button.label"
+  [ctaHref]="data().cta.button.route ?? '/contact-us'"
+/>
