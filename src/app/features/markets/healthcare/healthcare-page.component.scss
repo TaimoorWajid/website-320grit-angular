@@ -5,24 +5,47 @@
 /* ============================================================
    Healthcare page overrides — site standards.
    Page-scoped (later rules win over the shared base mixin).
-   1. Hero content at 10% left padding (6% mobile).
+   1. Hero content at exactly 10% left padding (6% mobile).
+      The global [class*='hero'][class*='content'] rule adds another
+      10% onto .hc-hero-content — zero it so the content's left edge
+      sits at exactly 10% of the viewport.
    2. 80/20 purple-dominant accents (orange kept only for
-      .hc-orange title accents, eyebrows, CTA buttons).
+      eyebrows and CTA buttons).
    ============================================================ */
 
-/* 1. Hero — 10% left content padding like finalized service heroes. */
+/* 1. Hero — exact 10% left content padding like finalized service heroes. */
 .hc-hero .hc-container {
   max-width: none;
   padding-left: 10%;
   padding-right: var(--hc-side);
 }
+.hc-hero .hc-hero-content {
+  padding-left: 0;
+}
 @media (max-width: 768px) {
   .hc-hero .hc-container {
     padding-left: 6%;
   }
+  .hc-hero .hc-hero-content {
+    padding-left: 0;
+  }
+}
+
+/* Hero buttons stay on one line. */
+.hc-hero-actions .btn-explore,
+.hc-env-showcase .btn-explore {
+  white-space: nowrap;
 }
 
 /* 2. Purple-dominant accents. */
+.hc-hero h1 .hc-purple {
+  display: block;
+}
+/* Patient-flow line in the blueprint diagram follows 80/20;
+   legend dot matches so the color mapping stays intact. */
+.hc-flow-dot.patient {
+  background: var(--hc-purple);
+}
 .hc-feature-card::before {
   background: linear-gradient(90deg, var(--hc-purple), transparent);
 }

@@ -1585,4 +1585,9 @@
     font-size: 1.125rem;
     color: var(--hc-gray-300);
   }
+
+  /* Buttons never wrap to two lines on market pages. */
+  .btn-explore {
+    white-space: nowrap;
+  }
 }

@@ -218,6 +218,11 @@
   margin-top: 1.25rem;
 }
 
+/* Buttons never wrap to two lines. */
+.btn-explore {
+  white-space: nowrap;
+}
+
 @media (max-width: 1100px) {
   .ind-grid__inner {
     grid-template-columns: repeat(2, 1fr);
