@@ -39,21 +39,12 @@
 .grit-footer__logo {
   display: flex;
   align-items: center;
-  gap: 8px;
   margin-bottom: 16px;
 }
 
-.grit-footer__logo-text {
-  font-size: 28px;
-  font-weight: 900;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-  font-style: italic;
-}
-
-.grit-footer__logo-arrow {
-  flex-shrink: 0;
-  display: inline-flex;
+.grit-footer__logo img {
+  height: 36px;
+  width: auto;
 }
 
 .grit-footer__tagline {

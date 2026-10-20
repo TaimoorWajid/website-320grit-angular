@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import {
   FOOTER_CONTACT_ICONS,
   FOOTER_LINK_GROUPS,
-  FOOTER_LOGO_ARROW,
 } from '../../core/data/footer.data';
 import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 
@@ -18,5 +17,4 @@ import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 export class FooterComponent {
   protected readonly linkGroups = FOOTER_LINK_GROUPS;
   protected readonly contactIcons = FOOTER_CONTACT_ICONS;
-  protected readonly logoArrow = FOOTER_LOGO_ARROW;
 }
