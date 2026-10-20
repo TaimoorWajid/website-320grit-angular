@@ -1,59 +1,32 @@
-/* Footer styles — verbatim port of the inline <style> block
-   ("FOOTER STYLES" section) on the staging homepage. The !important
-   reset below is intentional: on staging it forces nearly all footer
-   text to render white. */
+/* Footer — brand orange band on every page, white text throughout.
+   Link columns render from FOOTER_LINK_GROUPS in footer.data.ts. */
 
 .grit-footer {
-  background: transparent;
-  color: #9a9a9a;
+  background: var(--grit-accent-orange);
+  color: #ffffff;
   font-family: Arial, sans-serif;
   padding: 60px 0 0;
 }
 
 .grit-footer ul {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .grit-footer ul li::before,
 .grit-footer ul li::marker {
-  display: none !important;
-  content: none !important;
-}
-
-.grit-footer,
-.grit-footer a,
-.grit-footer span,
-.grit-footer p,
-.grit-footer li {
-  color: #ffffff !important;
-}
-
-.grit-footer__title {
-  color: #ffffff !important;
-}
-
-.grit-footer__bottom-inner p {
-  color: #ffffff !important;
-}
-
-.grit-footer__legal a {
-  color: #ffffff !important;
-}
-
-.grit-footer__legal a:hover,
-.grit-footer a:hover {
-  color: #ffffff !important;
+  display: none;
+  content: none;
 }
 
 .grit-footer__container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.3fr;
-  gap: 40px;
+  grid-template-columns: 1.5fr 1fr 1fr 1.1fr 1fr 0.9fr;
+  gap: 36px;
 }
 
 /* ---------- Columns ---------- */
@@ -86,31 +59,8 @@
 .grit-footer__tagline {
   font-size: 14px;
   line-height: 1.7;
-  color: #9a9a9a;
-  margin: 0 0 20px 0;
-}
-
-.grit-footer__socials {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-
-.grit-footer__socials a {
-  color: #ffffff;
-  transition: color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grit-footer__socials a:hover {
-  color: #792cd5;
-}
-
-.grit-footer__socials svg {
-  width: 20px;
-  height: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 24px 0;
 }
 
 /* ---------- Titles ---------- */
@@ -119,7 +69,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #c4c4c4;
+  color: #ffffff;
   margin: 0 0 18px 0;
 }
 
@@ -134,14 +84,14 @@
 }
 
 .grit-footer__links a {
-  color: #9a9a9a;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
 }
 
 .grit-footer__links a:hover {
-  color: #ffffff;
+  color: #141414;
 }
 
 /* ---------- Contact List ---------- */
@@ -160,6 +110,7 @@
   gap: 10px;
   font-size: 14px;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .grit-footer__contact-list svg {
@@ -169,27 +120,23 @@
 }
 
 .grit-footer__contact-list a {
-  color: #9a9a9a;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .grit-footer__contact-list a:hover {
-  color: #ffffff;
-}
-
-.grit-footer__contact-list span {
-  color: #9a9a9a;
+  color: #141414;
 }
 
 /* ---------- Bottom Bar ---------- */
 .grit-footer__bottom {
   margin-top: 50px;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .grit-footer__bottom-inner {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px 24px;
   display: flex;
@@ -201,34 +148,12 @@
 
 .grit-footer__bottom-inner p {
   font-size: 12px;
-  color: #6b6b6b;
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
 
-.grit-footer__legal {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.grit-footer__legal a {
-  font-size: 12px;
-  color: #9a9a9a;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.grit-footer__legal a:hover {
-  color: #ffffff;
-}
-
-.grit-footer__divider {
-  color: #3a3a3a;
-  font-size: 12px;
-}
-
 /* ==================== RESPONSIVE ==================== */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .grit-footer__container {
     grid-template-columns: repeat(3, 1fr);
     gap: 36px;
@@ -236,16 +161,6 @@
 
   .grit-footer__col--brand {
     grid-column: 1 / -1;
-  }
-
-  .grit-footer__col--contact {
-    grid-column: 1 / -1;
-  }
-
-  .grit-footer__contact-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
   }
 }
 
@@ -259,19 +174,14 @@
     gap: 32px;
   }
 
-  .grit-footer__col--brand,
-  .grit-footer__col--contact {
+  .grit-footer__col--brand {
     grid-column: 1 / -1;
-  }
-
-  .grit-footer__contact-list {
-    grid-template-columns: 1fr;
-    gap: 14px;
   }
 
   .grit-footer__bottom-inner {
     flex-direction: column;
     text-align: center;
+    justify-content: center;
   }
 }
 

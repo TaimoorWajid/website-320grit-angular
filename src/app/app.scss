@@ -11,14 +11,7 @@
   outline: none;
 }
 
-/* On staging the footer lives inside the orange contact section, and the
-   orange background is scroll-triggered (black until the form is ~40%
-   visible). The `contact-orange` body class drives both transitions. */
-.footer-band--home {
-  background: #000000;
-  transition: background-color 0.8s ease;
-}
-
-body.contact-orange .footer-band--home {
-  background: var(--grit-accent-orange);
-}
+/* The footer is a solid brand-orange band on every page (see
+   layout/footer). The homepage contact section above it keeps its own
+   scroll-triggered black→orange transition via the `contact-orange`
+   body class — that behavior lives in the home-contact component. */
