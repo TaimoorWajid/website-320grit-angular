@@ -1,0 +1,62 @@
+/* Floating scroll-to-top button — fixed bottom-right; fades/slides in after
+   ~600px of scroll, hidden (and non-interactive) near the top. */
+
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  /* Above page content; below the mega-menu backdrop (900), the header
+     (1000) and the mobile menu + its backdrop (1100 / 1200). */
+  z-index: 800;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grit-bg-tertiary); /* #111111 */
+  border: 1px solid var(--grit-accent-violet); /* #792CD5 */
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background 0.25s ease;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top:hover {
+  background: var(--grit-accent-violet);
+}
+
+.scroll-top.is-visible:hover {
+  transform: translateY(-3px);
+}
+
+.scroll-top:focus-visible {
+  outline: 2px solid var(--grit-accent-violet-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .scroll-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top {
+    transition: none;
+  }
+}

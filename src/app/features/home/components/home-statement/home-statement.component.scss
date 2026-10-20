@@ -43,11 +43,28 @@
   text-align: center;
 }
 
+/* Bird Lottie beside line 1 — square stage, sized in vw exactly as
+   staging's nectar-lottie-wrap (8vw / 10vw tablet / 12vw phone).
+   Fixed vw width + aspect-ratio reserve the box before the JSON
+   loads, so there is no layout shift. */
 .home-statement__bird {
-  height: 0.85em;
-  width: auto;
+  width: 8vw;
+  aspect-ratio: 1;
   flex-shrink: 0;
+  line-height: 0;
   margin-top: 0.05em;
+}
+
+.home-statement__bird svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 999px) {
+  .home-statement__bird {
+    width: 10vw;
+  }
 }
 
 @media (max-width: 690px) {
@@ -57,5 +74,8 @@
   }
   .home-statement__line {
     font-size: 11vw;
+  }
+  .home-statement__bird {
+    width: 12vw;
   }
 }

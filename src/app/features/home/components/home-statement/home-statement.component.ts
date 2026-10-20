@@ -1,12 +1,15 @@
-import { Component, DestroyRef, afterNextRender, inject } from '@angular/core';
+import { Component, DestroyRef, ElementRef, ViewChild, afterNextRender, inject } from '@angular/core';
 import { AnimationManagerService } from '../../../../core/animations/animation-manager.service';
 import { prefersReducedMotion } from '../../../../core/animations/animation.util';
 import { gsap } from 'gsap';
+import type { AnimationItem } from 'lottie-web';
 
 /**
  * Statement band: three giant lines with a line-by-line mask reveal
- * (Salient "line-reveal-by-space"). The decorative Lottie on staging
- * is omitted (external CDN asset); the type treatment is preserved.
+ * (Salient "line-reveal-by-space"), plus the origami bird Lottie from
+ * staging beside "SOLUTIONS BUILT" — self-hosted JSON
+ * (`/assets/animations/solutions-bird.json`), looped at 0.7x speed
+ * exactly as staging's nectar-lottie settings specify.
  */
 @Component({
   selector: 'app-home-statement',
@@ -16,6 +19,8 @@ import { gsap } from 'gsap';
 export class HomeStatementComponent {
   private readonly animations = inject(AnimationManagerService);
   private readonly destroyRef = inject(DestroyRef);
+
+  @ViewChild('bird', { static: true }) private readonly birdEl!: ElementRef<HTMLElement>;
 
   constructor() {
     afterNextRender(() => {
@@ -38,6 +43,29 @@ export class HomeStatementComponent {
         });
       });
       if (ctx) this.destroyRef.onDestroy(() => ctx.revert());
+    });
+
+    // Bird Lottie — client-only (afterNextRender never runs on the
+    // server) and dynamically imported so lottie-web stays out of the
+    // initial bundle. Reduced motion: render the first frame paused.
+    afterNextRender(() => {
+      let anim: AnimationItem | undefined;
+      let destroyed = false;
+      this.destroyRef.onDestroy(() => {
+        destroyed = true;
+        anim?.destroy();
+      });
+      void import('lottie-web').then(({ default: lottie }) => {
+        if (destroyed) return;
+        anim = lottie.loadAnimation({
+          container: this.birdEl.nativeElement,
+          renderer: 'svg',
+          loop: true,
+          autoplay: !prefersReducedMotion(),
+          path: '/assets/animations/solutions-bird.json',
+        });
+        anim.setSpeed(0.7);
+      });
     });
   }
 }

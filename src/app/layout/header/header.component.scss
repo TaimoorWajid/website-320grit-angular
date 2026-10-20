@@ -36,8 +36,12 @@
 }
 
 .grit-nav__logo img {
-  height: 46px;
+  height: 42px;
   width: auto;
+}
+
+.grit-nav__logo-img--mobile {
+  display: none;
 }
 
 .grit-nav__desktop {
@@ -515,6 +519,13 @@
 @media (max-width: 1025px) {
   .grit-nav__desktop {
     display: none;
+  }
+  .grit-nav__logo-img--desktop {
+    display: none;
+  }
+  .grit-nav__logo-img--mobile {
+    display: block;
+    height: 48px;
   }
   .grit-nav__burger {
     display: block;
