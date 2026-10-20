@@ -37,6 +37,7 @@ export class HeaderComponent {
       label: 'Who we are',
       href: '#',
       children: [
+        { label: 'About 320 Grit', href: '/about-us' },
         {
           label: 'About Us',
           href: '#',

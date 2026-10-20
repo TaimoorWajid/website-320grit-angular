@@ -64,7 +64,7 @@ export const MEGA_MENUS: MegaMenu[] = [
     ],
     featureImage: '/assets/images/Who-we-are-feature-image.webp',
     featureTitle: `Building trust.`,
-    featureLinkText: 'Learn more about us',
+    featureLinkText: 'About 320 Grit',
     featureLinkHref: '/about-us',
   },
   {

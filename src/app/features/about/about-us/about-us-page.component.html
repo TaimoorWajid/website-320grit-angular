@@ -1,0 +1,104 @@
+<!-- About Us index page — /about-us -->
+<div class="about-page">
+  <!-- HERO -->
+  <section class="about-hero" [style.background-image]="'url(' + hero.image + ')'">
+    <div class="about-hero__overlay" aria-hidden="true"></div>
+    <div class="about-hero__inner">
+      <p class="grit-eyebrow" appReveal>{{ hero.eyebrow }}</p>
+      <h1 class="about-hero__title" appReveal>About <span>320 Grit</span></h1>
+      <p class="about-hero__intro" appReveal>{{ hero.intro }}</p>
+      <div class="about-hero__ctas" appReveal>
+        <a class="btn-explore" routerLink="/our-story">
+          <span>Our Story</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+        <a class="btn-explore" routerLink="/contact-us">
+          <span>Contact Us</span>
+          <span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section class="about-explore" aria-label="Explore who we are">
+    <div class="about-explore__inner">
+      <div class="about-explore__head" appReveal>
+        <p class="grit-eyebrow">02 — Explore Who We Are</p>
+        <h2 class="about-explore__title">Get to know <span>320 Grit.</span></h2>
+        <p class="about-explore__text">
+          A construction partner built on experience, integrity, and doing the job right the first
+          time. Explore the story, people, and principles behind every project we deliver.
+        </p>
+      </div>
+      <div class="about-explore__grid">
+        @for (card of cards; track card.href; let i = $index) {
+          <article class="about-card" appReveal [style.--reveal-delay]="(i % 3) * 0.08 + 's'">
+            <a class="about-card__media" [routerLink]="card.href" [attr.aria-label]="card.title">
+              <img [src]="card.image" [alt]="card.title" loading="lazy" />
+              <span class="about-card__media-shade" aria-hidden="true"></span>
+            </a>
+            <div class="about-card__body">
+              <span class="about-card__icon" [innerHTML]="card.icon | safeHtml" aria-hidden="true"></span>
+              <h3 class="about-card__title">{{ card.title }}</h3>
+              <p class="about-card__desc">{{ card.desc }}</p>
+              <a class="btn-explore about-card__cta" [routerLink]="card.href">
+                <span>Explore More</span>
+                <span class="btn-explore-dash" aria-hidden="true">—</span>
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP PREVIEW -->
+  <div class="about-band about-band--team">
+    <app-team-grid
+      sectionId="about-team"
+      background="#070707"
+      label="03 — Meet the Leadership"
+      title="Our Leadership Team"
+      [members]="leaders"
+    />
+    <div class="about-more about-more--team" appReveal>
+      <a class="btn-explore" routerLink="/our-leadership">
+        <span>Meet the Team</span>
+        <span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VALUES STRIP -->
+  <div class="about-band about-band--values">
+    <app-value-grid
+      sectionId="about-values"
+      background="#000000"
+      [header]="{
+        label: '04 — What We Stand For',
+        title: 'The Principles That Build Us.',
+        text: 'Six principles. Zero compromises. The values that drive how 320 Grit plans, prices, and delivers every construction project.',
+        centered: true,
+      }"
+      [cards]="values"
+      columns="repeat(3, 1fr)"
+    />
+    <div class="about-more about-more--values" appReveal>
+      <a class="btn-explore" routerLink="/our-values">
+        <span>Explore Our Values</span>
+        <span class="btn-explore-dash" aria-hidden="true">—</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <app-cta-band
+    sectionId="about-cta"
+    eyebrow="05 — Get Started"
+    title="Ready to build with a team<br />that puts you first?"
+    text="Tell us about your project and your goals. We will respond with honest guidance and a clear path forward — no pressure, no jargon."
+    ctaLabel="Start the Conversation"
+    ctaHref="/contact-us"
+  />
+</div>
