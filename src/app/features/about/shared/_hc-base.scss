@@ -10,6 +10,10 @@ $hc-orange: #ff5c00;
 $hc-orange-hover: #e54f00;
 $hc-orange-glow: rgba(255, 92, 0, 0.35);
 $hc-orange-soft: rgba(255, 92, 0, 0.12);
+/* Site standard: 80% purple / 20% orange. Purple is the dominant accent. */
+$hc-violet: #792cd5;
+$hc-violet-soft: rgba(121, 44, 213, 0.12);
+$hc-violet-glow: rgba(121, 44, 213, 0.35);
 $hc-purple: #792cd5;
 $hc-purple-hover: #6d28c0;
 $hc-purple-glow: rgba(121, 44, 213, 0.35);
@@ -328,14 +332,14 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: $hc-orange;
+  background: $hc-violet;
   margin: 0 auto 1.25rem;
-  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.25);
+  box-shadow: 0 0 0 4px rgba(121, 44, 213, 0.25);
 }
 .ab-timeline-year {
   font-size: 1.25rem;
   font-weight: 700;
-  color: $hc-orange;
+  color: $hc-violet;
   margin-bottom: 0.5rem;
 }
 .ab-timeline-item h4 {
@@ -370,7 +374,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   width: 40px;
   height: 40px;
   margin: 0 auto 0.75rem;
-  color: $hc-orange;
+  color: $hc-violet;
 }
 .ab-stat-icon svg { width: 100%; height: 100%; }
 .ab-stat-num {
@@ -438,7 +442,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 .ab-team-info .ab-role {
   font-size: 0.8rem;
-  color: $hc-orange;
+  color: $hc-violet;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -465,11 +469,11 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   height: 52px;
   margin: 0 auto 1.1rem;
   border-radius: 12px;
-  background: $hc-orange-soft;
+  background: $hc-violet-soft;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $hc-orange;
+  color: $hc-violet;
 }
 .ab-value-icon svg { width: 24px; height: 24px; }
 .ab-value-card h3 {
@@ -497,7 +501,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: $hc-orange;
+  color: $hc-violet;
   margin-bottom: 0.5rem;
 }
 .ab-value-card--award h3 {
@@ -507,7 +511,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
 /* Quote block */
 .ab-quote {
-  border-left: 3px solid $hc-orange;
+  border-left: 3px solid $hc-violet;
   padding-left: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -541,7 +545,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .ab-impact-num {
   font-size: 1.75rem;
   font-weight: 700;
-  color: $hc-orange;
+  color: $hc-violet;
   margin-bottom: 0.3rem;
 }
 .ab-impact-label {
@@ -582,7 +586,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 .ab-project-body .ab-loc {
   font-size: 0.8rem;
-  color: $hc-orange;
+  color: $hc-violet;
   margin-bottom: 0.5rem;
 }
 .ab-project-body p {
@@ -617,7 +621,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   content: '\2713';
   position: absolute;
   left: 0;
-  color: $hc-orange;
+  color: $hc-violet;
   font-weight: 700;
 }
 
