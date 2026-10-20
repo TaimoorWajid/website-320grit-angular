@@ -1,0 +1,307 @@
+<div class="grit-careers-page aj-page">
+  @if (job(); as j) {
+    <!-- S01 Hero -->
+    <section class="aj-hero" aria-labelledby="aj-title">
+      <div class="aj-hero__inner" appReveal>
+        <a class="aj-back" [routerLink]="['/careers', j.slug]">← Back to the opportunity</a>
+        <p class="grit-eyebrow">01 — Apply</p>
+        <h1 class="aj-hero__title" id="aj-title">Apply for {{ j.title }}</h1>
+        <p class="aj-hero__sub">{{ j.department }} · {{ j.location }} · {{ j.employment_type }}</p>
+      </div>
+    </section>
+
+    <!-- S02 Layout -->
+    <div class="aj-layout">
+      <!-- Aside context -->
+      <aside class="aj-aside" appReveal>
+        <div class="aj-context-card">
+          <p class="aj-context-card__label">You're Applying For</p>
+          <h2 class="aj-context-card__title">{{ j.title }}</h2>
+          <ul class="aj-context-card__meta">
+            <li>{{ j.location }}</li>
+            <li>{{ j.employment_type }} · {{ j.department }}</li>
+            <li>Reports to {{ j.reports_to }}</li>
+          </ul>
+        </div>
+        <p class="aj-note">
+          No account needed. Your details stay in this form while you move between steps — nothing is sent until you
+          review and submit.
+        </p>
+      </aside>
+
+      <!-- Stepper + form -->
+      <div class="aj-main" appReveal>
+        <div class="aj-stepper" role="list" aria-label="Application progress">
+          @for (label of steps; track label; let i = $index) {
+            <button
+              type="button"
+              class="aj-stepper__step"
+              [class.is-active]="step() === i + 1"
+              [class.is-done]="stepDone(i + 1) && step() !== i + 1"
+              [attr.aria-current]="step() === i + 1 ? 'step' : null"
+              [disabled]="submitting()"
+              (click)="goToStep(i + 1)"
+            >
+              <span class="aj-stepper__mark" aria-hidden="true">
+                @if (stepDone(i + 1) && step() !== i + 1) {
+                  <span [innerHTML]="icons.check() | safeHtml"></span>
+                } @else {
+                  {{ i + 1 }}
+                }
+              </span>
+              <span class="aj-stepper__label">{{ label }}</span>
+            </button>
+          }
+        </div>
+
+        <form class="aj-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <!-- Step 1 — Your details -->
+          @if (step() === 1) {
+            <fieldset class="aj-fieldset">
+              <legend class="aj-step__title">Your details</legend>
+              <div class="grit-form-grid">
+                <div class="grit-form-field">
+                  <label for="aj-first">First name <span class="grit-required" aria-hidden="true">*</span></label>
+                  <input
+                    id="aj-first"
+                    type="text"
+                    maxlength="80"
+                    formControlName="firstName"
+                    data-field="firstName"
+                    autocomplete="given-name"
+                    [class.is-invalid]="fieldInvalid('firstName')"
+                  />
+                  @if (fieldError('firstName')) {
+                    <span class="grit-field-error" role="alert">{{ fieldError('firstName') }}</span>
+                  }
+                </div>
+                <div class="grit-form-field">
+                  <label for="aj-last">Last name <span class="grit-required" aria-hidden="true">*</span></label>
+                  <input
+                    id="aj-last"
+                    type="text"
+                    maxlength="80"
+                    formControlName="lastName"
+                    data-field="lastName"
+                    autocomplete="family-name"
+                    [class.is-invalid]="fieldInvalid('lastName')"
+                  />
+                  @if (fieldError('lastName')) {
+                    <span class="grit-field-error" role="alert">{{ fieldError('lastName') }}</span>
+                  }
+                </div>
+                <div class="grit-form-field">
+                  <label for="aj-email">Email address <span class="grit-required" aria-hidden="true">*</span></label>
+                  <input
+                    id="aj-email"
+                    type="email"
+                    maxlength="254"
+                    formControlName="email"
+                    data-field="email"
+                    autocomplete="email"
+                    [class.is-invalid]="fieldInvalid('email')"
+                  />
+                  @if (fieldError('email')) {
+                    <span class="grit-field-error" role="alert">{{ fieldError('email') }}</span>
+                  }
+                </div>
+                <div class="grit-form-field">
+                  <label for="aj-phone">Phone number <span class="grit-required" aria-hidden="true">*</span></label>
+                  <input
+                    id="aj-phone"
+                    type="tel"
+                    maxlength="40"
+                    formControlName="phone"
+                    data-field="phone"
+                    autocomplete="tel"
+                    [class.is-invalid]="fieldInvalid('phone')"
+                  />
+                  @if (fieldError('phone')) {
+                    <span class="grit-field-error" role="alert">{{ fieldError('phone') }}</span>
+                  }
+                </div>
+                <div class="grit-form-field grit-form-field--full">
+                  <label for="aj-location">Location <span class="grit-required" aria-hidden="true">*</span></label>
+                  <input
+                    id="aj-location"
+                    type="text"
+                    maxlength="160"
+                    formControlName="location"
+                    data-field="location"
+                    placeholder="City, state / region, country"
+                    autocomplete="address-level2"
+                    [class.is-invalid]="fieldInvalid('location')"
+                  />
+                  @if (fieldError('location')) {
+                    <span class="grit-field-error" role="alert">{{ fieldError('location') }}</span>
+                  }
+                </div>
+              </div>
+            </fieldset>
+          }
+
+          <!-- Step 2 — Documents -->
+          @if (step() === 2) {
+            <fieldset class="aj-fieldset">
+              <legend class="aj-step__title">Your documents</legend>
+              <div class="aj-docs" data-field="resume">
+                <app-file-upload
+                  label="Resume *"
+                  inputId="aj-resume"
+                  inputName="resume"
+                  hint="PDF, DOC, DOCX (Max 5MB)"
+                  dropLead="Drag & drop your resume here"
+                  [(file)]="resumeFile"
+                />
+                @if (resumeError()) {
+                  <span class="grit-field-error" role="alert">{{ resumeError() }}</span>
+                }
+              </div>
+              <div class="grit-form-grid">
+                <div class="grit-form-field grit-form-field--full">
+                  <label for="aj-profile"
+                    >LinkedIn or portfolio URL <span class="grit-optional">(optional)</span></label
+                  >
+                  <input
+                    id="aj-profile"
+                    type="url"
+                    formControlName="profile"
+                    data-field="profile"
+                    placeholder="https://www.linkedin.com/in/you"
+                    [class.is-invalid]="fieldInvalid('profile')"
+                  />
+                  @if (fieldError('profile')) {
+                    <span class="grit-field-error" role="alert">{{ fieldError('profile') }}</span>
+                  }
+                </div>
+                <div class="grit-form-field grit-form-field--full">
+                  <label for="aj-intro">Anything else you'd like us to know? <span class="grit-optional">(optional)</span></label>
+                  <textarea
+                    id="aj-intro"
+                    rows="6"
+                    formControlName="introduction"
+                    data-field="introduction"
+                    [attr.maxlength]="maxIntro"
+                    (input)="onIntroInput($event)"
+                    placeholder="A brief introduction, relevant certifications, availability — anything that helps your application."
+                  ></textarea>
+                  <span class="aj-counter">{{ introLength() }} / 4,000</span>
+                </div>
+              </div>
+            </fieldset>
+          }
+
+          <!-- Step 3 — Review -->
+          @if (step() === 3) {
+            <fieldset class="aj-fieldset">
+              <legend class="aj-step__title">Review &amp; submit</legend>
+
+              <div class="aj-review">
+                <div class="aj-review__head">
+                  <h3>Your details</h3>
+                  <button type="button" class="aj-edit" (click)="goToStep(1)">Edit details ↗</button>
+                </div>
+                <dl class="aj-review__list">
+                  <div><dt>Name</dt><dd>{{ fullName() }}</dd></div>
+                  <div><dt>Email</dt><dd>{{ form.value.email || '—' }}</dd></div>
+                  <div><dt>Phone</dt><dd>{{ form.value.phone || '—' }}</dd></div>
+                  <div><dt>Location</dt><dd>{{ form.value.location || '—' }}</dd></div>
+                </dl>
+              </div>
+
+              <div class="aj-review">
+                <div class="aj-review__head">
+                  <h3>Your documents</h3>
+                  <button type="button" class="aj-edit" (click)="goToStep(2)">Edit documents ↗</button>
+                </div>
+                <dl class="aj-review__list">
+                  <div><dt>Resume</dt><dd>{{ resumeFile()?.name ?? 'Not attached' }}</dd></div>
+                  <div><dt>Profile</dt><dd>{{ form.value.profile || '—' }}</dd></div>
+                  <div>
+                    <dt>Introduction</dt>
+                    <dd class="aj-review__intro">{{ form.value.introduction || '—' }}</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <details class="aj-privacy">
+                <summary>How your application is used</summary>
+                <p>
+                  Your application is reviewed by the 320 Grit hiring team for the role you applied for. We don't sell
+                  personal information. If your experience aligns with the role, we'll contact you using the details
+                  above. You can ask us to remove your application at any time by emailing
+                  <a href="mailto:info@320grit.com">info&#64;320grit.com</a>.
+                </p>
+              </details>
+
+              <label class="grit-checkbox-field" data-field="consent">
+                <input type="checkbox" formControlName="consent" />
+                <span>
+                  I confirm these details are accurate and agree to submit my information for consideration for this
+                  role.
+                </span>
+              </label>
+              @if (fieldError('consent')) {
+                <span class="grit-field-error" role="alert">{{ fieldError('consent') }}</span>
+              }
+
+              <!-- Honeypot -->
+              <div class="aj-honeypot" aria-hidden="true">
+                <label>
+                  Website
+                  <input type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+                </label>
+              </div>
+
+              @if (submitError()) {
+                <p class="aj-submit-error" role="alert" tabindex="-1">
+                  We couldn't confirm your submission. Your details are still here — please check your connection and
+                  try again, or email your resume to
+                  <a href="mailto:info@320grit.com">info&#64;320grit.com</a>.
+                </p>
+              }
+
+              @if (backendMissing()) {
+                <div class="aj-backend-notice" role="alert">
+                  <h3>Online applications aren't connected yet</h3>
+                  <p>
+                    This form can't submit online right now. Your application is fully prepared — nothing has been
+                    sent. To apply today, email your resume to
+                    <a href="mailto:info@320grit.com">info&#64;320grit.com</a> with “{{ j.title }}” in the subject
+                    line.
+                  </p>
+                  <button type="button" class="btn-explore" (click)="continuePrepared()">
+                    <span>See How to Submit by Email</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+                  </button>
+                </div>
+              }
+            </fieldset>
+          }
+
+          <!-- Nav -->
+          <div class="aj-nav">
+            @if (step() > 1) {
+              <button type="button" class="btn-explore" [disabled]="submitting()" (click)="prev()">
+                <span>Back</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+              </button>
+            } @else {
+              <span></span>
+            }
+            @if (step() < 3) {
+              <button type="button" class="btn-explore" [disabled]="submitting()" (click)="next()">
+                <span>Continue</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+              </button>
+            } @else {
+              <button type="submit" class="btn-explore" [disabled]="submitting()">
+                <span>{{ submitting() ? 'Sending application…' : 'Submit Application' }}</span>
+                <span class="btn-explore-dash" aria-hidden="true">—</span>
+              </button>
+            }
+          </div>
+        </form>
+      </div>
+    </div>
+  } @else {
+    <app-not-found />
+  }
+</div>

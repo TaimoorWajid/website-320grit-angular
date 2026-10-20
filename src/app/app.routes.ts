@@ -237,11 +237,15 @@ export const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        loadComponent: () => import('./features/careers/careers-page.component').then((m) => m.CareersPageComponent),
-        data: { title: 'Careers' },
+        loadComponent: () =>
+          import('./features/careers/landing/careers-landing.component').then((m) => m.CareersLandingComponent),
+        data: { title: 'Careers at 320 Grit' },
       },
-      // WP URL alias — the canonical route stays the flat /open-positions.
-      { path: 'open-positions', redirectTo: '/open-positions', pathMatch: 'full' },
+      {
+        path: 'jobs',
+        loadComponent: () => import('./features/careers/jobs/jobs-page.component').then((m) => m.JobsPageComponent),
+        data: { title: 'Open Positions | 320 Grit' },
+      },
       {
         path: 'saved',
         loadComponent: () =>
@@ -251,43 +255,63 @@ export const routes: Routes = [
       {
         path: 'introduce-yourself',
         loadComponent: () =>
-          import('./features/careers/introduce-yourself/introduce-page.component').then(
-            (m) => m.IntroducePageComponent,
-          ),
+          import('./features/careers/introduce/introduce-page.component').then((m) => m.IntroducePageComponent),
         data: { title: 'Introduce Yourself' },
       },
       {
-        path: 'apply',
+        path: 'our-culture',
         loadComponent: () =>
-          import('./features/careers/apply/apply-page.component').then((m) => m.ApplyPageComponent),
-        data: { title: 'Apply' },
+          import('./features/careers/culture/culture-page.component').then((m) => m.CulturePageComponent),
+        data: { title: 'Our Culture | 320 Grit' },
       },
       {
-        path: 'thank-you',
+        path: 'benefits',
         loadComponent: () =>
-          import('./features/careers/thank-you/thank-you-page.component').then((m) => m.ThankYouPageComponent),
-        data: { title: 'Thank You' },
+          import('./features/careers/benefits/benefits-page.component').then((m) => m.BenefitsPageComponent),
+        data: { title: 'Benefits | 320 Grit' },
       },
       {
-        // Job detail — must stay last so it doesn't swallow the flow routes.
-        // Unknown slugs render a 404 (not the WP silent fallback).
+        path: 'professional-growth',
+        loadComponent: () =>
+          import('./features/careers/growth/growth-page.component').then((m) => m.GrowthPageComponent),
+        data: { title: 'Professional Growth | 320 Grit' },
+      },
+      {
+        path: 'internships',
+        loadComponent: () =>
+          import('./features/careers/internships/internships-page.component').then(
+            (m) => m.InternshipsPageComponent,
+          ),
+        data: { title: 'Internships | 320 Grit' },
+      },
+      {
+        path: 'application/success',
+        loadComponent: () =>
+          import('./features/careers/success/success-page.component').then((m) => m.SuccessPageComponent),
+        data: { title: 'Application Submitted' },
+      },
+      {
+        path: ':slug/apply',
+        loadComponent: () =>
+          import('./features/careers/apply-job/apply-job-page.component').then((m) => m.ApplyJobPageComponent),
+        canDeactivate: [(component: { canLeave: () => boolean }) => component.canLeave()],
+        data: { title: 'Apply | 320 Grit' },
+      },
+      {
+        // Job detail — must stay LAST so it doesn't swallow the named routes.
+        // Unknown slugs render a 404.
         path: ':slug',
         loadComponent: () =>
-          import('./features/careers/job-detail/job-detail-page.component').then(
-            (m) => m.JobDetailPageComponent,
-          ),
-        data: { title: 'Careers' },
+          import('./features/careers/job-detail/job-detail-page.component').then((m) => m.JobDetailPageComponent),
+        data: { title: 'Job Details' },
       },
     ],
   },
-  {
-    path: 'open-positions',
-    loadComponent: () =>
-      import('./features/careers/open-positions/open-positions-page.component').then(
-        (m) => m.OpenPositionsPageComponent,
-      ),
-    data: { title: 'Open Positions' },
-  },
+  // Legacy careers URLs -> new Howell-style structure.
+  { path: 'open-positions', redirectTo: '/careers/jobs', pathMatch: 'full' },
+  { path: 'careers/open-positions', redirectTo: '/careers/jobs', pathMatch: 'full' },
+  { path: 'careers/thank-you', redirectTo: '/careers/application/success', pathMatch: 'full' },
+  { path: 'careers/apply', redirectTo: '/careers/jobs', pathMatch: 'full' },
   {
     // The mobile menu links Contact Us here; the inquiry form itself lives
     // on the homepage (#contact-form). This page reuses the shared form.

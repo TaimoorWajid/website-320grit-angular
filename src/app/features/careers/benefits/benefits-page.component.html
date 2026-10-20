@@ -1,0 +1,66 @@
+<div class="grit-careers-page ben-page">
+  <!-- 01 — HERO -->
+  <section class="ben-hero">
+    <div class="ben-hero__glow" aria-hidden="true"></div>
+    <div class="ben-hero__inner" appReveal>
+      <span class="grit-eyebrow">01 — Benefits</span>
+      <h1 class="ben-hero__title">Benefits</h1>
+      <p class="ben-hero__intro">
+        At 320 Grit, we believe investing in our team is one of the best investments we can make. We are
+        committed to providing a competitive benefits package that supports your health, financial
+        well-being, professional growth, and work-life balance. Our benefits include:
+      </p>
+    </div>
+  </section>
+
+  <!-- 02 — THE PACKAGE -->
+  <section class="ben-section ben-section--black">
+    <div class="ben-inner">
+      <span class="grit-eyebrow" appReveal>02 — The Package</span>
+      <h2 class="ben-section__title" appReveal>Investing in <span class="ben-accent">Our Team.</span></h2>
+      <div class="ben-grid">
+        @for (benefit of benefitsList; track benefit.title) {
+          <article class="ben-card" appReveal>
+            <div class="ben-card__icon" aria-hidden="true" [innerHTML]="benefit.icon | safeHtml"></div>
+            <h3 class="ben-card__title">{{ benefit.title }}</h3>
+            <p class="ben-card__text">{{ benefit.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — MORE THAN A PAYCHECK -->
+  <section class="ben-section ben-section--dark">
+    <div class="ben-inner ben-closing">
+      <div class="ben-closing__main" appReveal>
+        <span class="grit-eyebrow">03 — Growing With You</span>
+        <h2 class="ben-section__title">More Than a <span class="ben-accent">Paycheck.</span></h2>
+        <p class="ben-body">
+          We&rsquo;re building more than exceptional projects, we&rsquo;re building a workplace where
+          talented people can grow, thrive, and build long-term careers.
+        </p>
+        <p class="ben-body">
+          As 320 Grit continues to grow, so will the opportunities and benefits available to our team.
+        </p>
+        <a class="btn-explore" routerLink="/careers/professional-growth">
+          <span>Explore Professional Growth</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+      <aside class="ben-stat" appReveal>
+        <div class="ben-stat__number">12</div>
+        <p class="ben-stat__label">Benefits and counting — our package grows with our company.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 04 — CTA -->
+  <app-cta-band
+    sectionId="ben-cta"
+    eyebrow="04 — Get Started"
+    title="Ready to Join<br />the Team?"
+    text="Explore our open positions and start building your career with a team that invests in you."
+    ctaLabel="View Open Positions"
+    ctaHref="/careers/jobs"
+  />
+</div>

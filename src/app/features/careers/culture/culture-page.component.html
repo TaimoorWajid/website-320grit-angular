@@ -1,0 +1,120 @@
+<div class="grit-careers-page cult-page">
+  <!-- 01 — HERO -->
+  <section class="cult-hero">
+    <div class="cult-hero__bg" aria-hidden="true">
+      <img src="/assets/images/careers-culture.webp" alt="" width="1920" height="1080" fetchpriority="high" />
+    </div>
+    <div class="cult-hero__overlay" aria-hidden="true"></div>
+    <div class="cult-hero__inner" appReveal>
+      <span class="grit-eyebrow">01 — Our Culture</span>
+      <h1 class="cult-hero__title">Our Culture</h1>
+      <p class="cult-hero__intro">
+        At 320 Grit, we believe a positive culture is the foundation of every successful project.
+        We&rsquo;ve built a company where people enjoy coming to work, take pride in what they do,
+        and are committed to supporting one another.
+      </p>
+      <div class="cult-hero__actions">
+        <a class="btn-explore" routerLink="/careers/jobs">
+          <span>View Open Positions</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 — NARRATIVE -->
+  <section class="cult-section cult-section--black">
+    <div class="cult-inner cult-narrative">
+      <div class="cult-narrative__main" appReveal>
+        <span class="grit-eyebrow">02 — Who We Are</span>
+        <h2 class="cult-section__title">Built on People.<br /><span class="cult-accent">Driven by Excellence.</span></h2>
+        <p class="cult-body">
+          We foster an environment built on trust, respect, collaboration, and open communication —
+          because great projects are delivered by great teams.
+        </p>
+        <p class="cult-body">
+          While we maintain an approachable atmosphere, we&rsquo;re serious about our work. We hold
+          ourselves to a high standard, embrace accountability, and are committed to delivering quality
+          results for every client, every time. We value strong relationships, continuous growth, and
+          creating a workplace where hard work is recognized, ideas are welcomed, and success is shared.
+          At 320 Grit, our culture is about more than the work we do, it&rsquo;s about the people we
+          do it with.
+        </p>
+      </div>
+      <aside class="cult-quote" appReveal>
+        <blockquote>
+          &ldquo;Our culture is about more than the work we do — it&rsquo;s about the people we do it with.&rdquo;
+        </blockquote>
+        <p class="cult-quote__cite">The 320 Grit way</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 03 — VALUES -->
+  <section class="cult-section cult-section--dark">
+    <div class="cult-inner">
+      <span class="grit-eyebrow" appReveal>03 — Our Values</span>
+      <h2 class="cult-section__title" appReveal>What We <span class="cult-accent">Stand For</span></h2>
+      <div class="cult-cards">
+        @for (card of values; track card.title) {
+          <article class="cult-card" appReveal>
+            <div class="cult-card__icon" aria-hidden="true" [innerHTML]="card.icon | safeHtml"></div>
+            <h3 class="cult-card__title">{{ card.title }}</h3>
+            <p class="cult-card__text">{{ card.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — LIFE AT 320 GRIT -->
+  <section class="cult-section cult-section--black">
+    <div class="cult-inner">
+      <span class="grit-eyebrow" appReveal>04 — Life at 320 Grit</span>
+      <h2 class="cult-section__title" appReveal>Work Hard. <span class="cult-accent">Grow Together.</span></h2>
+      <p class="cult-body cult-body--lead" appReveal>
+        We value strong relationships, continuous growth, and creating a workplace where hard work is
+        recognized, ideas are welcomed, and success is shared.
+      </p>
+      <div class="cult-life-grid">
+        @for (item of life; track item.title) {
+          <div class="cult-life-item" appReveal>
+            <span class="cult-life-item__icon" aria-hidden="true" [innerHTML]="item.icon | safeHtml"></span>
+            <div>
+              <h3 class="cult-life-item__title">{{ item.title }}</h3>
+              <p class="cult-life-item__text">{{ item.text }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — LINKS STRIP -->
+  <section class="cult-section cult-section--dark">
+    <div class="cult-inner">
+      <span class="grit-eyebrow" appReveal>05 — Keep Exploring</span>
+      <h2 class="cult-section__title" appReveal>More Than a <span class="cult-accent">Job</span></h2>
+      <div class="cult-links">
+        @for (link of links; track link.title) {
+          <a class="cult-link-card" [routerLink]="link.href" appReveal>
+            <h3 class="cult-link-card__title">{{ link.title }}</h3>
+            <p class="cult-link-card__text">{{ link.text }}</p>
+            <span class="cult-link-card__cta">
+              Explore <span aria-hidden="true" [innerHTML]="icons.arrow() | safeHtml"></span>
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — CTA -->
+  <app-cta-band
+    sectionId="cult-cta"
+    eyebrow="06 — Get Started"
+    title="Build Your Career<br />with 320 Grit."
+    text="Join a California construction team where great projects are delivered by great teams — and hard work is recognized."
+    ctaLabel="View Open Positions"
+    ctaHref="/careers/jobs"
+  />
+</div>

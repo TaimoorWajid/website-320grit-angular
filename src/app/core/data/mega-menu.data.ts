@@ -222,19 +222,19 @@ export const MEGA_MENUS: MegaMenu[] = [
         header: 'Why 320GRIT?',
         items: [
           {
-            href: '#',
+            href: '/careers/our-culture',
             title: 'Our culture',
             desc: 'A team built on grit and respect.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12l3 3 6-7"></path><circle cx="12" cy="12" r="9"></circle></svg>`,
           },
           {
-            href: '#',
+            href: '/careers/benefits',
             title: 'Benefits',
             desc: 'We take care of our team.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="11" rx="1"></rect><path d="M4 13h16"></path><path d="M12 9v11"></path><path d="M12 9c-1.5 0-3-1-3-2.5S10.5 4 12 4s3 1 3 2.5S13.5 9 12 9z"></path></svg>`,
           },
           {
-            href: '#',
+            href: '/careers/professional-growth',
             title: 'Professional growth',
             desc: 'Grow your skills. Build your future.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="3"></circle><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"></path><path d="M15 8l2 2 4-4"></path></svg>`,
@@ -245,13 +245,13 @@ export const MEGA_MENUS: MegaMenu[] = [
         header: 'Career opportunities',
         items: [
           {
-            href: '/open-positions',
+            href: '/careers/jobs',
             title: 'Open positions',
             desc: 'Explore current opportunities.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="7" width="16" height="13" rx="1"></rect><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"></path><path d="M4 12h16"></path></svg>`,
           },
           {
-            href: '#',
+            href: '/careers/internships',
             title: 'Internships',
             desc: 'Start your career with 320GRIT.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="6"></circle><path d="M14.5 14.5L20 20"></path></svg>`,

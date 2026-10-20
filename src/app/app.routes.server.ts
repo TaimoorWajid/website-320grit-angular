@@ -11,6 +11,14 @@ export const serverRoutes: ServerRoute[] = [
     },
   },
   {
+    // Job application pages — prerender one per known slug.
+    path: 'careers/:slug/apply',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return JOBS.map((j) => ({ slug: j.slug }));
+    },
+  },
+  {
     path: '**',
     renderMode: RenderMode.Prerender,
   },

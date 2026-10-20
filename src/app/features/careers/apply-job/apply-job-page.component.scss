@@ -1,0 +1,432 @@
+@use '../shared/careers';
+
+/* ======================================================
+   Apply job (/careers/:slug/apply) — Howell 3-step flow,
+   320 Grit dark-theme standards.
+   ====================================================== */
+
+.aj-page {
+  background: #000;
+  color: #fff;
+}
+
+.aj-page .grit-eyebrow {
+  color: #ff5d0e;
+  letter-spacing: 0.25em;
+}
+
+/* ---- Hero ---- */
+.aj-hero {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aj-hero__inner {
+  padding: 4.5rem 2.5rem 4rem 10%;
+  max-width: 1100px;
+}
+
+.aj-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #a1a1aa;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.aj-hero__title {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  color: #fff;
+}
+
+.aj-hero__sub {
+  font-size: 1.125rem;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+/* ---- Layout ---- */
+.aj-layout {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 5rem;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+.aj-aside {
+  position: sticky;
+  top: 6rem;
+}
+
+.aj-context-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: #0a0a0a;
+  padding: 2rem;
+}
+
+.aj-context-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ff5d0e;
+  margin: 0 0 0.75rem;
+}
+
+.aj-context-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.aj-context-card__meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  color: #a1a1aa;
+  font-size: 0.9375rem;
+}
+
+.aj-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+}
+
+/* ---- Stepper ---- */
+.aj-stepper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.aj-stepper__step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: transparent;
+  color: #a1a1aa;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: left;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: rgba(121, 44, 213, 0.6);
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.6;
+  }
+
+  &.is-active {
+    border-color: #792cd5;
+    color: #fff;
+    background: rgba(121, 44, 213, 0.08);
+  }
+
+  &.is-done {
+    color: #e4e4e7;
+  }
+}
+
+.aj-stepper__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+}
+
+.is-active .aj-stepper__mark {
+  background: #792cd5;
+  border-color: #792cd5;
+  color: #fff;
+}
+
+.is-done .aj-stepper__mark {
+  color: #792cd5;
+  border-color: #792cd5;
+}
+
+/* ---- Form (dark overrides) ---- */
+.aj-form {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: #0a0a0a;
+  padding: 2.5rem;
+}
+
+.aj-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.aj-step__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.75rem;
+  padding: 0;
+}
+
+.aj-page .grit-form-field {
+  label {
+    color: #e4e4e7;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='url'],
+  textarea {
+    background: #111;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+
+    &::placeholder {
+      color: #52525b;
+    }
+
+    &:focus {
+      border-color: #792cd5;
+    }
+
+    &.is-invalid {
+      border-color: #dc2626;
+    }
+  }
+}
+
+.aj-counter {
+  font-size: 0.8125rem;
+  color: #a1a1aa;
+}
+
+/* File upload zone — dark */
+.aj-page .grit-upload__zone {
+  background: #111;
+  border-color: rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    border-color: #792cd5;
+  }
+}
+
+.aj-page .grit-upload__text,
+.aj-page .grit-upload__hint {
+  color: #a1a1aa;
+}
+
+.aj-page .grit-upload__preview {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.aj-page .grit-upload__filename {
+  color: #e4e4e7;
+}
+
+.aj-docs {
+  margin-bottom: 2rem;
+}
+
+/* ---- Review ---- */
+.aj-review {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.aj-review__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    color: #fff;
+  }
+}
+
+.aj-edit {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #792cd5;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.aj-review__list {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+
+  > div {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  dt {
+    color: #a1a1aa;
+  }
+
+  dd {
+    margin: 0;
+    color: #fff;
+    word-break: break-word;
+  }
+}
+
+.aj-review__intro {
+  white-space: pre-line;
+}
+
+.aj-privacy {
+  margin: 0 0 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: #d4d4d8;
+  font-size: 0.9375rem;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  p {
+    margin: 0.75rem 0 0;
+    line-height: 1.6;
+  }
+
+  a {
+    color: #792cd5;
+  }
+}
+
+.aj-page .grit-checkbox-field {
+  color: #d4d4d8;
+}
+
+.aj-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.aj-submit-error,
+.aj-backend-notice {
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  border-radius: 12px;
+  background: rgba(220, 38, 38, 0.08);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0 0;
+  color: #fecaca;
+  font-size: 0.9375rem;
+
+  a {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.aj-backend-notice {
+  border-color: rgba(255, 93, 14, 0.5);
+  background: rgba(255, 93, 14, 0.08);
+  color: #fed7aa;
+
+  h3 {
+    margin: 0 0 0.75rem;
+    color: #fff;
+    font-size: 1.125rem;
+  }
+
+  p {
+    margin: 0 0 1.25rem;
+  }
+}
+
+/* ---- Nav ---- */
+.aj-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+@media (max-width: 1024px) {
+  .aj-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aj-aside {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .aj-hero__inner {
+    padding: 3.5rem 1.5rem 3rem 6%;
+  }
+
+  .aj-layout {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .aj-form {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .aj-stepper {
+    grid-template-columns: 1fr;
+  }
+
+  .aj-review__list > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

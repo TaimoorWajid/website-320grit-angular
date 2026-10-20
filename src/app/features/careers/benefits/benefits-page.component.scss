@@ -1,0 +1,206 @@
+@use '../shared/careers';
+
+/* ============================================================
+   Benefits — finalized careers design system.
+   80/20 purple; numbered grit-eyebrow; alternating #000000 /
+   #070707 sections; hero content at 10% left padding.
+   ============================================================ */
+
+.ben-page {
+  background: #000;
+}
+
+.ben-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ---------- Sections ---------- */
+.ben-section {
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ben-section--black {
+  background: #000;
+}
+
+.ben-section--dark {
+  background: #070707;
+}
+
+.ben-section__title {
+  color: #fff;
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.ben-accent {
+  color: var(--grit-accent-violet);
+}
+
+.ben-body {
+  color: #d4d4d8;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+  max-width: 46rem;
+}
+
+/* ---------- Hero ---------- */
+.ben-hero {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.ben-hero__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(720px 380px at 12% 20%, rgba(121, 44, 213, 0.22), transparent 62%),
+    radial-gradient(520px 320px at 88% 85%, rgba(121, 44, 213, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+.ben-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 7rem 2.5rem 7rem 10%;
+}
+
+.ben-hero__title {
+  color: #fff;
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.ben-hero__intro {
+  color: #d4d4d8;
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 620px;
+}
+
+@media (max-width: 768px) {
+  .ben-hero__inner {
+    padding-left: 6%;
+  }
+}
+
+/* ---------- Benefit cards ---------- */
+.ben-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ben-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2.25rem 2rem;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.ben-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(121, 44, 213, 0.55);
+  box-shadow: 0 20px 50px rgba(121, 44, 213, 0.18);
+}
+
+.ben-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(121, 44, 213, 0.14);
+  color: var(--grit-accent-violet);
+  margin-bottom: 1.5rem;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.ben-card:hover .ben-card__icon {
+  background: var(--grit-accent-violet);
+  color: #fff;
+}
+
+.ben-card__title {
+  color: #fff;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.75rem;
+}
+
+.ben-card__text {
+  color: #a1a1aa;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---------- Closing ---------- */
+.ben-closing {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.ben-stat {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.ben-stat__number {
+  color: var(--grit-accent-violet);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.ben-stat__label {
+  color: #d4d4d8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .ben-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ben-closing {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ben-grid {
+    grid-template-columns: 1fr;
+  }
+}
