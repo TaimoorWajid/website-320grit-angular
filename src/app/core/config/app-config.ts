@@ -10,10 +10,12 @@ export const APP_CONFIG = {
     phone: '',
   },
   /**
-   * Project-inquiry form submission endpoint. The original WordPress site
-   * posts via Gravity Forms to wp-admin/admin-ajax.php, which has no static
-   * equivalent. Set this to a JSON endpoint to make the form submit; while
-   * empty, the form shows an honest "backend not connected" notice.
+   * Form submission endpoint for all three site forms (contact, introduce
+   * yourself, job application). Points at the Cloudflare Worker
+   * (320grit-project/forms-worker/worker.js), which emails submissions to
+   * info@320grit.com via Resend. While the Worker's RESEND_API_KEY secret
+   * is unset, it answers with an error and the forms show their honest
+   * "could not send" state — never a fake success.
    */
-  formEndpoint: '',
+  formEndpoint: 'https://super-limit-5eb6.syedtaimoor26.workers.dev',
 } as const;
