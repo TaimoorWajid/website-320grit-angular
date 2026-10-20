@@ -176,9 +176,8 @@
   font-weight: 700;
 }
 
-/* Compact 4-col cards: hide long copy, keep title + CTA. Shown again on smaller grids. */
-.ind-card__text,
-.ind-card__bullets {
+/* Compact 4-col cards: hide the paragraph, keep bullets in one column. Shown again on smaller grids. */
+.ind-card__text {
   display: none;
 }
 
@@ -193,8 +192,8 @@
 .ind-card__bullets {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
 }
