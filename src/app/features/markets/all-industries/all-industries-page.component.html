@@ -3,13 +3,14 @@
   <div class="ind-hero__bg" [style.background-image]="'url(' + heroBg + ')'" aria-hidden="true"></div>
   <div class="ind-hero__overlay" aria-hidden="true"></div>
   <div class="ind-hero__inner">
-    <p class="ind-hero__eyebrow" appReveal>Industries we serve</p>
+    <p class="grit-eyebrow" appReveal>01 — Industries We Serve</p>
     <h1 class="ind-hero__title" appReveal="{ y: 60, delay: 0.1 }">
       Markets we<br />build for<span class="ind-hero__dot">.</span>
     </h1>
     <p class="ind-hero__sub" appReveal="{ y: 40, delay: 0.2 }">
-      Every industry has its own rules, rhythms, and risks. 320 Grit brings specialized construction expertise to
-      the sectors that keep California moving — built with precision, delivered with 320 Grit.
+      Every industry has its own codes, constraints, and critical path. 320 Grit delivers specialized
+      construction expertise across California's most demanding sectors — from rail infrastructure and
+      healthcare to advanced technology and hospitality — built with precision, delivered with 320 Grit.
     </p>
   </div>
 </section>
@@ -25,7 +26,7 @@
             <span class="ind-card__number" aria-hidden="true">{{ industry.number }}</span>
             <span class="ind-card__icon"><app-market-icon [name]="industry.icon" [size]="20" /></span>
           </div>
-          <p class="ind-card__eyebrow">{{ industry.eyebrow }}</p>
+          <p class="grit-eyebrow ind-card__eyebrow">{{ industry.eyebrow }}</p>
           <h2 class="ind-card__title">{{ industry.title }}</h2>
           <p class="ind-card__text">{{ industry.paragraph }}</p>
           <ul class="ind-card__bullets">
@@ -43,15 +44,11 @@
   </div>
 </section>
 
-<section class="ind-cta">
-  <div class="ind-cta__inner" appReveal>
-    <h2 class="ind-cta__title">Have a project in one of these markets?</h2>
-    <p class="ind-cta__text">
-      Let's talk about how 320 Grit can bring your next build to life — on time, on budget, and built to last.
-    </p>
-    <a class="btn-explore ind-cta__btn" routerLink="/contact-us">
-      <span>Start the Conversation</span>
-      <span class="btn-explore-dash" aria-hidden="true">—</span>
-    </a>
-  </div>
-</section>
+<app-cta-band
+  sectionId="ind-cta"
+  eyebrow="02 — Get Started"
+  title="Have a project in one of<br />these markets?"
+  text="Let's talk about how 320 Grit can bring your next build to life — on time, on budget, and built to last."
+  ctaLabel="Start the Conversation"
+  ctaHref="/contact-us"
+/>

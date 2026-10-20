@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
 import { MarketIconComponent } from '../shared/market-icon/market-icon.component';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { MARKET_IMG } from '../shared/market-assets';
 
 interface IndustryCard {
@@ -19,7 +20,7 @@ interface IndustryCard {
 /** Industries index page — full directory of the markets 320 Grit serves. */
 @Component({
   selector: 'app-all-industries-page',
-  imports: [RouterLink, RevealDirective, MarketIconComponent],
+  imports: [RouterLink, RevealDirective, MarketIconComponent, CtaBandComponent],
   templateUrl: './all-industries-page.component.html',
   styleUrl: './all-industries-page.component.scss',
 })
@@ -34,9 +35,9 @@ export class AllIndustriesPageComponent {
       title: 'Rail Infrastructure',
       bullets: ['Track Systems', 'Operations Facilities', 'Signal Buildings', 'Maintenance Yards'],
       paragraph:
-        '320 Grit delivers railroad construction with safety, precision, and a relentless focus on performance — ' +
-        'from new rail construction and expansions to complex trackwork and system improvements that keep people ' +
-        'and industries moving forward.',
+        'Rail construction demands zero-compromise safety and precision scheduling around live operations. 320 Grit ' +
+        'delivers track systems, signal buildings, and maintenance facilities engineered for FRA compliance and ' +
+        'long-term performance — keeping freight and passengers moving without disruption.',
       href: '/industries/railroads',
       bg: MARKET_IMG.railroad,
     },
@@ -47,9 +48,9 @@ export class AllIndustriesPageComponent {
       title: 'Hospital / MOB / Imaging',
       bullets: ['Hospitals', 'Medical Office Buildings', 'Imaging Centers', 'Outpatient Facilities'],
       paragraph:
-        'Precision-built healthcare environments designed around patient care. From hospitals and medical office ' +
-        'buildings to imaging centers, we deliver code-compliant, mission-critical facilities that support healing — ' +
-        'on time and on budget.',
+        'Healthcare construction is mission-critical: ICRA compliance, OSHPD/HCAI standards, and zero tolerance for ' +
+        'downtime. 320 Grit builds hospitals, medical office buildings, and imaging centers with infection control, ' +
+        'medical gas, and life-safety systems engineered around patient outcomes.',
       href: '/industries/healthcare',
       bg: MARKET_IMG.healthcare,
     },
@@ -65,9 +66,9 @@ export class AllIndustriesPageComponent {
         'Crisis Stabilization Units',
       ],
       paragraph:
-        '320 Grit designs and builds behavioral health facilities where safety and dignity come first. From ' +
-        'ligature-resistant inpatient units to warm residential treatment centers, we deliver therapeutic ' +
-        'environments that meet OSHPD and licensing standards across California.',
+        'Behavioral health facilities must balance clinical safety with human dignity. 320 Grit delivers ' +
+        'ligature-resistant inpatient units, residential treatment centers, and crisis stabilization units that meet ' +
+        'California licensing and HCAI requirements — therapeutic environments built for healing.',
       href: '/industries/behavioral-health',
       bg: MARKET_IMG.behavioralHealth,
     },
@@ -83,9 +84,9 @@ export class AllIndustriesPageComponent {
         'Advanced Manufacturing',
       ],
       paragraph:
-        'Technology facilities leave no room for error — and neither do we. 320 Grit builds data centers, ' +
-        'laboratories, and cleanrooms with the power redundancy, precision environmental controls, and security ' +
-        'that mission-critical operations demand, delivering zero-downtime construction.',
+        'Mission-critical facilities demand flawless execution. 320 Grit constructs data centers, life sciences ' +
+        'laboratories, and cleanrooms with redundant power, precision environmental controls, and validated ' +
+        'commissioning — delivering zero-downtime environments for research and technology operations.',
       href: '/industries/advanced-technology',
       bg: MARKET_IMG.lab,
     },
@@ -101,9 +102,9 @@ export class AllIndustriesPageComponent {
         'Medical & Lab Fit-Outs',
       ],
       paragraph:
-        'From concept to keys, 320 Grit delivers tenant improvements that turn empty shells into high-performing ' +
-        'workplaces. Our California TI teams specialize in fast-track office build-outs, corporate renovations, and ' +
-        'occupied-space construction — minimizing downtime while maximizing the return on your space.',
+        'Tenant improvements live or die on schedule. 320 Grit delivers fast-track office build-outs, corporate ' +
+        'renovations, and occupied-space construction across California — phased work plans, after-hours execution, ' +
+        'and minimal disruption to your operations while maximizing the return on every square foot.',
       href: '/industries/tenant-improvement',
       bg: MARKET_IMG.planning,
     },
@@ -114,9 +115,9 @@ export class AllIndustriesPageComponent {
       title: 'Learning Environments',
       bullets: ['K-12 Schools & Campuses', 'Higher Education', 'Classroom Modernizations', 'Gyms, Labs & Libraries'],
       paragraph:
-        '320 Grit builds learning environments engineered for the next generation. From K-12 campuses to university ' +
-        'facilities, we deliver classrooms, laboratories, and athletic spaces on tight academic calendars — with ' +
-        'student safety, durability, and the learning experience at the center of every build.',
+        'School construction runs on the academic calendar — there are no extensions. 320 Grit delivers K-12 ' +
+        'campuses, higher education facilities, and classroom modernizations phased around school sessions, with ' +
+        'student safety, DSA compliance, and durable, low-maintenance materials built into every project.',
       href: '/industries/education',
       bg: MARKET_IMG.banner,
     },
@@ -127,9 +128,9 @@ export class AllIndustriesPageComponent {
       title: 'Hotels & Guest Experiences',
       bullets: ['Hotels & Resorts', 'Restaurants & Bars', 'Lobbies & Common Areas', 'Guest Room Renovations'],
       paragraph:
-        'Great hospitality is built on unforgettable guest experiences — and so is 320 Grit. We deliver hotel ' +
-        'construction, restaurant build-outs, and resort renovations, crafting lobbies, guest rooms, and dining ' +
-        'spaces that keep guests coming back.',
+        'Hospitality construction is about revenue per available room — every day offline costs money. 320 Grit ' +
+        'delivers hotel renovations, restaurant build-outs, and resort upgrades on aggressive schedules, with ' +
+        'phased construction that keeps properties operational and guest experience uncompromised.',
       href: '/industries/hospitality',
       bg: MARKET_IMG.lobby,
     },
@@ -139,7 +140,7 @@ export class AllIndustriesPageComponent {
     inject(SeoService).update({
       title: 'Industries We Serve',
       description:
-        '320 Grit builds across railroads, healthcare, behavioral health, advanced technology, tenant improvement, education, and hospitality — California construction expertise in every market.',
+        '320 Grit is a California commercial contractor serving railroads, healthcare, behavioral health, advanced technology, tenant improvement, education, and hospitality markets — specialized construction expertise, on time and on budget.',
       canonicalPath: '/industries',
       image: MARKET_IMG.industries,
     });
