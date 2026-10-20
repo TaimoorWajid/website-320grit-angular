@@ -9,7 +9,7 @@
         [style.margin-bottom]="'2.5rem'"
       >
         @if (h.label) {
-          <span class="hc-label">{{ h.label }}</span>
+          <span class="grit-eyebrow">{{ h.label }}</span>
         }
         @if (h.title) {
           <h2 class="hc-display-md" [style.margin-top]="'0.75rem'" [innerHTML]="h.title"></h2>
@@ -17,9 +17,15 @@
         @if (h.text) {
           <p [style.margin-top]="'1rem'">{{ h.text }}</p>
         }
-        @if (introCta()) {
+        @if (introCta(); as cta) {
           <div [style.margin-top]="'1.5rem'">
-            <app-hc-button [link]="introCta()!" />
+            @if (cta.href === '#contact') {
+              <a routerLink="/contact-us" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            } @else if (cta.href.startsWith('#')) {
+              <a [href]="cta.href" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            } @else {
+              <a [routerLink]="cta.href" class="btn-explore"><span>{{ cta.label }}</span><span class="btn-explore-dash" aria-hidden="true">—</span></a>
+            }
           </div>
         }
       </div>

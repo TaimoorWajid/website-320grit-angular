@@ -1,12 +1,12 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CtaLink, ProjectCard, SectionHeader } from '../about.types';
 import { HcRevealDirective } from '../hc-reveal.directive';
-import { HcButtonComponent } from '../hc-button/hc-button.component';
 
 /** Shared .ab-project-grid (our-values light, quality light, sustainability dark). */
 @Component({
   selector: 'app-project-grid',
-  imports: [HcRevealDirective, HcButtonComponent],
+  imports: [HcRevealDirective, RouterLink],
   templateUrl: './project-card-grid.component.html',
   styleUrl: './project-card-grid.component.scss',
 })

@@ -7,7 +7,7 @@ export const HERO: HeroData = {
   label: 'Our Values',
   title: 'The Principles That<br><span class="hc-orange">Build Us.</span>',
   description:
-    'Our values shape the way we lead, build, and partner. They are the foundation of every relationship, decision, and structure we create.',
+    'Integrity, quality, accountability, collaboration, safety, and continuous improvement — these six principles govern every 320 Grit project, from preconstruction planning through final handover. They shape how we estimate, how we manage trade partners, and how we stand behind our work long after closeout.',
   descriptionWidth: '520px',
   image: {
     src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=85',
@@ -55,7 +55,9 @@ export const DRIVE: SplitData = {
   label: 'What Drives Us',
   title: 'More Than Buildings,<br><span class="hc-orange">We Build Legacies.</span>',
   paragraphs: [
-    'We are driven by purpose, not just plans. Our values guide every decision, strengthen every partnership, and create a lasting impact for generations to come.',
+    'We are driven by purpose, not just plans. Every 320 Grit project — from railroad infrastructure to hospital and medical construction — is guided by the same six values, applied with the same discipline on every jobsite.',
+    'That means open-book transparency in our budgets, uncompromising safety planning before mobilization, and accountability that doesn’t end at substantial completion. When challenges arise, we address them directly and follow through until the work is right.',
+    'The result is lasting impact: facilities that heal, infrastructure that moves commerce, and partnerships that owners return to project after project.',
   ],
   cta: { label: 'Our Story', href: '/our-story/', variant: 'outline' },
   image: {
@@ -68,22 +70,22 @@ export const DRIVE: SplitData = {
 export const IN_ACTION: ProjectCard[] = [
   {
     title: 'We Lead',
-    text: 'With integrity, accountability, and a relentless focus on doing what’s right.',
+    text: 'With integrity and accountability — transparent budgets, honest schedules, and decisions that put the owner’s interests first on every project.',
     img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80',
   },
   {
     title: 'We Build',
-    text: 'With precision, perseverance, and a commitment to excellence.',
+    text: 'With precision and perseverance — quality workmanship, tight coordination of trade partners, and an uncompromising commitment to doing it right the first time.',
     img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80',
   },
   {
     title: 'We Partner',
-    text: 'With respect, trust, and collaboration that lasts beyond the project.',
+    text: 'With respect, trust, and true collaboration — working shoulder-to-shoulder with owners, architects, and engineers from preconstruction through closeout.',
     img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80',
   },
   {
     title: 'We Impact',
-    text: 'Communities, industries, and lives through the work we do.',
+    text: 'Communities and industries through the work we do — hospitals that heal, infrastructure that connects, and buildings that serve for generations.',
     img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80',
   },
 ];
