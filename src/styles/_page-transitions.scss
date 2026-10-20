@@ -1,0 +1,61 @@
+// Page transition wipe — ported from the-howell-group's `_page-transitions.scss`
+// (left-to-right teal) and adapted: BLACK panel wiping BOTTOM to TOP.
+//
+// How it works: Angular's View Transitions API snapshots the old and new
+// routes. The old snapshot wipes away upward revealing the black
+// `::view-transition` surface, then the new snapshot wipes up over it.
+// Pure CSS — no JS overlay, no z-index fights, SSR/prerender-safe.
+// skipInitialTransition + the reduced-motion skip in app.config.ts apply.
+::view-transition {
+  background: #070707; // site background black
+}
+::view-transition-group(root) {
+  animation: none;
+}
+::view-transition-image-pair(root) {
+  isolation: isolate;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+  animation-fill-mode: both;
+}
+::view-transition-old(root) {
+  z-index: 1;
+  animation-name: page-cover;
+}
+::view-transition-new(root) {
+  z-index: 2;
+  animation-name: page-reveal;
+}
+// Old page: clipped away from the bottom -> black revealed bottom-to-top.
+@keyframes page-cover {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  48%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+// New page: held invisible, then wipes up from the bottom over the black.
+@keyframes page-reveal {
+  0%,
+  52% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
