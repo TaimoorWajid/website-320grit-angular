@@ -1,9 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
 import { SmoothScrollService } from '../../../core/services/smooth-scroll.service';
 import { MarketIconComponent } from '../shared/market-icon/market-icon.component';
+import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { MARKET_IMG } from '../shared/market-assets';
 import {
   APPROACH_BULLETS,
@@ -25,7 +25,7 @@ import {
  */
 @Component({
   selector: 'app-healthcare-page',
-  imports: [RouterLink, RevealDirective, MarketIconComponent],
+  imports: [RevealDirective, MarketIconComponent, CtaBandComponent],
   templateUrl: './healthcare-page.component.html',
   styleUrl: './healthcare-page.component.scss',
 })
@@ -33,7 +33,6 @@ export class HealthcarePageComponent {
   protected readonly heroImage = MARKET_IMG.lab;
   protected readonly precisionImage = MARKET_IMG.lab;
   protected readonly approachImage = MARKET_IMG.labour;
-  protected readonly ctaImage = MARKET_IMG.lab;
 
   protected readonly flowLegend = FLOW_LEGEND;
   protected readonly differenceCards = DIFFERENCE_CARDS;

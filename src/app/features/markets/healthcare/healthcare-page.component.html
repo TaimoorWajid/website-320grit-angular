@@ -7,15 +7,16 @@
   <span class="hc-hero-side" aria-hidden="true">Markets We Serve · Healthcare</span>
   <div class="hc-container">
     <div class="hc-hero-content" appReveal>
-      <div class="hc-hero-label"><span class="hc-line"></span><span class="hc-label">Healthcare</span></div>
+      <span class="grit-eyebrow">01 — Healthcare</span>
       <h1 class="hc-display-xl">Healthcare<br />Building for<br /><span class="hc-orange">What Matters Most.</span></h1>
-      <p class="hc-hero-sub">Construction environments where precision, coordination and continuity matter.</p>
+      <p class="hc-hero-sub">Hospital, MOB, and imaging construction where precision, infection control, and operational continuity matter — delivered by a California-based team that understands HCAI.</p>
       <div class="hc-hero-actions">
-        <a href="#hc-cta" (click)="onAnchor($event, '#hc-cta')" class="hc-btn hc-btn-primary">
-          Discuss Your Project
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <a href="#hc-cta" (click)="onAnchor($event, '#hc-cta')" class="btn-explore">
+          <span>Discuss Your Project</span><span class="btn-explore-dash" aria-hidden="true">—</span>
         </a>
-        <a href="#hc-approach" (click)="onAnchor($event, '#hc-approach')" class="hc-btn hc-btn-outline">Our Approach</a>
+        <a href="#hc-approach" (click)="onAnchor($event, '#hc-approach')" class="btn-explore">
+          <span>Our Approach</span><span class="btn-explore-dash" aria-hidden="true">—</span>
+        </a>
       </div>
     </div>
   </div>
@@ -26,10 +27,12 @@
   <div class="hc-container">
     <div class="hc-disruption-grid">
       <div class="hc-disruption-text" appReveal>
+        <span class="grit-eyebrow">02 — The Challenge</span>
         <h2 class="hc-display-md">In Healthcare,<br />There’s No Room<br /><span class="hc-orange">for Disruption.</span></h2>
         <p class="hc-body-lg">
-          Every healthcare environment has unique operational, regulatory and logistical demands. Our approach begins
-          by understanding those demands and building around them.
+          Every healthcare environment carries unique operational, regulatory, and infection-control demands — from
+          HCAI oversight to 24/7 patient care. Our approach begins by understanding those demands and building
+          every phase of construction around them.
         </p>
         <div class="hc-flow-legend">
           @for (flow of flowLegend; track flow.key) {
@@ -70,7 +73,7 @@
 <section class="hc-section hc-different" id="hc-different">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
-      <span class="hc-label">The Difference</span>
+      <span class="grit-eyebrow">03 — The Difference</span>
       <h2 class="hc-display-md">What Makes Healthcare<br />Construction Different?</h2>
     </div>
     <div class="hc-feature-grid">
@@ -91,11 +94,11 @@
   <div class="hc-container">
     <div class="hc-precision-grid">
       <div class="hc-precision-text" appReveal>
-        <span class="hc-label">Integrated Delivery</span>
+        <span class="grit-eyebrow">04 — Integrated Delivery</span>
         <h2 class="hc-display-md">Built with Precision.<br /><span class="hc-orange">Delivered with Care.</span></h2>
         <p class="hc-body-lg">
-          From structure to systems, every element is planned and coordinated to support the environments where care
-          happens.
+          From structure to medical gases, every layer is BIM-coordinated and infection-control planned to support
+          the clinical environments where care happens.
         </p>
         <ul class="hc-layer-list">
           @for (layer of layers; track layer) {
@@ -114,7 +117,7 @@
 <section class="hc-section hc-environments" id="hc-environments">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
-      <span class="hc-label">Environments</span>
+      <span class="grit-eyebrow">05 — Environments</span>
       <h2 class="hc-display-md">Healthcare Environments<br />We Build</h2>
     </div>
     <div class="hc-env-grid" appReveal role="tablist" aria-label="Healthcare environments">
@@ -149,12 +152,11 @@
       </div>
       <div>
         <p class="hc-body-lg" style="margin-bottom: 1.5rem">
-          We deliver the full spectrum of healthcare facilities — from acute-care hospitals to outpatient clinics and
-          phased renovations in live environments.
+          We deliver the full spectrum of healthcare facilities — from acute-care hospitals and MOBs to outpatient
+          clinics and ICRA-compliant phased renovations in live environments.
         </p>
-        <a href="#hc-cta" (click)="onAnchor($event, '#hc-cta')" class="hc-btn hc-btn-ghost">
-          Discuss a Facility Type
-          <svg class="hc-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <a href="#hc-cta" (click)="onAnchor($event, '#hc-cta')" class="btn-explore">
+          <span>Discuss a Facility Type</span><span class="btn-explore-dash" aria-hidden="true">—</span>
         </a>
       </div>
     </div>
@@ -165,9 +167,9 @@
 <section class="hc-section hc-approach" id="hc-approach">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
-      <span class="hc-label">Process</span>
+      <span class="grit-eyebrow">06 — Our Process</span>
       <h2 class="hc-display-md">Our Healthcare<br />Delivery Approach</h2>
-      <p class="hc-body-lg">A disciplined process that keeps your goals, operations and patients at the center.</p>
+      <p class="hc-body-lg">A disciplined, HCAI-aware process that keeps your operations, schedule, and patients at the center.</p>
     </div>
     <div class="hc-process-steps" appReveal>
       @for (step of approachSteps; track step.num) {
@@ -185,7 +187,8 @@
       <div class="hc-approach-text" appReveal [appReveal]="{ delay: 0.2 }">
         <h3>Built Around Your Operations</h3>
         <p class="hc-body-lg">
-          We plan construction to coexist with your mission — minimizing disruption and protecting what matters most.
+          We plan construction to coexist with your mission — ICRA barriers up before demolition starts, ILSM
+          maintained throughout, and disruption engineered out of the schedule.
         </p>
         <ul class="hc-bullet-list">
           @for (bullet of approachBullets; track bullet) {
@@ -201,11 +204,11 @@
 <section class="hc-section hc-transition" id="hc-transition">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
-      <span class="hc-label">Phased Delivery</span>
+      <span class="grit-eyebrow">07 — Phased Delivery</span>
       <h2 class="hc-display-md">Building Without Losing Sight<br /><span class="hc-orange">of the Environment.</span></h2>
       <p class="hc-body-lg">
-        Whether it’s a renovation or new construction on an active campus, we protect what matters while building
-        what’s next.
+        Whether it’s an ICRA renovation or new construction on an active campus, we protect patient care and
+        life-safety systems while building what’s next.
       </p>
     </div>
     <div class="hc-transition-stages" appReveal>
@@ -226,9 +229,9 @@
 <section class="hc-section hc-systems" id="hc-systems">
   <div class="hc-container">
     <div class="hc-section-header hc-center" appReveal>
-      <span class="hc-label">Integrated Systems</span>
+      <span class="grit-eyebrow">08 — Integrated Systems</span>
       <h2 class="hc-display-md">Every System Has a Purpose.</h2>
-      <p class="hc-body-lg">Integrated planning across all building systems ensures performance, safety and comfort.</p>
+      <p class="hc-body-lg">BIM-integrated planning across every building system — commissioned and documented for HCAI closeout.</p>
     </div>
     <div class="hc-systems-row" appReveal>
       @for (system of systems; track system.title) {
@@ -246,7 +249,7 @@
   <div class="hc-container">
     <div class="hc-why-faq-grid">
       <div appReveal>
-        <span class="hc-label">Partnership</span>
+        <span class="grit-eyebrow">09 — Why 320 Grit</span>
         <h2 class="hc-display-md" style="margin-bottom: 2rem">Why Partner with<br />320 Grit?</h2>
         <div class="hc-why-grid">
           @for (card of whyCards; track card.title) {
@@ -259,7 +262,7 @@
         </div>
       </div>
       <div appReveal [appReveal]="{ delay: 0.2 }">
-        <span class="hc-label">Questions</span>
+        <span class="grit-eyebrow">09 — Common Questions</span>
         <h2 class="hc-display-md" style="margin-bottom: 2rem">Frequently Asked<br />Questions</h2>
         <div class="hc-faq-list">
           @for (faq of faqs; track faq.q; let i = $index) {
@@ -285,19 +288,11 @@
 </section>
 
 <!-- SECTION 10 — FINAL CTA -->
-<section class="hc-final-cta" id="hc-cta">
-  <div class="hc-final-cta-bg" aria-hidden="true">
-    <img [src]="ctaImage" alt="" width="1920" height="1080" loading="lazy" />
-  </div>
-  <div class="hc-final-cta-overlay" aria-hidden="true"></div>
-  <div class="hc-container">
-    <div class="hc-final-cta-content" appReveal>
-      <h2 class="hc-display-lg">Let’s Build<br /><span class="hc-orange">What Matters Most.</span></h2>
-      <p>Let’s discuss how we can support your next healthcare project.</p>
-      <a routerLink="/contact-us" class="hc-btn hc-btn-primary">
-        Start a Project
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      </a>
-    </div>
-  </div>
-</section>
+<app-cta-band
+  sectionId="hc-cta"
+  eyebrow="10 — Get Started"
+  title="Let’s Build<br>What Matters Most."
+  text="Let’s discuss how we can support your next healthcare project — from ground-up hospitals to occupied renovations."
+  ctaLabel="Start a Project"
+  ctaHref="/contact-us"
+/>

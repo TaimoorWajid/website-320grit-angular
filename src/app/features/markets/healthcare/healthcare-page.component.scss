@@ -1,3 +1,77 @@
 @use '../shared/markets-base' as mk;
 
 @include mk.markets-base;
+
+/* ============================================================
+   Healthcare page overrides — site standards.
+   Page-scoped (later rules win over the shared base mixin).
+   1. Hero content at 10% left padding (6% mobile).
+   2. 80/20 purple-dominant accents (orange kept only for
+      .hc-orange title accents, eyebrows, CTA buttons).
+   ============================================================ */
+
+/* 1. Hero — 10% left content padding like finalized service heroes. */
+.hc-hero .hc-container {
+  max-width: none;
+  padding-left: 10%;
+  padding-right: var(--hc-side);
+}
+@media (max-width: 768px) {
+  .hc-hero .hc-container {
+    padding-left: 6%;
+  }
+}
+
+/* 2. Purple-dominant accents. */
+.hc-feature-card::before {
+  background: linear-gradient(90deg, var(--hc-purple), transparent);
+}
+.hc-feature-card:hover {
+  border-color: rgba(121, 44, 213, 0.25);
+}
+.hc-icon-wrap {
+  background: var(--hc-purple-soft);
+  color: var(--hc-purple);
+}
+.hc-num {
+  color: var(--hc-purple);
+}
+.hc-dot {
+  background: var(--hc-purple);
+}
+.hc-env-card:hover,
+.hc-env-card.active {
+  border-color: var(--hc-purple);
+}
+.hc-env-icon {
+  color: var(--hc-purple);
+}
+.hc-process-step .hc-step-icon {
+  color: var(--hc-purple);
+}
+.hc-process-step:hover .hc-step-icon {
+  background: var(--hc-purple);
+  color: var(--hc-white);
+  border-color: var(--hc-purple);
+  box-shadow: 0 0 24px var(--hc-purple-glow);
+}
+.hc-system-pill:hover {
+  border-color: rgba(121, 44, 213, 0.35);
+}
+.hc-stage-card.active .hc-stage-label {
+  color: var(--hc-purple);
+}
+.hc-sys-icon {
+  color: var(--hc-purple);
+}
+.hc-why-icon {
+  background: var(--hc-purple-soft);
+  color: var(--hc-purple);
+}
+.hc-faq-question:hover {
+  color: var(--hc-purple);
+}
+.hc-faq-icon::before,
+.hc-faq-icon::after {
+  background: var(--hc-purple);
+}
