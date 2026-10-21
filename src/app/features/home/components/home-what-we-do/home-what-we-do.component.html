@@ -13,6 +13,11 @@
     <div class="what-we-do__cards">
       @for (card of cards; track card.eyebrow) {
         <article #cardRef class="what-we-do__card" appReveal>
+          <div
+            class="what-we-do__card-media"
+            aria-hidden="true"
+            [style.background-image]="'url(' + card.image + ')'"
+          ></div>
           <h2 class="what-we-do__eyebrow">{{ card.eyebrow }}</h2>
           <h3 class="what-we-do__title">{{ card.title }}</h3>
           <p class="what-we-do__text">{{ card.paragraphs[0] }}</p>
