@@ -1443,6 +1443,12 @@
 }
 
 @media (max-width: 640px) {
+  .service-hero__title {
+    /* 390px: "ACCOUNTING" (10 chars) is cut off at the 3.8rem clamp floor —
+       scale with viewport so the longest word fits the padded content width. */
+    font-size: clamp(2.5rem, 12.5vw, 3.8rem);
+  }
+
   .service-what-is {
     padding: 80px 0;
   }

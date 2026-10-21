@@ -13,6 +13,15 @@
   }
 }
 
+@media (max-width: 640px) {
+  /* 390px: long hero words ("Improvement", "Construction") clip at the
+     2.75rem clamp floor — scale with the viewport so the longest word
+     fits the padded content width. */
+  :host .hc-hero .hc-display-xl {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+}
+
 /* Standard orange eyebrow spacing inside market sections. */
 :host .grit-eyebrow {
   display: block;
