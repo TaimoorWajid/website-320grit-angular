@@ -161,25 +161,6 @@ export const routes: Routes = [
     data: { title: 'Our Leadership' },
   },
   {
-    path: 'awards',
-    loadComponent: () => import('./features/about/awards/awards-page.component').then((m) => m.AwardsPageComponent),
-    data: { title: 'Awards' },
-  },
-  // Alias used by the mobile menu.
-  { path: 'awards-and-recognition', redirectTo: '/awards', pathMatch: 'full' },
-  {
-    path: 'community',
-    loadComponent: () =>
-      import('./features/about/community/community-page.component').then((m) => m.CommunityPageComponent),
-    data: { title: 'Community' },
-  },
-  {
-    path: 'quality',
-    loadComponent: () =>
-      import('./features/about/quality/quality-page.component').then((m) => m.QualityPageComponent),
-    data: { title: 'Quality' },
-  },
-  {
     path: 'safety',
     loadComponent: () => import('./features/about/safety/safety-page.component').then((m) => m.SafetyPageComponent),
     data: { title: 'Safety' },

@@ -22,9 +22,6 @@ export const FOOTER_LINK_GROUPS: FooterLinkGroup[] = [
       { label: 'Our Values', href: '/our-values' },
       { label: 'Safety', href: '/safety' },
       { label: 'Sustainability', href: '/sustainability' },
-      // { label: 'Community', href: '/community' },
-      // { label: 'Awards', href: '/awards' },
-      // { label: 'Quality', href: '/quality' },
     ],
   },
   {
@@ -42,7 +39,7 @@ export const FOOTER_LINK_GROUPS: FooterLinkGroup[] = [
   {
     heading: 'Industries',
     links: [
-      // { label: 'Industries', href: '/industries' },
+      { label: 'Industries', href: '/industries' },
       { label: 'Railroads', href: '/industries/railroads' },
       { label: 'Healthcare', href: '/industries/healthcare' },
       { label: 'Behavioral Health', href: '/industries/behavioral-health' },
