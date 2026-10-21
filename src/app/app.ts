@@ -1,29 +1,15 @@
-import { Component, afterNextRender, inject, DestroyRef } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { ScrollTopComponent } from './shared/components/scroll-top/scroll-top.component';
-import { AnimationManagerService } from './core/animations/animation-manager.service';
-import { SmoothScrollService } from './core/services/smooth-scroll.service';
+import { Component } from '@angular/core';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
+/**
+ * MAIN-BRANCH ONLY: the live site shows a temporary under-construction
+ * page until the client approves the staging website. The full site lives
+ * on develop/staging; restoring = merge staging into main.
+ */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, ScrollTopComponent],
+  imports: [UnderConstructionComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
-  private readonly animations = inject(AnimationManagerService);
-  private readonly smoothScroll = inject(SmoothScrollService);
-  private readonly destroyRef = inject(DestroyRef);
-
-  constructor() {
-    afterNextRender(() => {
-      // GSAP plugin registration (browser-only, once).
-      this.animations.setup();
-      // Lenis smooth scroll (skipped on server + reduced motion).
-      this.smoothScroll.initialize();
-      this.destroyRef.onDestroy(() => this.smoothScroll.destroy());
-    });
-  }
-}
+export class App {}
