@@ -196,7 +196,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 .hc-hero-content {
   position: relative;
   z-index: 2;
-  // max-width: 680px;
+  max-width: 680px;
   padding: 0 2.5rem 0 10%;
 }
 @media (max-width: 768px) {
@@ -461,6 +461,7 @@ $hc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 @media (max-width: 1100px) { .ab-value-grid { grid-template-columns: repeat(3, 1fr) !important; } }
 @media (max-width: 640px) { .ab-value-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 480px) { .ab-value-grid { grid-template-columns: 1fr !important; } }
 .ab-value-card {
   text-align: center;
   padding: 1.75rem 1rem;
