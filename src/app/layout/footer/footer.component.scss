@@ -189,4 +189,9 @@
   .grit-footer__bottom-inner {
     padding: 16px;
   }
+
+  /* Keep the centered copyright clear of the fixed scroll-top button. */
+  .grit-footer__bottom-inner p {
+    padding-right: 56px;
+  }
 }
