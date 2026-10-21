@@ -75,7 +75,12 @@
     if (hadFocus) document.getElementById('main-content')?.focus({ preventScroll: true });
   };
   const complete = () => {
-    if (!finished && appReady && windowReady) {
+    // Dismiss as soon as the app is ready to paint. Do NOT wait for the
+    // window load event: it holds for every subresource (below-fold images,
+    // fonts), which delays first paint and LCP on slow networks. The app
+    // renders its SSR HTML immediately; images and fonts pop in
+    // progressively (fonts use display=swap).
+    if (!finished && appReady) {
       progress(100);
       dismiss();
     }
