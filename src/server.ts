@@ -1,7 +1,6 @@
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
-  isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
@@ -48,19 +47,22 @@ app.use((req, res, next) => {
 });
 
 /**
- * Start the server if this module is the main entry point, or it is ran via PM2.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * Start the server for Hostinger Node.js hosting.
+ * The listen call is unconditional (Hostinger imports the entry file instead
+ * of executing it as the main module, so the isMainModule guard never fires)
+ * and binds to 0.0.0.0 so the platform's proxy can reach the server.
+ * The server listens on the port defined by the `PORT` environment variable,
+ * or defaults to 4000.
  */
-if (isMainModule(import.meta.url) || process.env['pm_id']) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
+const port = Number(process.env['PORT']) || 4000;
 
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
-}
+app.listen(port, '0.0.0.0', (error) => {
+  if (error) {
+    throw error;
+  }
+
+  console.log(`Node Express server listening on port ${port}`);
+});
 
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
