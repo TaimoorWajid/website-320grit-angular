@@ -1,11 +1,315 @@
 import { Routes } from '@angular/router';
-import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 /**
- * MAIN-BRANCH ONLY: every URL serves the under-construction page until
- * the client approves the staging website.
+ * Route table. Slugs mirror the WordPress page URLs found in the
+ * staging mega-menu / mobile menu (nav-forms.md). Home is eager;
+ * every other page is lazy-loaded.
  */
 export const routes: Routes = [
-  { path: '', component: UnderConstructionComponent },
-  { path: '**', component: UnderConstructionComponent },
+  {
+    path: '',
+    loadComponent: () => import('./features/home/home-page.component').then((m) => m.HomePageComponent),
+    data: { title: 'Construction Consulting, Project Management & Owner Representation' },
+  },
+  {
+    // Services index page — exact match only; child service routes follow.
+    path: 'services',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/services/all-services/all-services-page.component').then(
+        (m) => m.AllServicesPageComponent,
+      ),
+    data: { title: 'Our Services' },
+  },
+  {
+    path: 'services',
+    children: [
+      {
+        path: 'bid-build',
+        loadComponent: () =>
+          import('./features/services/bid-build/bid-build-page.component').then((m) => m.BidBuildPageComponent),
+        data: { title: 'Bid-Build Construction Services' },
+      },
+      {
+        path: 'design-build',
+        loadComponent: () =>
+          import('./features/services/design-build/design-build-page.component').then(
+            (m) => m.DesignBuildPageComponent,
+          ),
+        data: { title: 'Design-Build Construction Services' },
+      },
+      {
+        path: 'expert-witness',
+        loadComponent: () =>
+          import('./features/services/expert-witness/expert-witness-page.component').then(
+            (m) => m.ExpertWitnessPageComponent,
+          ),
+        data: { title: 'Construction Expert Witness Services' },
+      },
+      {
+        path: 'forensic-accounting',
+        loadComponent: () =>
+          import('./features/services/forensic-accounting/forensic-accounting-page.component').then(
+            (m) => m.ForensicAccountingPageComponent,
+          ),
+        data: { title: 'Construction Forensic Accounting Services' },
+      },
+    ],
+  },
+  {
+    path: 'commercial-construction',
+    redirectTo: '/industries/commercial-construction',
+    pathMatch: 'full',
+  },
+  {
+    path: 'industries',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/markets/all-industries/all-industries-page.component').then(
+        (m) => m.AllIndustriesPageComponent,
+      ),
+    data: { title: 'Industries We Serve' },
+  },
+  {
+    path: 'industries',
+    children: [
+      {
+        path: 'railroads',
+        loadComponent: () =>
+          import('./features/markets/railroads/railroads-page.component').then((m) => m.RailroadsPageComponent),
+        data: { title: 'Railroad Construction' },
+      },
+      {
+        path: 'healthcare',
+        loadComponent: () =>
+          import('./features/markets/healthcare/healthcare-page.component').then((m) => m.HealthcarePageComponent),
+        data: { title: 'Healthcare Construction' },
+      },
+      {
+        path: 'advanced-technology',
+        loadComponent: () =>
+          import('./features/markets/advanced-technology/advanced-technology-page.component').then(
+            (m) => m.AdvancedTechnologyPageComponent,
+          ),
+        data: { title: 'Advanced Technology Construction' },
+      },
+      {
+        path: 'behavioral-health',
+        loadComponent: () =>
+          import('./features/markets/behavioral-health/behavioral-health-page.component').then(
+            (m) => m.BehavioralHealthPageComponent,
+          ),
+        data: { title: 'Behavioral Health Construction' },
+      },
+      {
+        path: 'education',
+        loadComponent: () =>
+          import('./features/markets/education/education-page.component').then((m) => m.EducationPageComponent),
+        data: { title: 'Education Construction' },
+      },
+      {
+        path: 'hospitality',
+        loadComponent: () =>
+          import('./features/markets/hospitality/hospitality-page.component').then((m) => m.HospitalityPageComponent),
+        data: { title: 'Hospitality Construction' },
+      },
+      {
+        path: 'tenant-improvement',
+        loadComponent: () =>
+          import('./features/markets/tenant-improvement/tenant-improvement-page.component').then(
+            (m) => m.TenantImprovementPageComponent,
+          ),
+        data: { title: 'Tenant Improvement Construction' },
+      },
+      {
+        path: 'commercial-construction',
+        loadComponent: () =>
+          import('./features/markets/commercial/commercial-page.component').then(
+            (m) => m.CommercialPageComponent,
+          ),
+        data: { title: 'Commercial Construction Services' },
+      },
+    ],
+  },
+  // Alias used by the "What we do" mega-menu (services list).
+  { path: 'tenant-improvements', redirectTo: '/industries/tenant-improvement', pathMatch: 'full' },
+  {
+    // About index page — links to the five "Who we are" pages.
+    path: 'about-us',
+    loadComponent: () =>
+      import('./features/about/about-us/about-us-page.component').then((m) => m.AboutUsPageComponent),
+    data: { title: 'About Us | 320 Grit' },
+  },
+  {
+    path: 'our-story',
+    loadComponent: () =>
+      import('./features/about/our-story/our-story-page.component').then((m) => m.OurStoryPageComponent),
+    data: { title: 'Our Story' },
+  },
+  {
+    path: 'our-values',
+    loadComponent: () =>
+      import('./features/about/our-values/our-values-page.component').then((m) => m.OurValuesPageComponent),
+    data: { title: 'Our Values' },
+  },
+  {
+    path: 'our-leadership',
+    loadComponent: () =>
+      import('./features/about/our-leadership/our-leadership-page.component').then(
+        (m) => m.OurLeadershipPageComponent,
+      ),
+    data: { title: 'Our Leadership' },
+  },
+  {
+    path: 'safety',
+    loadComponent: () => import('./features/about/safety/safety-page.component').then((m) => m.SafetyPageComponent),
+    data: { title: 'Safety' },
+  },
+  {
+    path: 'sustainability',
+    loadComponent: () =>
+      import('./features/about/sustainability/sustainability-page.component').then(
+        (m) => m.SustainabilityPageComponent,
+      ),
+    data: { title: 'Sustainability' },
+  },
+  {
+    path: 'approach',
+    children: [
+      {
+        path: 'owner-centric',
+        loadComponent: () =>
+          import('./features/approach/owner-centric/owner-centric-page.component').then(
+            (m) => m.OwnerCentricPageComponent,
+          ),
+        data: { title: 'Owner-Centric Approach' },
+      },
+      {
+        // Linked in the "What we do" mega-menu; no template exists in the
+        // theme repo — flagged in the final report as needing content.
+        path: 'owner-representation',
+        loadComponent: () =>
+          import('./features/approach/owner-representation/owner-representation-page.component').then(
+            (m) => m.OwnerRepresentationPageComponent,
+          ),
+        data: { title: 'Owner Representation' },
+      },
+    ],
+  },
+  {
+    // Locations index page — exact match only; child location routes follow.
+    path: 'locations',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./features/locations/all-locations/all-locations-page.component').then(
+        (m) => m.AllLocationsPageComponent,
+      ),
+    data: { title: 'Where We Work' },
+  },
+  {
+    path: 'locations',
+    children: [
+      {
+        path: 'california',
+        loadComponent: () =>
+          import('./features/locations/california/california-page.component').then(
+            (m) => m.CaliforniaPageComponent,
+          ),
+        data: { title: 'California' },
+      },
+    ],
+  },
+  {
+    path: 'careers',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadComponent: () =>
+          import('./features/careers/landing/careers-landing.component').then((m) => m.CareersLandingComponent),
+        data: { title: 'Careers at 320 Grit' },
+      },
+      {
+        path: 'jobs',
+        loadComponent: () => import('./features/careers/jobs/jobs-page.component').then((m) => m.JobsPageComponent),
+        data: { title: 'Open Positions | 320 Grit' },
+      },
+      {
+        path: 'saved',
+        loadComponent: () =>
+          import('./features/careers/saved/saved-page.component').then((m) => m.SavedPageComponent),
+        data: { title: 'Saved Positions' },
+      },
+      {
+        path: 'introduce-yourself',
+        loadComponent: () =>
+          import('./features/careers/introduce/introduce-page.component').then((m) => m.IntroducePageComponent),
+        data: { title: 'Introduce Yourself' },
+      },
+      {
+        path: 'our-culture',
+        loadComponent: () =>
+          import('./features/careers/culture/culture-page.component').then((m) => m.CulturePageComponent),
+        data: { title: 'Our Culture | 320 Grit' },
+      },
+      {
+        path: 'benefits',
+        loadComponent: () =>
+          import('./features/careers/benefits/benefits-page.component').then((m) => m.BenefitsPageComponent),
+        data: { title: 'Benefits | 320 Grit' },
+      },
+      {
+        path: 'professional-growth',
+        loadComponent: () =>
+          import('./features/careers/growth/growth-page.component').then((m) => m.GrowthPageComponent),
+        data: { title: 'Professional Growth | 320 Grit' },
+      },
+      {
+        path: 'internships',
+        loadComponent: () =>
+          import('./features/careers/internships/internships-page.component').then(
+            (m) => m.InternshipsPageComponent,
+          ),
+        data: { title: 'Internships | 320 Grit' },
+      },
+      {
+        path: 'application/success',
+        loadComponent: () =>
+          import('./features/careers/success/success-page.component').then((m) => m.SuccessPageComponent),
+        data: { title: 'Application Submitted' },
+      },
+      {
+        path: ':slug/apply',
+        loadComponent: () =>
+          import('./features/careers/apply-job/apply-job-page.component').then((m) => m.ApplyJobPageComponent),
+        canDeactivate: [(component: { canLeave: () => boolean }) => component.canLeave()],
+        data: { title: 'Apply | 320 Grit' },
+      },
+      {
+        // Job detail — must stay LAST so it doesn't swallow the named routes.
+        // Unknown slugs render a 404.
+        path: ':slug',
+        loadComponent: () =>
+          import('./features/careers/job-detail/job-detail-page.component').then((m) => m.JobDetailPageComponent),
+        data: { title: 'Job Details' },
+      },
+    ],
+  },
+  // Legacy careers URLs -> new Howell-style structure.
+  { path: 'open-positions', redirectTo: '/careers/jobs', pathMatch: 'full' },
+  { path: 'careers/open-positions', redirectTo: '/careers/jobs', pathMatch: 'full' },
+  { path: 'careers/thank-you', redirectTo: '/careers/application/success', pathMatch: 'full' },
+  { path: 'careers/apply', redirectTo: '/careers/jobs', pathMatch: 'full' },
+  {
+    // The mobile menu links Contact Us here; the inquiry form itself lives
+    // on the homepage (#contact-form). This page reuses the shared form.
+    path: 'contact-us',
+    loadComponent: () => import('./features/contact/contact-page.component').then((m) => m.ContactPageComponent),
+    data: { title: 'Contact Us' },
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./shared/components/not-found/not-found.component').then((m) => m.NotFoundComponent),
+    data: { title: 'Page Not Found' },
+  },
 ];
