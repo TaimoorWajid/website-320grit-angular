@@ -45,6 +45,10 @@ export const TEAM: TeamMember[] = [
     bio: 'Brett has over 8 years of construction project oversight with a focus on railroad, medical, commercial, and multifamily, and residential construction. He has developed his expertise in delivering urgent and complex projects from pre-construction through completion while keeping stakeholder\u2019s expectations and interests at heart. Brett\u2019s passion for construction is driven by the opportunity to create lasting, tangible spaces that impact people\u2019s lives and contribute to the growth and development of our families and communities. Whether it\u2019s a hospital that saves lives, an office space that fosters innovation, or a multifamily building that provides an inviting home to families, Brett is driven by the ability to leave a lasting impact. The knowledge that he has contributed to shaping the spaces where people work, live, and heal is what fuels his ongoing dedication to the craft of construction.',
     img: 'assets/images/brett-smith.webp',
   },
+];
+
+/** Employees — team members outside the leadership category. */
+export const EMPLOYEES: TeamMember[] = [
   {
     name: 'Mason Laurin',
     role: 'Construction Manager',
@@ -57,7 +61,7 @@ export const TEAM: TeamMember[] = [
 export const VALUES_SPLIT: SplitData = {
   id: 'lead-values',
   background: '#050505',
-  label: '04 — Our Values',
+  label: '05 — Our Values',
   title: 'How We Lead Every Project',
   image: {
     src: 'assets/images/leadership-values.webp',
