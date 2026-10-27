@@ -1,7 +1,6 @@
 import { HeroData, SplitData, TeamMember, ValueCard } from '../shared/about.types';
 
-/* Real 320 Grit leadership team (client-provided bios and photos).
-   Soda Kuy's photo is forthcoming — she renders with an initials badge. */
+/* Real 320 Grit leadership team (client-provided bios and photos). */
 
 export const HERO: HeroData = {
   id: 'lead-hero',
@@ -51,12 +50,6 @@ export const TEAM: TeamMember[] = [
     role: 'Construction Manager',
     bio: 'Mason is a Development professional in the making and a future leader in our industry. Having grown up with design, construction, management, and business, he brings fresh perspective and energy to 320 Grit. Currently pursuing an Engineering and Business degree, he\u2019s already shaping 320 Grit while CM consulting $82M of hospital projects.',
     img: 'assets/images/mason-laurin.jpg',
-  },
-  {
-    name: 'Soda Kuy',
-    role: 'Business Management',
-    bio: 'Soda leads business management at 320 Grit, keeping our operations, finances, and client relationships running smoothly behind the scenes.',
-    img: '',
   },
 ];
 
