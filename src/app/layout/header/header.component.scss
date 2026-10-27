@@ -182,8 +182,11 @@
   width: calc(100vw - 56px);
 }
 
+/* Panel visibility is signal-driven (.is-open) only: a bare :hover rule
+   re-showed the panel on the new page after navigation, because the
+   cursor still rested over the header. Hover still opens via
+   mouseenter; keyboard focus still opens via :focus-within. */
 .grit-nav__item.is-open .grit-mega-menu,
-.grit-nav__item:hover .grit-mega-menu,
 .grit-nav__item:focus-within .grit-mega-menu {
   opacity: 1;
   visibility: visible;

@@ -1,5 +1,6 @@
 import { Component, DestroyRef, afterNextRender, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { filter } from 'rxjs';
 import { MEGA_MENUS, MegaMenu } from '../../core/data/mega-menu.data';
 import { SmoothScrollService } from '../../core/services/smooth-scroll.service';
 import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
@@ -102,10 +103,25 @@ export class HeaderComponent {
   ];
 
   private readonly smoothScroll = inject(SmoothScrollService);
+  private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
   constructor() {
     afterNextRender(() => this.initScrollBehavior());
+    // Any navigation closes the menus: the header persists across routes,
+    // so without this the open panel would stay visible on the new page.
+    const navSub = this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe(() => {
+        this.closeMega();
+        this.closeMobile();
+        // Blur a focused header link so :focus-within can't re-show the panel.
+        if (typeof document !== 'undefined') {
+          const active = document.activeElement as HTMLElement | null;
+          if (active && active.closest('header')) active.blur();
+        }
+      });
+    this.destroyRef.onDestroy(() => navSub.unsubscribe());
   }
 
   /** Toggle a desktop mega-menu panel (click support; hover handled in CSS). */
@@ -116,6 +132,13 @@ export class HeaderComponent {
   closeMega(): void {
     this.openMega.set(null);
     this.clearMegaTimer();
+  }
+
+  /** Keyboard: close the panel once focus leaves the nav item entirely. */
+  onNavFocusOut(event: FocusEvent): void {
+    const current = event.currentTarget as HTMLElement | null;
+    const next = event.relatedTarget as Node | null;
+    if (current && (!next || !current.contains(next))) this.closeMega();
   }
 
   /** Hover opens immediately; leaving starts a short delay so the cursor

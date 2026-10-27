@@ -1,7 +1,7 @@
 <header id="top" class="grit-nav" role="banner" aria-label="Main Menu"
   [class.grit-nav--scrolled]="scrolled()" [class.grit-nav--hidden]="hidden()">
   <div class="grit-nav__inner">
-    <a class="grit-nav__logo" routerLink="/" aria-label="320 Grit — home">
+    <a class="grit-nav__logo" routerLink="/" (click)="closeMega()" aria-label="320 Grit — home">
       <img class="grit-nav__logo-img grit-nav__logo-img--desktop" src="/assets/images/logo-master.png" alt="320 Grit" width="2237" height="277" fetchpriority="high" />
       <img class="grit-nav__logo-img grit-nav__logo-img--mobile" src="/assets/images/logo-mobile.png" alt="320 Grit" width="1341" height="698" fetchpriority="high" />
     </a>
@@ -10,7 +10,8 @@
       <ul>
         @for (menu of megaMenus; track menu.label) {
           <li class="grit-nav__item" [class.is-open]="openMega() === menu.label"
-              (mouseenter)="onMegaEnter(menu.label)" (mouseleave)="onMegaLeave()">
+              (mouseenter)="onMegaEnter(menu.label)" (mouseleave)="onMegaLeave()"
+              (focusout)="onNavFocusOut($event)">
             <button type="button" class="grit-nav__link" (click)="toggleMega(menu.label)"
                     [attr.aria-expanded]="openMega() === menu.label" aria-haspopup="true">
               {{ menu.label }}
@@ -21,7 +22,7 @@
                 <div class="grit-mega-menu__col">
                   @if (col.header) { <div class="grit-mega-col-header">{{ col.header }}</div> }
                   @for (item of col.items; track item.href + item.title) {
-                    <a [href]="item.href" class="grit-mega-item" (click)="goToAnchor(item.href, $event)">
+                    <a [routerLink]="item.href" class="grit-mega-item" (click)="closeMega()">
                       <span class="grit-mega-item__icon" [innerHTML]="item.icon | safeHtml" aria-hidden="true"></span>
                       <span class="grit-mega-item__text">
                         <span class="grit-mega-item__title">{{ item.title }}</span>
@@ -45,7 +46,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                   </a>
                   } @else {
-                  <a [routerLink]="menu.featureLinkHref" class="grit-mega-menu__feature-link">
+                  <a [routerLink]="menu.featureLinkHref" class="grit-mega-menu__feature-link" (click)="closeMega()">
                     {{ menu.featureLinkText }}
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                   </a>
