@@ -267,7 +267,7 @@
   }
 
   .process__pin-head {
-    padding: 5rem 20px 0;
+    padding: 3.5rem 20px 0;
   }
 
   .phase-card {
@@ -278,15 +278,23 @@
 
   .phase-card__body {
     flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+
+  /* Mobile: the full card (copy + photo) must fit inside the pinned
+     100vh viewport — shrink type and photo so nothing clips. */
+  .phase-card__number {
+    font-size: clamp(3.75rem, 17vw, 5rem);
+  }
+
+  .phase-card__text {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .phase-card__photo {
-    flex: 0 0 220px;
+    flex: 0 0 130px;
     margin: 0 12px 12px;
-  }
-
-  .phase-card__number {
-    font-size: clamp(5rem, 22vw, 7rem);
   }
 
   :host(.process--static) .phase-card {

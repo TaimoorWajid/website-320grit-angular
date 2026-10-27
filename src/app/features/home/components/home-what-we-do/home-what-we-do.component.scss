@@ -57,6 +57,11 @@
   padding: 2rem 0;
 }
 
+/* Per-card image: mobile only (desktop uses the shared sticky media panel). */
+.what-we-do__card-media {
+  display: none;
+}
+
 /* Staging: .content-spacing-45vh .nectar-sticky-media-section__content-section:not(:last-child){margin-bottom:45vh;} */
 .what-we-do__card:not(:last-child) {
   margin-bottom: 45vh;
@@ -157,17 +162,29 @@
     flex-direction: column;
   }
 
+  /* Mobile: one shared image box at the top can't serve all 4 cards
+     (it scrolls out of view), so hide it and show each card's own image. */
   .what-we-do__media {
-    position: relative;
-    top: auto;
-    flex: none;
-    width: 100%;
-    height: auto;
+    display: none;
+  }
+
+  .what-we-do__card-media {
+    display: block;
     aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
   }
 
   .what-we-do__card {
     min-height: 0;
     padding: 2.5rem 0;
+  }
+
+  /* Mobile: no sticky media, so the desktop 45vh inter-card spacing
+     is just dead scroll — collapse it. */
+  .what-we-do__card:not(:last-child) {
+    margin-bottom: 0;
   }
 }
