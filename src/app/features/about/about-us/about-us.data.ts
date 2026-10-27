@@ -67,8 +67,6 @@ const LEADER_LINES: Record<string, string> = {
     'Over 8 years of construction project oversight across railroad, medical, commercial, and multifamily projects — driven by the lasting impact great spaces have on the people who use them.',
   'Mason Laurin':
     'A development professional and future industry leader — currently CM consulting on $82M of hospital projects while pursuing an Engineering and Business degree.',
-  'Soda Kuy':
-    'Leads business management at 320 Grit, keeping operations, finances, and client relationships running smoothly behind the scenes.',
 };
 
 export const LEADERSHIP_PREVIEW: TeamMember[] = TEAM.map((m) => ({

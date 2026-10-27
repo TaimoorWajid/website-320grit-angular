@@ -1,10 +1,18 @@
 @use '../hc-base' as *;
 
 /* Leadership team grid: 3 evenly-divided columns, equal-height cards,
-   consistent photo aspect ratio across all members. */
+   consistent photo aspect ratio across all members.
+   With 2 members, the grid switches to two
+   centered columns at the same card width, instead of leaving a 3rd
+   column empty. */
 .ab-team-grid {
   grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
+}
+.ab-team-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 920px;
+  margin-inline: auto;
 }
 .ab-team-card {
   display: flex;
@@ -25,4 +33,5 @@
 }
 @media (max-width: 600px) {
   .ab-team-grid { grid-template-columns: 1fr; }
+  .ab-team-grid--two { grid-template-columns: 1fr; }
 }
