@@ -4,10 +4,16 @@
    consistent photo aspect ratio across all members.
    With 2 members, the grid switches to two
    centered columns at the same card width, instead of leaving a 3rd
-   column empty. */
+   column empty. With 1 member, a single centered column at the same
+   card width (half the two-column width, minus half the gap). */
 .ab-team-grid {
   grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
+}
+.ab-team-grid--one {
+  grid-template-columns: 1fr;
+  max-width: 450px;
+  margin-inline: auto;
 }
 .ab-team-grid--two {
   grid-template-columns: repeat(2, 1fr);
@@ -30,6 +36,7 @@
 }
 @media (max-width: 900px) {
   .ab-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .ab-team-grid--one { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .ab-team-grid { grid-template-columns: 1fr; }

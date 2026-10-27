@@ -104,15 +104,9 @@ export const MEGA_MENUS: MegaMenu[] = [
         items: [
           {
             href: '/approach/owner-centric',
-            title: 'Decidedly Owner &amp; Team-centric',
+            title: 'Decidedly Owner & Team-centric',
             desc: 'Research, budgeting, and planning.',
             icon: `01`,
-          },
-          {
-            href: '/approach/owner-representation',
-            title: 'Construction Management / Owner Representation',
-            desc: 'Collaborative design and value engineering.',
-            icon: `02`,
           },
         ],
       },
