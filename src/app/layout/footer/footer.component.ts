@@ -17,4 +17,6 @@ import { SafeHtmlPipe } from '../../shared/pipes/safe-html.pipe';
 export class FooterComponent {
   protected readonly linkGroups = FOOTER_LINK_GROUPS;
   protected readonly contactIcons = FOOTER_CONTACT_ICONS;
+  /** Footer year, picked from the current date — never needs a manual update. */
+  protected readonly currentYear = new Date().getFullYear();
 }
