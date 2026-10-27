@@ -11,11 +11,11 @@
  *   releases the page. While active, app-root is inert. Dismissal restores
  *   interaction and focus without changing page dimensions.
  * - The loader does not replay on SPA navigation.
- * - Once dismissed, the loader never shows again for the lifetime of the tab
- *   session (persisted in sessionStorage). This covers tab switches where the
- *   browser discarded the background tab and silently reloads it on return,
- *   as well as manual refreshes: if the page was already loaded in this tab,
- *   the loader is removed before first paint instead of flashing.
+ * - Once dismissed, the loader is skipped on later loads in the same tab
+ *   session (tab discard + silent reload, manual refresh) — but ONLY when
+ *   the page content is already in the document (prerendered HTML). With a
+ *   client-rendered shell, the loader still shows until the route is ready,
+ *   so the page never sits with footer directly beneath the header.
  * - No-JavaScript visitors never see the overlay; a failed loader script
  *   removes it via the script tag's onerror handler in index.html.
  */
@@ -40,11 +40,20 @@
   if (!loader || !root) return;
   if (wasDismissed) {
     // This tab already loaded the page once (tab discard + silent reload on
-    // switch-back, or a manual refresh). Never show the loader again: remove
-    // it synchronously, before first paint, so it cannot flash.
-    markDismissed();
-    loader.remove();
-    return;
+    // switch-back, or a manual refresh). Skip the loader ONLY when the page
+    // content is already in the document (prerendered HTML) — then removing
+    // it before first paint is safe because the content is visible at once.
+    // With a client-rendered shell (empty app-root), skipping would expose
+    // header + footer with an empty middle until the route chunk arrives
+    // (1-2s of footer sitting right beneath the header), so fall through to
+    // the normal loader flow, which covers the page until the route is
+    // ready to paint.
+    const main = document.getElementById('main-content');
+    if (main && main.childElementCount > 0) {
+      markDismissed();
+      loader.remove();
+      return;
+    }
   }
   const track = loader.querySelector('.loader-track');
   const fill = loader.querySelector('.loader-fill');
