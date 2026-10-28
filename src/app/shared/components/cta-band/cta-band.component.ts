@@ -26,6 +26,9 @@ export class CtaBandComponent {
   readonly ctaHref = input('/contact-us');
   /** 'mesh' (design-build dark style) is the site standard; 'violet' keeps the old gradient. */
   readonly variant = input<'violet' | 'mesh'>('mesh');
+  /** Optional scroll-spy key (rendered as data-section). Only set where the
+      page's sidenav tracks this band; unset everywhere else. */
+  readonly dataSection = input<string>();
 
   /** Floating particles for the mesh variant (design-build style). */
   protected readonly particles = Array.from({ length: 24 }, (_, i) => ({

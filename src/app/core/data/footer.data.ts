@@ -33,7 +33,6 @@ export const FOOTER_LINK_GROUPS: FooterLinkGroup[] = [
       { label: 'Expert Witness', href: '/services/expert-witness' },
       { label: 'Forensic Accounting', href: '/services/forensic-accounting' },
       { label: 'Owner-Centric', href: '/approach/owner-centric' },
-      { label: 'Owner Representation', href: '/approach/owner-representation' },
     ],
   },
   {

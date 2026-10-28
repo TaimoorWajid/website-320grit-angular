@@ -5,7 +5,7 @@ import { ValueCardGridComponent } from '../shared/value-card-grid/value-card-gri
 import { TeamGridComponent } from '../shared/team-grid/team-grid.component';
 import { CtaBandComponent } from '../../../shared/components/cta-band/cta-band.component';
 import { HcRevealDirective } from '../shared/hc-reveal.directive';
-import { APPROACH, HERO, TEAM, VALUES_LIST, VALUES_SPLIT } from './our-leadership.data';
+import { APPROACH, EMPLOYEES, HERO, TEAM, VALUES_LIST, VALUES_SPLIT } from './our-leadership.data';
 
 /** Our Leadership page — composition of shared hc- sections. */
 @Component({
@@ -18,6 +18,7 @@ export class OurLeadershipPageComponent {
   protected readonly HERO = HERO;
   protected readonly APPROACH = APPROACH;
   protected readonly TEAM = TEAM;
+  protected readonly EMPLOYEES = EMPLOYEES;
   protected readonly VALUES_SPLIT = VALUES_SPLIT;
   protected readonly VALUES_LIST = VALUES_LIST;
 
