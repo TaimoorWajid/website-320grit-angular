@@ -6,9 +6,9 @@
       }
       <h2 class="hc-display-md">{{ title() }}</h2>
     </div>
-    <div class="ab-team-grid" [class.ab-team-grid--two]="members().length === 2" hcReveal>
+    <div class="ab-team-grid" [class.ab-team-grid--one]="members().length === 1" [class.ab-team-grid--two]="members().length === 2" [class.ab-team-grid--feature]="isFeature()" hcReveal>
       @for (m of members(); track m.name) {
-        <article class="ab-team-card">
+        <article class="ab-team-card" [class.ab-team-card--feature]="isFeature()">
           <div class="ab-team-photo">
             @if (m.img) {
               <img [src]="m.img" [alt]="m.name" width="300" height="300" loading="lazy" />
