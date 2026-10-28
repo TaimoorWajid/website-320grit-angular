@@ -184,16 +184,17 @@ export const routes: Routes = [
           ),
         data: { title: 'Owner-Centric Approach' },
       },
-      {
-        // Linked in the "What we do" mega-menu; no template exists in the
-        // theme repo — flagged in the final report as needing content.
-        path: 'owner-representation',
-        loadComponent: () =>
-          import('./features/approach/owner-representation/owner-representation-page.component').then(
-            (m) => m.OwnerRepresentationPageComponent,
-          ),
-        data: { title: 'Owner Representation' },
-      },
+      // HIDDEN per client request (2026-10-27): the Owner Representation
+      // page is not linked anywhere on the site and its route is disabled,
+      // but the component and code stay in the repo. Uncomment to restore.
+      // {
+      //   path: 'owner-representation',
+      //   loadComponent: () =>
+      //     import('./features/approach/owner-representation/owner-representation-page.component').then(
+      //       (m) => m.OwnerRepresentationPageComponent,
+      //     ),
+      //   data: { title: 'Owner Representation' },
+      // },
     ],
   },
   {
