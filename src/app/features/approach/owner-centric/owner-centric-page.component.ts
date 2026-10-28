@@ -45,36 +45,46 @@ export class OwnerCentricPageComponent {
     afterNextRender(() => {
       const root = this.host.nativeElement;
 
-      // Sidenav scroll-spy: middle-of-viewport highlight.
-      // Only updates after the user scrolls — prevents wrong initial highlight on page load.
+      // Sidenav scroll-spy: active = the last section whose top has crossed
+      // the viewport middle. Position-based, not IntersectionObserver: the
+      // old narrow middle band could be jumped over entirely on a fast
+      // scroll, so the 06/07 sections could be skipped and never highlight.
+      // Only real <section> elements are tracked — the sidenav <li> items
+      // also carry data-section attributes and must never be mistaken for
+      // sections. Only updates after the user scrolls — prevents wrong
+      // initial highlight on page load.
+      const sections = [...root.querySelectorAll('section[data-section]')].map((el) => ({
+        key: el.getAttribute('data-section') ?? 'hero',
+        el: el as HTMLElement,
+      }));
       let hasScrolled = false;
+      const update = () => {
+        if (!hasScrolled) return;
+        const middle = window.innerHeight * 0.5;
+        let current = sections[0]?.key ?? 'hero';
+        for (const s of sections) {
+          if (s.el.getBoundingClientRect().top <= middle) current = s.key;
+          else break;
+        }
+        this.activeSection.set(current);
+      };
       const onScroll = () => {
         hasScrolled = true;
+        update();
       };
+      const onResize = () => update();
       document.addEventListener('scroll', onScroll, { passive: true, capture: true });
-      this.destroyRef.onDestroy(() =>
-        document.removeEventListener('scroll', onScroll, { capture: true } as EventListenerOptions),
-      );
-
-      const spy = new IntersectionObserver(
-        (entries) => {
-          if (!hasScrolled) return;
-          for (const e of entries) {
-            if (e.isIntersecting) {
-              this.activeSection.set(e.target.getAttribute('data-section') ?? 'hero');
-            }
-          }
-        },
-        { rootMargin: '-45% 0px -45% 0px' },
-      );
-      root.querySelectorAll('[data-section]').forEach((el: Element) => spy.observe(el));
-      this.destroyRef.onDestroy(() => spy.disconnect());
+      window.addEventListener('resize', onResize);
+      this.destroyRef.onDestroy(() => {
+        document.removeEventListener('scroll', onScroll, { capture: true } as EventListenerOptions);
+        window.removeEventListener('resize', onResize);
+      });
     });
   }
 
   protected scrollToSection(section: string, event: Event): void {
     event.preventDefault();
-    const el = this.host.nativeElement.querySelector(`[data-section="${section}"]`);
+    const el = this.host.nativeElement.querySelector(`section[data-section="${section}"]`);
     if (el) this.smoothScroll.scrollTo(el as HTMLElement);
   }
 }

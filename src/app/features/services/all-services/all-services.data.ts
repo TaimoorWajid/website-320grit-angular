@@ -84,10 +84,4 @@ export const APPROACH_CARDS: ApproachCard[] = [
     desc: 'Research, budgeting, and planning with your interests at the center of every decision.',
     href: '/approach/owner-centric',
   },
-  {
-    number: '02',
-    title: 'Construction Management / Owner Representation',
-    desc: 'Collaborative design and value engineering from an advocate who speaks construction fluently.',
-    href: '/approach/owner-representation',
-  },
 ];
