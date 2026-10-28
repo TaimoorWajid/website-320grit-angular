@@ -4,10 +4,16 @@
    consistent photo aspect ratio across all members.
    With 2 members, the grid switches to two
    centered columns at the same card width, instead of leaving a 3rd
-   column empty. */
+   column empty. With 1 member, a single centered column at the same
+   card width (half the two-column width, minus half the gap). */
 .ab-team-grid {
   grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
+}
+.ab-team-grid--one {
+  grid-template-columns: 1fr;
+  max-width: 450px;
+  margin-inline: auto;
 }
 .ab-team-grid--two {
   grid-template-columns: repeat(2, 1fr);
@@ -28,8 +34,73 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Editorial split for a single featured member (leadership page):
+   photo left, story right, full section width — no empty sides.
+   Applies only when variant="feature" and there is exactly 1 member;
+   multi-member grids and the about-us preview keep the card layout. */
+.ab-team-grid--feature {
+  grid-template-columns: 1fr;
+  max-width: none;
+  margin-inline: 0;
+}
+.ab-team-card--feature {
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1.75rem;
+}
+.ab-team-card--feature:hover {
+  transform: none;
+}
+.ab-team-card--feature .ab-team-photo {
+  flex: 0 0 25%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+}
+.ab-team-card--feature .ab-team-info {
+  flex: 1;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+.ab-team-card--feature .ab-team-info h3 {
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+}
+.ab-team-card--feature .ab-team-info h3::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--grit-accent-violet, #792cd5);
+  margin-bottom: 1rem;
+}
+.ab-team-card--feature .ab-team-info .ab-role {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.ab-team-card--feature .ab-team-info p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
 @media (max-width: 900px) {
   .ab-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .ab-team-grid--one { grid-template-columns: 1fr; }
+  .ab-team-grid--feature { grid-template-columns: 1fr; }
+  /* Mobile: stack back to photo on top, story below; photo at 60% width, centered. */
+  .ab-team-card--feature { flex-direction: column; gap: 1.5rem; padding: 1.25rem; }
+  .ab-team-card--feature .ab-team-photo {
+    flex: none;
+    width: 60%;
+    align-self: center;
+    aspect-ratio: 1;
+  }
+  .ab-team-card--feature .ab-team-info {
+    padding: 0.25rem 0;
+  }
+  .ab-team-card--feature .ab-team-info h3 {
+    font-size: 1.5rem;
+  }
 }
 @media (max-width: 600px) {
   .ab-team-grid { grid-template-columns: 1fr; }
