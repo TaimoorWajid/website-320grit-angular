@@ -1,4 +1,4 @@
-<section class="cta-band" [class.cta-band--mesh]="variant() === 'mesh'" [attr.id]="sectionId()">
+<section class="cta-band" [class.cta-band--mesh]="variant() === 'mesh'" [attr.id]="sectionId()" [attr.data-section]="dataSection() ?? null">
   @if (variant() === 'mesh') {
     <div class="cta-band__mesh" aria-hidden="true"></div>
     <div class="cta-band__particles" aria-hidden="true">
