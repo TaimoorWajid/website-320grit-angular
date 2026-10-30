@@ -14,8 +14,14 @@ export const MARKET_IMG = {
   lab: '/assets/images/ChatGPT-Image-Jul-30-2026-08_25_58-AM.webp',
   /** Hotel lobby interior — hospitality. */
   lobby: '/assets/images/ChatGPT-Image-Jul-30-2026-08_30_56-AM.webp',
-  /** Luxury residence at dusk — calm interiors (behavioral health). */
-  residence: '/assets/images/ChatGPT-Image-Jul-27-2026-08_14_05-PM.webp',
+  /** Behavioral health treatment center exterior — BH hero + CTA background. */
+  bhHero: '/assets/images/behavioral-health-hero.webp',
+  /** Calm therapeutic counseling room — BH overview. */
+  bhOverview: '/assets/images/behavioral-health-overview.webp',
+  /** Group wellness room — BH project types. */
+  bhProjects: '/assets/images/behavioral-health-projects.webp',
+  /** Luxury hotel resort at dusk — hospitality project types. */
+  hospitalityProjects: '/assets/images/hospitality-projects.webp',
   /** Business planning documents — planning/approach contexts. */
   planning: '/assets/images/ChatGPT-Image-Aug-3-2026-04_54_56-PM.webp',
   /** Construction crew on site — railroads, approach imagery. */
