@@ -88,13 +88,13 @@ export const MEGA_MENUS: MegaMenu[] = [
           {
             href: '/services/expert-witness',
             title: 'Expert Witness',
-            desc: 'Planning today for a stronger tomorrow.',
+            desc: 'Independent expertise for construction disputes.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="3" width="12" height="18" rx="1"></rect><path d="M9 8h6M9 12h6M9 16h3"></path></svg>`,
           },
           {
             href: '/services/forensic-accounting',
             title: 'Forensic Accounting',
-            desc: 'Building responsibly for a better future.',
+            desc: 'Financial investigation for construction disputes.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 5 9.5 5 13.5A7 7 0 0019 13.5C19 9.5 16 6 12 2z"></path></svg>`,
           },
         ],
@@ -148,7 +148,7 @@ export const MEGA_MENUS: MegaMenu[] = [
           {
             href: '/industries/behavioral-health',
             title: 'Behavioral Health',
-            desc: 'Manufacturing, warehouses, distribution centers.',
+            desc: 'Treatment centers, clinics, and healing environments.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V11l5 3v-3l5 3V8l5 3v10H3z"></path></svg>`,
           },
           {
@@ -177,7 +177,7 @@ export const MEGA_MENUS: MegaMenu[] = [
           {
             href: '/industries/tenant-improvement',
             title: 'Tenant Improvement',
-            desc: 'Public buildings and civic spaces.',
+            desc: 'Office build-outs and interior renovations.',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10l8-5 8 5"></path><path d="M5 10v9M9 10v9M15 10v9M19 10v9"></path><path d="M3 19h18"></path></svg>`,
           },
         ],
@@ -197,7 +197,7 @@ export const MEGA_MENUS: MegaMenu[] = [
           {
             href: '/locations/california',
             title: 'California',
-            desc: 'Offices across the state',
+            desc: 'Serving clients statewide',
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-5.5 7-11a7 7 0 00-14 0c0 5.5 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>`,
           },
         ],
