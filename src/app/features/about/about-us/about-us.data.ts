@@ -65,6 +65,8 @@ export const ABOUT_CARDS: AboutCard[] = [
 const LEADER_LINES: Record<string, string> = {
   'Brett Smith':
     'Over 8 years of construction project oversight across railroad, medical, commercial, and multifamily projects — driven by the lasting impact great spaces have on the people who use them.',
+  'Eric Laurin':
+    'Serving the construction industry since 1999, with extensive experience in Construction Management and Business Leadership across Medical, Commercial, Hospitality, Rail, and Residential projects.',
 };
 
 export const LEADERSHIP_PREVIEW: TeamMember[] = TEAM.map((m) => ({
