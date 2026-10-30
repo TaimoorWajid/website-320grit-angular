@@ -39,7 +39,7 @@ import { HomeContactComponent } from './components/home-contact/home-contact.com
 export class HomePageComponent {
   constructor() {
     inject(SeoService).update({
-      title: 'Construction Consulting, Project Management & Owner Representation',
+      title: 'Construction Consulting & Project Management',
       canonicalPath: '/',
     });
     afterNextRender(() => {

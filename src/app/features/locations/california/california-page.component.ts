@@ -43,7 +43,7 @@ export class CaliforniaPageComponent {
     inject(SeoService).update({
       title: 'California',
       description:
-        '320 Grit provides construction management, owner representation, and development expertise across California — from San Diego to Sacramento.',
+        '320 Grit provides construction management and development expertise across California — from San Diego to Sacramento.',
       canonicalPath: '/locations/california',
     });
   }
