@@ -45,6 +45,12 @@ export const TEAM: TeamMember[] = [
     bio: 'Brett has over 8 years of construction project oversight with a focus on railroad, medical, commercial, and multifamily, and residential construction. He has developed his expertise in delivering urgent and complex projects from pre-construction through completion while keeping stakeholder\u2019s expectations and interests at heart. Brett\u2019s passion for construction is driven by the opportunity to create lasting, tangible spaces that impact people\u2019s lives and contribute to the growth and development of our families and communities. Whether it\u2019s a hospital that saves lives, an office space that fosters innovation, or a multifamily building that provides an inviting home to families, Brett is driven by the ability to leave a lasting impact. The knowledge that he has contributed to shaping the spaces where people work, live, and heal is what fuels his ongoing dedication to the craft of construction.',
     img: 'assets/images/brett-smith.webp',
   },
+  {
+    name: 'Eric Laurin',
+    role: 'Managing Partner',
+    bio: 'Serving the construction industry since 1999, Eric brings extensive experience in Construction Management and Business Leadership. With a values-driven approach and a strong commitment to both clients and teams, he helps guide 320 Grit\u2019s organization, operations, and focus on delivering successful outcomes. His experience spans Medical, Commercial, Hospitality, Rail, and Residential projects and programs. Having worked hands-on at every level of the industry, Eric brings the knowledge, leadership, and practical insight necessary to develop confident and creative solutions while keeping client priorities at the forefront.',
+    img: 'assets/images/eric-laurin.webp',
+  },
 ];
 
 /** Employees — team members outside the leadership category. */
@@ -71,9 +77,10 @@ export const VALUES_SPLIT: SplitData = {
 };
 
 export const VALUES_LIST: { title: string; text: string }[] = [
-  { title: 'Safety', text: 'Zero-compromise safety culture—training, planning, and field awareness on every jobsite, every day.' },
   { title: 'Integrity', text: 'Open-book honesty with owners, partners, and crews. We say what we’ll do, then do it.' },
   { title: 'Quality', text: 'No shortcuts, no excuses. Exceptional workmanship from preconstruction through punch list.' },
-  { title: 'Innovation', text: 'Modern project management, current technology, and smarter methods for complex builds.' },
-  { title: 'Community', text: 'Hospitals, schools, and workplaces that serve—we build where our communities live and grow.' },
+  { title: 'Accountability', text: 'We own every project and every decision, and follow through until the job is complete.' },
+  { title: 'Collaboration', text: 'Owners, architects, engineers, and trade partners working toward one shared vision.' },
+  { title: 'Safety', text: 'Zero-compromise safety culture—training, planning, and field awareness on every jobsite, every day.' },
+  { title: 'Continuous Improvement', text: 'New technologies and lessons learned, applied to serve our clients better every time.' },
 ];

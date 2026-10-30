@@ -25,7 +25,7 @@ export class AllServicesPageComponent {
 
   constructor() {
     inject(SeoService).update({
-      title: 'Our Services — Construction Consulting, Project Management & Owner Representation',
+      title: 'Our Services — Construction Consulting & Project Management',
       description:
         'Explore 320 GRIT’s full range of services: design-build, bid-build, expert witness, forensic accounting, commercial construction, and tenant improvements.',
       canonicalPath: '/services',

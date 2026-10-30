@@ -77,7 +77,7 @@ export class HomeMarketsComponent {
       eyebrow: 'RAILROAD',
       title: 'Rail Infrastructure',
       bullets: ['Track Systems', 'Operations Facilities', 'Signal Buildings', 'Maintenance Yards'],
-      paragraph: 'A luxury hillside residence designed for comfort, privacy, and timeless living.',
+      paragraph: 'Delivering dependable railroad construction solutions through our skilled operations and custom heavy equipment.',
       chips: [
         { icon: 'check-square', line1: 'DESIGN', line2: 'BUILD' },
         { icon: 'train', line1: 'RAIL', line2: 'INFRASTRUCTURE' },

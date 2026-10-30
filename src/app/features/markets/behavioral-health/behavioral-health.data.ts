@@ -16,7 +16,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
       { label: 'Let’s Build Better Spaces', variant: 'primary', anchor: '#bh-cta' },
       { label: 'Talk to Our Team', variant: 'outline', route: '/contact-us' },
     ],
-    image: MARKET_IMG.residence,
+    image: MARKET_IMG.bhHero,
   },
   overview: {
     id: 'bh-overview',
@@ -26,7 +26,7 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
       'Behavioral health facilities require more than construction expertise—they require empathy, careful planning, and a deep understanding of how the built environment impacts recovery.',
       'We partner with owners, operators, and design teams to deliver safe, secure, and therapeutic environments—built to FGI Guidelines and Joint Commission expectations—that support patients, families, and clinical staff.',
     ],
-    image: MARKET_IMG.residence,
+    image: MARKET_IMG.bhOverview,
     imageAlt: 'Calm therapeutic interior',
     points: [
       { icon: 'shield', title: 'Ligature-Resistant Construction', text: 'Tamper-resistant fixtures, anti-ligature hardware, and secure environments built to behavioral health facility standards.' },
@@ -52,8 +52,8 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
     id: 'bh-projects',
     label: '04 — Project Types',
     heading: 'Types of Behavioral Health Projects',
-    image: MARKET_IMG.residence,
-    imageAlt: 'Luxury residence at dusk',
+    image: MARKET_IMG.bhProjects,
+    imageAlt: 'Group wellness room with seating arranged in a circle',
     items: [
       { icon: 'building', title: 'Inpatient Facilities', text: 'Acute psychiatric units, crisis stabilization, and long-term residential treatment facilities.' },
       { icon: 'home', title: 'Outpatient & Community Centers', text: 'Outpatient clinics, counseling centers, and community-based behavioral health facilities.' },
@@ -92,6 +92,6 @@ export const BEHAVIORAL_HEALTH_DATA: MarketPageData = {
     heading: [{ text: 'Let’s Build Spaces Where' }, { text: 'People Can Heal.', accent: true }],
     body: 'Partner with 320 Grit for behavioral health construction—from inpatient units to outpatient centers.',
     button: { label: 'Start a Conversation', variant: 'primary', route: '/contact-us' },
-    bgImage: MARKET_IMG.residence,
+    bgImage: MARKET_IMG.bhHero,
   },
 };

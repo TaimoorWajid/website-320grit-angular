@@ -87,7 +87,7 @@ export const ADVANCED_TECHNOLOGY_DATA: MarketPageData = {
       'Facilities engineered for today’s research and tomorrow’s breakthroughs',
     ],
     image: MARKET_IMG.planning,
-    imageAlt: 'Modern tech building exterior',
+    imageAlt: 'Team reviewing project plans',
   },
   cta: {
     id: 'at-cta',

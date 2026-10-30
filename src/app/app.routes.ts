@@ -174,29 +174,27 @@ export const routes: Routes = [
     data: { title: 'Sustainability' },
   },
   {
-    path: 'approach',
-    children: [
-      {
-        path: 'owner-centric',
-        loadComponent: () =>
-          import('./features/approach/owner-centric/owner-centric-page.component').then(
-            (m) => m.OwnerCentricPageComponent,
-          ),
-        data: { title: 'Owner-Centric Approach' },
-      },
-      // HIDDEN per client request (2026-10-27): the Owner Representation
-      // page is not linked anywhere on the site and its route is disabled,
-      // but the component and code stay in the repo. Uncomment to restore.
-      // {
-      //   path: 'owner-representation',
-      //   loadComponent: () =>
-      //     import('./features/approach/owner-representation/owner-representation-page.component').then(
-      //       (m) => m.OwnerRepresentationPageComponent,
-      //     ),
-      //   data: { title: 'Owner Representation' },
-      // },
-    ],
+    // Owner-centric approach page. The bare /approach page was deleted
+    // 2026-10-30 (it rendered empty — it had no component of its own),
+    // so /approach now falls through to the 404 page.
+    path: 'approach/owner-centric',
+    loadComponent: () =>
+      import('./features/approach/owner-centric/owner-centric-page.component').then(
+        (m) => m.OwnerCentricPageComponent,
+      ),
+    data: { title: 'Owner-Centric Approach' },
   },
+  // HIDDEN per client request (2026-10-27): the Owner Representation
+  // page is not linked anywhere on the site and its route is disabled,
+  // but the component and code stay in the repo. Uncomment to restore.
+  // {
+  //   path: 'approach/owner-representation',
+  //   loadComponent: () =>
+  //     import('./features/approach/owner-representation/owner-representation-page.component').then(
+  //       (m) => m.OwnerRepresentationPageComponent,
+  //     ),
+  //   data: { title: 'Owner Representation' },
+  // },
   {
     // Locations index page — exact match only; child location routes follow.
     path: 'locations',
