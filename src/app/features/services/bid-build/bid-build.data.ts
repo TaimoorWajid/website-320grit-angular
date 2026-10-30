@@ -37,7 +37,7 @@ export const BID_BUILD_DATA: ServicePageData = {
       'This sequential approach gives owners complete control over design, transparent price competition, and straightforward contractual relationships. It remains the most widely used delivery method for public works and private commercial construction alike.',
     ],
     image: 'assets/images/what-is-bid-build.webp',
-    imageAlt: 'Exploded cutaway view of commercial building',
+    imageAlt: 'Construction professional reviewing blueprints at a wood-frame building site',
     labels: [
     { title: 'COMPLETE DESIGN FIRST', text: 'Full plans and specs finished before any contractor prices the work.' },
     { title: 'COMPETITIVE BIDDING', text: 'Multiple contractors bid on identical documents — true apples-to-apples.' },

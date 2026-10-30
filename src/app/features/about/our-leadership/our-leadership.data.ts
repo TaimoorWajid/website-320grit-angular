@@ -77,9 +77,10 @@ export const VALUES_SPLIT: SplitData = {
 };
 
 export const VALUES_LIST: { title: string; text: string }[] = [
-  { title: 'Safety', text: 'Zero-compromise safety culture—training, planning, and field awareness on every jobsite, every day.' },
   { title: 'Integrity', text: 'Open-book honesty with owners, partners, and crews. We say what we’ll do, then do it.' },
   { title: 'Quality', text: 'No shortcuts, no excuses. Exceptional workmanship from preconstruction through punch list.' },
-  { title: 'Innovation', text: 'Modern project management, current technology, and smarter methods for complex builds.' },
-  { title: 'Community', text: 'Hospitals, schools, and workplaces that serve—we build where our communities live and grow.' },
+  { title: 'Accountability', text: 'We own every project and every decision, and follow through until the job is complete.' },
+  { title: 'Collaboration', text: 'Owners, architects, engineers, and trade partners working toward one shared vision.' },
+  { title: 'Safety', text: 'Zero-compromise safety culture—training, planning, and field awareness on every jobsite, every day.' },
+  { title: 'Continuous Improvement', text: 'New technologies and lessons learned, applied to serve our clients better every time.' },
 ];
