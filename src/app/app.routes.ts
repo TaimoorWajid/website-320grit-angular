@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./features/home/home-page.component').then((m) => m.HomePageComponent),
-    data: { title: 'Construction Consulting & Project Management' },
+    data: { title: 'Construction Consulting, Project Management & Owner Representation' },
   },
   {
     // Services index page — exact match only; child service routes follow.

@@ -72,6 +72,11 @@ export const SERVICES: CaIconCard[] = [
     text: 'Hands-on project leadership from preconstruction planning through final delivery.',
   },
   {
+    icon: '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/>',
+    title: 'Owner Representation',
+    text: 'Independent representation that protects the owner’s interests at every table.',
+  },
+  {
     icon: '<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>',
     title: 'Bid-Build',
     text: 'Structured procurement and disciplined construction delivery for California owners.',
@@ -165,7 +170,7 @@ export const BEYOND: CaIconCard[] = [
 export const FAQS: CaFaq[] = [
   {
     q: 'What construction services does 320 Grit provide in California?',
-    a: 'We provide construction management, bid-build, design-build, expert witness, and forensic accounting services for owners and project teams across California — from preconstruction planning through final delivery.',
+    a: 'We provide construction management, owner representation, bid-build, design-build, expert witness, and forensic accounting services for owners and project teams across California — from preconstruction planning through final delivery.',
   },
   {
     q: 'What markets does 320 Grit serve in California?',
@@ -178,6 +183,10 @@ export const FAQS: CaFaq[] = [
   {
     q: 'Does 320 Grit provide construction management in California?',
     a: 'Yes. Construction management is a core service: we lead planning, procurement, and field execution so owners get predictable budgets, schedules, and quality across the state.',
+  },
+  {
+    q: 'Does 320 Grit provide owner representation?',
+    a: 'Yes. As your independent owner’s representative, we sit on your side of the table — vetting teams, negotiating contracts, and holding every party accountable to your objectives.',
   },
   {
     q: 'What types of commercial construction projects does 320 Grit support?',

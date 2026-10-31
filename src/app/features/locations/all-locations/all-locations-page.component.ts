@@ -44,7 +44,7 @@ export class AllLocationsPageComponent {
     inject(SeoService).update({
       title: 'Where We Work',
       description:
-        '320 Grit provides construction consulting and project management services across the entire state of California — from San Diego to Sacramento.',
+        '320 Grit provides construction consulting, project management, and owner representation services across the entire state of California — from San Diego to Sacramento.',
       canonicalPath: '/locations',
       image: '/assets/images/Nationwide-Map.webp',
     });
