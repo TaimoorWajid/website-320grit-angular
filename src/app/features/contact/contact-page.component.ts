@@ -38,9 +38,15 @@ export class ContactPageComponent {
       icon: FOOTER_CONTACT_ICONS[1],
     },
     {
-      label: 'Office',
+      label: 'Headquarters',
       value: '100 Spectrum Center Drive, Suite 900, Irvine, CA 92618',
       href: 'https://maps.google.com/?q=100+Spectrum+Center+Drive+Suite+900+Irvine+CA+92618',
+      icon: FOOTER_CONTACT_ICONS[2],
+    },
+    {
+      label: 'Santa Barbara Office',
+      value: '7 W Figueroa St, Santa Barbara, CA 93101',
+      href: 'https://maps.google.com/?q=7+W+Figueroa+St+Santa+Barbara+CA+93101',
       icon: FOOTER_CONTACT_ICONS[2],
     },
   ];
