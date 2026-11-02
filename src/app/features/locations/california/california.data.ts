@@ -198,6 +198,6 @@ export const FAQS: CaFaq[] = [
   },
   {
     q: 'How do I start a project with 320 Grit in California?',
-    a: 'Call us at (323) 555-0199 or send a message through our contact page. We’ll discuss your project, goals, and timeline — then map the fastest path to a well-delivered build.',
+    a: 'Call us at (844) 320-GRIT or send a message through our contact page. We’ll discuss your project, goals, and timeline — then map the fastest path to a well-delivered build.',
   },
 ];

@@ -27,8 +27,8 @@ export class ContactPageComponent {
   protected readonly items: ContactItem[] = [
     {
       label: 'Phone',
-      value: '(323) 555-0199',
-      href: 'tel:+13235550199',
+      value: '(844) 320-GRIT',
+      href: 'tel:+18443204748',
       icon: FOOTER_CONTACT_ICONS[0],
     },
     {
@@ -38,7 +38,7 @@ export class ContactPageComponent {
       icon: FOOTER_CONTACT_ICONS[1],
     },
     {
-      label: 'Headquarters',
+      label: 'Orange County Office',
       value: '100 Spectrum Center Drive, Suite 900, Irvine, CA 92618',
       href: 'https://maps.google.com/?q=100+Spectrum+Center+Drive+Suite+900+Irvine+CA+92618',
       icon: FOOTER_CONTACT_ICONS[2],
