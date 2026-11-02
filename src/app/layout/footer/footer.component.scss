@@ -120,6 +120,20 @@
   color: #141414;
 }
 
+.grit-footer__address-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.grit-footer__contact-list a:hover .grit-footer__address-label {
+  color: #141414;
+}
+
 /* ---------- Bottom Bar ---------- */
 .grit-footer__bottom {
   margin-top: 50px;
